@@ -1,36 +1,35 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="csrf-token" content="{{ csrf_token() }}">
+<html lang="en">
 
-        <title>{{ config('app.name', 'Laravel') }}</title>
+<head>
+    @include('admin.partials.head')
+</head>
 
-        <!-- Fonts -->
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
+<body>
+    <div id="global-loader">
+        <div class="whirly-loader"> </div>
+    </div>
+    <!-- Main Wrapper -->
+    <div class="main-wrapper">
 
-        <!-- Styles -->
-        <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+        <!-- Header -->
+        @include('admin.partials.header')
+        <!-- Header -->
 
-        <!-- Scripts -->
-        <script src="{{ asset('js/app.js') }}" defer></script>
-    </head>
-    <body class="font-sans antialiased">
-        <div class="min-h-screen bg-gray-100">
-            @include('layouts.navigation')
-
-            <!-- Page Heading -->
-            <header class="bg-white shadow">
-                <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                    {{ $header }}
-                </div>
-            </header>
-
-            <!-- Page Content -->
-            <main>
-                {{ $slot }}
-            </main>
+        <!-- Sidebar -->
+        <div class="sidebar" id="sidebar">
+            @include('admin.partials.sidebar')
         </div>
-    </body>
+        <!-- /Sidebar -->
+
+        <div class="page-wrapper cardhead">
+            <div class="content container-fluid">
+                {{$slot}}
+            </div>
+        </div>
+    </div>
+
+    @include('admin.partials.scripts')
+</body>
+
 </html>
