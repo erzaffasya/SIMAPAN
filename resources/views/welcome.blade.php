@@ -57,6 +57,6 @@
     }
   </script>
   <!-- Mengimpor API Google Maps -->
-  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA3IzKovEv9pbMJ-pLfP9cO7nTSJXIDPDU&region=INA&language=ID&callback=initMap"&callback=initMap"></script>
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA3IzKovEv9pbMJ-pLfP9cO7nTSJXIDPDU&region=INA&language=ID&callback=initMap"></script>
 </body>
 </html>

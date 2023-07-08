@@ -14,7 +14,7 @@
                 <a href="javascript:void(0);"><i data-feather="columns"></i> <span> Kantor  </span> <span class="menu-arrow"></span></a>
                 <ul >
                     <li><a href="{{route('Kantor.create')}}" class="active">Tambah </a></li>
-                    <li><a href="form-basic-inputs.html" class="">Basic Inputs </a></li>
+                    <li><a href="{{route('Kantor.index')}}" class="">Lihat </a></li>
                 </ul>
             </li>
         </ul>
