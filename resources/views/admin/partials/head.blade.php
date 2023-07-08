@@ -7,20 +7,20 @@
 <title>Dreams Pos admin template</title>
 
 <!-- Favicon -->
-<link rel="shortcut icon" type="image/x-icon" href="tadmin/assets/img/favicon.png">
+<link rel="shortcut icon" type="image/x-icon" href="{{asset('tadmin/assets/img/favicon.png')}}">
 
 <!-- Bootstrap CSS -->
-<link rel="stylesheet" href="tadmin/assets/css/bootstrap.min.css">
+<link rel="stylesheet" href="{{asset('tadmin/assets/css/bootstrap.min.css')}}">
 
 <!-- animation CSS -->
-<link rel="stylesheet" href="tadmin/assets/css/animate.css">
+<link rel="stylesheet" href="{{asset('tadmin/assets/css/animate.css')}}">
 
 <!-- Datatable CSS -->
-<link rel="stylesheet" href="tadmin/assets/css/dataTables.bootstrap4.min.css">
+<link rel="stylesheet" href="{{asset('tadmin/assets/css/dataTables.bootstrap4.min.css')}}">
 
 <!-- Fontawesome CSS -->
-<link rel="stylesheet" href="tadmin/assets/plugins/fontawesome/css/fontawesome.min.css">
-<link rel="stylesheet" href="tadmin/assets/plugins/fontawesome/css/all.min.css">
+<link rel="stylesheet" href="{{asset('tadmin/assets/plugins/fontawesome/css/fontawesome.min.css')}}">
+<link rel="stylesheet" href="{{asset('tadmin/assets/plugins/fontawesome/css/all.min.css')}}">
 
 <!-- Main CSS -->
-<link rel="stylesheet" href="tadmin/assets/css/style.css">
+<link rel="stylesheet" href="{{asset('tadmin/assets/css/style.css')}}">
