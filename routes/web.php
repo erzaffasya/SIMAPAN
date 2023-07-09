@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\KantorController;
+use App\Http\Controllers\LandingpageController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,14 +15,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 Route::get('/dashboard', function () {
     return view('admin.dashboard');
 })->name('dashboard');
 
+Route::get('/', [LandingpageController::class, 'index'])->name('index');
 
 Route::resource('Kantor', KantorController::class);
 
