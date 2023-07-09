@@ -20,7 +20,7 @@ class LandingpageController extends Controller
                 "longitude" => $item->longitude
             ];
         }
-        // dd($location->count());
+        // dd($location);
         return view('welcome', compact('location'));
     }
 }

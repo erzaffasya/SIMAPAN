@@ -39,29 +39,33 @@
                         </thead>
                         <tbody>
                             @foreach ($Kantor as $item)
-                            <tr>
-                                <td>{{$loop->iteration}}</td>
-                                <td>{{$item->kantor}}</td>
-                                <td>
-                                    <a href="javascript:void(0);" class="product-img">
-                                        <img src="{{asset($item->foto)}}" alt="product">
-                                    </a>
-                                </td>
-                                <td>{!!$item->deskripsi!!}</td>
-                                <td>{{$item->latitude}}</td>
-                                <td>{{$item->longitude}}</td>
-                                <td>{{$item->link_map}}</td>
-                                <td>{!!$item->deskripsi_map!!}</td>
-                                <td>
+                                <tr>
+                                    <td>{{ $loop->iteration }}</td>
+                                    <td>{{ $item->kantor }}</td>
+                                    <td>
+                                        <a href="javascript:void(0);" class="product-img">
+                                            <img src="{{ asset($item->foto) }}" alt="product">
+                                        </a>
+                                    </td>
+                                    <td>{!! $item->deskripsi !!}</td>
+                                    <td>{{ $item->latitude }}</td>
+                                    <td>{{ $item->longitude }}</td>
+                                    <td>{{ $item->link_map }}</td>
+                                    <td>{!! $item->deskripsi_map !!}</td>
+                                    <td>
 
-                                    <a class="me-3" href="{{route('Kantor.edit',$item->id)}}">
-                                        <img src="tadmin/assets/img/icons/edit.svg" alt="img">
-                                    </a>
-                                    <a class="me-3 confirm-text" href="javascript:void(0);">
-                                        <img src="tadmin/assets/img/icons/delete.svg" alt="img">
-                                    </a>
-                                </td>
-                            </tr>
+                                        <a class="me-3" href="{{ route('Kantor.edit', $item->id) }}">
+                                            <img src="tadmin/assets/img/icons/edit.svg" alt="img">
+                                        </a>
+                                        <form method="POST" action="{{ route('Kantor.destroy', $item->id) }}">
+                                            @csrf
+                                            @method("DELETE")
+                                            <button type="submit" class="me-3 confirm-text" >
+                                                <img src="tadmin/assets/img/icons/delete.svg" alt="img">
+                                            </button>
+                                        </form>
+                                    </td>
+                                </tr>
                             @endforeach
                         </tbody>
                     </table>

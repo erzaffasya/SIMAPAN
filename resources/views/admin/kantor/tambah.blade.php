@@ -21,7 +21,7 @@
                         <div class="col-lg-6 col-sm-6 col-12">
                             <div class="form-group">
                                 <label>Foto</label>
-                                <input name="foto" type="file" >
+                                <input name="foto" type="file">
                             </div>
                         </div>
                         <div class="col-lg-12">
@@ -105,7 +105,7 @@
                     marker.setPosition(event.latLng);
 
                     inputLongitude.value = longitude;
-                    inputLatitude.value = longitude;
+                    inputLatitude.value = latitude;
                     inputLink_map.value = 'https://www.google.com/maps?q=' + latitude + ',' + longitude;
                 });
 

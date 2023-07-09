@@ -27,62 +27,54 @@
                 zoom: 13
             });
 
-            var markers = [];
-
-            var marker1 = new google.maps.Marker({
-                position: {
-                    lat: 37.7895,
-                    lng: -122.4061
-                },
-                title: 'Marker 1',
-                icon: {
-                    url: 'https://cdn-icons-png.flaticon.com/512/2838/2838912.png',
-                    scaledSize: new google.maps.Size(15, 15), 
-                    origin: new google.maps.Point(0, 0),
-                    anchor: new google.maps.Point(16, 16)
-                }
-            });
-
-            var marker2 = new google.maps.Marker({
-                position: {
-                    lat: 37.7749,
-                    lng: -122.4194
-                },
-                title: 'Marker 2',
-                icon: {
-                    url: 'https://cdn-icons-png.flaticon.com/512/2838/2838912.png',
-                    scaledSize: new google.maps.Size(15, 15), 
-                    origin: new google.maps.Point(0, 0),
-                    anchor: new google.maps.Point(16, 16)
-                }
-            });
-
-            markers.push(marker1);
-            markers.push(marker2);
-
             var clusterOptions = {
                 imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m',
-                gridSize: 10, 
-                maxZoom: 15 
+                gridSize: 100,
+                maxZoom: 15
             };
 
-            var markerCluster = new MarkerClusterer(map, markers, clusterOptions);
+            var locationData = {!! json_encode($location) !!};
+            var count = locationData.length;
+            var markers = {};
 
-            var infoWindow1 = new google.maps.InfoWindow({
-                content: '<div><h3>Marker 1</h3><p>Additional details or description for Marker 1.</p></div>'
-            });
+            for (var i = 0; i < count; i++) {
+                var latitude = locationData[i].latitude;
+                var longitude = locationData[i].longitude;
+                var kantor = locationData[i].kantor;
+                var deskripsi_map = locationData[i].deskripsi_map;
 
-            var infoWindow2 = new google.maps.InfoWindow({
-                content: '<div><h3>Marker 2</h3><p>Additional details or description for Marker 2.</p></div>'
-            });
+                var dataMarker = new google.maps.Marker({
+                    position: {
+                        lat: Number(latitude),
+                        lng: Number(longitude)
+                    },
+                    title: kantor,
+                    // icon: {
+                    //     url: 'https://cdn-icons-png.flaticon.com/512/2838/2838912.png',
+                    //     scaledSize: new google.maps.Size(15, 15),
+                    //     origin: new google.maps.Point(0, 0),
+                    //     anchor: new google.maps.Point(16, 16)
+                    // }
+                });
 
-            marker1.addListener('click', function() {
-                infoWindow1.open(map, marker1);
-            });
+                markers[`marker${i+1}`] = dataMarker;
 
-            marker2.addListener('click', function() {
-                infoWindow2.open(map, marker2);
-            });
+                var infoWindow1 = new google.maps.InfoWindow({
+                    content: `<div><h3>${kantor}</h3><p>${deskripsi_map}.</p></div>`
+                });
+
+                attachInfoWindow(dataMarker, infoWindow1); 
+            }
+
+            function attachInfoWindow(marker, infoWindow) {
+                marker.addListener('click', function() {
+                    infoWindow.open(map, marker);
+                });
+            }
+
+            var markerCluster = new MarkerClusterer(map, Object.values(markers), clusterOptions);
+
+
         }
     </script>
     <script

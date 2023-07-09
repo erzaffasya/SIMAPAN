@@ -23,7 +23,7 @@ class KantorController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'gambar' => 'required'
+            // 'ft' => 'required'
         ]);
 
         if ($request->foto != null) {

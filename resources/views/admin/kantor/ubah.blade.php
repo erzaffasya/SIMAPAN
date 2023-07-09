@@ -81,9 +81,6 @@
     </div>
 
     @push('scripts')
-        <script
-            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA3IzKovEv9pbMJ-pLfP9cO7nTSJXIDPDU&libraries=places&callback=initMap"
-            async defer></script>
         <script>
             function initMap() {
                 var map = new google.maps.Map(document.getElementById('map'), {
@@ -111,7 +108,7 @@
                     marker.setPosition(event.latLng);
                     console.log(event.latLng)
                     inputLongitude.value = longitude;
-                    inputLatitude.value = longitude;
+                    inputLatitude.value = latitude;
                     inputLink_map.value = 'https://www.google.com/maps?q=' + latitude + ',' + longitude;
                 });
 
