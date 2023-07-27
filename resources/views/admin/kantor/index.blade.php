@@ -6,8 +6,8 @@
                 <h6>Manajemen Data Kantor</h6>
             </div>
             <div class="page-btn">
-                <a href="{{ route('Kantor.create') }}" class="btn btn-added"><img src="tadmin/assets/img/icons/plus.svg"
-                        alt="img">Tambah Kantor</a>
+                <a href="{{ route('kantor.create') }}" class="btn btn-added"><img
+                        src="{{ asset('tadmin/assets/img/icons/plus.svg') }}" alt="img">Tambah Kantor</a>
             </div>
         </div>
         <!-- /product list -->
@@ -16,8 +16,8 @@
                 <div class="table-top">
                     <div class="search-set">
                         <div class="search-input">
-                            <a class="btn btn-searchset"><img src="tadmin/assets/img/icons/search-white.svg"
-                                    alt="img"></a>
+                            <a class="btn btn-searchset"><img
+                                    src="{{ asset('tadmin/assets/img/icons/search-white.svg') }}" alt="img"></a>
                         </div>
                     </div>
                 </div>
@@ -44,7 +44,7 @@
                                     <td>{{ $item->kantor }}</td>
                                     <td>
                                         <a href="javascript:void(0);" class="product-img">
-                                            <img src="{{ asset($item->foto) }}" alt="product">
+                                            <img src="{{ asset("storage/img/kantor/$item->foto") }}" alt="product">
                                         </a>
                                     </td>
                                     <td>{!! $item->deskripsi !!}</td>
@@ -54,14 +54,15 @@
                                     <td>{!! $item->deskripsi_map !!}</td>
                                     <td>
 
-                                        <a class="me-3" href="{{ route('Kantor.edit', $item->id) }}">
-                                            <img src="tadmin/assets/img/icons/edit.svg" alt="img">
+                                        <a class="me-3" href="{{ route('kantor.edit', $item->id) }}">
+                                            <img src="{{ asset('tadmin/assets/img/icons/edit.svg') }}" alt="img">
                                         </a>
-                                        <form method="POST" action="{{ route('Kantor.destroy', $item->id) }}">
+                                        <form method="POST" action="{{ route('kantor.destroy', $item->id) }}">
                                             @csrf
-                                            @method("DELETE")
-                                            <button type="submit" class="me-3 confirm-text" >
-                                                <img src="tadmin/assets/img/icons/delete.svg" alt="img">
+                                            @method('DELETE')
+                                            <button type="submit" class="me-3 confirm-text">
+                                                <img src="{{ asset('tadmin/assets/img/icons/delete.svg') }}"
+                                                    alt="img">
                                             </button>
                                         </form>
                                     </td>

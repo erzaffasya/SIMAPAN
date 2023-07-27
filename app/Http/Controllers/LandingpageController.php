@@ -12,7 +12,8 @@ class LandingpageController extends Controller
     public function index()
     {
         $Kantor = Kantor::all();
-        foreach($Kantor as $item){
+        $location = [];
+        foreach ($Kantor as $item) {
             $location[] = [
                 "kantor" => $item->kantor,
                 "deskripsi_map" => $item->deskripsi_map,

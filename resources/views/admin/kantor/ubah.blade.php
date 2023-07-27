@@ -9,7 +9,7 @@
         <!-- /add -->
         <div class="card">
             <div class="card-body">
-                <form method="post" action="{{ route('Kantor.update',$Kantor->id) }}" enctype="multipart/form-data">
+                <form method="post" action="{{ route('kantor.update', $Kantor->id) }}" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
                     <div class="row">
@@ -22,7 +22,7 @@
                         <div class="col-lg-6 col-sm-6 col-12">
                             <div class="form-group">
                                 <label>Foto</label>
-                                <input name="foto" type="file" >
+                                <input name="foto" type="file" accept="image/*">
                             </div>
                         </div>
                         <div class="col-lg-12">
@@ -71,7 +71,7 @@
 
                         <div class="col-lg-12">
                             <button type="submit" class="btn btn-submit me-2">Submit</button>
-                            <a href="{{ route('Kantor.index') }}" class="btn btn-cancel">Cancel</a>
+                            <a href="{{ route('kantor.index') }}" class="btn btn-cancel">Cancel</a>
                         </div>
                     </div>
                 </form>
@@ -85,8 +85,8 @@
             function initMap() {
                 var map = new google.maps.Map(document.getElementById('map'), {
                     center: {
-                        lat: {{$Kantor->latitude}},
-                        lng: {{$Kantor->longitude}}
+                        lat: {{ $Kantor->latitude }},
+                        lng: {{ $Kantor->longitude }}
                     },
                     zoom: 13
                 });
@@ -94,7 +94,10 @@
                 var marker = new google.maps.Marker({
                     map: map,
                     draggable: true,
-                    position: { lat: {{$Kantor->latitude}}, lng: {{$Kantor->longitude}} },
+                    position: {
+                        lat: {{ $Kantor->latitude }},
+                        lng: {{ $Kantor->longitude }}
+                    },
                 });
 
                 var inputLongitude = document.getElementById('longitude');
