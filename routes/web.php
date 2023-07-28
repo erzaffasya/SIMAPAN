@@ -22,15 +22,44 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/', function () {
+    return view('landingpage.portal');
+});
+
+Route::get('/portal', function () {
+    return view('landingpage.portal2');
+});
+
+
+Route::get('/artikel-detail', function () {
+    return view('landingpage.artikeldetail');
+});
+
+
+Route::get('/artikel-index', function () {
+    return view('landingpage.artikelindex');
+});
+
+Route::get('/forum', function () {
+    return view('landingpage.forum');
+});
+Route::get('/profil', function () {
+    return view('landingpage.profil');
+});
+Route::get('/simapan', function () {
+    return view('landingpage.simapan');
+});
+
 // Route::get('/', function () {
 //     return view('welcome');
 // });
+
 
 Route::get('/dashboard', function () {
     return view('admin.dashboard');
 })->name('dashboard');
 
-Route::get('/', [LandingpageController::class, 'index'])->name('index');
+// Route::get('/', [LandingpageController::class, 'index'])->name('index');
 
 Route::middleware(['auth'])->prefix('admin')->group(function () {
     Route::resource('tentang', TentangController::class)->only('index', 'store');
