@@ -1,0 +1,222 @@
+@import url('https://fonts.googleapis.com/css2?family=Paytone+One&display=swap');
+
+* {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    width: 100% !important;
+    height: 100% !important;
+    scroll-behavior: smooth;
+}
+
+h1 {
+    font-family: 'Paytone One', sans-serif !important;
+}
+
+#coreWrap {
+    width: 100% !important;
+    height: 100% !important;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+}
+
+header {}
+
+/* PORTAL */
+.card-bidang {
+    height: 100vh;
+}
+
+.card-bidang figure {
+    margin: 0;
+}
+
+.card-bidang figure figcaption {
+    position: relative;
+    z-index: 99;
+    height: 100%;
+    background-color: #2d2d2d;
+    background: linear-gradient(180deg, rgba(106, 106, 106, 0.00) 36.98%, #323232 74.48%);
+}
+
+.card-bidang.card-portal-1:nth-of-type(1) figure figcaption,
+.card-bidang.card-portal-2:nth-of-type(3) figure figcaption {
+    /* background-color: #3869E7 !important; */
+    background: linear-gradient(180deg, rgba(56, 105, 231, 0.00) 48.87%, #3869E7 74.48%) !important;
+}
+.card-bidang.card-portal-2:nth-of-type(2) figure figcaption {
+    /* background-color: #269E64 !important; */
+    background: linear-gradient(180deg, rgba(88, 255, 175, 0.00) 36.98%, #269E64 74.48%);
+}
+.card-bidang.card-portal-2:nth-of-type(1) figure figcaption {
+    /* background-color: #D42F4D !important; */
+    background: linear-gradient(180deg, rgba(241, 88, 116, 0.00) 36.98%, #D42F4D 74.48%);
+}
+
+.card-bidang img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: block;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+    padding: 0;
+    margin: 0;
+    object-position: center bottom;
+}
+
+.card-bidang.card-portal-1:nth-of-type(2) img,
+.card-bidang.card-portal-1:nth-of-type(3) img,
+.card-bidang.card-portal-1:nth-of-type(4) img {
+    filter: grayscale(1) !important;
+}
+
+#nav-top {
+    position: absolute;
+    width: 100%;
+    display: block;
+    top: 1rem;
+    left: 0;
+    padding: 0;
+    margin: 0 auto;
+    z-index: 99;
+}
+
+#nav-top figure {
+    width: fit-content;
+    margin: 0 auto;
+    border-radius: 60px;
+}
+
+#nav-top img {
+    height: 40px;
+    margin-right: 10px;
+}
+
+/* END PORTAL */
+
+/* CUSTOM */
+.wa-widget{
+    right: 1rem;
+    bottom: 1rem;
+    z-index: 99;
+}
+
+.crop-slider-top,
+.crop-slider-bottom{
+    position: absolute;
+    display: block;
+    width: 100%;
+    left: 0;
+    z-index: 99;
+}
+.crop-slider-top{
+    top: 0;
+}
+.crop-slider-bottom{
+    bottom: 0;
+}
+
+.bg-blues {
+    background: rgb(0, 80, 201);
+    background: linear-gradient(180deg, rgba(0, 80, 201, 1) 0%, rgba(12, 142, 254, 1) 100%);
+}
+.bg-greens {
+    background: #269E64;
+    background: linear-gradient(180deg, #39D98C 36.98%, #269E64 100%);
+}
+.bg-reds {
+    background: #D42F57;
+    background: linear-gradient(180deg, #F15874 0%, #D42F57 100%);
+}
+
+.bg-img-overlay {
+    position: relative !important;
+}
+
+.bg-img-overlay>.container {
+    position: relative !important;
+    z-index: 2;
+}
+
+.bg-img-overlay::after {
+    content: ' ';
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    opacity: 0.1    ;
+    filter: grayscale(1);
+    background-attachment: fixed;
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.item1-img::after {
+    background-image: url("../img/p1-3.jpg");
+}
+
+/* END CUSTOM */
+
+
+
+main {
+    width: 100%;
+    -webkit-box-flex: 2;
+    -ms-flex-positive: 2;
+    flex-grow: 2;
+}
+
+#about-program{
+    margin-top: -1.25rem;
+}
+
+.card-artikel1 {
+    transition: all 0.3s ease;
+}
+
+.card-artikel1 p {
+    transition: all 0.3s ease;
+}
+
+.card-artikel1:hover p:nth-of-type(1) {
+    color: blue !important;
+}
+
+.card-artikel1 figure {
+    border-radius: 0.5rem;
+}
+
+.card-artikel1 figcaption {
+    position: absolute;
+    width: 90%;
+    bottom: 0.75rem;
+    right: 0;
+    left: 0;
+}
+
+
+
+footer {
+    /* background-color: blue; */
+    bottom: 0;
+    position: relative;
+}

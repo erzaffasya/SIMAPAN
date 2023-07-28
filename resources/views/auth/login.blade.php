@@ -1,56 +1,92 @@
-<x-guest-layout>
-    <x-auth-card>
-        <x-slot name="logo">
-            <a href="/">
-                <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
-            </a>
-        </x-slot>
+<!DOCTYPE html>
+<html lang="en">
 
-        <!-- Session Status -->
-        <x-auth-session-status class="mb-4" :status="session('status')" />
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+    <meta name="description" content="POS - Bootstrap Admin Template">
+    <meta name="keywords"
+        content="admin, estimates, bootstrap, business, corporate, creative, invoice, html5, responsive, Projects">
+    <meta name="author" content="Dreamguys - Bootstrap Admin Template">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Login - Pos admin template</title>
 
-        <!-- Validation Errors -->
-        <x-auth-validation-errors class="mb-4" :errors="$errors" />
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('tadmin/assets/img/favicon.png') }}">
 
-        <form method="POST" action="{{ route('login') }}">
-            @csrf
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{{ asset('tadmin/assets/css/bootstrap.min.css') }}">
 
-            <!-- Email Address -->
-            <div>
-                <x-label for="email" :value="__('Email')" />
+    <!-- Fontawesome CSS -->
+    <link rel="stylesheet" href="{{ asset('tadmin/assets/plugins/fontawesome/css/fontawesome.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('tadmin/assets/plugins/fontawesome/css/all.min.css') }}">
 
-                <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus />
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="{{ asset('tadmin/assets/css/style.css') }}">
+
+</head>
+
+<body class="account-page">
+
+    <!-- Main Wrapper -->
+    <div class="main-wrapper">
+        <div class="account-content">
+            <div class="login-wrapper">
+                <div class="login-content">
+                    <div class="login-userset">
+                        <form action="{{ route('login') }}" method="post">
+                            @csrf
+                            <div class="login-logo logo-normal">
+                                <img src="{{ asset('tadmin/assets/img/logo.png') }}" alt="img">
+                            </div>
+                            <a href="index.html" class="login-logo logo-white">
+                                <img src="{{ asset('tadmin/assets/img/logo-white.png') }}" alt="">
+                            </a>
+                            <div class="login-userheading">
+                                <h3>Sign In</h3>
+                                <h4>Please login to your account</h4>
+                            </div>
+                            <div class="form-login">
+                                <label>Email</label>
+                                <div class="form-addons">
+                                    <input name="email" type="text" placeholder="Enter your email address">
+                                    <img src="{{ asset('tadmin/assets/img/icons/mail.svg') }}" alt="img">
+                                </div>
+                            </div>
+                            <div class="form-login">
+                                <label>Password</label>
+                                <div class="pass-group">
+                                    <input name="password" type="password" class="pass-input"
+                                        placeholder="Enter your password">
+                                    <span class="fas toggle-password fa-eye-slash"></span>
+                                </div>
+                            </div>
+                            <div class="form-login">
+                                <button type="submit" class="btn btn-login">Sign In</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="login-img">
+                    <img src="{{ asset('tadmin/assets/img/login.jpg') }}" alt="img">
+                </div>
             </div>
+        </div>
+    </div>
+    <!-- /Main Wrapper -->
+    
+    <!-- jQuery -->
+    <script src="{{ asset('tadmin/assets/js/jquery-3.6.0.min.js') }}"></script>
 
-            <!-- Password -->
-            <div class="mt-4">
-                <x-label for="password" :value="__('Password')" />
+    <!-- Feather Icon JS -->
+    <script src="{{ asset('tadmin/assets/js/feather.min.js') }}"></script>
 
-                <x-input id="password" class="block mt-1 w-full"
-                                type="password"
-                                name="password"
-                                required autocomplete="current-password" />
-            </div>
+    <!-- Bootstrap Core JS -->
+    <script src="{{ asset('tadmin/assets/js/bootstrap.bundle.min.js') }}"></script>
 
-            <!-- Remember Me -->
-            <div class="block mt-4">
-                <label for="remember_me" class="inline-flex items-center">
-                    <input id="remember_me" type="checkbox" class="rounded border-gray-300 text-indigo-600 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" name="remember">
-                    <span class="ml-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
-                </label>
-            </div>
+    <!-- Custom JS -->
+    <script src="{{ asset('tadmin/assets/js/script.js') }}"></script>
 
-            <div class="flex items-center justify-end mt-4">
-                @if (Route::has('password.request'))
-                    <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('password.request') }}">
-                        {{ __('Forgot your password?') }}
-                    </a>
-                @endif
+</body>
 
-                <x-button class="ml-3">
-                    {{ __('Log in') }}
-                </x-button>
-            </div>
-        </form>
-    </x-auth-card>
-</x-guest-layout>
+</html>
