@@ -15,12 +15,12 @@ class CreateTentangsTable extends Migration
     {
         Schema::create('tentang', function (Blueprint $table) {
             $table->id();
-            $table->text(ś);
-            $table->string(ś);
-            $table->string(ś);
-            $table->string(ś);
-            $table->string(ś);
-            $table->string(ś);
+            $table->text("tentang")->nullable();
+            $table->string("video")->nullable();
+            $table->string("email")->nullable();
+            $table->string("phone")->nullable();
+            $table->string("whatsapp")->nullable();
+            $table->string("alamat")->nullable();
             $table->timestamps();
         });
     }
