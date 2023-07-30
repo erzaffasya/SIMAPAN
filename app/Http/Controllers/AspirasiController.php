@@ -84,9 +84,9 @@ class AspirasiController extends Controller
     public function update(Request $request, Aspirasi $aspirasi)
     {
         $request->validate([
-            "kantor_id" => 'required',
-            "judul" => 'required',
-            "foto" => 'nullable|image',
+            "nama" => 'required',
+            "email" => 'required',
+            "aspirasi" => 'required',
         ]);
 
         $aspirasi->nama = $request->nama;

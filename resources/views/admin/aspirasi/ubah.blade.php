@@ -9,8 +9,7 @@
         <!-- /add -->
         <div class="card">
             <div class="card-body">
-                <form method="post" action="{{ route('kategori-artikel.update', $aspirasi->id) }}"
-                    enctype="multipart/form-data">
+                <form method="post" action="{{ route('aspirasi.update', $aspirasi->id) }}" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
                     <div class="row">
@@ -39,7 +38,7 @@
 
                         <div class="col-lg-12">
                             <button type="submit" class="btn btn-submit me-2">Submit</button>
-                            <a href="{{ route('kategori-artikel.index') }}" class="btn btn-cancel">Cancel</a>
+                            <a href="{{ route('aspirasi.index') }}" class="btn btn-cancel">Cancel</a>
                         </div>
                     </div>
                 </form>
