@@ -82,6 +82,7 @@ class ForumStrukturController extends Controller
                 "foto" => $file_name,
             ]
         );
+        $struktur->id = 1;
         $struktur->deskripsi = $request->deskripsi;
         $struktur->save();
 

@@ -42,6 +42,9 @@
                 <a href="javascript:void(0);"><i data-feather="columns"></i> <span> FORUM </span> <span
                         class="menu-arrow"></span></a>
                 <ul>
+                    <li><a href="{{ route('forum-struktur.index') }}"
+                            class="{{ Request::routeIs('forum-struktur.*') ? 'active' : '' }}">Struktur</a>
+                    </li>
                     <li><a href="{{ route('forum-pengurus.index') }}"
                             class="{{ Request::routeIs('forum-pengurus.*') ? 'active' : '' }}">Pengurus</a>
                     </li>
@@ -71,6 +74,9 @@
                     </li>
                     <li><a href="{{ route('profil-galeri.index') }}"
                             class="{{ Request::routeIs('profil-galeri.*') ? 'active' : '' }}">Galeri</a>
+                    </li>
+                    <li><a href="{{ route('profil-kelembagaan.index') }}"
+                            class="{{ Request::routeIs('profil-kelembagaan.*') ? 'active' : '' }}">Kelembagaan</a>
                     </li>
                 </ul>
             </li>

@@ -17,20 +17,6 @@ class TentangController extends Controller
         return view('admin.tentang.index', compact('tentang'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     */
     public function store(Request $request)
     {
         $request->validate([
@@ -51,6 +37,7 @@ class TentangController extends Controller
                 "alamat" => $request->alamat,
             ]
         );
+        $tentang->id = 1;
         $tentang->tentang = $request->tentang;
         $tentang->video = $request->video;
         $tentang->email = $request->email;
@@ -60,47 +47,5 @@ class TentangController extends Controller
         $tentang->save();
 
         return redirect()->route('tentang.index')->with('success', 'Berhasil update tentang');
-    }
-
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Tentang  $tentang
-     */
-    public function show(Tentang $tentang)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Tentang  $tentang
-     */
-    public function edit(Tentang $tentang)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Tentang  $tentang
-     */
-    public function update(Request $request, Tentang $tentang)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Tentang  $tentang
-     */
-    public function destroy(Tentang $tentang)
-    {
-        //
     }
 }

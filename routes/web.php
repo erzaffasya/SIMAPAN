@@ -12,6 +12,7 @@ use App\Http\Controllers\JumlahAnakController;
 use App\Http\Controllers\KantorController;
 use App\Http\Controllers\KategoriArtikelController;
 use App\Http\Controllers\KegiatanController;
+use App\Http\Controllers\KelembagaanController;
 use App\Http\Controllers\LandingpageController;
 use App\Http\Controllers\ProfilGaleriController;
 use App\Http\Controllers\ProfilKategoriGaleriController;
@@ -84,6 +85,7 @@ Route::middleware(['auth'])->prefix('admin')->group(function () {
     Route::resource('forum-artikel', ForumArtikelController::class);
     Route::resource('forum-kategori-galeri', ForumKategoriGaleriController::class);
     Route::resource('forum-galeri', ForumGaleriController::class);
+    Route::resource('profil-kelembagaan', KelembagaanController::class)->only('index', 'store');
     Route::resource('profil-kategori-galeri', ProfilKategoriGaleriController::class);
     Route::resource('profil-galeri', ProfilGaleriController::class);
 
