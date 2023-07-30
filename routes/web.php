@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ArtikelController;
 use App\Http\Controllers\AspirasiController;
+use App\Http\Controllers\FaqController;
 use App\Http\Controllers\FastLinkController;
 use App\Http\Controllers\ForumArtikelController;
 use App\Http\Controllers\ForumGaleriController;
@@ -75,6 +76,7 @@ Route::middleware(['auth'])->prefix('admin')->group(function () {
     //CRUD
     Route::resource('tentang', TentangController::class)->only('index', 'store');
     Route::resource('aspirasi', AspirasiController::class);
+    Route::resource('faq', FaqController::class);
     Route::resource('kantor', KantorController::class);
     Route::resource('kegiatan', KegiatanController::class);
     Route::resource('kategori-artikel', KategoriArtikelController::class);
