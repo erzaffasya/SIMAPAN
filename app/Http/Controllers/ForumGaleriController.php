@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\ForumGaleri;
 use App\Models\ForumKategoriGaleri;
+use Illuminate\Support\Facades\Storage;
 use Intervention\Image\Facades\Image;
 use Illuminate\Support\Facades\File;
 

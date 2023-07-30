@@ -52,7 +52,7 @@
                 };
             };
             input.click();
-        }
+        },
     });
     // tinymce.init({
     //     selector: 'textarea#tinyeditor', // Replace this CSS selector to match the placeholder element for TinyMCE
