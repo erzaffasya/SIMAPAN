@@ -45,6 +45,17 @@
                     <li><a href="{{ route('forum-pengurus.index') }}"
                             class="{{ Request::routeIs('forum-pengurus.*') ? 'active' : '' }}">Pengurus</a>
                     </li>
+                    <li><a href="{{ route('forum-kategori-artikel.index') }}"
+                            class="{{ Request::routeIs('forum-kategori-artikel.*') ? 'active' : '' }}">Kategori
+                            Artikel</a>
+                    </li>
+                    <li><a href="{{ route('forum-kategori-galeri.index') }}"
+                            class="{{ Request::routeIs('forum-kategori-galeri.*') ? 'active' : '' }}">Kategori
+                            Galeri</a>
+                    </li>
+                    <li><a href="{{ route('forum-artikel.index') }}"
+                            class="{{ Request::routeIs('forum-artikel.*') ? 'active' : '' }}">Artikel</a>
+                    </li>
                 </ul>
             </li>
         </ul>

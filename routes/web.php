@@ -2,6 +2,9 @@
 
 use App\Http\Controllers\ArtikelController;
 use App\Http\Controllers\FastLinkController;
+use App\Http\Controllers\ForumArtikelController;
+use App\Http\Controllers\ForumKategoriArtikelController;
+use App\Http\Controllers\ForumKategoriGaleriController;
 use App\Http\Controllers\ForumPengurusController;
 use App\Http\Controllers\JumlahAnakController;
 use App\Http\Controllers\KantorController;
@@ -9,6 +12,7 @@ use App\Http\Controllers\KategoriArtikelController;
 use App\Http\Controllers\KegiatanController;
 use App\Http\Controllers\LandingpageController;
 use App\Http\Controllers\TentangController;
+use App\Http\Controllers\TinyMceController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -41,6 +45,12 @@ Route::middleware(['auth'])->prefix('admin')->group(function () {
     Route::resource('fastlink', FastLinkController::class);
     Route::resource('jumlahanak', JumlahAnakController::class)->only('index', 'store');
     Route::resource('forum-pengurus', ForumPengurusController::class);
+    Route::resource('forum-kategori-artikel', ForumKategoriArtikelController::class);
+    Route::resource('forum-artikel', ForumArtikelController::class);
+    Route::resource('forum-kategori-galeri', ForumKategoriGaleriController::class);
+
+    //tini=y mce upload
+    Route::post('tiny-upload', [TinyMceController::class, "upload"])->name('tiny-upload');
 });
 
 require __DIR__ . '/auth.php';

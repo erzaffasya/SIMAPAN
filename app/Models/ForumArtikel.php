@@ -22,6 +22,6 @@ class ForumArtikel extends Model
 
     public function kategori()
     {
-        return $this->belongsTo(KategoriArtikel::class, 'id_kategori', 'id');
+        return $this->belongsTo(ForumKategoriArtikel::class, 'id_kategori_artikel', 'id');
     }
 }

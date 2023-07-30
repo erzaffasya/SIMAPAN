@@ -7,79 +7,69 @@ use Illuminate\Http\Request;
 
 class ForumKategoriGaleriController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-        //
+        $forum_kategori_galeri = ForumKategoriGaleri::all();
+        return view('admin.forum.kategori_galeri.index', compact('forum_kategori_galeri'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
-        //
+        return view('admin.forum.kategori_galeri.tambah');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-        //
+        ForumKategoriGaleri::create([
+            'judul' => $request->judul,
+            'deskripsi' => $request->deskripsi,
+        ]);
+        return redirect()->route('forum-kategori-galeri.index')
+            ->with('success', 'Kategori Galeri Berhasil Ditambahkan');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\ForumKategoriGaleri  $forumKategoriGaleri
-     * @return \Illuminate\Http\Response
-     */
-    public function show(ForumKategoriGaleri $forumKategoriGaleri)
+    public function show(ForumKategoriGaleri $forum_kategori_galeri)
     {
-        //
+        abort(404);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\ForumKategoriGaleri  $forumKategoriGaleri
-     * @return \Illuminate\Http\Response
+     * @param  \App\Models\ForumKategoriGaleri  $forum_kategori_galeri
      */
-    public function edit(ForumKategoriGaleri $forumKategoriGaleri)
+    public function edit(ForumKategoriGaleri $forum_kategori_galeri)
     {
-        //
+        return view('admin.forum.kategori_galeri.ubah', compact('forum_kategori_galeri'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\ForumKategoriGaleri  $forumKategoriGaleri
-     * @return \Illuminate\Http\Response
+     * @param  \App\Models\ForumKategoriGaleri  $forum_kategori_galeri
      */
-    public function update(Request $request, ForumKategoriGaleri $forumKategoriGaleri)
+    public function update(Request $request, ForumKategoriGaleri $forum_kategori_galeri)
     {
-        //
+        $forum_kategori_galeri->judul = $request->judul;
+        $forum_kategori_galeri->deskripsi = $request->deskripsi;
+        $forum_kategori_galeri->save();
+
+        return redirect()->route('forum-kategori-galeri.index')->with('success', 'Kategori Galeri Berhasil Ditambahkan');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\ForumKategoriGaleri  $forumKategoriGaleri
-     * @return \Illuminate\Http\Response
+     * @param  \App\Models\ForumKategoriGaleri  $forum_kategori_galeri
      */
-    public function destroy(ForumKategoriGaleri $forumKategoriGaleri)
+    public function destroy(ForumKategoriGaleri $forum_kategori_galeri)
     {
-        //
+        $artikel = $forum_kategori_galeri->artikel;
+        if ($artikel->isEmpty()) {
+            $forum_kategori_galeri->delete();
+            return redirect()->route('forum-kategori-galeri.index')->with('success', 'Kategori Galeri Berhasil Ditambahkan');
+        }
+        return redirect()->route('forum-kategori-galeri.index')->with('success', 'Kategori Galeri Tidak Dapat Di HAPUS');
     }
 }

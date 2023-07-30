@@ -1,6 +1,3 @@
 <div>
-    <!-- No surplus words or unnecessary actions. - Marcus Aurelius -->
-
-    <textarea id="tinyrditor">Hello, World!</textarea>
-
+    <textarea name="{{ $attributes->get('name') }}" id="tinyeditor">{{ $slot }}</textarea>
 </div>

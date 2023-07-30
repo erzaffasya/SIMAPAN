@@ -9,7 +9,8 @@
         <!-- /add -->
         <div class="card">
             <div class="card-body">
-                <form method="post" action="{{ route('artikel.update', $artikel->id) }}" enctype="multipart/form-data">
+                <form method="post" action="{{ route('forum-artikel.update', $forum_artikel->id) }}"
+                    enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
                     <div class="row">
@@ -20,7 +21,7 @@
                                     <option value="">Pilih Kategori</option>
                                     @foreach ($lKategori as $item)
                                         <option value="{{ $item->id }}"
-                                            {{ $item->id == $artikel->id_kategori ? 'selected' : '' }}>
+                                            {{ $item->id == $forum_artikel->id_kategori ? 'selected' : '' }}>
                                             {{ $item->judul }}
                                         </option>
                                     @endforeach
@@ -30,7 +31,7 @@
                         <div class="col-lg-12">
                             <div class="form-group">
                                 <label>Judul</label>
-                                <input name="judul" value="{{ $artikel->judul }}" type="text" required>
+                                <input name="judul" value="{{ $forum_artikel->judul }}" type="text" required>
                             </div>
                         </div>
                         <div class="col-lg-12 col-sm-12 col-12">
@@ -42,13 +43,14 @@
                         <div class="col-lg-12">
                             <div class="form-group">
                                 <label>Isi</label>
-                                <x-forms.tinymce-editor name="isi">{{ $artikel->isi }}</x-forms.tinymce-editor>
+                                <x-forms.tinymce-editor name="isi">{{ $forum_artikel->isi }}
+                                </x-forms.tinymce-editor>
                             </div>
                         </div>
 
                         <div class="col-lg-12">
                             <button type="submit" class="btn btn-submit me-2">Submit</button>
-                            <a href="{{ route('artikel.index') }}" class="btn btn-cancel">Cancel</a>
+                            <a href="{{ route('forum-artikel.index') }}" class="btn btn-cancel">Cancel</a>
                         </div>
                     </div>
                 </form>
