@@ -31,7 +31,7 @@
           <img src="{{asset('tlandingpage/asset/img/p2-1.jpg')}}" alt="">
           <figcaption class="p-4 d-flex flex-column justify-content-end text-center">
             <h1 class="fw-bold display-6">PROFIL ANAK BALIKPAPAN</h1>
-            <a href="profil.php" class="mt-3 btn btn-lg py-2 rounded-2 btn-outline-light" type="button">Kunjungi</a>
+            <a href="/profil" class="mt-3 btn btn-lg py-2 rounded-2 btn-outline-light" type="button">Kunjungi</a>
           </figcaption>
         </figure>
       </div>
@@ -40,7 +40,7 @@
           <img src="{{asset('tlandingpage/asset/img/p2-2.jpg')}}" alt="">
           <figcaption class="p-4 d-flex flex-column justify-content-end text-center">
             <h1 class="fw-bold display-6">FORUM ANAK BALIKPAPAN</h1>
-            <a href="forum.php" class="mt-3 btn btn-lg py-2 rounded-2 btn-outline-light" type="button">Kunjungi</a>
+            <a href="/forum" class="mt-3 btn btn-lg py-2 rounded-2 btn-outline-light" type="button">Kunjungi</a>
           </figcaption>
         </figure>
       </div>
@@ -50,7 +50,7 @@
           <figcaption class="p-4 d-flex flex-column justify-content-end text-center">
             <h1 class="fw-bold display-6">SIMAPAN</h1>
             <p class="fs-5 text-white">Sistem Manajemen Perlindungan Anak Balikpapan</p>
-            <a href="simapan.php" class="mt-3 btn btn-lg py-2 rounded-2 btn-outline-light" type="button">Kunjungi</a>
+            <a href="/simapan" class="mt-3 btn btn-lg py-2 rounded-2 btn-outline-light" type="button">Kunjungi</a>
           </figcaption>
         </figure>
       </div>

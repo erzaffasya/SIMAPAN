@@ -2,9 +2,9 @@
     <div class="row">
         <div class="col">
             <figure>
-                <img src="asset/img/logo-1.png" alt="" height="50">
-                <img src="asset/img/logo-2.png" alt="" height="50">
-                <img src="asset/img/logo-3.png" alt="" height="50">
+                <img src="{{asset('tlandingpage/asset/img/logo-1.png')}}" alt="" height="50">
+                <img src="{{asset('tlandingpage/asset/img/logo-2.png')}}" alt="" height="50">
+                <img src="{{asset('tlandingpage/asset/img/logo-3.png')}}" alt="" height="50">
                 <figcaption class="text-white mt-2">
                     <h1 class="display-5 fw-bold mb-0">DP3AKB</h1>
                     <p class="fs-5">Balikpapan</p>

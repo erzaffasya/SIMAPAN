@@ -49,6 +49,12 @@ Route::get('/profil', function () {
 Route::get('/simapan', function () {
     return view('landingpage.simapan');
 });
+Route::get('/peta', function () {
+    return view('landingpage.peta');
+});
+Route::get('/kluster1', function () {
+    return view('landingpage.kluster1');
+});
 
 // Route::get('/', function () {
 //     return view('welcome');

@@ -35,13 +35,15 @@
                 </div>
                 <div class="row">
                     <div class="col">
-                        <figure class="rounded overflow-hidden h-100 bg-white">
-                            <img src="{{asset('tlandingpage/asset/img/kluster-1.png')}}" alt="" class="w-100 px-5 py-4">
-                            <figcaption class="bg-white px-3 py-2 text-center">
-                                <h1 class="mb-1 fs-4">KLUSTER 1</h1>
-                                <p class="text-secondary mb-0">Hak Sipil Kebebasan</p>
-                            </figcaption>
-                        </figure>
+                        <a href="/kluster1" class="text-decoration-none">
+                            <figure class="rounded overflow-hidden h-100 bg-white">
+                                <img src="{{asset('tlandingpage/asset/img/kluster-1.png')}}" alt="" class="w-100 px-5 py-4">
+                                <figcaption class="bg-white px-3 py-2 text-center">
+                                    <h1 class="mb-1 fs-4 text-dark">KLUSTER 1</h1>
+                                    <p class="text-secondary mb-0">Hak Sipil Kebebasan</p>
+                                </figcaption>
+                            </figure>
+                        </a>
                     </div>
                     <div class="col">
                         <figure class="rounded overflow-hidden h-100 bg-white">
@@ -91,7 +93,7 @@
                 </div>
                 <div class="col-6">
                     <h1 class="fs-1 fw-bold mb-3">Kegiatan Kelembagaan</h1>
-                    <ol class="fs-4 text-secondary lh-2">
+                    <ol class="fs-5 text-secondary lh-2">
                         <li>Perda Nomor 6 Tahun 2020 tentang perubahan Peraturan Daerah Kota Balikpapan Nomor 1 Tahun
                             2015 tentang Penyelenggaraan Perlindungan Anak</li>
                         <li>Perda Balikpapan Menuju Kota Layak Anak (sedang dalam proses pembuatan di Bagian Hukum)</li>
