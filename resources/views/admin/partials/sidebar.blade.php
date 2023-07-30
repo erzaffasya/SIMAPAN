@@ -56,6 +56,22 @@
                     <li><a href="{{ route('forum-artikel.index') }}"
                             class="{{ Request::routeIs('forum-artikel.*') ? 'active' : '' }}">Artikel</a>
                     </li>
+                    <li><a href="{{ route('forum-galeri.index') }}"
+                            class="{{ Request::routeIs('forum-galeri.*') ? 'active' : '' }}">Galeri</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="submenu">
+                <a href="javascript:void(0);"><i data-feather="columns"></i> <span> PROFIL </span> <span
+                        class="menu-arrow"></span></a>
+                <ul>
+                    <li><a href="{{ route('profil-kategori-galeri.index') }}"
+                            class="{{ Request::routeIs('profil-kategori-galeri.*') ? 'active' : '' }}">Kategori
+                            Galeri</a>
+                    </li>
+                    <li><a href="{{ route('profil-galeri.index') }}"
+                            class="{{ Request::routeIs('profil-galeri.*') ? 'active' : '' }}">Galeri</a>
+                    </li>
                 </ul>
             </li>
         </ul>

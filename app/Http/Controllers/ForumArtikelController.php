@@ -54,9 +54,9 @@ class ForumArtikelController extends Controller
             $file_name = time() . '.' . $extention;
             $image = $request->file('foto');
             $image = Image::make($request->file('foto'));
-            // $image->resize(1080, null, function ($constraint) {
-            //     $constraint->aspectRatio();
-            // });
+            $image->resize(1080, null, function ($constraint) {
+                $constraint->aspectRatio();
+            });
             if (!File::exists("$path")) {
                 File::makeDirectory("$path", $mode = 0777, true, true);
             }

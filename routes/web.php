@@ -3,6 +3,7 @@
 use App\Http\Controllers\ArtikelController;
 use App\Http\Controllers\FastLinkController;
 use App\Http\Controllers\ForumArtikelController;
+use App\Http\Controllers\ForumGaleriController;
 use App\Http\Controllers\ForumKategoriArtikelController;
 use App\Http\Controllers\ForumKategoriGaleriController;
 use App\Http\Controllers\ForumPengurusController;
@@ -11,6 +12,8 @@ use App\Http\Controllers\KantorController;
 use App\Http\Controllers\KategoriArtikelController;
 use App\Http\Controllers\KegiatanController;
 use App\Http\Controllers\LandingpageController;
+use App\Http\Controllers\ProfilGaleriController;
+use App\Http\Controllers\ProfilKategoriGaleriController;
 use App\Http\Controllers\TentangController;
 use App\Http\Controllers\TinyMceController;
 use Illuminate\Support\Facades\Route;
@@ -66,6 +69,7 @@ Route::get('/dashboard', function () {
 // Route::get('/', [LandingpageController::class, 'index'])->name('index');
 
 Route::middleware(['auth'])->prefix('admin')->group(function () {
+    //CRUD
     Route::resource('tentang', TentangController::class)->only('index', 'store');
     Route::resource('kantor', KantorController::class);
     Route::resource('kegiatan', KegiatanController::class);
@@ -77,8 +81,11 @@ Route::middleware(['auth'])->prefix('admin')->group(function () {
     Route::resource('forum-kategori-artikel', ForumKategoriArtikelController::class);
     Route::resource('forum-artikel', ForumArtikelController::class);
     Route::resource('forum-kategori-galeri', ForumKategoriGaleriController::class);
+    Route::resource('forum-galeri', ForumGaleriController::class);
+    Route::resource('profil-kategori-galeri', ProfilKategoriGaleriController::class);
+    Route::resource('profil-galeri', ProfilGaleriController::class);
 
-    //tini=y mce upload
+    //tiny mce upload
     Route::post('tiny-upload', [TinyMceController::class, "upload"])->name('tiny-upload');
 });
 

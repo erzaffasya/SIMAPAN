@@ -65,8 +65,8 @@ class ForumKategoriGaleriController extends Controller
      */
     public function destroy(ForumKategoriGaleri $forum_kategori_galeri)
     {
-        $artikel = $forum_kategori_galeri->artikel;
-        if ($artikel->isEmpty()) {
+        $galeri = $forum_kategori_galeri->galeri;
+        if ($galeri->isEmpty()) {
             $forum_kategori_galeri->delete();
             return redirect()->route('forum-kategori-galeri.index')->with('success', 'Kategori Galeri Berhasil Ditambahkan');
         }
