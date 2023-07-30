@@ -7,6 +7,7 @@ use App\Http\Controllers\ForumGaleriController;
 use App\Http\Controllers\ForumKategoriArtikelController;
 use App\Http\Controllers\ForumKategoriGaleriController;
 use App\Http\Controllers\ForumPengurusController;
+use App\Http\Controllers\ForumStrukturController;
 use App\Http\Controllers\JumlahAnakController;
 use App\Http\Controllers\KantorController;
 use App\Http\Controllers\KategoriArtikelController;
@@ -77,6 +78,7 @@ Route::middleware(['auth'])->prefix('admin')->group(function () {
     Route::resource('artikel', ArtikelController::class);
     Route::resource('fastlink', FastLinkController::class);
     Route::resource('jumlahanak', JumlahAnakController::class)->only('index', 'store');
+    Route::resource('forum-struktur', ForumStrukturController::class)->only('index', 'store');
     Route::resource('forum-pengurus', ForumPengurusController::class);
     Route::resource('forum-kategori-artikel', ForumKategoriArtikelController::class);
     Route::resource('forum-artikel', ForumArtikelController::class);
