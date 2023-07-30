@@ -8,56 +8,70 @@ use Illuminate\Http\Request;
 class AspirasiController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+      * Display a listing of the resource.
+      *
+
+      */
     public function index()
     {
-        //
+        $aspirasi = Aspirasi::all();
+        return view('admin.aspirasi.index', compact('aspirasi'));
     }
 
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+
      */
     public function create()
     {
-        //
+        return view('admin.aspirasi.tambah');
     }
 
     /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            "nama" => 'required',
+            "email" => 'required',
+            "aspirasi" => 'required',
+        ]);
+
+        Aspirasi::create([
+            "nama" => $request->nama,
+            "email" => $request->email,
+            "aspirasi" => $request->aspirasi,
+        ]);
+
+        return redirect()->route('aspirasi.index')
+            ->with('success', 'Aspirasi Berhasil Ditambahkan');
     }
 
     /**
      * Display the specified resource.
      *
      * @param  \App\Models\Aspirasi  $aspirasi
-     * @return \Illuminate\Http\Response
+
      */
     public function show(Aspirasi $aspirasi)
     {
-        //
+
     }
 
     /**
      * Show the form for editing the specified resource.
      *
      * @param  \App\Models\Aspirasi  $aspirasi
-     * @return \Illuminate\Http\Response
+
      */
     public function edit(Aspirasi $aspirasi)
     {
-        //
+        return view('admin.aspirasi.ubah', compact('aspirasi'));
     }
 
     /**
@@ -65,21 +79,36 @@ class AspirasiController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Models\Aspirasi  $aspirasi
-     * @return \Illuminate\Http\Response
+
      */
     public function update(Request $request, Aspirasi $aspirasi)
     {
-        //
+        $request->validate([
+            "kantor_id" => 'required',
+            "judul" => 'required',
+            "foto" => 'nullable|image',
+        ]);
+
+        $aspirasi->nama = $request->nama;
+        $aspirasi->email = $request->email;
+        $aspirasi->aspirasi = $request->aspirasi;
+        $aspirasi->save();
+
+        return redirect()->route('aspirasi.index')
+            ->with('success', 'Aspirasi Berhasil Diubah');
     }
 
     /**
      * Remove the specified resource from storage.
      *
      * @param  \App\Models\Aspirasi  $aspirasi
-     * @return \Illuminate\Http\Response
+
      */
     public function destroy(Aspirasi $aspirasi)
     {
-        //
+        $aspirasi->delete();
+
+        return redirect()->route('aspirasi.index')
+            ->with('success', 'Aspirasi Berhasil Dihapus');
     }
 }
