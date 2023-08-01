@@ -49,7 +49,8 @@
                 <h1 class="display-6 fw-bold mb-3">Artikel Forum Anak</h1>
                 <a href="{{ route('landingpage.artikel') }}" class="btn btn-link text-decoration-none">Lihat Semua</a>
             </div>
-            <div class="row">
+            <div class="row"> 
+                <a href="{{route('landingpage.artikeldetail', $artikel1->slug)}}" class="text-decoration-none">
                 <div class="col-7">
                     <figure class="position-relative">
                         <img src="{{ asset("storage/img/forum_artikel/$artikel1->id_kategori_artikel/$artikel1->foto") }}"
@@ -63,10 +64,11 @@
                         </figcaption>
                     </figure>
                 </div>
+                </a>
                 <div class="col-5">
                     @foreach ($artikel2 as $item)
                         <div class="card mb-3 w-100 border-0">
-                            <a href="#" class="text-decoration-none">
+                            <a href="{{route('landingpage.artikeldetail', $item->slug)}}" class="text-decoration-none">
                                 <div class="row g-0">
                                     <div class="col-md-5">
                                         <img src="{{ asset("storage/img/forum_artikel/$item->id_kategori_artikel/$item->foto") }}"
@@ -89,7 +91,7 @@
             <div class="row align-items-center">
                 @foreach ($artikel3 as $item)
                     <div class="col-3">
-                        <a class="card-artikel1" href="#">
+                        <a class="card-artikel1" href="{{route('landingpage.artikeldetail', $item->slug)}}">
                             <figure class="shadow-lg mb-0 position-relative overflow-hidden">
                                 <img src="{{ asset("storage/img/forum_artikel/$item->id_kategori_artikel/$item->foto") }}"
                                     alt="" width="100%" height="350">

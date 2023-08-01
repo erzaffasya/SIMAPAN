@@ -70,6 +70,17 @@ class LandingpageController extends Controller
 
     public function artikel(){
 
-        return view('landingpage.artikelindex');
+        $artikel1 = ForumArtikel::orderBy('created_at','DESC')->first();
+        $artikel2 = ForumArtikel::orderBy('created_at','DESC')->offset(1)->limit(3)->get();
+        $artikel3 = ForumArtikel::orderBy('created_at','DESC')->paginate(8);
+        return view('landingpage.artikelindex', compact('artikel1','artikel2','artikel3'));
+    }
+
+
+    public function artikelDetail($slug){
+        $artikel = ForumArtikel::where('slug', $slug)->first();
+        $artikelLainnya = ForumArtikel::limit(3)->get();
+        // dd($artikel);
+        return view('landingpage.artikeldetail', compact('artikel','artikelLainnya'));
     }
 }

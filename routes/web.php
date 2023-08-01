@@ -55,6 +55,8 @@ Route::get('/simapan', [LandingpageController::class, 'simapan'])->name('simapan
 Route::get('/forum', [LandingpageController::class, 'forum'])->name('forum');
 Route::get('/profil', [LandingpageController::class, 'profil'])->name('profil');
 Route::get('/artikel', [LandingpageController::class, 'artikel'])->name('landingpage.artikel');
+
+Route::get('/artikel/detail/{slug}', [LandingpageController::class, 'artikelDetail'])->name('landingpage.artikeldetail');
 // Route::get('/peta', function () {
 //     return view('landingpage.peta');
 // });

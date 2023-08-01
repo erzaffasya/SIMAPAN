@@ -96,7 +96,7 @@
                 </div>
                 @foreach ($forumArtikel as $item)
                     <div class="col-3">
-                        <a class="card-artikel1" href="#">
+                        <a class="card-artikel1" href="{{route('landingpage.artikeldetail', $item->slug)}}">
                             <figure class="shadow-lg mb-0 position-relative overflow-hidden">
                                 <img src="{{ asset("storage/img/forum_artikel/$item->id_kategori_artikel/$item->foto") }}"
                                     alt="" width="100%" height="350">
@@ -183,7 +183,7 @@
             <div class="row align-items-center">
                 @foreach ($forumArtikelParenting as $item)
                 <div class="col-3">
-                    <a class="card-artikel1" href="#">
+                    <a class="card-artikel1" href="{{route('landingpage.artikeldetail', $item->slug)}}">
                         <figure class="shadow-lg mb-0 position-relative overflow-hidden">
                             <img src="{{ asset("storage/img/forum_artikel/$item->id_kategori_artikel/$item->foto") }}" alt=""
                                 width="100%" height="350">

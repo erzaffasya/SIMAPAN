@@ -5,63 +5,16 @@
             <div class="row pb-5 justify-content-center">
                 <div class="col-10">
                     <figure>
-                        <img src="{{asset('tlandingpage/asset/img/empty-img.jpeg')}}" class="w-100 rounded" alt="" height="500px">
+                        <img src="{{ asset("storage/img/forum_artikel/$artikel->id_kategori_artikel/$artikel->foto") }}" class="w-100 rounded"
+                            alt="" height="500px">
                         <figcaption>
                             <div class="px-2 py-3 m-0 w-100">
-                                <p class="fs-6 mb-2 text-secondary">Rabu, 20 Juli 2023 - <span class="text-primary">By
+                                <p class="fs-6 mb-2 text-secondary">{{ $artikel->created_at->format('D, d M Y') }} -
+                                    <span class="text-primary">By
                                         PPATBM Klandasan</span> </p>
-                                <h1 class="fs-1 fw-bold">9 Ide Kegiatan Seru untuk Anak Umur 2-3 Tahun</h1>
+                                <h1 class="fs-1 fw-bold">{{ $artikel->judul }}</h1>
                                 <p class="fs-6 mb-0 text-secondary">
-                                    Lorem Lorem Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias
-                                    voluptates illum obcaecati eaque, perspiciatis doloremque qui non nulla possimus
-                                    pariatur corrupti aut Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                    Molestias voluptates illum obcaecati eaque, perspiciatis doloremque qui non nulla
-                                    possimus pariatur corrupti aut Lorem ipsum dolor sit amet consectetur adipisicing
-                                    elit. Molestias voluptates illum obcaecati eaque, perspiciatis doloremque qui non
-                                    nulla possimus pariatur corrupti aut Lorem ipsum dolor sit amet consectetur
-                                    adipisicing elit. Molestias voluptates illum obcaecati eaque, perspiciatis
-                                    doloremque qui non nulla possimus pariatur corrupti aut Lorem ipsum dolor sit amet
-                                    consectetur adipisicing elit. Molestias voluptates illum obcaecati eaque,
-                                    perspiciatis doloremque qui non nulla possimus pariatur corrupti aut Lorem ipsum
-                                    dolor sit amet consectetur adipisicing elit. Molestias voluptates illum obcaecati
-                                    eaque, perspiciatis doloremque qui non nulla possimus pariatur corrupti aut Lorem
-                                    ipsum dolor sit amet consectetur adipisicing elit. Molestias voluptates illum
-                                    obcaecati eaque, perspiciatis doloremque qui non nulla possimus pariatur corrupti
-                                    aut Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias voluptates
-                                    illum obcaecati eaque, perspiciatis doloremque qui non nulla possimus pariatur
-                                    corrupti aut Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias
-                                    voluptates illum obcaecati eaque, perspiciatis doloremque qui non nulla possimus
-                                    pariatur corrupti aut Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                    Molestias voluptates illum obcaecati eaque, perspiciatis doloremque qui non nulla
-                                    possimus pariatur corrupti aut Lorem ipsum dolor sit amet consectetur adipisicing
-                                    elit. Molestias voluptates illum obcaecati eaque, perspiciatis doloremque qui non
-                                    nulla possimus pariatur corrupti aut Lorem ipsum dolor sit amet consectetur
-                                    adipisicing elit. Molestias voluptates illum obcaecati eaque, perspiciatis
-                                    doloremque qui non nulla possimus pariatur corrupti aut Lorem ipsum dolor sit amet
-                                    consectetur adipisicing elit. Molestias voluptates illum obcaecati eaque,
-                                    perspiciatis doloremque qui non nulla possimus pariatur corrupti aut Lorem ipsum
-                                    dolor sit amet consectetur adipisicing elit. Molestias voluptates illum obcaecati
-                                    eaque, perspiciatis doloremque qui non nulla possimus pariatur corrupti aut Lorem
-                                    ipsum dolor sit amet consectetur adipisicing elit. Molestias voluptates illum
-                                    obcaecati eaque, perspiciatis doloremque qui non nulla possimus pariatur corrupti
-                                    aut Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias voluptates
-                                    illum obcaecati eaque, perspiciatis doloremque qui non nulla possimus pariatur
-                                    corrupti aut Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias
-                                    voluptates illum obcaecati eaque, perspiciatis doloremque qui non nulla possimus
-                                    pariatur corrupti aut Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                    Molestias voluptates illum obcaecati eaque, perspiciatis doloremque qui non nulla
-                                    possimus pariatur corrupti aut Lorem ipsum dolor sit amet consectetur adipisicing
-                                    elit. Molestias voluptates illum obcaecati eaque, perspiciatis doloremque qui non
-                                    nulla possimus pariatur corrupti aut Lorem ipsum dolor sit amet consectetur
-                                    adipisicing elit. Molestias voluptates illum obcaecati eaque, perspiciatis
-                                    doloremque qui non nulla possimus pariatur corrupti aut Lorem ipsum dolor sit amet
-                                    consectetur adipisicing elit. Molestias voluptates illum obcaecati eaque,
-                                    perspiciatis doloremque qui non nulla possimus pariatur corrupti aut Lorem ipsum
-                                    dolor sit amet consectetur adipisicing elit. Molestias voluptates illum obcaecati
-                                    eaque, perspiciatis doloremque qui non nulla possimus pariatur corrupti aut Lorem
-                                    ipsum dolor sit amet consectetur adipisicing elit. Molestias voluptates illum
-                                    obcaecati eaque, perspiciatis doloremque qui non nulla possimus pariatur corrupti
-                                    aut veritatis et ali</p>
+                                    {!! $artikel->isi !!}</p>
                             </div>
                         </figcaption>
                     </figure>
@@ -69,47 +22,30 @@
                 <div class="col-9">
                     <div class="d-flex align-items-center justify-content-between mb-3">
                         <h1 class="fs-3 fw-bold mb-0">Artikel Lainnya</h1>
-                        <a href="#" class="btn btn-link text-decoration-none">Lihat Semua</a>
+                        <a href="{{ route('landingpage.artikel') }}" class="btn btn-link text-decoration-none">Lihat
+                            Semua</a>
                     </div>
                 </div>
 
                 <div class="col-12"></div>
 
-                <div class="col-3">
-                    <a class="card-artikel1" href="#">
-                        <figure class="shadow-lg mb-0 position-relative overflow-hidden">
-                            <img src="{{asset('tlandingpage/asset/img/empty-img.jpeg')}}" alt="" width="100%" height="350">
-                            <figcaption class="rounded bg-white py-2 px-3 mx-auto">
-                                <p class="fw-bold mb-2 lh-sm text-dark">Apa Saja Hak dan Kewajiban Anak di Sekolah?</p>
-                                <p class="fs-6 mb-0 text-secondary">Kamis, 30 Juli 2023</p>
-                            </figcaption>
-                        </figure>
-                    </a>
-                </div>
+                @foreach ($artikelLainnya as $item)
+                    <div class="col-3">
+                        <a class="card-artikel1" href="{{route('landingpage.artikeldetail', $item->slug)}}">
+                            <figure class="shadow-lg mb-0 position-relative overflow-hidden">
+                                <img src="{{ asset("storage/img/forum_artikel/$item->id_kategori_artikel/$item->foto") }}" alt=""
+                                    width="100%" height="350">
+                                <figcaption class="rounded bg-white py-2 px-3 mx-auto">
+                                    <p class="fw-bold mb-2 lh-sm text-dark">{{$item->judul}}
+                                    </p>
+                                    <p class="fs-6 mb-0 text-secondary">{{$item->created_at->format('D, d M Y')}}</p>
+                                </figcaption>
+                            </figure>
+                        </a>
+                    </div>
+                @endforeach
 
-                <div class="col-3">
-                    <a class="card-artikel1" href="#">
-                        <figure class="shadow-lg mb-0 position-relative overflow-hidden">
-                            <img src="{{asset('tlandingpage/asset/img/empty-img.jpeg')}}" alt="" width="100%" height="350">
-                            <figcaption class="rounded bg-white py-2 px-3 mx-auto">
-                                <p class="fw-bold mb-2 lh-sm text-dark">Apa Saja Hak dan Kewajiban Anak di Sekolah?</p>
-                                <p class="fs-6 mb-0 text-secondary">Kamis, 30 Juli 2023</p>
-                            </figcaption>
-                        </figure>
-                    </a>
-                </div>
 
-                <div class="col-3">
-                    <a class="card-artikel1" href="#">
-                        <figure class="shadow-lg mb-0 position-relative overflow-hidden">
-                            <img src="{{asset('tlandingpage/asset/img/empty-img.jpeg')}}" alt="" width="100%" height="350">
-                            <figcaption class="rounded bg-white py-2 px-3 mx-auto">
-                                <p class="fw-bold mb-2 lh-sm text-dark">Apa Saja Hak dan Kewajiban Anak di Sekolah?</p>
-                                <p class="fs-6 mb-0 text-secondary">Kamis, 30 Juli 2023</p>
-                            </figcaption>
-                        </figure>
-                    </a>
-                </div>
             </div>
         </div>
     </section>

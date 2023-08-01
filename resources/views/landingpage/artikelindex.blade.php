@@ -6,74 +6,45 @@
             </div>
             <div class="row">
                 <div class="col-7">
-                    <figure class="position-relative">
-                        <img src="{{asset('tlandingpage/asset/img/empty-img.jpeg')}}" alt="" class="w-100 rounded" height="370px">
-                        <figcaption class="position-relative h-100 d-flex align-items-end">
-                            <div class="px-2 py-3 m-0 w-100">
-                                <p class="fs-6 mb-2 text-secondary">Rabu, 20 Juli 2023</p>
-                                <h1 class="fs-3 fw-bold">9 Ide Kegiatan Seru untuk Anak Umur 2-3 Tahun</h1>
-                                <p class="fs-6 mb-0 text-secondary">Lorem ipsum dolor sit amet consectetur adipisicing
-                                    elit. Molestias voluptates illum obcaecati eaque, perspiciatis doloremque qui non
-                                    nulla possimus pariatur corrupti aut veritatis et ali</p>
-                            </div>
-                        </figcaption>
-                    </figure>
+                    <a href="{{ route('landingpage.artikeldetail', $artikel1->slug) }}" class="text-decoration-none">
+                        <figure class="position-relative">
+                            <img src="{{ asset("storage/img/forum_artikel/$artikel1->id_kategori_artikel/$artikel1->foto") }}"
+                                alt="" class="w-100 rounded" height="370px">
+                            <figcaption class="position-relative h-100 d-flex align-items-end">
+                                <div class="px-2 py-3 m-0 w-100">
+                                    <p class="fs-6 mb-2 text-secondary">{{ $artikel1->created_at->format('D, d M Y') }}
+                                    </p>
+                                    <h1 class="fs-3 fw-bold">{{ $artikel1->judul }}</h1>
+                                    <p class="fs-6 mb-0 text-secondary">{!! $artikel1->isi !!}</p>
+                                </div>
+                            </figcaption>
+                        </figure>
+                    </a>
                 </div>
                 <div class="col-5">
-                    <div class="card mb-3 w-100 border-0">
-                        <a href="#" class="text-decoration-none">
-                            <div class="row g-0">
-                                <div class="col-md-5">
-                                    <img src="{{asset('tlandingpage/asset/img/empty-img.jpeg')}}" class="img-fluid rounded h-100" alt="...">
-                                </div>
-                                <div class="col-md-7">
-                                    <div class="card-body h-100">
-                                        <p class="fs-6 mb-2 text-secondary mute">Kamis, 30 Juli 2023</p>
-                                        <p class="fw-bold mb-2 lh-sm text-dark">Upacara Pancasila bersama Forum anak
-                                            Balikpapan</p>
-                                        <p class="fs-6 mb-0 text-secondary">Lorem ipsum dolor sit amet consectetur
-                                            adipisicing elit. Molestii</p>
+                    @foreach ($artikel2 as $item)
+                        <div class="card mb-3 w-100 border-0">
+                            <a href="{{ route('landingpage.artikeldetail', $item->slug) }}"
+                                class="text-decoration-none">
+                                <div class="row g-0">
+                                    <div class="col-md-5">
+                                        <img src="{{ asset("storage/img/forum_artikel/$item->id_kategori_artikel/$item->foto") }}"
+                                            class="img-fluid rounded h-100" alt="...">
+                                    </div>
+                                    <div class="col-md-7">
+                                        <div class="card-body h-100">
+                                            <p class="fs-6 mb-2 text-secondary mute">
+                                                {{ $item->created_at->format('D, d M Y') }}</p>
+                                            <p class="fw-bold mb-2 lh-sm text-dark">{{ $item->judul }}</p>
+                                            <p class="fs-6 mb-0 text-secondary">{!! $item->isi !!}</p>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="card mb-3 w-100 border-0">
-                        <a href="#" class="text-decoration-none">
-                            <div class="row g-0">
-                                <div class="col-md-5">
-                                    <img src="{{asset('tlandingpage/asset/img/empty-img.jpeg')}}" class="img-fluid rounded h-100" alt="...">
-                                </div>
-                                <div class="col-md-7">
-                                    <div class="card-body h-100">
-                                        <p class="fs-6 mb-2 text-secondary mute">Kamis, 30 Juli 2023</p>
-                                        <p class="fw-bold mb-2 lh-sm text-dark">Upacara Pancasila bersama Forum anak
-                                            Balikpapan</p>
-                                        <p class="fs-6 mb-0 text-secondary">Lorem ipsum dolor sit amet consectetur
-                                            adipisicing elit. Molestii</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="card mb-3 w-100 border-0">
-                        <a href="#" class="text-decoration-none">
-                            <div class="row g-0">
-                                <div class="col-md-5">
-                                    <img src="{{asset('tlandingpage/asset/img/empty-img.jpeg')}}" class="img-fluid rounded h-100" alt="...">
-                                </div>
-                                <div class="col-md-7">
-                                    <div class="card-body h-100">
-                                        <p class="fs-6 mb-2 text-secondary mute">Kamis, 30 Juli 2023</p>
-                                        <p class="fw-bold mb-2 lh-sm text-dark">Upacara Pancasila bersama Forum anak
-                                            Balikpapan</p>
-                                        <p class="fs-6 mb-0 text-secondary">Lorem ipsum dolor sit amet consectetur
-                                            adipisicing elit. Molestii</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
+                            </a>
+                        </div>
+                    @endforeach
+
+
                 </div>
             </div>
             <div class="row justify-content-between py-4">
@@ -96,94 +67,23 @@
                 </div>
             </div>
             <div class="row align-items-center gy-4">
-                <div class="col-3">
-                    <a class="card-artikel1" href="#">
-                        <figure class="shadow-lg mb-0 position-relative overflow-hidden">
-                            <img src="{{asset('tlandingpage/asset/img/empty-img.jpeg')}}" alt="" width="100%" height="350">
-                            <figcaption class="rounded bg-white py-2 px-3 mx-auto">
-                                <p class="fw-bold mb-2 lh-sm text-dark">Apa Saja Hak dan Kewajiban Anak di Sekolah?</p>
-                                <p class="fs-6 mb-0 text-secondary">Kamis, 30 Juli 2023</p>
-                            </figcaption>
-                        </figure>
-                    </a>
-                </div>
-                <div class="col-3">
-                    <a class="card-artikel1" href="#">
-                        <figure class="shadow-lg mb-0 position-relative overflow-hidden">
-                            <img src="{{asset('tlandingpage/asset/img/empty-img.jpeg')}}" alt="" width="100%" height="350">
-                            <figcaption class="rounded bg-white py-2 px-3 mx-auto">
-                                <p class="fw-bold mb-2 lh-sm text-dark">Apa Saja Hak dan Kewajiban Anak di Sekolah?</p>
-                                <p class="fs-6 mb-0 text-secondary">Kamis, 30 Juli 2023</p>
-                            </figcaption>
-                        </figure>
-                    </a>
-                </div>
-                <div class="col-3">
-                    <a class="card-artikel1" href="#">
-                        <figure class="shadow-lg mb-0 position-relative overflow-hidden">
-                            <img src="{{asset('tlandingpage/asset/img/empty-img.jpeg')}}" alt="" width="100%" height="350">
-                            <figcaption class="rounded bg-white py-2 px-3 mx-auto">
-                                <p class="fw-bold mb-2 lh-sm text-dark">Apa Saja Hak dan Kewajiban Anak di Sekolah?</p>
-                                <p class="fs-6 mb-0 text-secondary">Kamis, 30 Juli 2023</p>
-                            </figcaption>
-                        </figure>
-                    </a>
-                </div>
-                <div class="col-3">
-                    <a class="card-artikel1" href="#">
-                        <figure class="shadow-lg mb-0 position-relative overflow-hidden">
-                            <img src="{{asset('tlandingpage/asset/img/empty-img.jpeg')}}" alt="" width="100%" height="350">
-                            <figcaption class="rounded bg-white py-2 px-3 mx-auto">
-                                <p class="fw-bold mb-2 lh-sm text-dark">Apa Saja Hak dan Kewajiban Anak di Sekolah?</p>
-                                <p class="fs-6 mb-0 text-secondary">Kamis, 30 Juli 2023</p>
-                            </figcaption>
-                        </figure>
-                    </a>
-                </div>
-                <div class="col-3">
-                    <a class="card-artikel1" href="#">
-                        <figure class="shadow-lg mb-0 position-relative overflow-hidden">
-                            <img src="{{asset('tlandingpage/asset/img/empty-img.jpeg')}}" alt="" width="100%" height="350">
-                            <figcaption class="rounded bg-white py-2 px-3 mx-auto">
-                                <p class="fw-bold mb-2 lh-sm text-dark">Apa Saja Hak dan Kewajiban Anak di Sekolah?</p>
-                                <p class="fs-6 mb-0 text-secondary">Kamis, 30 Juli 2023</p>
-                            </figcaption>
-                        </figure>
-                    </a>
-                </div>
-                <div class="col-3">
-                    <a class="card-artikel1" href="#">
-                        <figure class="shadow-lg mb-0 position-relative overflow-hidden">
-                            <img src="{{asset('tlandingpage/asset/img/empty-img.jpeg')}}" alt="" width="100%" height="350">
-                            <figcaption class="rounded bg-white py-2 px-3 mx-auto">
-                                <p class="fw-bold mb-2 lh-sm text-dark">Apa Saja Hak dan Kewajiban Anak di Sekolah?</p>
-                                <p class="fs-6 mb-0 text-secondary">Kamis, 30 Juli 2023</p>
-                            </figcaption>
-                        </figure>
-                    </a>
-                </div>
-                <div class="col-3">
-                    <a class="card-artikel1" href="#">
-                        <figure class="shadow-lg mb-0 position-relative overflow-hidden">
-                            <img src="{{asset('tlandingpage/asset/img/empty-img.jpeg')}}" alt="" width="100%" height="350">
-                            <figcaption class="rounded bg-white py-2 px-3 mx-auto">
-                                <p class="fw-bold mb-2 lh-sm text-dark">Apa Saja Hak dan Kewajiban Anak di Sekolah?</p>
-                                <p class="fs-6 mb-0 text-secondary">Kamis, 30 Juli 2023</p>
-                            </figcaption>
-                        </figure>
-                    </a>
-                </div>
-                <div class="col-3">
-                    <a class="card-artikel1" href="#">
-                        <figure class="shadow-lg mb-0 position-relative overflow-hidden">
-                            <img src="{{asset('tlandingpage/asset/img/empty-img.jpeg')}}" alt="" width="100%" height="350">
-                            <figcaption class="rounded bg-white py-2 px-3 mx-auto">
-                                <p class="fw-bold mb-2 lh-sm text-dark">Apa Saja Hak dan Kewajiban Anak di Sekolah?</p>
-                                <p class="fs-6 mb-0 text-secondary">Kamis, 30 Juli 2023</p>
-                            </figcaption>
-                        </figure>
-                    </a>
-                </div>
+                @foreach ($artikel3 as $item)
+                    <div class="col-3">
+                        <a class="card-artikel1" href="{{ route('landingpage.artikeldetail', $item->slug) }}">
+                            <figure class="shadow-lg mb-0 position-relative overflow-hidden">
+                                <img src="{{ asset("storage/img/forum_artikel/$item->id_kategori_artikel/$item->foto") }}"
+                                    alt="" width="100%" height="350">
+                                <figcaption class="rounded bg-white py-2 px-3 mx-auto">
+                                    <p class="fw-bold mb-2 lh-sm text-dark">{{ $item->judul }}
+                                    </p>
+                                    <p class="fs-6 mb-0 text-secondary">{{ $item->created_at->format('D, d M Y') }}</p>
+                                </figcaption>
+                            </figure>
+                        </a>
+                    </div>
+                @endforeach
+
+
                 <nav aria-label="Page navigation example">
                     <ul class="pagination justify-content-center">
                         <li class="page-item disabled">

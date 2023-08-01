@@ -2,7 +2,7 @@
     <div id="sidebar-menu" class="sidebar-menu">
         <ul>
             <li>
-                <a href="index.html"><img src="{{ asset('tadmin/assets/img/icons/dashboard.svg') }}" alt="img"><span>
+                <a href="#"><img src="{{ asset('tadmin/assets/img/icons/dashboard.svg') }}" alt="img"><span>
                         Dashboard</span> </a>
             </li>
             <li class="submenu">
@@ -16,12 +16,12 @@
                     <li><a href="{{ route('kegiatan.index') }}"
                             class="{{ Request::routeIs('kegiatan.*') ? 'active' : '' }}">Kegiatan </a></li>
 
-                    <li><a href="{{ route('kategori-artikel.index') }}"
+                    {{-- <li><a href="{{ route('kategori-artikel.index') }}"
                             class="{{ Request::routeIs('kategori-artikel.*') ? 'active' : '' }}">Kategori Artikel</a>
                     </li>
                     <li><a href="{{ route('artikel.index') }}"
                             class="{{ Request::routeIs('artikel.*') ? 'active' : '' }}">Artikel</a>
-                    </li>
+                    </li> --}}
                     <li><a href="{{ route('tentang.index') }}"
                             class="{{ Request::routeIs('tentang.*') ? 'active' : '' }}">Tentang</a>
                     </li>
