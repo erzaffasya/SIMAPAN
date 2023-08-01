@@ -33,15 +33,16 @@ class ForumStrukturController extends Controller
 
         $struktur = ForumStruktur::find(1);
 
-        if ($struktur) {
-            $struktur->deskripsi = $request->deskripsi;
-            $struktur->foto = null;
+        if (!$struktur) {
+            $request->validate([
+                'foto' => 'required',
+            ]);
         }
 
         if ($request->foto) {
             $path = storage_path("app/public/img/struktur");
             $path_tmp = storage_path("app/public/img/.thumbnail/struktur");
-            if ($struktur->foto != null) {
+            if ($struktur) {
                 if (File::exists("$path/$struktur->foto")) {
                     File::delete("$path/$struktur->foto");
                 }
