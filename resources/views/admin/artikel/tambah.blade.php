@@ -40,7 +40,7 @@
                         <div class="col-lg-12">
                             <div class="form-group">
                                 <label>Isi</label>
-                                <x-forms.tinymce-editor />
+                                <x-forms.tinymce-editor name="isi" />
                             </div>
                         </div>
 

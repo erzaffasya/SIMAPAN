@@ -42,7 +42,7 @@
                         <div class="col-lg-12">
                             <div class="form-group">
                                 <label>Isi</label>
-                                <textarea name="isi" class="form-control">{{ $artikel->isi }}</textarea>
+                                <x-forms.tinymce-editor name="isi">{{ $artikel->isi }}</x-forms.tinymce-editor>
                             </div>
                         </div>
 

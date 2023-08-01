@@ -1,14 +1,25 @@
 <?php
 
 use App\Http\Controllers\ArtikelController;
+use App\Http\Controllers\AspirasiController;
+use App\Http\Controllers\FaqController;
 use App\Http\Controllers\FastLinkController;
+use App\Http\Controllers\ForumArtikelController;
+use App\Http\Controllers\ForumGaleriController;
+use App\Http\Controllers\ForumKategoriArtikelController;
+use App\Http\Controllers\ForumKategoriGaleriController;
 use App\Http\Controllers\ForumPengurusController;
+use App\Http\Controllers\ForumStrukturController;
 use App\Http\Controllers\JumlahAnakController;
 use App\Http\Controllers\KantorController;
 use App\Http\Controllers\KategoriArtikelController;
 use App\Http\Controllers\KegiatanController;
+use App\Http\Controllers\KelembagaanController;
 use App\Http\Controllers\LandingpageController;
+use App\Http\Controllers\ProfilGaleriController;
+use App\Http\Controllers\ProfilKategoriGaleriController;
 use App\Http\Controllers\TentangController;
+use App\Http\Controllers\TinyMceController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -68,14 +79,132 @@ Route::get('/dashboard', function () {
 // Route::get('/', [LandingpageController::class, 'index'])->name('index');
 
 Route::middleware(['auth'])->prefix('admin')->group(function () {
+    //CRUD
     Route::resource('tentang', TentangController::class)->only('index', 'store');
+    Route::resource('aspirasi', AspirasiController::class);
+    Route::resource('faq', FaqController::class);
     Route::resource('kantor', KantorController::class);
     Route::resource('kegiatan', KegiatanController::class);
     Route::resource('kategori-artikel', KategoriArtikelController::class);
     Route::resource('artikel', ArtikelController::class);
     Route::resource('fastlink', FastLinkController::class);
     Route::resource('jumlahanak', JumlahAnakController::class)->only('index', 'store');
+    Route::resource('forum-struktur', ForumStrukturController::class)->only('index', 'store');
     Route::resource('forum-pengurus', ForumPengurusController::class);
+    Route::resource('forum-kategori-artikel', ForumKategoriArtikelController::class);
+    Route::resource('forum-artikel', ForumArtikelController::class);
+    Route::resource('forum-kategori-galeri', ForumKategoriGaleriController::class);
+    Route::resource('forum-galeri', ForumGaleriController::class);
+    Route::resource('profil-kelembagaan', KelembagaanController::class)->only('index', 'store');
+    Route::resource('profil-kategori-galeri', ProfilKategoriGaleriController::class);
+    Route::resource('profil-galeri', ProfilGaleriController::class);
+
+    //tiny mce upload
+    Route::post('tiny-upload', [TinyMceController::class, "upload"])->name('tiny-upload');
+});
+
+$middleware = array_merge(\Config::get('lfm.middlewares'), [
+    '\UniSharp\LaravelFilemanager\Middlewares\MultiUser',
+    '\UniSharp\LaravelFilemanager\Middlewares\CreateDefaultFolder',
+]);
+$prefix = \Config::get('lfm.url_prefix', \Config::get('lfm.prefix', 'laravel-filemanager'));
+$as = 'unisharp.lfm.';
+$namespace = '\UniSharp\LaravelFilemanager\Controllers';
+
+// make sure authenticated
+Route::group(compact('middleware', 'prefix', 'as', 'namespace'), function () {
+
+    // Show LFM
+    Route::get('/', [
+        'uses' => 'LfmController@show',
+        'as' => 'show',
+    ]);
+
+    // Show integration error messages
+    Route::get('/errors', [
+        'uses' => 'LfmController@getErrors',
+        'as' => 'getErrors',
+    ]);
+
+    // upload
+    Route::any('/upload', [
+        'uses' => 'UploadController@upload',
+        'as' => 'upload',
+    ]);
+
+    // list images & files
+    Route::get('/jsonitems', [
+        'uses' => 'ItemsController@getItems',
+        'as' => 'getItems',
+    ]);
+
+    // folders
+    Route::get('/newfolder', [
+        'uses' => 'FolderController@getAddfolder',
+        'as' => 'getAddfolder',
+    ]);
+    Route::get('/deletefolder', [
+        'uses' => 'FolderController@getDeletefolder',
+        'as' => 'getDeletefolder',
+    ]);
+    Route::get('/folders', [
+        'uses' => 'FolderController@getFolders',
+        'as' => 'getFolders',
+    ]);
+
+    // crop
+    Route::get('/crop', [
+        'uses' => 'CropController@getCrop',
+        'as' => 'getCrop',
+    ]);
+    Route::get('/cropimage', [
+        'uses' => 'CropController@getCropimage',
+        'as' => 'getCropimage',
+    ]);
+    Route::get('/cropnewimage', [
+        'uses' => 'CropController@getNewCropimage',
+        'as' => 'getCropimage',
+    ]);
+
+    // rename
+    Route::get('/rename', [
+        'uses' => 'RenameController@getRename',
+        'as' => 'getRename',
+    ]);
+
+    // scale/resize
+    Route::get('/resize', [
+        'uses' => 'ResizeController@getResize',
+        'as' => 'getResize',
+    ]);
+    Route::get('/doresize', [
+        'uses' => 'ResizeController@performResize',
+        'as' => 'performResize',
+    ]);
+
+    // download
+    Route::get('/download', [
+        'uses' => 'DownloadController@getDownload',
+        'as' => 'getDownload',
+    ]);
+
+    // delete
+    Route::get('/delete', [
+        'uses' => 'DeleteController@getDelete',
+        'as' => 'getDelete',
+    ]);
+
+    // Route::get('/demo', 'DemoController@index');
+});
+
+Route::group(compact('prefix', 'as', 'namespace'), function () {
+    // Get file when base_directory isn't public
+    $images_url = '/' . \Config::get('lfm.images_folder_name') . '/{base_path}/{image_name}';
+    $files_url = '/' . \Config::get('lfm.files_folder_name') . '/{base_path}/{file_name}';
+    Route::get($images_url, 'RedirectController@getImage')
+        ->where('image_name', '.*');
+    Route::get($files_url, 'RedirectController@getFile')
+        ->where('file_name', '.*');
 });
 
 require __DIR__ . '/auth.php';

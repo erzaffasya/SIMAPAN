@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\ForumStruktur;
+use Illuminate\Support\Facades\File;
+use Intervention\Image\Facades\Image;
 use Illuminate\Http\Request;
 
 class ForumStrukturController extends Controller
@@ -15,15 +17,6 @@ class ForumStrukturController extends Controller
     {
         $struktur = ForumStruktur::find(1);
         return view('admin.forum.struktur.index', compact('struktur'));
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     */
-    public function create()
-    {
-        //
     }
 
     /**
@@ -42,67 +35,58 @@ class ForumStrukturController extends Controller
 
         if ($struktur) {
             $struktur->deskripsi = $request->deskripsi;
-        }else{
-
+            $struktur->foto = null;
         }
 
         if ($request->foto) {
+            $path = storage_path("app/public/img/struktur");
+            $path_tmp = storage_path("app/public/img/.thumbnail/struktur");
+            if ($struktur->foto != null) {
+                if (File::exists("$path/$struktur->foto")) {
+                    File::delete("$path/$struktur->foto");
+                }
+                if (File::exists("$path_tmp/$struktur->foto")) {
+                    File::delete("$path_tmp/$struktur->foto");
+                }
+            }
 
+            $extention = $request->foto->extension();
+            $file_name = time() . '.' . $extention;
+            $image = Image::make($request->file('foto'));
+            $image->resize(1080, null, function ($constraint) {
+                $constraint->aspectRatio();
+            });
+            if (!File::exists("$path/$request->id_kategori")) {
+                File::makeDirectory("$path/$request->id_kategori", $mode = 0777, true, true);
+            }
+            $image->save("$path/$request->id_kategori/$file_name");
+            $image_tmp = Image::make($request->file('foto'));
+            $image_tmp->resize(600, null, function ($constraint) {
+                $constraint->aspectRatio();
+            });
+
+            if (!File::exists("$path_tmp/$request->id_kategori")) {
+                File::makeDirectory("$path_tmp/$request->id_kategori", $mode = 0777, true, true);
+            }
+            $image_tmp->save("$path_tmp/$request->id_kategori/$file_name");
+        } else {
+            $file_name = $struktur->foto;
         }
 
-        $tentang = ForumStruktur::firstOrCreate(
+        $struktur = ForumStruktur::firstOrCreate(
             [
                 'id' => 1
             ],
             [
                 "deskripsi" => $request->deskripsi,
-                "foto" => $request->foto,
+                "foto" => $file_name,
             ]
         );
-        $tentang->deskripsi = $request->deskripsi;
-        $tentang->save();
+        $struktur->id = 1;
+        $struktur->deskripsi = $request->deskripsi;
+        $struktur->save();
 
-        return redirect()->route('tentang.index')->with('success', 'Berhasil update tentang');
+        return redirect()->route('forum-struktur.index')->with('success', 'Berhasil update tentang');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\ForumStruktur  $forumStruktur
-     */
-    public function show(ForumStruktur $forumStruktur)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\ForumStruktur  $forumStruktur
-     */
-    public function edit(ForumStruktur $forumStruktur)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\ForumStruktur  $forumStruktur
-     */
-    public function update(Request $request, ForumStruktur $forumStruktur)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\ForumStruktur  $forumStruktur
-     */
-    public function destroy(ForumStruktur $forumStruktur)
-    {
-        //
-    }
 }
