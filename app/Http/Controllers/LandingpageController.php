@@ -3,11 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Models\Artikel;
+use App\Models\Faq;
 use App\Models\ForumArtikel;
 use App\Models\ForumPengurus;
 use App\Models\ForumStruktur;
 use App\Models\JumlahAnak;
 use App\Models\Kantor;
+use App\Models\Kegiatan;
 use App\Models\Kelembagaan;
 use App\Models\Tentang;
 use Illuminate\Http\Request;
@@ -20,19 +22,23 @@ class LandingpageController extends Controller
     {
         $tentang = Tentang::find(1);
         $forumArtikel = ForumArtikel::limit(3)->orderBy('id', 'DESC')->get();
+        $kegiatan = Kegiatan::limit(3)->orderBy('id', 'DESC')->get();
+        $faq = Faq::all();
         // dd($artikel->get());
-        return view('landingpage.simapan',compact('tentang', 'forumArtikel'));
+        return view('landingpage.simapan',compact('tentang', 'forumArtikel', 'kegiatan', 'faq'));
     }
 
     public function peta()
     {
         $Kantor = Kantor::all();
+        // dd($Kantor);
         $location = [];
         foreach ($Kantor as $item) {
             $location[] = [
                 "kantor" => $item->kantor,
                 "deskripsi_map" => $item->deskripsi_map,
                 "latitude" => $item->latitude,
+                "foto" => asset("storage/img/kantor/$item->foto"),
                 "longitude" => $item->longitude
             ];
         }

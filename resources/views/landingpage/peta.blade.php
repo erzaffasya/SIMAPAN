@@ -38,6 +38,7 @@
             };
 
             var locationData = {!! json_encode($location) !!};
+            console.log(locationData,'filee mapapp')
             var count = locationData.length;
             var markers = {};
 
@@ -46,6 +47,7 @@
                 var longitude = locationData[i].longitude;
                 var kantor = locationData[i].kantor;
                 var deskripsi_map = locationData[i].deskripsi_map;
+                var foto = locationData[i].foto;
 
                 var dataMarker = new google.maps.Marker({
                     position: {
@@ -60,11 +62,15 @@
                     //     anchor: new google.maps.Point(16, 16)
                     // }
                 });
+                console.log(dataMarker, 'data marker')
 
                 markers[`marker${i+1}`] = dataMarker;
 
                 var infoWindow1 = new google.maps.InfoWindow({
-                    content: `<div><h3>${kantor}</h3><p>${deskripsi_map}.</p></div>`
+                    content: `<div><h5>${kantor}</h5>
+                        <br>
+                        <img height="80" src="${foto}"/>
+                        <p>${deskripsi_map}.</p></div>`
                 });
 
                 attachInfoWindow(dataMarker, infoWindow1);

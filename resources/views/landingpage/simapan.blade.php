@@ -98,12 +98,12 @@
                     <div class="col-3">
                         <a class="card-artikel1" href="#">
                             <figure class="shadow-lg mb-0 position-relative overflow-hidden">
-                                <img src="{{ asset("storage/img/forum_artikel/$item->id_kategori_artikel/$item->foto") }}" alt=""
-                                    width="100%" height="350">
+                                <img src="{{ asset("storage/img/forum_artikel/$item->id_kategori_artikel/$item->foto") }}"
+                                    alt="" width="100%" height="350">
                                 <figcaption class="rounded bg-white py-2 px-3 mx-auto">
-                                    <p class="fw-bold mb-2 lh-sm text-dark">{{$item->judul}}
+                                    <p class="fw-bold mb-2 lh-sm text-dark">{{ $item->judul }}
                                     </p>
-                                    <p class="fs-6 mb-0 text-secondary">{{$item->created_at->format('d M Y')}}</p>
+                                    <p class="fs-6 mb-0 text-secondary">{{ $item->created_at->format('d M Y') }}</p>
                                 </figcaption>
                             </figure>
                         </a>
@@ -150,57 +150,25 @@
                         <h1 class="fs-3 mb-0">Kegiatan PPATBM</h1>
                         <a href="#" class="btn btn-link text-decoration-none">Lihat Semua</a>
                     </div>
-                    <div class="card mb-3 w-100 border-0">
-                        <a href="#" class="text-decoration-none">
-                            <div class="row g-0">
-                                <div class="col-md-4">
-                                    <img src="{{ asset('tlandingpage/asset/img/empty-img.jpeg') }}"
-                                        class="img-fluid rounded h-100" alt="...">
-                                </div>
-                                <div class="col-md-8">
-                                    <div class="card-body h-100">
-                                        <p class="fw-bold mb-2 lh-sm text-dark">Upacara Pancasila bersama Forum anak
-                                            Balikpapan</p>
-                                        <p class="fs-6 mb-0 text-secondary">Kamis, 30 Juli 2023</p>
+                    @foreach ($kegiatan as $item)
+                        <div class="card mb-3 w-100 border-0">
+                            <a href="#" class="text-decoration-none">
+                                <div class="row g-0">
+                                    <div class="col-md-4">
+                                        <img src="{{ asset("storage/img/kegiatan/$item->kantor_id/$item->foto") }}"
+                                            class="img-fluid rounded h-100" alt="...">
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="card-body h-100">
+                                            <p class="fw-bold mb-2 lh-sm text-dark">{{ $item->judul }}</p>
+                                            <p class="fs-6 mb-0 text-secondary">
+                                                {{ $item->created_at->format('D, d M Y') }}</p>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="card mb-3 w-100 border-0">
-                        <a href="#" class="text-decoration-none">
-                            <div class="row g-0">
-                                <div class="col-md-4">
-                                    <img src="{{ asset('tlandingpage/asset/img/empty-img.jpeg') }}"
-                                        class="img-fluid rounded h-100" alt="...">
-                                </div>
-                                <div class="col-md-8">
-                                    <div class="card-body h-100">
-                                        <p class="fw-bold mb-2 lh-sm text-dark">Upacara Pancasila bersama Forum anak
-                                            Balikpapan</p>
-                                        <p class="fs-6 mb-0 text-secondary">Kamis, 30 Juli 2023</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="card mb-3 w-100 border-0">
-                        <a href="#" class="text-decoration-none">
-                            <div class="row g-0">
-                                <div class="col-md-4">
-                                    <img src="{{ asset('tlandingpage/asset/img/empty-img.jpeg') }}"
-                                        class="img-fluid rounded h-100" alt="...">
-                                </div>
-                                <div class="col-md-8">
-                                    <div class="card-body h-100">
-                                        <p class="fw-bold mb-2 lh-sm text-dark">Upacara Pancasila bersama Forum anak
-                                            Balikpapan</p>
-                                        <p class="fs-6 mb-0 text-secondary">Kamis, 30 Juli 2023</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
+                            </a>
+                        </div>
+                    @endforeach
                 </div>
             </div>
         </div>
@@ -274,94 +242,60 @@
                 <div class="row justify-content-center">
                     <div class="col-8">
                         <div class="accordion" id="accordionExample">
-                            <div class="accordion-item">
-                                <h2 class="accordion-header" id="headingOne">
-                                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#collapseOne" aria-expanded="true"
-                                        aria-controls="collapseOne">
-                                        Accordion Item #1
-                                    </button>
-                                </h2>
-                                <div id="collapseOne" class="accordion-collapse collapse show"
-                                    aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                                    <div class="accordion-body">
-                                        <div class="accordion px-3" id="accordionPanelsStayOpenExample">
-                                            <div class="accordion-item">
-                                                <h2 class="accordion-header" id="panelsStayOpen-headingOne">
-                                                    <button class="accordion-button" type="button"
-                                                        data-bs-toggle="collapse"
-                                                        data-bs-target="#panelsStayOpen-collapseOne"
-                                                        aria-expanded="false"
-                                                        aria-controls="panelsStayOpen-collapseOne">
-                                                        Nested accordion Item #1
-                                                    </button>
-                                                </h2>
-                                                <div id="panelsStayOpen-collapseOne"
-                                                    class="accordion-collapse collapse"
-                                                    aria-labelledby="panelsStayOpen-headingOne">
-                                                    <div class="accordion-body">
-                                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                                        Vestibulum tempus.
+                            @foreach ($faq as $item)
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingOne">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                            data-bs-target="#collapseOne{{$item->id}}" aria-expanded="false"
+                                            aria-controls="collapseOne">
+                                            {{$item->question}}
+                                        </button>
+                                    </h2>
+                                    <div id="collapseOne{{$item->id}}" class="accordion-collapse collapse "
+                                        aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                                        <div class="accordion-body">
+                                            <div class="accordion px-3" id="accordionPanelsStayOpenExample">
+                                                <div class="accordion-item">
+                                                    <h2 class="accordion-header" id="panelsStayOpen-headingOne">
+                                                        <button class="accordion-button collapsed" type="button"
+                                                            data-bs-toggle="collapse"
+                                                            data-bs-target="#panelsStayOpen-collapseOne{{$item->id}}"
+                                                            aria-expanded="false"
+                                                            aria-controls="panelsStayOpen-collapseOne{{$item->id}}">
+                                                            Jawaban Menurut Psikolog
+                                                        </button>
+                                                    </h2>
+                                                    <div id="panelsStayOpen-collapseOne{{$item->id}}"
+                                                        class="accordion-collapse collapse"
+                                                        aria-labelledby="panelsStayOpen-headingOne">
+                                                        <div class="accordion-body">
+                                                           {!! $item->answer_psikolog !!}
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <div class="accordion-item">
-                                                <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
-                                                    <button class="accordion-button collapsed" type="button"
-                                                        data-bs-toggle="collapse"
-                                                        data-bs-target="#panelsStayOpen-collapseTwo"
-                                                        aria-expanded="false"
-                                                        aria-controls="panelsStayOpen-collapseTwo">
-                                                        Nested accordion Item #2
-                                                    </button>
-                                                </h2>
-                                                <div id="panelsStayOpen-collapseTwo"
-                                                    class="accordion-collapse collapse"
-                                                    aria-labelledby="panelsStayOpen-headingTwo">
-                                                    <div class="accordion-body">
-                                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                                        Vestibulum tempus.
+                                                <div class="accordion-item">
+                                                    <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
+                                                        <button class="accordion-button collapsed" type="button"
+                                                            data-bs-toggle="collapse"
+                                                            data-bs-target="#panelsStayOpen-collapseTwo{{$item->id}}"
+                                                            aria-expanded="false"
+                                                            aria-controls="panelsStayOpen-collapseTwo{{$item->id}}">
+                                                            Jawaban Menurut Agama
+                                                        </button>
+                                                    </h2>
+                                                    <div id="panelsStayOpen-collapseTwo{{$item->id}}"
+                                                        class="accordion-collapse collapse"
+                                                        aria-labelledby="panelsStayOpen-headingTwo">
+                                                        <div class="accordion-body">
+                                                            {!! $item->answer_religius !!}
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="accordion-item">
-                                <h2 class="accordion-header" id="headingTwo">
-                                    <button class="accordion-button collapsed" type="button"
-                                        data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false"
-                                        aria-controls="collapseTwo">
-                                        Accordion Item #2
-                                    </button>
-                                </h2>
-                                <div id="collapseTwo" class="accordion-collapse collapse"
-                                    aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
-                                    <div class="accordion-body">
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada
-                                        lacus ex, sit amet
-                                        blandit leo lobortis eget.
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="accordion-item">
-                                <h2 class="accordion-header" id="headingThree">
-                                    <button class="accordion-button collapsed" type="button"
-                                        data-bs-toggle="collapse" data-bs-target="#collapseThree"
-                                        aria-expanded="false" aria-controls="collapseThree">
-                                        Accordion Item #3
-                                    </button>
-                                </h2>
-                                <div id="collapseThree" class="accordion-collapse collapse"
-                                    aria-labelledby="headingThree" data-bs-parent="#accordionExample">
-                                    <div class="accordion-body">
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada
-                                        lacus ex, sit amet
-                                        blandit leo lobortis eget.
-                                    </div>
-                                </div>
-                            </div>
+                            @endforeach
                         </div>
                     </div>
                 </div>
