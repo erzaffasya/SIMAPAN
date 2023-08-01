@@ -104,30 +104,11 @@
         <div class="container py-5">
             <h1 class="display-6 fw-bold mb-3 text-center">Kegiatan Kelembagaan</h1>
             <div class="row g-0 gy-0">
-                <div class="col-3">
-                    <img src="{{asset('tlandingpage/asset/img/empty-img.jpeg')}}" class="w-100" alt="">
-                </div>
-                <div class="col-3">
-                    <img src="{{asset('tlandingpage/asset/img/empty-img.jpeg')}}" class="w-100" alt="">
-                </div>
-                <div class="col-3">
-                    <img src="{{asset('tlandingpage/asset/img/empty-img.jpeg')}}" class="w-100" alt="">
-                </div>
-                <div class="col-3">
-                    <img src="{{asset('tlandingpage/asset/img/empty-img.jpeg')}}" class="w-100" alt="">
-                </div>
-                <div class="col-3">
-                    <img src="{{asset('tlandingpage/asset/img/empty-img.jpeg')}}" class="w-100" alt="">
-                </div>
-                <div class="col-3">
-                    <img src="{{asset('tlandingpage/asset/img/empty-img.jpeg')}}" class="w-100" alt="">
-                </div>
-                <div class="col-3">
-                    <img src="{{asset('tlandingpage/asset/img/empty-img.jpeg')}}" class="w-100" alt="">
-                </div>
-                <div class="col-3">
-                    <img src="{{asset('tlandingpage/asset/img/empty-img.jpeg')}}" class="w-100" alt="">
-                </div>
+                @foreach ($kegiatan as $item)
+                    <div class="col-3">
+                        <img src="{{ asset("storage/img/profil_galeri/$item->id_kategori_galeri/$item->foto") }}" class="w-100" alt="">
+                    </div>
+                @endforeach
             </div>
         </div>
     </section>

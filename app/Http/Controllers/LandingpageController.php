@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Artikel;
 use App\Models\Faq;
 use App\Models\ForumArtikel;
+use App\Models\ForumGaleri;
 use App\Models\ForumPengurus;
 use App\Models\ForumStruktur;
 use App\Models\JumlahAnak;
@@ -55,14 +56,16 @@ class LandingpageController extends Controller
         $artikel1 = ForumArtikel::orderBy('created_at','DESC')->first();
         $artikel2 = ForumArtikel::orderBy('created_at','DESC')->offset(1)->limit(3)->get();
         $artikel3 = ForumArtikel::orderBy('created_at','DESC')->offset(4)->limit(3)->get();
-        return view('landingpage.forum', compact('pengurus','struktur', 'artikel1','artikel2','artikel3'));
+        $kegiatan = ForumGaleri::orderBy('created_at','DESC')->limit(8)->get();
+        // dd($kegiatan);
+        return view('landingpage.forum', compact('pengurus','struktur', 'artikel1','artikel2','artikel3', 'kegiatan'));
     }
 
     public function profil() {
         $jumlahAnak = JumlahAnak::find(1);
         $kelembagaan = Kelembagaan::find(1);
-        $galeri = ProfilGaleri::limit(8)->get();
-        return view('landingpage.profil', compact('jumlahAnak', 'kelembagaan', 'galeri'));
+        $kegiatan = ProfilGaleri::orderBy('created_at','DESC')->limit(8)->get();
+        return view('landingpage.profil', compact('jumlahAnak', 'kelembagaan','kegiatan'));
     }
 
     public function artikel(){

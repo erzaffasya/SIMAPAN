@@ -47,7 +47,7 @@
         <div class="container py-5">
             <div class="d-flex align-items-center justify-content-between">
                 <h1 class="display-6 fw-bold mb-3">Artikel Forum Anak</h1>
-                <a href="{{route('landingpage.artikel')}}" class="btn btn-link text-decoration-none">Lihat Semua</a>
+                <a href="{{ route('landingpage.artikel') }}" class="btn btn-link text-decoration-none">Lihat Semua</a>
             </div>
             <div class="row">
                 <div class="col-7">
@@ -74,7 +74,8 @@
                                     </div>
                                     <div class="col-md-7">
                                         <div class="card-body h-100">
-                                            <p class="fs-6 mb-2 text-secondary mute">{{ $item->created_at->format('D, d M Y') }}</p>
+                                            <p class="fs-6 mb-2 text-secondary mute">
+                                                {{ $item->created_at->format('D, d M Y') }}</p>
                                             <p class="fw-bold mb-2 lh-sm text-dark">{{ $item->judul }}</p>
                                             <p class="fs-6 mb-0 text-secondary">{!! $item->isi !!}</p>
                                         </div>
@@ -87,18 +88,18 @@
             </div>
             <div class="row align-items-center">
                 @foreach ($artikel3 as $item)
-                <div class="col-3">
-                    <a class="card-artikel1" href="#">
-                        <figure class="shadow-lg mb-0 position-relative overflow-hidden">
-                            <img src="{{ asset("storage/img/forum_artikel/$item->id_kategori_artikel/$item->foto") }}" alt=""
-                                width="100%" height="350">
-                            <figcaption class="rounded bg-white py-2 px-3 mx-auto">
-                                <p class="fw-bold mb-2 lh-sm text-dark">{{ $item->judul }}</p>
-                                <p class="fs-6 mb-0 text-secondary">{{ $item->created_at->format('D, d M Y') }}</p>
-                            </figcaption>
-                        </figure>
-                    </a>
-                </div>
+                    <div class="col-3">
+                        <a class="card-artikel1" href="#">
+                            <figure class="shadow-lg mb-0 position-relative overflow-hidden">
+                                <img src="{{ asset("storage/img/forum_artikel/$item->id_kategori_artikel/$item->foto") }}"
+                                    alt="" width="100%" height="350">
+                                <figcaption class="rounded bg-white py-2 px-3 mx-auto">
+                                    <p class="fw-bold mb-2 lh-sm text-dark">{{ $item->judul }}</p>
+                                    <p class="fs-6 mb-0 text-secondary">{{ $item->created_at->format('D, d M Y') }}</p>
+                                </figcaption>
+                            </figure>
+                        </a>
+                    </div>
                 @endforeach
             </div>
             <div class="row mt-4 justify-content-between bg-primary rounded align-items-center p-3">
@@ -115,30 +116,11 @@
         <div class="container py-5">
             <h1 class="display-6 fw-bold mb-3 text-center">Kegiatan Forum Anak</h1>
             <div class="row g-0 gy-0">
-                <div class="col-3">
-                    <img src="{{ asset('tlandingpage/asset/img/empty-img.jpeg') }}" class="w-100" alt="">
-                </div>
-                <div class="col-3">
-                    <img src="{{ asset('tlandingpage/asset/img/empty-img.jpeg') }}" class="w-100" alt="">
-                </div>
-                <div class="col-3">
-                    <img src="{{ asset('tlandingpage/asset/img/empty-img.jpeg') }}" class="w-100" alt="">
-                </div>
-                <div class="col-3">
-                    <img src="{{ asset('tlandingpage/asset/img/empty-img.jpeg') }}" class="w-100" alt="">
-                </div>
-                <div class="col-3">
-                    <img src="{{ asset('tlandingpage/asset/img/empty-img.jpeg') }}" class="w-100" alt="">
-                </div>
-                <div class="col-3">
-                    <img src="{{ asset('tlandingpage/asset/img/empty-img.jpeg') }}" class="w-100" alt="">
-                </div>
-                <div class="col-3">
-                    <img src="{{ asset('tlandingpage/asset/img/empty-img.jpeg') }}" class="w-100" alt="">
-                </div>
-                <div class="col-3">
-                    <img src="{{ asset('tlandingpage/asset/img/empty-img.jpeg') }}" class="w-100" alt="">
-                </div>
+                @foreach ($kegiatan as $item)
+                    <div class="col-3">
+                        <img src="{{ asset("storage/img/forum_galeri/$item->id_kategori_galeri/$item->foto") }}" class="w-100" alt="">
+                    </div>
+                @endforeach
             </div>
         </div>
     </section>
