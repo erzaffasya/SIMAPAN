@@ -48,6 +48,7 @@
                 var kantor = locationData[i].kantor;
                 var deskripsi_map = locationData[i].deskripsi_map;
                 var foto = locationData[i].foto;
+                var link = locationData[i].link;
 
                 var dataMarker = new google.maps.Marker({
                     position: {
@@ -70,7 +71,9 @@
                     content: `<div><h5>${kantor}</h5>
                         <br>
                         <img height="80" src="${foto}"/>
-                        <p>${deskripsi_map}.</p></div>`
+                        <p>${deskripsi_map}.</p></div>
+                        <br>
+                        <a target="_blank" href=${link}>Link on maps</a>`
                 });
 
                 attachInfoWindow(dataMarker, infoWindow1);

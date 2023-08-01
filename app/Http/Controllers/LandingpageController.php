@@ -11,6 +11,7 @@ use App\Models\JumlahAnak;
 use App\Models\Kantor;
 use App\Models\Kegiatan;
 use App\Models\Kelembagaan;
+use App\Models\ProfilGaleri;
 use App\Models\Tentang;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -38,6 +39,7 @@ class LandingpageController extends Controller
                 "kantor" => $item->kantor,
                 "deskripsi_map" => $item->deskripsi_map,
                 "latitude" => $item->latitude,
+                "link" => $item->link_map,
                 "foto" => asset("storage/img/kantor/$item->foto"),
                 "longitude" => $item->longitude
             ];
@@ -55,6 +57,7 @@ class LandingpageController extends Controller
     public function profil() {
         $jumlahAnak = JumlahAnak::find(1);
         $kelembagaan = Kelembagaan::find(1);
-        return view('landingpage.profil', compact('jumlahAnak', 'kelembagaan'));
+        $galeri = ProfilGaleri::limit(8)->get();
+        return view('landingpage.profil', compact('jumlahAnak', 'kelembagaan', 'galeri'));
     }
 }
