@@ -38,7 +38,7 @@ class ForumStrukturController extends Controller
                 'foto' => 'required',
             ]);
         }
-
+        
         if ($request->foto) {
             $path = storage_path("app/public/img/struktur");
             $path_tmp = storage_path("app/public/img/.thumbnail/struktur");
@@ -85,6 +85,7 @@ class ForumStrukturController extends Controller
         );
         $struktur->id = 1;
         $struktur->deskripsi = $request->deskripsi;
+        $struktur->foto = $file_name;
         $struktur->save();
 
         return redirect()->route('forum-struktur.index')->with('success', 'Berhasil update tentang');
