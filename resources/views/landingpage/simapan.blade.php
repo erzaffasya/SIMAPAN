@@ -18,22 +18,22 @@
             <img src="{{asset('tlandingpage/asset/img/crop-slider.png')}}" class="w-100 crop-slider-top" alt="">
             <div class="header-slide">
                 <div>
-                    <figure class="px-0 mb-0">
+                    <figure class="px-3 mb-0">
                         <img src="{{asset('tlandingpage/asset/img/p1-1.jpg')}}" width="280" height="250">
                     </figure>
                 </div>
                 <div>
-                    <figure class="px-0 mb-0">
+                    <figure class="px-3 mb-0">
                         <img src="{{asset('tlandingpage/asset/img/p1-2.jpg')}}" width="280" height="250">
                     </figure>
                 </div>
                 <div>
-                    <figure class="px-0 mb-0">
+                    <figure class="px-3 mb-0">
                         <img src="{{asset('tlandingpage/asset/img/p1-3.jpg')}}" width="280" height="250">
                     </figure>
                 </div>
                 <div>
-                    <figure class="px-0 mb-0">
+                    <figure class="px-3 mb-0">
                         <img src="{{asset('tlandingpage/asset/img/p1-4.jpg')}}" width="280" height="250">
                     </figure>
                 </div>
@@ -152,7 +152,7 @@
                                 </div>
                                 <div class="col-auto">
                                     <div>
-                                        <a href="#" class="btn btn-primary">Lihat Peta</a>
+                                        <a href="/peta" class="btn btn-primary">Lihat Peta</a>
                                     </div>
                                 </div>
                             </div>
@@ -279,7 +279,8 @@
     <section id="faq-section">
         <div class="bg-blues bg-img-overlay item1-img py-5">
             <div class="container">
-                <h1 class="display-6 mb-3 text-white text-center">Frequently Asked Question (FaQ)</h1>
+                <h1 class="display-6 mb-1 text-white text-center">Frequently Asked Question (FaQ)</h1>
+                <p class="fs-5 mb-3 text-white text-center mb-2">Pertanyaan yang sering muncul mengenai DP3AKB</p>
                 <div class="row justify-content-center">
                     <div class="col-8">
                         <div class="accordion" id="accordionExample">
@@ -383,8 +384,7 @@
             <div class="row justify-content-center align-items-center">
                 <div class="col-5">
                     <h1 class="display-6">Form Aspirasi</h1>
-                    <p class="fs-5 text-secondary mb-4">Temukan informasi mengenai anak dari berbagai sumber komunitas
-                        forum
+                    <p class="fs-5 text-secondary mb-4">Berikan aspirasi anda mengenai program DP3AKB
                     </p>
                     <form action="">
                         <div class="mb-3">

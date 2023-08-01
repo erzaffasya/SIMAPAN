@@ -14,10 +14,16 @@ body {
     scroll-behavior: smooth;
 }
 
-h1 {
+h1,
+h2,
+h3,
+h4,
+h5{
     font-family: 'Paytone One', sans-serif !important;
 }
-
+img{
+    object-fit: cover;
+}
 #coreWrap {
     width: 100% !important;
     height: 100% !important;
