@@ -92,7 +92,7 @@
                     <p class="fs-5 text-secondary mb-5">Temukan informasi mengenai anak dari berbagai sumber komunitas
                         forum
                     </p>
-                    <a href="#" class="btn btn-outline-primary w-100">Lihat Semua Artikel</a>
+                    <a href="{{route('landingpage.artikel')}}" class="btn btn-outline-primary w-100">Lihat Semua Artikel</a>
                 </div>
                 @foreach ($forumArtikel as $item)
                     <div class="col-3">
@@ -178,57 +178,23 @@
         <div class="container py-5">
             <div class="d-flex align-items-center justify-content-between">
                 <h1 class="display-6 mb-3">Artikel Parenting</h1>
-                <a href="#" class="btn btn-link text-decoration-none">Lihat Semua</a>
+                <a href="{{route('landingpage.artikel')}}" class="btn btn-link text-decoration-none">Lihat Semua</a>
             </div>
             <div class="row align-items-center">
+                @foreach ($forumArtikelParenting as $item)
                 <div class="col-3">
                     <a class="card-artikel1" href="#">
                         <figure class="shadow-lg mb-0 position-relative overflow-hidden">
-                            <img src="{{ asset('tlandingpage/asset/img/empty-img.jpeg') }}" alt=""
+                            <img src="{{ asset("storage/img/forum_artikel/$item->id_kategori_artikel/$item->foto") }}" alt=""
                                 width="100%" height="350">
                             <figcaption class="rounded bg-white py-2 px-3 mx-auto">
-                                <p class="fw-bold mb-2 lh-sm text-dark">Apa Saja Hak dan Kewajiban Anak di Sekolah?</p>
-                                <p class="fs-6 mb-0 text-secondary">Kamis, 30 Juli 2023</p>
+                                <p class="fw-bold mb-2 lh-sm text-dark">{{$item->judul}}</p>
+                                <p class="fs-6 mb-0 text-secondary">{{$item->created_at->format('D, d M Y')}}</p>
                             </figcaption>
                         </figure>
                     </a>
                 </div>
-                <div class="col-3">
-                    <a class="card-artikel1" href="#">
-                        <figure class="shadow-lg mb-0 position-relative overflow-hidden">
-                            <img src="{{ asset('tlandingpage/asset/img/empty-img.jpeg') }}" alt=""
-                                width="100%" height="350">
-                            <figcaption class="rounded bg-white py-2 px-3 mx-auto">
-                                <p class="fw-bold mb-2 lh-sm text-dark">Apa Saja Hak dan Kewajiban Anak di Sekolah?</p>
-                                <p class="fs-6 mb-0 text-secondary">Kamis, 30 Juli 2023</p>
-                            </figcaption>
-                        </figure>
-                    </a>
-                </div>
-                <div class="col-3">
-                    <a class="card-artikel1" href="#">
-                        <figure class="shadow-lg mb-0 position-relative overflow-hidden">
-                            <img src="{{ asset('tlandingpage/asset/img/empty-img.jpeg') }}" alt=""
-                                width="100%" height="350">
-                            <figcaption class="rounded bg-white py-2 px-3 mx-auto">
-                                <p class="fw-bold mb-2 lh-sm text-dark">Apa Saja Hak dan Kewajiban Anak di Sekolah?</p>
-                                <p class="fs-6 mb-0 text-secondary">Kamis, 30 Juli 2023</p>
-                            </figcaption>
-                        </figure>
-                    </a>
-                </div>
-                <div class="col-3">
-                    <a class="card-artikel1" href="#">
-                        <figure class="shadow-lg mb-0 position-relative overflow-hidden">
-                            <img src="{{ asset('tlandingpage/asset/img/empty-img.jpeg') }}" alt=""
-                                width="100%" height="350">
-                            <figcaption class="rounded bg-white py-2 px-3 mx-auto">
-                                <p class="fw-bold mb-2 lh-sm text-dark">Apa Saja Hak dan Kewajiban Anak di Sekolah?</p>
-                                <p class="fs-6 mb-0 text-secondary">Kamis, 30 Juli 2023</p>
-                            </figcaption>
-                        </figure>
-                    </a>
-                </div>
+                @endforeach
             </div>
 
         </div>

@@ -47,22 +47,14 @@ Route::get('/artikel-detail', function () {
 });
 
 
-Route::get('/artikel-index', function () {
-    return view('landingpage.artikelindex');
-});
+// Route::get('/artikel-index', function () {
+//     return view('landingpage.artikelindex');
+// });
 
-// Route::get('/forum', function () {
-//     return view('landingpage.forum');
-// });
-// Route::get('/profil', function () {
-//     return view('landingpage.profil');
-// });
-// Route::get('/simapan', function () {
-//     return view('landingpage.simapan');
-// });
 Route::get('/simapan', [LandingpageController::class, 'simapan'])->name('simapan');
 Route::get('/forum', [LandingpageController::class, 'forum'])->name('forum');
 Route::get('/profil', [LandingpageController::class, 'profil'])->name('profil');
+Route::get('/artikel', [LandingpageController::class, 'artikel'])->name('landingpage.artikel');
 // Route::get('/peta', function () {
 //     return view('landingpage.peta');
 // });
