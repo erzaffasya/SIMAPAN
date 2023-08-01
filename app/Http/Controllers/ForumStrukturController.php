@@ -72,7 +72,7 @@ class ForumStrukturController extends Controller
             $image_tmp->save("$path_tmp/$request->id_kategori/$file_name");
         } else {
             $file_name = $struktur->foto;
-        }
+        }   
 
         $struktur = ForumStruktur::firstOrCreate(
             [

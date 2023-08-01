@@ -60,6 +60,9 @@ class ForumArtikelController extends Controller
             if (!File::exists("$path")) {
                 File::makeDirectory("$path", $mode = 0777, true, true);
             }
+            if (!File::exists("$path_tmp")) {
+                File::makeDirectory("$path_tmp", $mode = 0777, true, true);
+            }
             $image->save("$path/$file_name");
             $image_tmp = Image::make($request->file('foto'));
             $image_tmp->resize(720, null, function ($constraint) {

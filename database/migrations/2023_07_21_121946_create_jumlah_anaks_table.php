@@ -16,7 +16,7 @@ class CreateJumlahAnaksTable extends Migration
         Schema::create('jumlah_anak', function (Blueprint $table) {
             $table->id();
             $table->integer('perempuan');
-            $table->integer('laki-laki');
+            $table->integer('laki_laki');
             $table->timestamps();
         });
     }

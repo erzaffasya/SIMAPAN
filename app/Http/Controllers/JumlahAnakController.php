@@ -44,11 +44,11 @@ class JumlahAnakController extends Controller
             ],
             [
                 "perempuan" => $request->perempuan,
-                "laki-laki" => $request->laki_laki,
+                "laki_laki" => $request->laki_laki,
             ]
         );
         $tentang->perempuan = $request->perempuan;
-        $tentang->{'laki-laki'} = $request->laki_laki;
+        $tentang->laki_laki = $request->laki_laki;
         $tentang->save();
 
         return redirect()->route('jumlahanak.index')->with('success', 'Berhasil update jumlah anak');

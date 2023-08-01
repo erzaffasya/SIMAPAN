@@ -14,27 +14,29 @@
             </div>
         </div>
         <div class="position-relative">
-            <img src="{{asset('tlandingpage/asset/img/crop-slider-bottom.png')}}" class=" w-100 crop-slider-bottom" alt="">
-            <img src="{{asset('tlandingpage/asset/img/crop-slider.png')}}" class="w-100 crop-slider-top" alt="">
+            <img src="{{ asset('tlandingpage/asset/img/crop-slider-bottom.png') }}" class=" w-100 crop-slider-bottom"
+                alt="">
+            <img src="{{ asset('tlandingpage/asset/img/crop-slider.png') }}" class="w-100 crop-slider-top"
+                alt="">
             <div class="header-slide">
                 <div>
                     <figure class="px-3 mb-0">
-                        <img src="{{asset('tlandingpage/asset/img/p1-1.jpg')}}" width="280" height="250">
+                        <img src="{{ asset('tlandingpage/asset/img/p1-1.jpg') }}" width="280" height="250">
                     </figure>
                 </div>
                 <div>
                     <figure class="px-3 mb-0">
-                        <img src="{{asset('tlandingpage/asset/img/p1-2.jpg')}}" width="280" height="250">
+                        <img src="{{ asset('tlandingpage/asset/img/p1-2.jpg') }}" width="280" height="250">
                     </figure>
                 </div>
                 <div>
                     <figure class="px-3 mb-0">
-                        <img src="{{asset('tlandingpage/asset/img/p1-3.jpg')}}" width="280" height="250">
+                        <img src="{{ asset('tlandingpage/asset/img/p1-3.jpg') }}" width="280" height="250">
                     </figure>
                 </div>
                 <div>
                     <figure class="px-3 mb-0">
-                        <img src="{{asset('tlandingpage/asset/img/p1-4.jpg')}}" width="280" height="250">
+                        <img src="{{ asset('tlandingpage/asset/img/p1-4.jpg') }}" width="280" height="250">
                     </figure>
                 </div>
             </div>
@@ -46,31 +48,33 @@
             <div class="container">
                 <div class="row justify-content-center align-items-center">
                     <div class="col-5">
-                        <iframe width="100%" height="315" class="rounded"
-                            src="https://www.youtube.com/embed/5ieah_aBaMo" title="YouTube video player" frameborder="0"
+                        <iframe width="100%" height="315" class="rounded" src="{{ $tentang->video }}"
+                            title="YouTube video player" frameborder="0"
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                             allowfullscreen></iframe>
                     </div>
                     <div class="col-6">
                         <h1 class="fs-2 text-white">Tentang SIMAPAN</h1>
-                        <p class="fs-5 text-white lh-lg">SIMAPAN adalah portal pusat informasi mengenai hal-hal yang
-                            berkaitan dengan perlindungan anak dan perempuan dengan tujuan
-                            utama menjadikan Kota balikpapan sebagai Kota Layak Anak</p>
+                        <p class="fs-5 text-white lh-lg">{{ $tentang->tentang }}</p>
                         <div class="row gy-3 mt-4">
                             <div class="col-5 d-flex align-items-center">
-                                <img src="{{asset('tlandingpage/asset/img/call-incoming.png')}}" height="30px" alt="" class="me-3">
+                                <img src="{{ asset('tlandingpage/asset/img/call-incoming.png') }}" height="30px"
+                                    alt="" class="me-3">
                                 <h1 class="fs-5 fw-normal text-white">Konsultasi WA</h1>
                             </div>
                             <div class="col-5 d-flex align-items-center">
-                                <img src="{{asset('tlandingpage/asset/img/clipboard.png')}}" height="30px" alt="" class="me-3">
+                                <img src="{{ asset('tlandingpage/asset/img/clipboard.png') }}" height="30px"
+                                    alt="" class="me-3">
                                 <h1 class="fs-5 fw-normal text-white">Kegiatan PPATBM</h1>
                             </div>
                             <div class="col-5 d-flex align-items-center">
-                                <img src="{{asset('tlandingpage/asset/img/shield.png')}}" height="30px" alt="" class="me-3">
+                                <img src="{{ asset('tlandingpage/asset/img/shield.png') }}" height="30px"
+                                    alt="" class="me-3">
                                 <h1 class="fs-5 fw-normal text-white">Bantuan Hukum</h1>
                             </div>
                             <div class="col-5 d-flex align-items-center">
-                                <img src="{{asset('tlandingpage/asset/img/note-text.png')}}" height="30px" alt="" class="me-3">
+                                <img src="{{ asset('tlandingpage/asset/img/note-text.png') }}" height="30px"
+                                    alt="" class="me-3">
                                 <h1 class="fs-5 fw-normal text-white">Laporan Kejadian</h1>
                             </div>
                         </div>
@@ -90,39 +94,21 @@
                     </p>
                     <a href="#" class="btn btn-outline-primary w-100">Lihat Semua Artikel</a>
                 </div>
-                <div class="col-3">
-                    <a class="card-artikel1" href="#">
-                        <figure class="shadow-lg mb-0 position-relative overflow-hidden">
-                            <img src="{{asset('tlandingpage/asset/img/empty-img.jpeg')}}" alt="" width="100%" height="350">
-                            <figcaption class="rounded bg-white py-2 px-3 mx-auto">
-                                <p class="fw-bold mb-2 lh-sm text-dark">Apa Saja Hak dan Kewajiban Anak di Sekolah?</p>
-                                <p class="fs-6 mb-0 text-secondary">Kamis, 30 Juli 2023</p>
-                            </figcaption>
-                        </figure>
-                    </a>
-                </div>
-                <div class="col-3">
-                    <a class="card-artikel1" href="#">
-                        <figure class="shadow-lg mb-0 position-relative overflow-hidden">
-                            <img src="{{asset('tlandingpage/asset/img/empty-img.jpeg')}}" alt="" width="100%" height="350">
-                            <figcaption class="rounded bg-white py-2 px-3 mx-auto">
-                                <p class="fw-bold mb-2 lh-sm text-dark">Apa Saja Hak dan Kewajiban Anak di Sekolah?</p>
-                                <p class="fs-6 mb-0 text-secondary">Kamis, 30 Juli 2023</p>
-                            </figcaption>
-                        </figure>
-                    </a>
-                </div>
-                <div class="col-3">
-                    <a class="card-artikel1" href="#">
-                        <figure class="shadow-lg mb-0 position-relative overflow-hidden">
-                            <img src="{{asset('tlandingpage/asset/img/empty-img.jpeg')}}" alt="" width="100%" height="350">
-                            <figcaption class="rounded bg-white py-2 px-3 mx-auto">
-                                <p class="fw-bold mb-2 lh-sm text-dark">Apa Saja Hak dan Kewajiban Anak di Sekolah?</p>
-                                <p class="fs-6 mb-0 text-secondary">Kamis, 30 Juli 2023</p>
-                            </figcaption>
-                        </figure>
-                    </a>
-                </div>
+                @foreach ($forumArtikel as $item)
+                    <div class="col-3">
+                        <a class="card-artikel1" href="#">
+                            <figure class="shadow-lg mb-0 position-relative overflow-hidden">
+                                <img src="{{ asset("storage/img/forum_artikel/$item->id_kategori_artikel/$item->foto") }}" alt=""
+                                    width="100%" height="350">
+                                <figcaption class="rounded bg-white py-2 px-3 mx-auto">
+                                    <p class="fw-bold mb-2 lh-sm text-dark">{{$item->judul}}
+                                    </p>
+                                    <p class="fs-6 mb-0 text-secondary">{{$item->created_at->format('d M Y')}}</p>
+                                </figcaption>
+                            </figure>
+                        </a>
+                    </div>
+                @endforeach
             </div>
             <div class="row mt-4 justify-content-between bg-primary rounded align-items-center p-3">
                 <div class="col-auto">
@@ -141,7 +127,7 @@
                 <div class="col-8">
                     <h1 class="fs-3 mb-3">Maps Pemetaan</h1>
                     <figure class="position-relative rounded" style="height: 350px;">
-                        <img src="{{asset('tlandingpage/asset/img/empty-img.jpeg')}}" alt=""
+                        <img src="{{ asset('tlandingpage/asset/img/empty-img.jpeg') }}" alt=""
                             class="w-100 rounded h-100 position-absolute" style="top:0; left:0;z-index: 0;">
                         <figcaption class="position-relative h-100 d-flex align-items-end" style="z-index: 1;">
                             <div class="row align-items-center px-2 py-3 m-0 w-100">
@@ -168,8 +154,8 @@
                         <a href="#" class="text-decoration-none">
                             <div class="row g-0">
                                 <div class="col-md-4">
-                                    <img src="{{asset('tlandingpage/asset/img/empty-img.jpeg')}}" class="img-fluid rounded h-100"
-                                        alt="...">
+                                    <img src="{{ asset('tlandingpage/asset/img/empty-img.jpeg') }}"
+                                        class="img-fluid rounded h-100" alt="...">
                                 </div>
                                 <div class="col-md-8">
                                     <div class="card-body h-100">
@@ -185,8 +171,8 @@
                         <a href="#" class="text-decoration-none">
                             <div class="row g-0">
                                 <div class="col-md-4">
-                                    <img src="{{asset('tlandingpage/asset/img/empty-img.jpeg')}}" class="img-fluid rounded h-100"
-                                        alt="...">
+                                    <img src="{{ asset('tlandingpage/asset/img/empty-img.jpeg') }}"
+                                        class="img-fluid rounded h-100" alt="...">
                                 </div>
                                 <div class="col-md-8">
                                     <div class="card-body h-100">
@@ -202,8 +188,8 @@
                         <a href="#" class="text-decoration-none">
                             <div class="row g-0">
                                 <div class="col-md-4">
-                                    <img src="{{asset('tlandingpage/asset/img/empty-img.jpeg')}}" class="img-fluid rounded h-100"
-                                        alt="...">
+                                    <img src="{{ asset('tlandingpage/asset/img/empty-img.jpeg') }}"
+                                        class="img-fluid rounded h-100" alt="...">
                                 </div>
                                 <div class="col-md-8">
                                     <div class="card-body h-100">
@@ -230,7 +216,8 @@
                 <div class="col-3">
                     <a class="card-artikel1" href="#">
                         <figure class="shadow-lg mb-0 position-relative overflow-hidden">
-                            <img src="{{asset('tlandingpage/asset/img/empty-img.jpeg')}}" alt="" width="100%" height="350">
+                            <img src="{{ asset('tlandingpage/asset/img/empty-img.jpeg') }}" alt=""
+                                width="100%" height="350">
                             <figcaption class="rounded bg-white py-2 px-3 mx-auto">
                                 <p class="fw-bold mb-2 lh-sm text-dark">Apa Saja Hak dan Kewajiban Anak di Sekolah?</p>
                                 <p class="fs-6 mb-0 text-secondary">Kamis, 30 Juli 2023</p>
@@ -241,7 +228,8 @@
                 <div class="col-3">
                     <a class="card-artikel1" href="#">
                         <figure class="shadow-lg mb-0 position-relative overflow-hidden">
-                            <img src="{{asset('tlandingpage/asset/img/empty-img.jpeg')}}" alt="" width="100%" height="350">
+                            <img src="{{ asset('tlandingpage/asset/img/empty-img.jpeg') }}" alt=""
+                                width="100%" height="350">
                             <figcaption class="rounded bg-white py-2 px-3 mx-auto">
                                 <p class="fw-bold mb-2 lh-sm text-dark">Apa Saja Hak dan Kewajiban Anak di Sekolah?</p>
                                 <p class="fs-6 mb-0 text-secondary">Kamis, 30 Juli 2023</p>
@@ -252,7 +240,8 @@
                 <div class="col-3">
                     <a class="card-artikel1" href="#">
                         <figure class="shadow-lg mb-0 position-relative overflow-hidden">
-                            <img src="{{asset('tlandingpage/asset/img/empty-img.jpeg')}}" alt="" width="100%" height="350">
+                            <img src="{{ asset('tlandingpage/asset/img/empty-img.jpeg') }}" alt=""
+                                width="100%" height="350">
                             <figcaption class="rounded bg-white py-2 px-3 mx-auto">
                                 <p class="fw-bold mb-2 lh-sm text-dark">Apa Saja Hak dan Kewajiban Anak di Sekolah?</p>
                                 <p class="fs-6 mb-0 text-secondary">Kamis, 30 Juli 2023</p>
@@ -263,7 +252,8 @@
                 <div class="col-3">
                     <a class="card-artikel1" href="#">
                         <figure class="shadow-lg mb-0 position-relative overflow-hidden">
-                            <img src="{{asset('tlandingpage/asset/img/empty-img.jpeg')}}" alt="" width="100%" height="350">
+                            <img src="{{ asset('tlandingpage/asset/img/empty-img.jpeg') }}" alt=""
+                                width="100%" height="350">
                             <figcaption class="rounded bg-white py-2 px-3 mx-auto">
                                 <p class="fw-bold mb-2 lh-sm text-dark">Apa Saja Hak dan Kewajiban Anak di Sekolah?</p>
                                 <p class="fs-6 mb-0 text-secondary">Kamis, 30 Juli 2023</p>
