@@ -20,7 +20,7 @@
                         <div class="col-lg-12 col-sm-12 col-12">
                             <div class="form-group">
                                 <label>Laki-laki</label>
-                                <input name="laki_laki" value="{{ $tentang->{'laki-laki'} ?? '' }}" type="text">
+                                <input name="laki_laki" value="{{ $tentang->laki_laki ?? '' }}" type="text">
                             </div>
                         </div>
                         <div class="col-lg-12">
