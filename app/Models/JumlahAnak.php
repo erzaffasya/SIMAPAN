@@ -13,7 +13,7 @@ class JumlahAnak extends Model
 
     protected $fillable = [
         'perempuan',
-        'laki-laki'
+        'laki_laki'
     ];
 
 }
