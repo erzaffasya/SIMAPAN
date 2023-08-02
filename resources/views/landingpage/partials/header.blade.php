@@ -15,7 +15,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ms-auto me-3 mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="{{url('/simapan')}}">SIMAPAN</a>
+                    <a class="nav-link active" aria-current="page" href="{{url('/simapan')}}">Kegiatan PA</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{url('/forum')}}">Forum Anak</a>
@@ -24,16 +24,16 @@
                     <a class="nav-link" href="{{url('/profil')}}">Profil Anak</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Tentang</a>
+                    <a class="nav-link" href="{{url('/simapan#about-program')}}">Tentang</a>
                 </li>
                 <li class="nav-item">
-                    <a href="" class="nav-link" href="#faq-section">FaQ</a>
+                    <a href="{{url('/simapan#faq-section')}}" class="nav-link" href="#faq-section">FaQ</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#aspirasi-section">Aspirasi</a>
+                    <a class="nav-link" href="{{url('/simapan#aspirasi-section')}}">Aspirasi</a>
                 </li>
             </ul>
-            <a href="#" class="btn btn-primary" type="submit">Masuk</a>
+            {{-- <a href="#" class="btn btn-primary" type="submit">Masuk</a> --}}
         </div>
     </div>
 </nav>

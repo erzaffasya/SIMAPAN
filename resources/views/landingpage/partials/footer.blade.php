@@ -15,12 +15,12 @@
             <p class="text-white fs-5 fw-bold">SIMAPAN</p>
             <ul class="list-unstyled">
                 <li class="my-2"><a href="#" class="text-white text-decoration-none">Konsultasi
-                        Online</a></li>
+                        Psikolog</a></li>
                 <li class="my-2"><a href="#" class="text-white text-decoration-none">Kegiatan
                         PPATBM</a></li>
                 <li class="my-2"><a href="#" class="text-white text-decoration-none">Laporan
-                        Kejadian</a></li>
-                <li class="my-2"><a href="#" class="text-white text-decoration-none">Bantuan
+                        Kasus KtPA</a></li>
+                <li class="my-2"><a href="#" class="text-white text-decoration-none">Konsultasi
                         Hukum</a></li>
             </ul>
         </div>
@@ -49,5 +49,5 @@
             </ul>
         </div>
     </div>
-    <p class="text-white text-center fs-6 mt-4">© 2023 DP3AKB. Copyright and rights reserved</p>
+    <p class="text-white text-center fs-6 mt-4">© 2023 PT. Media Kreatifindo Nusantara</p>
 </div>

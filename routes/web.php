@@ -64,6 +64,12 @@ Route::get('/peta', [LandingpageController::class, 'peta'])->name('peta');
 Route::get('/kluster1', function () {
     return view('landingpage.kluster1');
 });
+Route::get('/kegiatan', function () {
+    return view('landingpage.kegiatan');
+});
+Route::get('/kegiatandetail', function () {
+    return view('landingpage.kegiatandetail');
+});
 
 // Route::get('/', function () {
 //     return view('welcome');

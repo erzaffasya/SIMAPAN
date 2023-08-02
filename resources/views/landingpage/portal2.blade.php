@@ -21,8 +21,9 @@
           <img src="{{asset('tlandingpage/asset/img/logo-1.png')}}" alt="">
           <img src="{{asset('tlandingpage/asset/img/logo-2.png')}}" alt="">
           <img src="{{asset('tlandingpage/asset/img/logo-3.png')}}" alt="">
+          <img src="{{asset('tlandingpage/asset/img/logo-4.jpg')}}" alt="">
         </div>
-        <figcaption class="fw-bold fs-5">Dinas Pemberdayaan Perempuan, Perlindungan Anak dan Keluarga Berencana Kota Balikpapan (DP3AKB)</figcaption>
+        <figcaption class="fw-bold fs-5">SIMAPAN (SISTEM MANAJEMEN PERLINDUNGAN ANAK)</figcaption>
       </figure>
     </section>
     <div id="portal-1" class="row gx-0 align-items-md-stretch h-100">
@@ -48,8 +49,8 @@
         <figure class="h-100 position-relative text-white">
           <img src="{{asset('tlandingpage/asset/img/p2-3.jpg')}}" alt="">
           <figcaption class="p-4 d-flex flex-column justify-content-end text-center">
-            <h1 class="fw-bold display-6">SIMAPAN</h1>
-            <p class="fs-5 text-white">Sistem Manajemen Perlindungan Anak Balikpapan</p>
+            <h1 class="fw-bold display-6">KEGIATAN PERLINDUNGAN ANAK</h1>
+            {{-- <p class="fs-5 text-white">Sistem Manajemen Perlindungan Anak Balikpapan</p> --}}
             <a href="{{url('simapan')}}" class="mt-3 btn btn-lg py-2 rounded-2 btn-outline-light" type="button">Kunjungi</a>
           </figcaption>
         </figure>

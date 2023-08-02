@@ -48,19 +48,19 @@
             <div class="container">
                 <div class="row justify-content-center align-items-center">
                     <div class="col-5">
-                        <iframe width="100%" height="315" class="rounded" src="{{ $tentang->video }}"
+                        <iframe width="100%" height="315" class="rounded" src="{{ $tentang->video ?? '' }}"
                             title="YouTube video player" frameborder="0"
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                             allowfullscreen></iframe>
                     </div>
                     <div class="col-6">
                         <h1 class="fs-2 text-white">Tentang SIMAPAN</h1>
-                        <p class="fs-5 text-white lh-lg">{{ $tentang->tentang }}</p>
+                        <p class="fs-5 text-white lh-lg">{{ $tentang->tentang ?? ''}}</p>
                         <div class="row gy-3 mt-4">
                             <div class="col-5 d-flex align-items-center">
                                 <img src="{{ asset('tlandingpage/asset/img/call-incoming.png') }}" height="30px"
                                     alt="" class="me-3">
-                                <h1 class="fs-5 fw-normal text-white">Konsultasi WA</h1>
+                                <h1 class="fs-5 fw-normal text-white">Konsultasi Psikolog</h1>
                             </div>
                             <div class="col-5 d-flex align-items-center">
                                 <img src="{{ asset('tlandingpage/asset/img/clipboard.png') }}" height="30px"
@@ -70,12 +70,12 @@
                             <div class="col-5 d-flex align-items-center">
                                 <img src="{{ asset('tlandingpage/asset/img/shield.png') }}" height="30px"
                                     alt="" class="me-3">
-                                <h1 class="fs-5 fw-normal text-white">Bantuan Hukum</h1>
+                                <h1 class="fs-5 fw-normal text-white">Konsultasi Hukum</h1>
                             </div>
                             <div class="col-5 d-flex align-items-center">
                                 <img src="{{ asset('tlandingpage/asset/img/note-text.png') }}" height="30px"
                                     alt="" class="me-3">
-                                <h1 class="fs-5 fw-normal text-white">Laporan Kejadian</h1>
+                                <h1 class="fs-5 fw-normal text-white">Laporan Kasus KtPA</h1>
                             </div>
                         </div>
                     </div>
