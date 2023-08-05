@@ -39,14 +39,19 @@ class AuthController extends Controller
     {
         $request->validate([
             'name' => 'required|string',
-            'email' => 'required|email|unique:users,email',
+            'email' => 'required|email',
             'password' => 'required|string|min:6',
         ]);
 
         $regis = User::where('email', $request->email)->first();
-        return [$regis,$request->email];
         if ($regis) {
-            return response()->json("Email sudah terdaftar", 400);
+            return response()->json(
+                [
+                    "code" => 400,
+                    "message" => "Email sudah terdaftar"
+                ],
+                400
+            );
         }
 
         $user = User::create([
