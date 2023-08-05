@@ -75,7 +75,7 @@ class ArtikelController extends Controller
 
         Artikel::create([
             "id_kategori" => $request->id_kategori,
-            "slug" => Str::slug($request->title),
+            "slug" => Str::slug($request->judul),
             "foto" => $file_name,
             "thumbnail" => $file_name,
             "judul" => $request->judul,
