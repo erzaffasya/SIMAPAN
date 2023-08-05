@@ -43,6 +43,11 @@ class AuthController extends Controller
             'password' => 'required|string|min:6',
         ]);
 
+        $regis = User::where('email', $request->email)->first();
+        if ($regis != null) {
+            return response()->json("Email sudah terdaftar", 400);
+        }
+
         $user = User::create([
             'name' => $request->input('name'),
             'email' => $request->input('email'),
