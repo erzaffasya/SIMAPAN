@@ -44,7 +44,7 @@ class AuthController extends Controller
         ]);
 
         $regis = User::where('email', $request->email)->first();
-        if ($regis != null) {
+        if ($regis) {
             return response()->json("Email sudah terdaftar", 400);
         }
 
