@@ -21,6 +21,13 @@
                                     required>
                             </div>
                         </div>
+
+                        <div class="col-lg-12 col-sm-12 col-12">
+                            <div class="form-group">
+                                <label>Foto</label>
+                                <input name="foto" type="file">
+                            </div>
+                        </div>
                         <div class="col-lg-12">
                             <div class="form-group">
                                 <label>Deskripsi</label>

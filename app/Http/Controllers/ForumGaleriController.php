@@ -162,8 +162,8 @@ class ForumGaleriController extends Controller
 
         $forum_galeri->id_kategori_galeri = $request->id_kategori_galeri;
         $forum_galeri->thumbnail = $file_name;
-        $forum_galeri->judul = $request->judul;
         $forum_galeri->foto = $file_name;
+        $forum_galeri->judul = $request->judul;
         $forum_galeri->isi = $request->isi;
         $forum_galeri->save();
 

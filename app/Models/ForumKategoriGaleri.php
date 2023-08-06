@@ -14,6 +14,9 @@ class ForumKategoriGaleri extends Model
     protected $fillable = [
         'judul',
         'deskripsi',
+        'slug',
+        'foto',
+        'thumbnail',
     ];
 
     public function galeri()

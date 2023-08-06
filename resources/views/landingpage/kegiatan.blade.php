@@ -24,74 +24,28 @@
                 </div>
             </div>
             <div class="row align-items-center gy-0">
-                <div class="col-3">
-                    <a class="card-kegiatan" href="/kegiatandetail">
-                        <figure class="mb-0 position-relative">
-                            <img src="https://asset.kompas.com/crops/vroEYWejULqRzKIN7OqTXni32Bo=/1x0:1000x666/1200x800/data/photo/2020/07/23/5f18d344d67a5.jpg"
-                                alt="" width="100%" height="250">
-                            <figcaption class="py-2 px-3 mx-auto">
-                                <div>
-                                    <p class="fs-6 fw-bold mb-1 lh-sm">lorem ipsum dolor sit adashdasdjasdakshdasdh</p>
-                                    <p class="mb-0">30 agustus 2023</p>
-                                </div>
-                            </figcaption>
-                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                                10
-                              </span>
-                        </figure>
-                    </a>
-                </div>
-                <div class="col-3">
-                    <a class="card-kegiatan" href="/kegiatandetail">
-                        <figure class="mb-0 position-relative">
-                            <img src="https://asset.kompas.com/crops/vroEYWejULqRzKIN7OqTXni32Bo=/1x0:1000x666/1200x800/data/photo/2020/07/23/5f18d344d67a5.jpg"
-                                alt="" width="100%" height="250">
-                            <figcaption class="py-2 px-3 mx-auto">
-                                <div>
-                                    <p class="fs-6 fw-bold mb-1 lh-sm">lorem ipsum dolor sit adashdasdjasdakshdasdh</p>
-                                    <p class="mb-0">30 agustus 2023</p>
-                                </div>
-                            </figcaption>
-                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                                10
-                              </span>
-                        </figure>
-                    </a>
-                </div>
-                <div class="col-3">
-                    <a class="card-kegiatan" href="/kegiatandetail">
-                        <figure class="mb-0 position-relative">
-                            <img src="https://asset.kompas.com/crops/vroEYWejULqRzKIN7OqTXni32Bo=/1x0:1000x666/1200x800/data/photo/2020/07/23/5f18d344d67a5.jpg"
-                                alt="" width="100%" height="250">
-                            <figcaption class="py-2 px-3 mx-auto">
-                                <div>
-                                    <p class="fs-6 fw-bold mb-1 lh-sm">lorem ipsum dolor sit adashdasdjasdakshdasdh</p>
-                                    <p class="mb-0">30 agustus 2023</p>
-                                </div>
-                            </figcaption>
-                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                                10
-                              </span>
-                        </figure>
-                    </a>
-                </div>
-                <div class="col-3">
-                    <a class="card-kegiatan" href="/kegiatandetail">
-                        <figure class="mb-0 position-relative">
-                            <img src="https://asset.kompas.com/crops/vroEYWejULqRzKIN7OqTXni32Bo=/1x0:1000x666/1200x800/data/photo/2020/07/23/5f18d344d67a5.jpg"
-                                alt="" width="100%" height="250">
-                            <figcaption class="py-2 px-3 mx-auto">
-                                <div>
-                                    <p class="fs-6 fw-bold mb-1 lh-sm">lorem ipsum dolor sit adashdasdjasdakshdasdh</p>
-                                    <p class="mb-0">30 agustus 2023</p>
-                                </div>
-                            </figcaption>
-                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                                10
-                              </span>
-                        </figure>
-                    </a>
-                </div>
+                @foreach ($ForumKategoriGaleri as $item)
+                    <div class="col-3">
+                        <a class="card-kegiatan" href="{{route('kegiatan-forum-detail',$item->slug)}}">
+                            <figure class="mb-0 position-relative">
+                                <img src="{{ asset("storage/img/forum_kategori_galeri/$item->foto") }}" alt=""
+                                    width="100%" height="250">
+                                <figcaption class="py-2 px-3 mx-auto">
+                                    <div>
+                                        <p class="fs-6 fw-bold mb-1 lh-sm">{{ $item->judul }}
+                                        </p>
+                                        <p class="mb-0">{{ $item->created_at->format('D, d M Y') }}</p>
+                                    </div>
+                                </figcaption>
+                                <span
+                                    class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                                    {{ $item->galeri->count() }}
+                                </span>
+                            </figure>
+                        </a>
+                    </div>
+                @endforeach
+
                 <nav aria-label="Page navigation example">
                     <br>
                     <ul class="pagination justify-content-center">

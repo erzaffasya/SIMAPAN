@@ -47,6 +47,15 @@ Route::get('/artikel-detail', function () {
 });
 
 
+Route::get('/kegiatan', [LandingpageController::class, 'kegiatanForum'])->name('kegiatan-forum');
+Route::get('/kegiatan/{slug}', [LandingpageController::class, 'kegiatanForumDetail'])->name('kegiatan-forum-detail');
+// Route::get('/kegiatan', function () {
+//     return view('landingpage.kegiatan');
+// });
+// Route::get('/kegiatandetail', function () {
+//     return view('landingpage.kegiatandetail');
+// });
+
 // Route::get('/artikel-index', function () {
 //     return view('landingpage.artikelindex');
 // });
@@ -64,12 +73,6 @@ Route::get('/artikel/detail/{slug}', [LandingpageController::class, 'artikelDeta
 Route::get('/peta', [LandingpageController::class, 'peta'])->name('peta');
 Route::get('/kluster1', function () {
     return view('landingpage.kluster1');
-});
-Route::get('/kegiatan', function () {
-    return view('landingpage.kegiatan');
-});
-Route::get('/kegiatandetail', function () {
-    return view('landingpage.kegiatandetail');
 });
 
 // Route::get('/', function () {

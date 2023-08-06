@@ -4,33 +4,27 @@
             <div class="row pb-5 justify-content-center">
                 <div class="col-6">
                     <div class="slide-1-view">
-                        <figure class="px-0 mb-0">
-                            <img src="https://asset.kompas.com/crops/vroEYWejULqRzKIN7OqTXni32Bo=/1x0:1000x666/1200x800/data/photo/2020/07/23/5f18d344d67a5.jpg" class="w-100 rounded"
-                                alt="" height="400px">
-                        </figure>
-                        <figure class="px-0 mb-0">
-                            <img src="https://asset.kompas.com/crops/vroEYWejULqRzKIN7OqTXni32Bo=/1x0:1000x666/1200x800/data/photo/2020/07/23/5f18d344d67a5.jpg" class="w-100 rounded"
-                                alt="" height="400px">
-                        </figure>
-                        <figure class="px-0 mb-0">
-                            <img src="https://asset.kompas.com/crops/vroEYWejULqRzKIN7OqTXni32Bo=/1x0:1000x666/1200x800/data/photo/2020/07/23/5f18d344d67a5.jpg" class="w-100 rounded"
-                                alt="" height="400px">
-                        </figure>
+                        @foreach ($ForumGaleri as $item)
+                            <figure class="px-0 mb-0">
+                                <img src="{{asset("storage/img/forum_galeri/$item->id_kategori_galeri/$item->foto")}}"
+                                    class="w-100 rounded" alt="" height="400px">
+                            </figure>
+                        @endforeach
                     </div>
                 </div>
                 <div class="col-5">
                     <figure>
                         <figcaption>
-                            <a href="/kegiatan" class="px-2 text-link text-decoration-none">Kembali</a>
-                            
+                            <a href="{{route('kegiatan-forum')}}" class="px-2 text-link text-decoration-none">Kembali</a>
+
                             <div class="px-2 py-3 m-0 w-100">
                                 <p class="fs-6 mb-2 text-secondary">
-                                    <span class="badge fs-6 bg-primary">Kelembagaan</span>
-                                    30 Agustus 2023
+                                    <span class="badge fs-6 bg-primary">{{$ForumKategoriGaleri->judul}}</span>
+                                    {{$ForumKategoriGaleri->created_at->format('D, d M Y')}}
                                 </p>
-                                <h1 class="fs-2 fw-bold">Lorem Ipsum Dolor Sit Amet</h1>
+                                <h1 class="fs-2 fw-bold">{{$ForumKategoriGaleri->judul}}</h1>
                                 <p class="fs-6 mb-0 text-secondary">
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta tempore quia consequatur. Fuga quod aliquid nihil totam consectetur error dignissimos aut et, blanditiis suscipit modi ea? Quae, quo et? Reiciendis!</p>
+                                    {!!$ForumKategoriGaleri->isi!!}</p>
                             </div>
                         </figcaption>
                     </figure>
