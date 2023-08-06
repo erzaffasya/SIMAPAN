@@ -88,6 +88,7 @@ class KelembagaanController extends Controller
         $kelembagaan->id = 1;
         $kelembagaan->deskripsi = $request->deskripsi;
         $kelembagaan->judul = $request->judul;
+        $kelembagaan->foto = $file_name;
         $kelembagaan->save();
 
         return redirect()->route('profil-kelembagaan.index')->with('success', 'Berhasil update tentang');

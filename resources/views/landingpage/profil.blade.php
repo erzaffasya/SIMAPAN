@@ -89,7 +89,7 @@
         <div class="container py-5">
             <div class="row align-items-center">
                 <div class="col-6">
-                    <img src="{{asset("storage/img/kelembagaan/",$kelembagaan->foto??null)}}" class="w-100" height="370px" alt="">
+                    <img src="{{asset("storage/img/kelembagaan/".$kelembagaan->foto??null)}}" class="w-100" height="370px" alt="">
                 </div>
                 <div class="col-6">
                     <h1 class="fs-1 fw-bold mb-3">{{$kelembagaan->judul??null}}</h1>
