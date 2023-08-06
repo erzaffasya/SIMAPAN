@@ -11,11 +11,11 @@ class EmergencyController extends Controller
 {
     public function store(Request $request)
     {
-        $request->validate([
-            'judul' => 'required|string',
-            'gmaps' => 'nullable|string',
-            'photo' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048', // Adjust the validation rules as needed
-        ]);
+        // $request->validate([
+        //     'judul' => 'required|string',
+        //     'gmaps' => 'nullable|string',
+        //     'photo' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048', // Adjust the validation rules as needed
+        // ]);
 
         $photoPath = null;
         if ($photoPath != null) {
