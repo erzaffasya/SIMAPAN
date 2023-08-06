@@ -18,7 +18,7 @@ class EmergencyController extends Controller
         // ]);
 
         $photoPath = null;
-        if ($photoPath != null) {
+        if ($request->file('photo') != null) {
             $photoPath = $request->file('photo')->store('photo'); // Store the photo in the 'photos' directory
         }
 
