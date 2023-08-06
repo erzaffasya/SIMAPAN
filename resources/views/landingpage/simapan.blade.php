@@ -295,7 +295,7 @@
                         @csrf
                         <div class="mb-3">
                             <input type="text" name="nama" class="form-control form-control-lg" id="exampleFormControlInput1"
-                                placeholder="Nama Lenkap">
+                                placeholder="Nama Lengkap">
                         </div>
                         <div class="mb-3">
                             <input type="email" name="email" class="form-control form-control-lg" id="exampleFormControlInput2"
