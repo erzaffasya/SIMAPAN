@@ -25,7 +25,7 @@ class EmergencyController extends Controller
 
         $task = Emergency::create([
             'judul' => $request->input('judul'),
-            'gmaps' => "https://www.google.com/maps?q=" + $request->input('latitude') + ',' + $request->input('longitude'),
+            'gmaps' => "https://www.google.com/maps?q=". $request->input('latitude'). ',' . $request->input('longitude'),
             'latitude' => $request->input('latitude'),
             'longitude' => $request->input('longitude'),
             'catatan' => $request->input('catatan'),
