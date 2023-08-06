@@ -45,44 +45,44 @@ class ForumGaleriController extends Controller
         $request->validate([
             "id_kategori_galeri" => 'required',
             "judul" => 'required',
-            "foto" => 'required',
+            "foto.*" => 'required|image|mimes:jpeg,png,jpg,gif', // Validate each uploaded image
         ]);
 
-        if ($request->foto != null) {
-            $path = storage_path("app/public/img/forum_galeri/$request->id_kategori_galeri/");
-            $path_tmp = storage_path("app/public/img/.thumbnail/forum_galeri/$request->id_kategori_galeri/");
-            $extention = $request->foto->extension();
-            $file_name = time() . '.' . $extention;
-            $image = $request->file('foto');
-            $image = Image::make($request->file('foto'));
-            $image->resize(720, null, function ($constraint) {
-                $constraint->aspectRatio();
-            });
-            // check $path
-            if (!File::exists($path)) {
-                File::makeDirectory($path, $mode = 0777, true, true);
-            }
-            $image->save("$path/$file_name");
+        if ($request->hasFile('foto')) {
+            foreach ($request->file('foto') as $index => $file) {
+                $extention = $file->getClientOriginalExtension();
+                $file_name = time() . "_$index" . '.' . $extention;
+                $image = Image::make($file);
+                $image->resize(720, null, function ($constraint) {
+                    $constraint->aspectRatio();
+                });
 
-            $image_tmp = Image::make($request->file('foto'));
-            $image_tmp->resize(720, null, function ($constraint) {
-                $constraint->aspectRatio();
-            });
-            if (!File::exists($path_tmp)) {
-                File::makeDirectory($path_tmp, $mode = 0777, true, true);
+                $path = storage_path("app/public/img/forum_galeri/$request->id_kategori_galeri/");
+                $path_tmp = storage_path("app/public/img/.thumbnail/forum_galeri/$request->id_kategori_galeri/");
+
+                if (!File::exists($path)) {
+                    File::makeDirectory($path, $mode = 0777, true, true);
+                }
+                $image->save("$path/$file_name");
+
+                $image_tmp = Image::make($file);
+                $image_tmp->resize(720, null, function ($constraint) {
+                    $constraint->aspectRatio();
+                });
+                if (!File::exists($path_tmp)) {
+                    File::makeDirectory($path_tmp, $mode = 0777, true, true);
+                }
+                $image_tmp->save("$path_tmp/$file_name");
+
+                ForumGaleri::create([
+                    "id_kategori_galeri" => $request->id_kategori_galeri,
+                    "thumbnail" => $file_name,
+                    "foto" => $file_name,
+                    "judul" => $request->judul,
+                    "isi" => $request->isi,
+                ]);
             }
-            $image_tmp->save("$path_tmp/$file_name");
-        } else {
-            $file_name = null;
         }
-
-        ForumGaleri::create([
-            "id_kategori_galeri" => $request->id_kategori_galeri,
-            "thumbnail" => $file_name,
-            "foto" => $file_name,
-            "judul" => $request->judul,
-            "isi" => $request->isi,
-        ]);
 
         return redirect()->route('forum-galeri.index')
             ->with('success', 'ForumGaleri Berhasil Ditambahkan');
@@ -123,49 +123,56 @@ class ForumGaleriController extends Controller
         $request->validate([
             "id_kategori_galeri" => 'required',
             "judul" => 'required',
-            "foto" => 'nullable|image',
+            "foto.*" => 'nullable|image|mimes:jpeg,png,jpg,gif', // Validate each uploaded image
         ]);
 
-        if ($request->foto) {
-            $path = storage_path("app/public/img/forum_galeri");
-            $path_tmp = storage_path("app/public/img/.thumbnail/forum_galeri");
-            if (File::exists("$path/$forum_galeri->id_kategori_galeri/$forum_galeri->foto")) {
-                File::delete("$path/$forum_galeri->id_kategori_galeri/$forum_galeri->foto");
-            }
-            if (File::exists("$path_tmp/$forum_galeri->id_kategori_galeri/$forum_galeri->foto")) {
-                File::delete("$path_tmp/$forum_galeri->id_kategori_galeri/$forum_galeri->foto");
-            }
-            $extention = $request->foto->extension();
-            $file_name = time() . '.' . $extention;
-            $image = $request->file('foto');
-            $image = Image::make($request->file('foto'));
-            $image->resize(1080, null, function ($constraint) {
-                $constraint->aspectRatio();
-            });
-            // check $path
-            if (!File::exists("$path/$request->id_kategori_galeri")) {
-                File::makeDirectory("$path/$request->id_kategori_galeri", $mode = 0777, true, true);
-            }
-            $image->save("$path/$file_name");
-            $image_tmp = Image::make($request->file('foto'));
-            $image_tmp->resize(720, null, function ($constraint) {
-                $constraint->aspectRatio();
-            });
-            // check $path
-            if (!File::exists("$path_tmp/$request->id_kategori_galeri")) {
-                File::makeDirectory("$path_tmp/$request->id_kategori_galeri", $mode = 0777, true, true);
-            }
-            $image_tmp->save("$path_tmp/$request->id_kategori_galeri/$file_name");
-        } else {
-            $file_name = $forum_galeri->foto;
-        }
+        $id_kategori_galeri = $request->id_kategori_galeri;
+        $judul = $request->judul;
+        $isi = $request->isi;
 
-        $forum_galeri->id_kategori_galeri = $request->id_kategori_galeri;
-        $forum_galeri->thumbnail = $file_name;
-        $forum_galeri->foto = $file_name;
-        $forum_galeri->judul = $request->judul;
-        $forum_galeri->isi = $request->isi;
-        $forum_galeri->save();
+        if ($request->hasFile('foto')) {
+            foreach ($request->file('foto') as $index => $file) {
+                $extention = $file->getClientOriginalExtension();
+                $file_name = time() . "_$index" . '.' . $extention;
+                $image = Image::make($file);
+                $image->resize(1080, null, function ($constraint) {
+                    $constraint->aspectRatio();
+                });
+
+                $path = storage_path("app/public/img/forum_galeri/$id_kategori_galeri/");
+                $path_tmp = storage_path("app/public/img/.thumbnail/forum_galeri/$id_kategori_galeri/");
+
+                if (!File::exists($path)) {
+                    File::makeDirectory($path, $mode = 0777, true, true);
+                }
+                $image->save("$path/$file_name");
+
+                $image_tmp = Image::make($file);
+                $image_tmp->resize(720, null, function ($constraint) {
+                    $constraint->aspectRatio();
+                });
+                if (!File::exists($path_tmp)) {
+                    File::makeDirectory($path_tmp, $mode = 0777, true, true);
+                }
+                $image_tmp->save("$path_tmp/$file_name");
+
+                // Update the current ForumGaleri entry
+                $forum_galeri->update([
+                    "id_kategori_galeri" => $id_kategori_galeri,
+                    "thumbnail" => $file_name,
+                    "foto" => $file_name,
+                    "judul" => $judul,
+                    "isi" => $isi,
+                ]);
+            }
+        } else {
+            // Update the current ForumGaleri entry without changing the image
+            $forum_galeri->update([
+                "id_kategori_galeri" => $id_kategori_galeri,
+                "judul" => $judul,
+                "isi" => $isi,
+            ]);
+        }
 
         return redirect()->route('forum-galeri.index')
             ->with('success', 'ForumGaleri Berhasil Diubah');

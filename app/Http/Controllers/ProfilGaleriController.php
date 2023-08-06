@@ -43,44 +43,48 @@ class ProfilGaleriController extends Controller
         $request->validate([
             "id_kategori_galeri" => 'required',
             "judul" => 'required',
-            "foto" => 'required',
+            "foto.*" => 'required|image|mimes:jpeg,png,jpg,gif', // Validate each uploaded image
         ]);
 
-        if ($request->foto != null) {
-            $path = storage_path("app/public/img/profil_galeri/$request->id_kategori_galeri/");
-            $path_tmp = storage_path("app/public/img/.thumbnail/profil_galeri/$request->id_kategori_galeri/");
-            $extention = $request->foto->extension();
-            $file_name = time() . '.' . $extention;
-            $image = $request->file('foto');
-            $image = Image::make($request->file('foto'));
-            $image->resize(720, null, function ($constraint) {
-                $constraint->aspectRatio();
-            });
-            // check $path
-            if (!File::exists($path)) {
-                File::makeDirectory($path, $mode = 0777, true, true);
-            }
-            $image->save("$path/$file_name");
+        $id_kategori_galeri = $request->id_kategori_galeri;
+        $judul = $request->judul;
+        $deskripsi = $request->deskripsi;
 
-            $image_tmp = Image::make($request->file('foto'));
-            $image_tmp->resize(720, null, function ($constraint) {
-                $constraint->aspectRatio();
-            });
-            if (!File::exists($path_tmp)) {
-                File::makeDirectory($path_tmp, $mode = 0777, true, true);
+        if ($request->hasFile('foto')) {
+            foreach ($request->file('foto') as $index => $file) {
+                $extention = $file->getClientOriginalExtension();
+                $file_name = time() . "_$index" . '.' . $extention;
+                $image = Image::make($file);
+                $image->resize(720, null, function ($constraint) {
+                    $constraint->aspectRatio();
+                });
+
+                $path = storage_path("app/public/img/profil_galeri/$id_kategori_galeri/");
+                $path_tmp = storage_path("app/public/img/.thumbnail/profil_galeri/$id_kategori_galeri/");
+
+                if (!File::exists($path)) {
+                    File::makeDirectory($path, $mode = 0777, true, true);
+                }
+                $image->save("$path/$file_name");
+
+                $image_tmp = Image::make($file);
+                $image_tmp->resize(720, null, function ($constraint) {
+                    $constraint->aspectRatio();
+                });
+                if (!File::exists($path_tmp)) {
+                    File::makeDirectory($path_tmp, $mode = 0777, true, true);
+                }
+                $image_tmp->save("$path_tmp/$file_name");
+
+                ProfilGaleri::create([
+                    "id_kategori_galeri" => $id_kategori_galeri,
+                    "thumbnail" => $file_name,
+                    "foto" => $file_name,
+                    "judul" => $judul,
+                    "deskripsi" => $deskripsi,
+                ]);
             }
-            $image_tmp->save("$path_tmp/$file_name");
-        } else {
-            $file_name = null;
         }
-
-        ProfilGaleri::create([
-            "id_kategori_galeri" => $request->id_kategori_galeri,
-            "thumbnail" => $file_name,
-            "foto" => $file_name,
-            "judul" => $request->judul,
-            "deskripsi" => $request->deskripsi,
-        ]);
 
         return redirect()->route('profil-galeri.index')
             ->with('success', 'ProfilGaleri Berhasil Ditambahkan');
@@ -121,50 +125,57 @@ class ProfilGaleriController extends Controller
         $request->validate([
             "id_kategori_galeri" => 'required',
             "judul" => 'required',
-            "foto" => 'nullable|image',
+            "foto.*" => 'nullable|image', // Validate each uploaded image
         ]);
 
-        if ($request->foto) {
-            $path = storage_path("app/public/img/profil_galeri");
-            $path_tmp = storage_path("app/public/img/.thumbnail/profil_galeri");
-            if (File::exists("$path/$profil_galeri->id_kategori_galeri/$profil_galeri->foto")) {
-                File::delete("$path/$profil_galeri->id_kategori_galeri/$profil_galeri->foto");
+        $id_kategori_galeri = $request->id_kategori_galeri;
+        $judul = $request->judul;
+        $deskripsi = $request->deskripsi;
+
+        if ($request->hasFile('foto')) {
+            foreach ($request->file('foto') as $index => $file) {
+                $extention = $file->getClientOriginalExtension();
+                $file_name = time() . "_$index" . '.' . $extention;
+                $image = Image::make($file);
+                $image->resize(1080, null, function ($constraint) {
+                    $constraint->aspectRatio();
+                });
+
+                $path = storage_path("app/public/img/profil_galeri/$id_kategori_galeri/");
+                $path_tmp = storage_path("app/public/img/.thumbnail/profil_galeri/$id_kategori_galeri/");
+
+                if (!File::exists($path)) {
+                    File::makeDirectory($path, $mode = 0777, true, true);
+                }
+                $image->save("$path/$file_name");
+
+                $image_tmp = Image::make($file);
+                $image_tmp->resize(720, null, function ($constraint) {
+                    $constraint->aspectRatio();
+                });
+                if (!File::exists($path_tmp)) {
+                    File::makeDirectory($path_tmp, $mode = 0777, true, true);
+                }
+                $image_tmp->save("$path_tmp/$file_name");
+
+                // Update the current ProfilGaleri entry
+                $profil_galeri->update([
+                    "id_kategori_galeri" => $id_kategori_galeri,
+                    "thumbnail" => $file_name,
+                    "judul" => $judul,
+                    "foto" => $file_name,
+                    "deskripsi" => $deskripsi,
+                ]);
             }
-            if (File::exists("$path_tmp/$profil_galeri->id_kategori_galeri/$profil_galeri->foto")) {
-                File::delete("$path_tmp/$profil_galeri->id_kategori_galeri/$profil_galeri->foto");
-            }
-            $extention = $request->foto->extension();
-            $file_name = time() . '.' . $extention;
-            $image = $request->file('foto');
-            $image = Image::make($request->file('foto'));
-            $image->resize(1080, null, function ($constraint) {
-                $constraint->aspectRatio();
-            });
-            // check $path
-            if (!File::exists("$path/$request->id_kategori_galeri")) {
-                File::makeDirectory("$path/$request->id_kategori_galeri", $mode = 0777, true, true);
-            }
-            $image->save("$path/$file_name");
-            $image_tmp = Image::make($request->file('foto'));
-            $image_tmp->resize(720, null, function ($constraint) {
-                $constraint->aspectRatio();
-            });
-            // check $path
-            if (!File::exists("$path_tmp/$request->id_kategori_galeri")) {
-                File::makeDirectory("$path_tmp/$request->id_kategori_galeri", $mode = 0777, true, true);
-            }
-            $image_tmp->save("$path_tmp/$request->id_kategori_galeri/$file_name");
         } else {
-            $file_name = $profil_galeri->foto;
+            // Update the current ProfilGaleri entry without changing the image
+            $profil_galeri->update([
+                "id_kategori_galeri" => $id_kategori_galeri,
+                "judul" => $judul,
+                "deskripsi" => $deskripsi,
+            ]);
         }
-
-        $profil_galeri->id_kategori_galeri = $request->id_kategori_galeri;
-        $profil_galeri->thumbnail = $file_name;
-        $profil_galeri->judul = $request->judul;
-        $profil_galeri->foto = $file_name;
-        $profil_galeri->deskripsi = $request->deskripsi;
-        $profil_galeri->save();
-
+        
         return redirect()->route('profil-galeri.index')
             ->with('success', 'ProfilGaleri Berhasil Diubah');
     }
