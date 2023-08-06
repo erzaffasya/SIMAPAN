@@ -83,4 +83,9 @@ class LandingpageController extends Controller
         // dd($artikel);
         return view('landingpage.artikeldetail', compact('artikel','artikelLainnya'));
     }
+
+    public function reloadCaptcha()
+    {
+        return response()->json(['captcha'=> captcha_img()]);
+    }
 }

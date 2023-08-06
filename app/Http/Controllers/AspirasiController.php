@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Aspirasi;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class AspirasiController extends Controller
 {
@@ -36,10 +37,12 @@ class AspirasiController extends Controller
      */
     public function store(Request $request)
     {
+
         $request->validate([
             "nama" => 'required',
             "email" => 'required',
             "aspirasi" => 'required',
+            'captcha' => ['required', 'captcha'],
         ]);
 
         Aspirasi::create([
@@ -48,7 +51,7 @@ class AspirasiController extends Controller
             "aspirasi" => $request->aspirasi,
         ]);
 
-        return redirect()->route('aspirasi.index')
+        return back()
             ->with('success', 'Aspirasi Berhasil Ditambahkan');
     }
 

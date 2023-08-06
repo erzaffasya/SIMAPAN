@@ -55,7 +55,7 @@
                     </div>
                     <div class="col-6">
                         <h1 class="fs-2 text-white">Tentang SIMAPAN</h1>
-                        <p class="fs-5 text-white lh-lg">{{ $tentang->tentang ?? ''}}</p>
+                        <p class="fs-5 text-white lh-lg">{{ $tentang->tentang ?? '' }}</p>
                         <div class="row gy-3 mt-4">
                             <div class="col-5 d-flex align-items-center">
                                 <img src="{{ asset('tlandingpage/asset/img/call-incoming.png') }}" height="30px"
@@ -92,11 +92,12 @@
                     <p class="fs-5 text-secondary mb-5">Temukan informasi mengenai anak dari berbagai sumber komunitas
                         forum
                     </p>
-                    <a href="{{route('landingpage.artikel')}}" class="btn btn-outline-primary w-100">Lihat Semua Artikel</a>
+                    <a href="{{ route('landingpage.artikel') }}" class="btn btn-outline-primary w-100">Lihat Semua
+                        Artikel</a>
                 </div>
                 @foreach ($forumArtikel as $item)
                     <div class="col-3">
-                        <a class="card-artikel1" href="{{route('landingpage.artikeldetail', $item->slug)}}">
+                        <a class="card-artikel1" href="{{ route('landingpage.artikeldetail', $item->slug) }}">
                             <figure class="shadow-lg mb-0 position-relative overflow-hidden">
                                 <img src="{{ asset("storage/img/forum_artikel/$item->id_kategori_artikel/$item->foto") }}"
                                     alt="" width="100%" height="350">
@@ -178,22 +179,24 @@
         <div class="container py-5">
             <div class="d-flex align-items-center justify-content-between">
                 <h1 class="display-6 mb-3">Artikel Parenting</h1>
-                <a href="{{route('landingpage.artikel')}}" class="btn btn-link text-decoration-none">Lihat Semua</a>
+                <a href="{{ route('landingpage.artikel') }}" class="btn btn-link text-decoration-none">Lihat
+                    Semua</a>
             </div>
             <div class="row align-items-center">
                 @foreach ($forumArtikelParenting as $item)
-                <div class="col-3">
-                    <a class="card-artikel1" href="{{route('landingpage.artikeldetail', $item->slug)}}">
-                        <figure class="shadow-lg mb-0 position-relative overflow-hidden">
-                            <img src="{{ asset("storage/img/forum_artikel/$item->id_kategori_artikel/$item->foto") }}" alt=""
-                                width="100%" height="350">
-                            <figcaption class="rounded bg-white py-2 px-3 mx-auto">
-                                <p class="fw-bold mb-2 lh-sm text-dark">{{$item->judul}}</p>
-                                <p class="fs-6 mb-0 text-secondary">{{$item->created_at->format('D, d M Y')}}</p>
-                            </figcaption>
-                        </figure>
-                    </a>
-                </div>
+                    <div class="col-3">
+                        <a class="card-artikel1" href="{{ route('landingpage.artikeldetail', $item->slug) }}">
+                            <figure class="shadow-lg mb-0 position-relative overflow-hidden">
+                                <img src="{{ asset("storage/img/forum_artikel/$item->id_kategori_artikel/$item->foto") }}"
+                                    alt="" width="100%" height="350">
+                                <figcaption class="rounded bg-white py-2 px-3 mx-auto">
+                                    <p class="fw-bold mb-2 lh-sm text-dark">{{ $item->judul }}</p>
+                                    <p class="fs-6 mb-0 text-secondary">{{ $item->created_at->format('D, d M Y') }}
+                                    </p>
+                                </figcaption>
+                            </figure>
+                        </a>
+                    </div>
                 @endforeach
             </div>
 
@@ -211,13 +214,14 @@
                             @foreach ($faq as $item)
                                 <div class="accordion-item">
                                     <h2 class="accordion-header" id="headingOne">
-                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                            data-bs-target="#collapseOne{{$item->id}}" aria-expanded="false"
+                                        <button class="accordion-button collapsed" type="button"
+                                            data-bs-toggle="collapse"
+                                            data-bs-target="#collapseOne{{ $item->id }}" aria-expanded="false"
                                             aria-controls="collapseOne">
-                                            {{$item->question}}
+                                            {{ $item->question }}
                                         </button>
                                     </h2>
-                                    <div id="collapseOne{{$item->id}}" class="accordion-collapse collapse "
+                                    <div id="collapseOne{{ $item->id }}" class="accordion-collapse collapse "
                                         aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                                         <div class="accordion-body">
                                             <div class="accordion px-3" id="accordionPanelsStayOpenExample">
@@ -225,17 +229,17 @@
                                                     <h2 class="accordion-header" id="panelsStayOpen-headingOne">
                                                         <button class="accordion-button collapsed" type="button"
                                                             data-bs-toggle="collapse"
-                                                            data-bs-target="#panelsStayOpen-collapseOne{{$item->id}}"
+                                                            data-bs-target="#panelsStayOpen-collapseOne{{ $item->id }}"
                                                             aria-expanded="false"
-                                                            aria-controls="panelsStayOpen-collapseOne{{$item->id}}">
+                                                            aria-controls="panelsStayOpen-collapseOne{{ $item->id }}">
                                                             Jawaban Menurut Psikolog
                                                         </button>
                                                     </h2>
-                                                    <div id="panelsStayOpen-collapseOne{{$item->id}}"
+                                                    <div id="panelsStayOpen-collapseOne{{ $item->id }}"
                                                         class="accordion-collapse collapse"
                                                         aria-labelledby="panelsStayOpen-headingOne">
                                                         <div class="accordion-body">
-                                                           {!! $item->answer_psikolog !!}
+                                                            {!! $item->answer_psikolog !!}
                                                         </div>
                                                     </div>
                                                 </div>
@@ -243,13 +247,13 @@
                                                     <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
                                                         <button class="accordion-button collapsed" type="button"
                                                             data-bs-toggle="collapse"
-                                                            data-bs-target="#panelsStayOpen-collapseTwo{{$item->id}}"
+                                                            data-bs-target="#panelsStayOpen-collapseTwo{{ $item->id }}"
                                                             aria-expanded="false"
-                                                            aria-controls="panelsStayOpen-collapseTwo{{$item->id}}">
+                                                            aria-controls="panelsStayOpen-collapseTwo{{ $item->id }}">
                                                             Jawaban Menurut Agama
                                                         </button>
                                                     </h2>
-                                                    <div id="panelsStayOpen-collapseTwo{{$item->id}}"
+                                                    <div id="panelsStayOpen-collapseTwo{{ $item->id }}"
                                                         class="accordion-collapse collapse"
                                                         aria-labelledby="panelsStayOpen-headingTwo">
                                                         <div class="accordion-body">
@@ -273,22 +277,51 @@
         <div class="container py-5">
             <div class="row justify-content-center align-items-center">
                 <div class="col-5">
+                    @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                    <br />
+                    @endif
+
                     <h1 class="display-6">Form Aspirasi</h1>
                     <p class="fs-5 text-secondary mb-4">Berikan aspirasi anda mengenai program DP3AKB
                     </p>
-                    <form action="">
+                    <form action="{{ route('kirim-aspirasi') }}">
+                        @csrf
                         <div class="mb-3">
-                            <input type="email" class="form-control form-control-lg" id="exampleFormControlInput1"
+                            <input type="text" name="nama" class="form-control form-control-lg" id="exampleFormControlInput1"
                                 placeholder="Nama Lenkap">
                         </div>
                         <div class="mb-3">
-                            <input type="email" class="form-control form-control-lg" id="exampleFormControlInput2"
+                            <input type="email" name="email" class="form-control form-control-lg" id="exampleFormControlInput2"
                                 placeholder="Alamat Email">
                         </div>
                         <div class="mb-3">
-                            <textarea class="form-control form-control-lg" id="exampleFormControlTextarea1" rows="2"
+                            <textarea class="form-control form-control-lg" name="aspirasi" id="exampleFormControlTextarea1" rows="2"
                                 placeholder="Aspirasi anda"></textarea>
                         </div>
+
+                        <div class="form-group mb-4 row">
+                            <div class="col-md-6 captcha">
+                                <span>{!! captcha_img() !!}</span>
+                                <button type="button" class="btn btn-danger" class="reload" id="reload">
+                                    &#x21bb;
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="form-group mb-4 row">
+                            <div class="col-md-6">
+                                <input id="captcha" type="text" class="form-control"
+                                    placeholder="Enter Captcha" required="true" name="captcha">
+                            </div>
+                        </div>
+
                         <button type="submit" class="btn btn-lg w-100 btn-primary">Kirim Aspirasi</button>
                     </form>
                 </div>
@@ -301,4 +334,19 @@
             </div>
         </div>
     </section>
+
+    @push('scripts')
+        <script type="text/javascript">
+            console.log('Button clicked')
+            $('#reload').click(function() {
+                $.ajax({
+                    type: 'GET',
+                    url: 'reload-captcha',
+                    success: function(data) {
+                        $(".captcha span").html(data.captcha);
+                    }
+                });
+            });
+        </script>
+    @endpush
 </x-guest-layout>
