@@ -38,8 +38,8 @@ class ForumKategoriGaleriController extends Controller
 
         foreach ($request->foto as $key => $foto) {
             if ($foto) {
-                $path = storage_path("app/public/img/forum_kategori_galeri");
-                $path_tmp = storage_path("app/public/img/.thumbnail/forum_kategori_galeri");
+                $path = storage_path("app/public/img/forum_galeri/$kategori->id");
+                $path_tmp = storage_path("app/public/img/.thumbnail/forum_galeri/$kategori->id");
                 if ($foto != null) {
                     if (File::exists("$path/$foto")) {
                         File::delete("$path/$foto");
@@ -116,8 +116,8 @@ class ForumKategoriGaleriController extends Controller
 
         if ($request->foto) {
             foreach ($request->foto as $key => $foto) {
-                $path = storage_path("app/public/img/forum_kategori_galeri");
-                $path_tmp = storage_path("app/public/img/.thumbnail/forum_kategori_galeri");
+                $path = storage_path("app/public/img/forum_galeri/$forum_kategori_galeri->id");
+                $path_tmp = storage_path("app/public/img/.thumbnail/forum_galeri/$forum_kategori_galeri->id");
                 if ($request->foto != null) {
                     if (File::exists("$path/$forum_kategori_galeri->foto")) {
                         File::delete("$path/$forum_kategori_galeri->foto");

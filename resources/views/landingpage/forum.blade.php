@@ -136,8 +136,8 @@
                     <div class="col-3">
                         <a class="card-kegiatan" href="{{ route('kegiatan-forum-detail', $item->slug) }}">
                             <figure class="mb-0 position-relative">
-                                <img src="{{ asset("storage/img/forum_kategori_galeri/$item->foto") }}" alt=""
-                                    width="100%" height="250">
+                                <img src="{{ asset("storage/img/forum_galeri/$item->id/{$item->galeri->pluck('foto')->first()}") }}"
+                                    alt="" width="100%" height="250">
                                 <figcaption class="py-2 px-3 mx-auto">
                                     <div>
                                         <p class="fs-6 fw-bold mb-1 lh-sm">{{ $item->judul }}

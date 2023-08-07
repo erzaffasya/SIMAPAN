@@ -78,7 +78,7 @@
                                                 @foreach ($forum_kategori_galeri->galeri as $gambar)
                                                     <div class="custom-file-container__image-multi-preview"
                                                         data-upload-token="vpsl9mz18gtr7yxnl5gg"
-                                                        style="background-image: url({{ asset("storage/img/forum_kategori_galeri/$gambar->foto") }}); ">
+                                                        style="background-image: url({{ asset("storage/img/forum_galeri/{$gambar->kategori->id}/$gambar->foto") }}); ">
                                                         <span
                                                             class="custom-file-container__image-multi-preview__single-image-clear">
                                                             <span
