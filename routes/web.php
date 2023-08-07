@@ -100,12 +100,10 @@ Route::middleware(['auth'])->prefix('admin')->group(function () {
     Route::resource('forum-struktur', ForumStrukturController::class)->only('index', 'store');
     Route::resource('forum-pengurus', ForumPengurusController::class);
     Route::resource('forum-kategori-artikel', ForumKategoriArtikelController::class);
+    Route::resource('forum-galeri', ForumGaleriController::class)->only("destroy");
     Route::resource('forum-artikel', ForumArtikelController::class);
     Route::resource('forum-kategori-galeri', ForumKategoriGaleriController::class);
-    Route::resource('forum-galeri', ForumGaleriController::class);
     Route::resource('profil-kelembagaan', KelembagaanController::class)->only('index', 'store');
-    Route::resource('profil-kategori-galeri', ProfilKategoriGaleriController::class);
-    Route::resource('profil-galeri', ProfilGaleriController::class);
 
     //tiny mce upload
     Route::post('tiny-upload', [TinyMceController::class, "upload"])->name('tiny-upload');

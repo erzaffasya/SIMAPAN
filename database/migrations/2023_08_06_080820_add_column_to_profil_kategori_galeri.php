@@ -15,8 +15,6 @@ class AddColumnToProfilKategoriGaleri extends Migration
     {
         Schema::table('profil_kategori_galeri', function (Blueprint $table) {
             $table->string('slug')->after('judul');
-            $table->string('foto')->after('slug');
-            $table->string("thumbnail")->after('foto');
         });
     }
 
@@ -29,8 +27,6 @@ class AddColumnToProfilKategoriGaleri extends Migration
     {
         Schema::table('profil_kategori_galeri', function (Blueprint $table) {
             $table->dropColumn('slug');
-            $table->dropColumn('foto');
-            $table->dropColumn('thumbnail');
         });
     }
 }

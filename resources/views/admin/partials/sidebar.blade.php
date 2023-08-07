@@ -52,11 +52,7 @@
                     </li>
 
                     <li><a href="{{ route('forum-kategori-galeri.index') }}"
-                            class="{{ Request::routeIs('forum-kategori-galeri.*') ? 'active' : '' }}">Kategori
-                            Galeri</a>
-                    </li>
-                    <li><a href="{{ route('forum-galeri.index') }}"
-                            class="{{ Request::routeIs('forum-galeri.*') ? 'active' : '' }}">Galeri</a>
+                            class="{{ Request::routeIs('forum-kategori-galeri.*') ? 'active' : '' }}">Galeri</a>
                     </li>
                 </ul>
             </li>
@@ -66,13 +62,6 @@
                 <ul>
                     <li><a href="{{ route('jumlahanak.index') }}"
                             class="{{ Request::routeIs('jumlahanak.*') ? 'active' : '' }}">Jumlah Anak</a>
-                    </li>
-                    <li><a href="{{ route('profil-kategori-galeri.index') }}"
-                            class="{{ Request::routeIs('profil-kategori-galeri.*') ? 'active' : '' }}">Kategori
-                            Galeri</a>
-                    </li>
-                    <li><a href="{{ route('profil-galeri.index') }}"
-                            class="{{ Request::routeIs('profil-galeri.*') ? 'active' : '' }}">Galeri</a>
                     </li>
                     <li><a href="{{ route('profil-kelembagaan.index') }}"
                             class="{{ Request::routeIs('profil-kelembagaan.*') ? 'active' : '' }}">Kelembagaan</a>

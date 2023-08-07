@@ -29,3 +29,4 @@
 
 <!-- Main CSS -->
 <link rel="stylesheet" href="{{ asset('tadmin/assets/css/style.css') }}">
+@stack('css')
