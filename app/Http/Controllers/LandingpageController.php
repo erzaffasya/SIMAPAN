@@ -59,8 +59,9 @@ class LandingpageController extends Controller
         $artikel2 = ForumArtikel::orderBy('created_at', 'DESC')->offset(1)->limit(3)->get();
         $artikel3 = ForumArtikel::orderBy('created_at', 'DESC')->offset(4)->limit(3)->get();
         $kegiatan = ForumGaleri::orderBy('created_at', 'DESC')->limit(8)->get();
+        $ForumKategoriGaleri = ForumKategoriGaleri::limit(8)->get();
         // dd($kegiatan);
-        return view('landingpage.forum', compact('pengurus', 'struktur', 'artikel1', 'artikel2', 'artikel3', 'kegiatan'));
+        return view('landingpage.forum', compact('ForumKategoriGaleri','pengurus', 'struktur', 'artikel1', 'artikel2', 'artikel3', 'kegiatan'));
     }
 
     public function profil()
@@ -68,7 +69,8 @@ class LandingpageController extends Controller
         $jumlahAnak = JumlahAnak::find(1);
         $kelembagaan = Kelembagaan::find(1);
         $kegiatan = ProfilGaleri::orderBy('created_at', 'DESC')->limit(8)->get();
-        return view('landingpage.profil', compact('jumlahAnak', 'kelembagaan', 'kegiatan'));
+        $ForumKategoriGaleri = ForumKategoriGaleri::limit(8)->get();
+        return view('landingpage.profil', compact('ForumKategoriGaleri','jumlahAnak', 'kelembagaan', 'kegiatan'));
     }
 
     public function artikel()

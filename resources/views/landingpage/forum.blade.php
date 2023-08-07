@@ -49,34 +49,36 @@
                 <h1 class="display-6 fw-bold mb-3">Artikel Forum Anak</h1>
                 <a href="{{ route('landingpage.artikel') }}" class="btn btn-link text-decoration-none">Lihat Semua</a>
             </div>
-            <div class="row"> 
+            <div class="row">
                 <div class="col-7">
-                    <a href="{{route('landingpage.artikeldetail', $artikel1->slug)}}" class="text-decoration-none">
-                    <figure class="position-relative">
-                        <img src="{{ asset("storage/img/forum_artikel/$artikel1->id_kategori_artikel/$artikel1->foto") }}"
-                            alt="" class="w-100 rounded" height="370px">
-                        <figcaption class="position-relative h-100 d-flex align-items-end">
-                            <div class="px-2 py-3 m-0 w-100">
-                                <p class="fs-6 mb-2 text-secondary">{{ $artikel1->created_at->format('D, d M Y') }}</p>
-                                <h1 class="fs-3 fw-bold">
-                                    {{-- {{ $artikel1->judul }} --}}
-                                    {!! \Illuminate\Support\Str::limit($artikel1->judul, 45) !!}
-                                </h1>
-                                <p class="fs-6 mb-0 text-secondary">
-                                    {{-- {!! $artikel1->isi !!} --}}
-                                    {{-- { \Illuminate\Support\Str::limit($artikel1->isi, 45)} --}}
-                                    {!! Str::limit(strip_tags($artikel1->isi), $limit = 200, $end = '...') !!}
-                                </p>
+                    <a href="{{ route('landingpage.artikeldetail', $artikel1->slug) }}" class="text-decoration-none">
+                        <figure class="position-relative">
+                            <img src="{{ asset("storage/img/forum_artikel/$artikel1->id_kategori_artikel/$artikel1->foto") }}"
+                                alt="" class="w-100 rounded" height="370px">
+                            <figcaption class="position-relative h-100 d-flex align-items-end">
+                                <div class="px-2 py-3 m-0 w-100">
+                                    <p class="fs-6 mb-2 text-secondary">{{ $artikel1->created_at->format('D, d M Y') }}
+                                    </p>
+                                    <h1 class="fs-3 fw-bold">
+                                        {{-- {{ $artikel1->judul }} --}}
+                                        {!! \Illuminate\Support\Str::limit($artikel1->judul, 45) !!}
+                                    </h1>
+                                    <p class="fs-6 mb-0 text-secondary">
+                                        {{-- {!! $artikel1->isi !!} --}}
+                                        {{-- { \Illuminate\Support\Str::limit($artikel1->isi, 45)} --}}
+                                        {!! Str::limit(strip_tags($artikel1->isi), $limit = 200, $end = '...') !!}
+                                    </p>
 
-                            </div>
-                        </figcaption>
-                    </figure>
+                                </div>
+                            </figcaption>
+                        </figure>
                     </a>
                 </div>
                 <div class="col-5">
                     @foreach ($artikel2 as $item)
                         <div class="card mb-3 w-100 border-0">
-                            <a href="{{route('landingpage.artikeldetail', $item->slug)}}" class="text-decoration-none">
+                            <a href="{{ route('landingpage.artikeldetail', $item->slug) }}"
+                                class="text-decoration-none">
                                 <div class="row g-0">
                                     <div class="col-md-5">
                                         <img src="{{ asset("storage/img/forum_artikel/$item->id_kategori_artikel/$item->foto") }}"
@@ -103,7 +105,7 @@
             <div class="row align-items-center">
                 @foreach ($artikel3 as $item)
                     <div class="col-3">
-                        <a class="card-artikel1" href="{{route('landingpage.artikeldetail', $item->slug)}}">
+                        <a class="card-artikel1" href="{{ route('landingpage.artikeldetail', $item->slug) }}">
                             <figure class="shadow-lg mb-0 position-relative overflow-hidden">
                                 <img src="{{ asset("storage/img/forum_artikel/$item->id_kategori_artikel/$item->foto") }}"
                                     alt="" width="100%" height="350">
@@ -130,9 +132,25 @@
         <div class="container py-5">
             <h1 class="display-6 fw-bold mb-3 text-center">Kegiatan Forum Anak</h1>
             <div class="row g-0 gy-0">
-                @foreach ($kegiatan as $item)
+                @foreach ($ForumKategoriGaleri as $item)
                     <div class="col-3">
-                        <img src="{{ asset("storage/img/forum_galeri/$item->id_kategori_galeri/$item->foto") }}" class="w-100" alt="">
+                        <a class="card-kegiatan" href="{{ route('kegiatan-forum-detail', $item->slug) }}">
+                            <figure class="mb-0 position-relative">
+                                <img src="{{ asset("storage/img/forum_kategori_galeri/$item->foto") }}" alt=""
+                                    width="100%" height="250">
+                                <figcaption class="py-2 px-3 mx-auto">
+                                    <div>
+                                        <p class="fs-6 fw-bold mb-1 lh-sm">{{ $item->judul }}
+                                        </p>
+                                        <p class="mb-0">{{ $item->created_at->format('D, d M Y') }}</p>
+                                    </div>
+                                </figcaption>
+                                <span
+                                    class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                                    {{ $item->galeri->count() }}
+                                </span>
+                            </figure>
+                        </a>
                     </div>
                 @endforeach
             </div>
