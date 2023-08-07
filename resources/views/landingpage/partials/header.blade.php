@@ -1,9 +1,10 @@
 <nav class="navbar navbar-expand-lg navbar-light fixed-top bg-white">
     <div class="container">
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" href="/">
             <img src="{{asset('tlandingpage/asset/img/logo-1.png')}}" height="30" class="d-inline-block align-text-top">
             <img src="{{asset('tlandingpage/asset/img/logo-2.png')}}" height="30" class="mx-2 d-inline-block align-text-top">
             <img src="{{asset('tlandingpage/asset/img/logo-3.png')}}" height="30" class="d-inline-block align-text-top">
+            <img src="{{asset('tlandingpage/asset/img/logo-4.jpg')}}" height="30" class="d-inline-block align-text-top">
             <span class="fw-bolder ms-2">DP3AKB</span>
             <span class="ms-2">| Balikpapan</span>
         </a>

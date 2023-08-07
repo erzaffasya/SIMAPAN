@@ -36,7 +36,7 @@
                                 <img src="{{ asset("storage/img/forum_artikel/$item->id_kategori_artikel/$item->foto") }}" alt=""
                                     width="100%" height="350">
                                 <figcaption class="rounded bg-white py-2 px-3 mx-auto">
-                                    <p class="fw-bold mb-2 lh-sm text-dark">{{$item->judul}}
+                                    <p class="fw-bold mb-2 lh-sm text-dark">{!! \Illuminate\Support\Str::limit($item->judul, 55) !!}
                                     </p>
                                     <p class="fs-6 mb-0 text-secondary">{{$item->created_at->format('D, d M Y')}}</p>
                                 </figcaption>

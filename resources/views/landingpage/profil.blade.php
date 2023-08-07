@@ -93,16 +93,16 @@
                 </div>
                 <div class="col-6">
                     <h1 class="fs-1 fw-bold mb-3">{{$kelembagaan->judul??null}}</h1>
-                    <ol class="fs-5 text-secondary lh-2">
+                    <div class="fs-5 text-secondary lh-2">
                         {!!$kelembagaan->deskripsi??null!!}
-                    </ol>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
     <section id="kegiatan-section">
         <div class="container py-5">
-            <h1 class="display-6 fw-bold mb-3 text-center">Kegiatan Kelembagaan</h1>
+            <h1 class="fs-2 text-danger fw-bold mb-3 text-center text-capitalize">mewujudkan balikpapan menuju kota layak anak</h1>
             <div class="row g-0 gy-0">
                 @foreach ($kegiatan as $item)
                     <div class="col-3">

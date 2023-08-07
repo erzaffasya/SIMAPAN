@@ -12,10 +12,17 @@
                                 alt="" class="w-100 rounded" height="370px">
                             <figcaption class="position-relative h-100 d-flex align-items-end">
                                 <div class="px-2 py-3 m-0 w-100">
-                                    <p class="fs-6 mb-2 text-secondary">{{ $artikel1->created_at->format('D, d M Y') }}
+                                    <p class="fs-6 mb-2 text-secondary">
+                                        {{ $artikel1->created_at->format('D, d M Y') }}
                                     </p>
-                                    <h1 class="fs-3 fw-bold">{{ $artikel1->judul }}</h1>
-                                    <p class="fs-6 mb-0 text-secondary">{!! $artikel1->isi !!}</p>
+                                    <h1 class="fs-3 fw-bold">
+                                        {{-- {{ $artikel1->judul }} --}}
+                                        {!! \Illuminate\Support\Str::limit($artikel1->judul, 45) !!}
+                                    </h1>
+                                    <p class="fs-6 mb-0 text-secondary">
+                                        {!! Str::limit(strip_tags($artikel1->isi), $limit = 200, $end = '...') !!}
+                                        {{-- {!! $artikel1->isi !!} --}}
+                                    </p>
                                 </div>
                             </figcaption>
                         </figure>
@@ -24,27 +31,28 @@
                 <div class="col-5">
                     @foreach ($artikel2 as $item)
                         <div class="card mb-3 w-100 border-0">
-                            <a href="{{ route('landingpage.artikeldetail', $item->slug) }}"
-                                class="text-decoration-none">
+                            <a href="{{route('landingpage.artikeldetail', $item->slug)}}" class="text-decoration-none">
                                 <div class="row g-0">
                                     <div class="col-md-5">
                                         <img src="{{ asset("storage/img/forum_artikel/$item->id_kategori_artikel/$item->foto") }}"
-                                            class="img-fluid rounded h-100" alt="...">
+                                            class="rounded w-100" alt="..." height="160px">
                                     </div>
                                     <div class="col-md-7">
                                         <div class="card-body h-100">
                                             <p class="fs-6 mb-2 text-secondary mute">
                                                 {{ $item->created_at->format('D, d M Y') }}</p>
-                                            <p class="fw-bold mb-2 lh-sm text-dark">{{ $item->judul }}</p>
-                                            <p class="fs-6 mb-0 text-secondary">{!! $item->isi !!}</p>
+                                            <p class="fw-bold mb-2 lh-sm text-dark">
+                                                {!! \Illuminate\Support\Str::limit($item->judul, 62) !!}
+                                            </p>
+                                            <p class="fs-6 mb-0 text-secondary">
+                                                {!! Str::limit(strip_tags($item->isi), $limit = 62, $end = '...') !!}
+                                            </p>
                                         </div>
                                     </div>
                                 </div>
                             </a>
                         </div>
                     @endforeach
-
-
                 </div>
             </div>
             <div class="row justify-content-between py-4">
@@ -74,7 +82,7 @@
                                 <img src="{{ asset("storage/img/forum_artikel/$item->id_kategori_artikel/$item->foto") }}"
                                     alt="" width="100%" height="350">
                                 <figcaption class="rounded bg-white py-2 px-3 mx-auto">
-                                    <p class="fw-bold mb-2 lh-sm text-dark">{{ $item->judul }}
+                                    <p class="fw-bold mb-2 lh-sm text-dark">{!! \Illuminate\Support\Str::limit($item->judul, 55) !!}
                                     </p>
                                     <p class="fs-6 mb-0 text-secondary">{{ $item->created_at->format('D, d M Y') }}</p>
                                 </figcaption>

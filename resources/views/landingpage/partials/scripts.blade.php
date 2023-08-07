@@ -66,9 +66,9 @@
                 infinite: true,
                 slidesToShow: 5,
                 slidesToScroll: 1,
-                autoplay: true,
-                autoplaySpeed: 0,
-                speed: 2000,
+                // autoplay: true,
+                // autoplaySpeed: 0,
+                // speed: 2000,
             });
             $('.slide-1-view').slick({
                 infinite: true,

@@ -25,13 +25,13 @@
                 <div class="text-center">
                     <h1 class="fs-1 fw-bold text-white mb-4">PROFIL PENGURUS</h1>
                 </div>
-                <div class="pengurus-slide">
+                <div class="pengurus-slide row">
                     @foreach ($pengurus as $item)
-                        <div class="mx-2">
-                            <figure class="rounded overflow-hidden">
+                        <div class="mx-2 col bg-white h-100">
+                            <figure class="rounded overflow-hidden h-100 d-flex flex-column bg-white">
                                 <img src="{{ asset("storage/img/forum/pengurus/$item->foto") }}" alt=""
                                     class="w-100" height="280px" style="object-fit: cover;">
-                                <figcaption class="bg-white px-3 py-2 text-center">
+                                <figcaption class="px-3 py-2 text-center h-100">
                                     <p class="fw-bold mb-0">{{ $item->nama }}</p>
                                     <p class="text-secondary mb-0">{{ $item->jabatan }}</p>
                                 </figcaption>
@@ -50,21 +50,29 @@
                 <a href="{{ route('landingpage.artikel') }}" class="btn btn-link text-decoration-none">Lihat Semua</a>
             </div>
             <div class="row"> 
-                <a href="{{route('landingpage.artikeldetail', $artikel1->slug)}}" class="text-decoration-none">
                 <div class="col-7">
+                    <a href="{{route('landingpage.artikeldetail', $artikel1->slug)}}" class="text-decoration-none">
                     <figure class="position-relative">
                         <img src="{{ asset("storage/img/forum_artikel/$artikel1->id_kategori_artikel/$artikel1->foto") }}"
                             alt="" class="w-100 rounded" height="370px">
                         <figcaption class="position-relative h-100 d-flex align-items-end">
                             <div class="px-2 py-3 m-0 w-100">
                                 <p class="fs-6 mb-2 text-secondary">{{ $artikel1->created_at->format('D, d M Y') }}</p>
-                                <h1 class="fs-3 fw-bold">{{ $artikel1->judul }}</h1>
-                                <p class="fs-6 mb-0 text-secondary">{!! $artikel1->isi !!}</p>
+                                <h1 class="fs-3 fw-bold">
+                                    {{-- {{ $artikel1->judul }} --}}
+                                    {!! \Illuminate\Support\Str::limit($artikel1->judul, 45) !!}
+                                </h1>
+                                <p class="fs-6 mb-0 text-secondary">
+                                    {{-- {!! $artikel1->isi !!} --}}
+                                    {{-- { \Illuminate\Support\Str::limit($artikel1->isi, 45)} --}}
+                                    {!! Str::limit(strip_tags($artikel1->isi), $limit = 200, $end = '...') !!}
+                                </p>
+
                             </div>
                         </figcaption>
                     </figure>
+                    </a>
                 </div>
-                </a>
                 <div class="col-5">
                     @foreach ($artikel2 as $item)
                         <div class="card mb-3 w-100 border-0">
@@ -72,14 +80,18 @@
                                 <div class="row g-0">
                                     <div class="col-md-5">
                                         <img src="{{ asset("storage/img/forum_artikel/$item->id_kategori_artikel/$item->foto") }}"
-                                            class="img-fluid rounded h-100" alt="...">
+                                            class="rounded w-100" alt="..." height="160px">
                                     </div>
                                     <div class="col-md-7">
                                         <div class="card-body h-100">
                                             <p class="fs-6 mb-2 text-secondary mute">
                                                 {{ $item->created_at->format('D, d M Y') }}</p>
-                                            <p class="fw-bold mb-2 lh-sm text-dark">{{ $item->judul }}</p>
-                                            <p class="fs-6 mb-0 text-secondary">{!! $item->isi !!}</p>
+                                            <p class="fw-bold mb-2 lh-sm text-dark">
+                                                {!! \Illuminate\Support\Str::limit($item->judul, 62) !!}
+                                            </p>
+                                            <p class="fs-6 mb-0 text-secondary">
+                                                {!! Str::limit(strip_tags($item->isi), $limit = 62, $end = '...') !!}
+                                            </p>
                                         </div>
                                     </div>
                                 </div>
@@ -96,7 +108,7 @@
                                 <img src="{{ asset("storage/img/forum_artikel/$item->id_kategori_artikel/$item->foto") }}"
                                     alt="" width="100%" height="350">
                                 <figcaption class="rounded bg-white py-2 px-3 mx-auto">
-                                    <p class="fw-bold mb-2 lh-sm text-dark">{{ $item->judul }}</p>
+                                    <p class="fw-bold mb-2 lh-sm text-dark">{!! \Illuminate\Support\Str::limit($item->judul, 55) !!}</p>
                                     <p class="fs-6 mb-0 text-secondary">{{ $item->created_at->format('D, d M Y') }}</p>
                                 </figcaption>
                             </figure>
