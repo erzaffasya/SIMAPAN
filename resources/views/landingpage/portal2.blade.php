@@ -49,7 +49,7 @@
         <figure class="h-100 position-relative text-white">
           <img src="{{asset('tlandingpage/asset/img/p2-3.jpg')}}" alt="">
           <figcaption class="p-4 d-flex flex-column justify-content-end text-center">
-            <h1 class="fw-bold display-6">KEGIATAN PERLINDUNGAN ANAK</h1>
+            <h1 class="fw-bold fs-2">KEGIATAN PERLINDUNGAN ANAK BALIKPAPAN</h1>
             {{-- <p class="fs-5 text-white">Sistem Manajemen Perlindungan Anak Balikpapan</p> --}}
             <a href="{{url('simapan')}}" class="mt-3 btn btn-lg py-2 rounded-2 btn-outline-light" type="button">Kunjungi</a>
           </figcaption>

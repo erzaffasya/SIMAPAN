@@ -14,8 +14,8 @@
             <br>
             <br>
             <div class="wa-widget position-fixed">
-                <a href="https://wa.me/6285753372841" class="text-decoration-none">
-                    <img src="{{asset('tlandingpage/asset/img/widget-wa.png')}}" alt="">
+                <a href="https://wa.me/6281283627565" class="text-decoration-none shadow-lg">
+                    <img src="{{asset('tlandingpage/asset/img/widget-wa.png')}}" alt="" height="55px">
                     {{-- <img src="{{asset('tlandingpage/asset/img/logo-3.png')}}" height="30" class="d-inline-block align-text-top"> --}}
                 </a>
             </div>

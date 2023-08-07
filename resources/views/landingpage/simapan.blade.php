@@ -58,24 +58,32 @@
                         <p class="fs-5 text-white lh-lg">{{ $tentang->tentang ?? ''}}</p>
                         <div class="row gy-3 mt-4">
                             <div class="col-5 d-flex align-items-center">
-                                <img src="{{ asset('tlandingpage/asset/img/call-incoming.png') }}" height="30px"
-                                    alt="" class="me-3">
-                                <h1 class="fs-5 fw-normal text-white">Konsultasi Psikolog</h1>
+                                <a href="https://wa.me/6281283627565" class="text-decoration-none d-flex">
+                                    <img src="{{ asset('tlandingpage/asset/img/call-incoming.png') }}" height="30px"
+                                        alt="" class="me-3">
+                                    <p class="fs-5 fw-bold text-white">Konsultasi Psikolog</p>
+                                </a>
                             </div>
                             <div class="col-5 d-flex align-items-center">
-                                <img src="{{ asset('tlandingpage/asset/img/clipboard.png') }}" height="30px"
+                                <a href="/kegiatan" class="text-decoration-none d-flex">
+                                    <img src="{{ asset('tlandingpage/asset/img/clipboard.png') }}" height="30px"
                                     alt="" class="me-3">
-                                <h1 class="fs-5 fw-normal text-white">Kegiatan PPATBM</h1>
+                                    <p class="fs-5 fw-bold text-white">Kegiatan PPATBM</p>
+                                </a>
                             </div>
                             <div class="col-5 d-flex align-items-center">
-                                <img src="{{ asset('tlandingpage/asset/img/shield.png') }}" height="30px"
+                                <a href="#" class="text-decoration-none d-flex">
+                                    <img src="{{ asset('tlandingpage/asset/img/shield.png') }}" height="30px"
                                     alt="" class="me-3">
-                                <h1 class="fs-5 fw-normal text-white">Konsultasi Hukum</h1>
+                                    <p class="fs-5 fw-bold text-white">Konsultasi Hukum</p>
+                                </a>
                             </div>
                             <div class="col-5 d-flex align-items-center">
-                                <img src="{{ asset('tlandingpage/asset/img/note-text.png') }}" height="30px"
+                                <a href="https://linktr.ee/sidakktpa" class="text-decoration-none d-flex">
+                                    <img src="{{ asset('tlandingpage/asset/img/note-text.png') }}" height="30px"
                                     alt="" class="me-3">
-                                <h1 class="fs-5 fw-normal text-white">Laporan Kasus KtPA</h1>
+                                    <p class="fs-5 fw-bold text-white">Laporan Kasus KtPA</p>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -101,7 +109,8 @@
                                 <img src="{{ asset("storage/img/forum_artikel/$item->id_kategori_artikel/$item->foto") }}"
                                     alt="" width="100%" height="350">
                                 <figcaption class="rounded bg-white py-2 px-3 mx-auto">
-                                    <p class="fw-bold mb-2 lh-sm text-dark">{{ $item->judul }}
+                                    <p class="fw-bold mb-2 lh-sm text-dark">
+                                        {!! \Illuminate\Support\Str::limit($item->judul, 55) !!}
                                     </p>
                                     <p class="fs-6 mb-0 text-secondary">{{ $item->created_at->format('d M Y') }}</p>
                                 </figcaption>
@@ -126,13 +135,13 @@
             <div class="row">
                 <div class="col-8">
                     <h1 class="fs-3 mb-3">Maps Pemetaan</h1>
-                    <figure class="position-relative rounded" style="height: 350px;">
-                        <img src="{{ asset('tlandingpage/asset/img/empty-img.jpeg') }}" alt=""
+                    <figure class="card-hg-maps position-relative rounded" style="height: 350px;">
+                        <img src="{{ asset('tlandingpage/asset/img/maps-mockup.jpg') }}" alt=""
                             class="w-100 rounded h-100 position-absolute" style="top:0; left:0;z-index: 0;">
                         <figcaption class="position-relative h-100 d-flex align-items-end" style="z-index: 1;">
                             <div class="row align-items-center px-2 py-3 m-0 w-100">
                                 <div class="col">
-                                    <h1 class="fs-2 fw-bold text-white">Peta Pemetaan PPATBM</h1>
+                                    <h1 class="fs-2 fw-normal text-white">Peta Pemetaan PPATBM</h1>
                                     <p class="fs-5 mb-0 text-white">Temukan informasi sebaran lokasi-lokasi PPATBM Kota
                                         Balikpapan</p>
                                 </div>
@@ -148,19 +157,21 @@
                 <div class="col-4">
                     <div class="d-flex align-items-center justify-content-between mb-3">
                         <h1 class="fs-3 mb-0">Kegiatan PPATBM</h1>
-                        <a href="#" class="btn btn-link text-decoration-none">Lihat Semua</a>
+                        <a href="/kegiatan" class="btn btn-link text-decoration-none">Lihat Semua</a>
                     </div>
                     @foreach ($kegiatan as $item)
                         <div class="card mb-3 w-100 border-0">
                             <a href="#" class="text-decoration-none">
-                                <div class="row g-0">
+                                <div class="row g-0 align-items-center">
                                     <div class="col-md-4">
                                         <img src="{{ asset("storage/img/kegiatan/$item->kantor_id/$item->foto") }}"
-                                            class="img-fluid rounded h-100" alt="...">
+                                            class="rounded" alt="..." width="100%" height="100px">
                                     </div>
                                     <div class="col-md-8">
                                         <div class="card-body h-100">
-                                            <p class="fw-bold mb-2 lh-sm text-dark">{{ $item->judul }}</p>
+                                            <p class="fw-bold mb-2 lh-sm text-dark">
+                                                {!! \Illuminate\Support\Str::limit($item->judul, 55) !!}
+                                            </p>
                                             <p class="fs-6 mb-0 text-secondary">
                                                 {{ $item->created_at->format('D, d M Y') }}</p>
                                         </div>
@@ -188,7 +199,7 @@
                             <img src="{{ asset("storage/img/forum_artikel/$item->id_kategori_artikel/$item->foto") }}" alt=""
                                 width="100%" height="350">
                             <figcaption class="rounded bg-white py-2 px-3 mx-auto">
-                                <p class="fw-bold mb-2 lh-sm text-dark">{{$item->judul}}</p>
+                                <p class="fw-bold mb-2 lh-sm text-dark">{!! \Illuminate\Support\Str::limit($item->judul, 55) !!}</p>
                                 <p class="fs-6 mb-0 text-secondary">{{$item->created_at->format('D, d M Y')}}</p>
                             </figcaption>
                         </figure>
