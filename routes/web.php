@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ArtikelController;
 use App\Http\Controllers\AspirasiController;
+use App\Http\Controllers\EmergencyController;
 use App\Http\Controllers\FaqController;
 use App\Http\Controllers\FastLinkController;
 use App\Http\Controllers\ForumArtikelController;
@@ -104,6 +105,7 @@ Route::middleware(['auth'])->prefix('admin')->group(function () {
     Route::resource('forum-artikel', ForumArtikelController::class);
     Route::resource('forum-kategori-galeri', ForumKategoriGaleriController::class);
     Route::resource('profil-kelembagaan', KelembagaanController::class)->only('index', 'store');
+    Route::resource('emergency', EmergencyController::class);
 
     //tiny mce upload
     Route::post('tiny-upload', [TinyMceController::class, "upload"])->name('tiny-upload');
