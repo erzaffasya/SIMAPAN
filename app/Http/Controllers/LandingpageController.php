@@ -110,4 +110,22 @@ class LandingpageController extends Controller
         // dd($ForumGaleri, $ForumKategoriGaleri);
         return view('landingpage.kegiatandetail', compact('ForumGaleri', 'ForumKategoriGaleri'));
     }
+
+
+    public function artikelKantor()
+    {
+        $artikel1 = Kegiatan::orderBy('created_at', 'DESC')->first();
+        // dd($artikel1);
+        $artikel2 = Kegiatan::orderBy('created_at', 'DESC')->offset(1)->limit(3)->get();
+        $artikel3 = Kegiatan::orderBy('created_at', 'DESC')->paginate(8);
+        return view('landingpage.artikelkantor', compact('artikel1','artikel2','artikel3'));
+    }
+
+    public function kegiatanKantorDetail($slug)
+    {
+        $ForumKategoriGaleri = ForumKategoriGaleri::where('slug', $slug)->first();
+        $ForumGaleri = ForumGaleri::where('id_kategori_galeri', $ForumKategoriGaleri->id)->get();
+        // dd($ForumGaleri, $ForumKategoriGaleri);
+        return view('landingpage.artikelkantordetail', compact('ForumGaleri', 'ForumKategoriGaleri'));
+    }
 }

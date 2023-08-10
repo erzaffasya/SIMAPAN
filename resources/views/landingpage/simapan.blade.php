@@ -162,7 +162,7 @@
                     </div>
                     @foreach ($kegiatan as $item)
                         <div class="card mb-3 w-100 border-0">
-                            <a href="#" class="text-decoration-none">
+                            <a href="{{route('landingpage.artikel-kantor')}}" class="text-decoration-none">
                                 <div class="row g-0 align-items-center">
                                     <div class="col-md-4">
                                         <img src="{{ asset("storage/img/kegiatan/$item->kantor_id/$item->foto") }}"

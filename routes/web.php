@@ -48,25 +48,19 @@ Route::get('/artikel-detail', function () {
 });
 
 
+Route::get('/artikel-kantor', [LandingpageController::class, 'artikelKantor'])->name('landingpage.artikel-kantor');
+Route::get('/artikel-kantor/detail/{slug}', [LandingpageController::class, 'artikelDetail'])->name('landingpage.artikel-kantor-detail');
+
+
 Route::get('/kegiatan', [LandingpageController::class, 'kegiatanForum'])->name('kegiatan-forum');
 Route::get('/kegiatan/{slug}', [LandingpageController::class, 'kegiatanForumDetail'])->name('kegiatan-forum-detail');
-// Route::get('/kegiatan', function () {
-//     return view('landingpage.kegiatan');
-// });
-// Route::get('/kegiatandetail', function () {
-//     return view('landingpage.kegiatandetail');
-// });
-
-// Route::get('/artikel-index', function () {
-//     return view('landingpage.artikelindex');
-// });
 Route::get('/reload-captcha', [LandingpageController::class, 'reloadCaptcha'])->name('reload-captcha');
 Route::get('/simapan', [LandingpageController::class, 'simapan'])->name('simapan');
 Route::get('/forum', [LandingpageController::class, 'forum'])->name('forum');
 Route::get('/profil', [LandingpageController::class, 'profil'])->name('profil');
-Route::get('/artikel', [LandingpageController::class, 'artikel'])->name('landingpage.artikel');
 Route::get('/kirim-aspirasi', [AspirasiController::class, 'store'])->name('kirim-aspirasi');
 
+Route::get('/artikel', [LandingpageController::class, 'artikel'])->name('landingpage.artikel');
 Route::get('/artikel/detail/{slug}', [LandingpageController::class, 'artikelDetail'])->name('landingpage.artikeldetail');
 // Route::get('/peta', function () {
 //     return view('landingpage.peta');
