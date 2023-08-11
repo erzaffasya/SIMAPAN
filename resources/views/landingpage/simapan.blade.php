@@ -56,37 +56,65 @@
                     <div class="col-6">
                         <h1 class="fs-2 text-white">Tentang SIMAPAN</h1>
                         <p class="fs-5 text-white lh-lg">{{ $tentang->tentang ?? '' }}</p>
-                        <div class="row gy-3 mt-4">
-                            <div class="col-5 d-flex align-items-center">
-                                <a href="https://wa.me/6281283627565" class="text-decoration-none d-flex">
-                                    <img src="{{ asset('tlandingpage/asset/img/call-incoming.png') }}" height="30px"
-                                        alt="" class="me-3">
-                                    <p class="fs-5 fw-bold text-white">Konsultasi Psikolog</p>
-                                </a>
-                            </div>
-                            <div class="col-5 d-flex align-items-center">
-                                <a href="/kegiatan" class="text-decoration-none d-flex">
-                                    <img src="{{ asset('tlandingpage/asset/img/clipboard.png') }}" height="30px"
-                                    alt="" class="me-3">
-                                    <p class="fs-5 fw-bold text-white">Kegiatan PPATBM</p>
-                                </a>
-                            </div>
-                            <div class="col-5 d-flex align-items-center">
-                                <a href="#" class="text-decoration-none d-flex">
-                                    <img src="{{ asset('tlandingpage/asset/img/shield.png') }}" height="30px"
-                                    alt="" class="me-3">
-                                    <p class="fs-5 fw-bold text-white">Konsultasi Hukum</p>
-                                </a>
-                            </div>
-                            <div class="col-5 d-flex align-items-center">
-                                <a href="https://linktr.ee/sidakktpa" class="text-decoration-none d-flex">
-                                    <img src="{{ asset('tlandingpage/asset/img/note-text.png') }}" height="30px"
-                                    alt="" class="me-3">
-                                    <p class="fs-5 fw-bold text-white">Laporan Kasus KtPA</p>
-                                </a>
-                            </div>
-                        </div>
                     </div>
+                </div>
+                <div class="row gy-2 mt-2 justify-content-center">
+                    <div class="col-4 d-flex justify-content-center align-items-center">
+                        <a href="#" class="text-decoration-none d-flex">
+                            <img src="{{ asset('tlandingpage/asset/img/call-incoming.png') }}" height="30px"
+                                alt="" class="me-3">
+                            <p class="fs-5 fw-bold text-white">Apps Mobile TOPAN</p>
+                        </a>
+                    </div>
+                    {{-- <div class="col-4 d-flex justify-content-center align-items-center">
+                        <a href="https://wa.me/6281283627565" class="text-decoration-none d-flex">
+                            <img src="{{ asset('tlandingpage/asset/img/call-incoming.png') }}" height="30px"
+                                alt="" class="me-3">
+                            <p class="fs-5 fw-bold text-white">Konsultasi Psikolog</p>
+                        </a>
+                    </div> --}}
+                    <div class="col-4 d-flex justify-content-center align-items-center">
+                        <a href="#kluster5" class="text-decoration-none d-flex">
+                            <img src="{{ asset('tlandingpage/asset/img/clipboard.png') }}" height="30px"
+                            alt="" class="me-3">
+                            <p class="fs-5 fw-bold text-white">Infokum Anak</p>
+                        </a>
+                    </div>
+                    <div class="col-4 d-flex justify-content-center align-items-center">
+                        <a href="/kegiatan" class="text-decoration-none d-flex">
+                            <img src="{{ asset('tlandingpage/asset/img/clipboard.png') }}" height="30px"
+                            alt="" class="me-3">
+                            <p class="fs-5 fw-bold text-white">Kegiatan PPATBM</p>
+                        </a>
+                    </div>
+                    <div class="col-4 d-flex justify-content-center align-items-center">
+                        <a href="https://linktr.ee/sidakktpa" class="text-decoration-none d-flex">
+                            <img src="{{ asset('tlandingpage/asset/img/shield.png') }}" height="30px"
+                            alt="" class="me-3">
+                            <p class="fs-5 fw-bold text-white">Konsultasi Hukum KTA</p>
+                        </a>
+                    </div>
+                    <div class="col-4 d-flex justify-content-center align-items-center">
+                        <a href="/forum" class="text-decoration-none d-flex">
+                            <img src="{{ asset('tlandingpage/asset/img/note-text.png') }}" height="30px"
+                            alt="" class="me-3">
+                            <p class="fs-5 fw-bold text-white">Forum Anak</p>
+                        </a>
+                    </div>
+                    <div class="col-4 d-flex justify-content-center align-items-center">
+                        <a href="#highlight-parenting" class="text-decoration-none d-flex">
+                            <img src="{{ asset('tlandingpage/asset/img/note-text.png') }}" height="30px"
+                            alt="" class="me-3">
+                            <p class="fs-5 fw-bold text-white">Edukasi Anak</p>
+                        </a>
+                    </div>
+                    {{-- <div class="col-5 d-flex align-items-center">
+                        <a href="https://linktr.ee/sidakktpa" class="text-decoration-none d-flex">
+                            <img src="{{ asset('tlandingpage/asset/img/note-text.png') }}" height="30px"
+                            alt="" class="me-3">
+                            <p class="fs-5 fw-bold text-white">Laporan Kasus KtPA</p>
+                        </a>
+                    </div> --}}
                 </div>
             </div>
         </div>
@@ -189,7 +217,7 @@
     <section id="highlight-parenting">
         <div class="container py-5">
             <div class="d-flex align-items-center justify-content-between">
-                <h1 class="display-6 mb-3">Artikel Parenting</h1>
+                <h1 class="display-6 mb-3">Artikel Edukasi Anak</h1>
                 <a href="{{ route('landingpage.artikel') }}" class="btn btn-link text-decoration-none">Lihat
                     Semua</a>
             </div>
