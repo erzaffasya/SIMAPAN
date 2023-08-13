@@ -17,6 +17,7 @@ class CreateKegiatansTable extends Migration
             $table->id();
             $table->foreignId("kantor_id")->constrained("kantor");
             $table->string("judul");
+            $table->string("slug");
             $table->string("foto");
             $table->text("isi");
             $table->timestamps();

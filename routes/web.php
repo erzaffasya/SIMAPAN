@@ -49,7 +49,7 @@ Route::get('/artikel-detail', function () {
 
 
 Route::get('/artikel-kantor', [LandingpageController::class, 'artikelKantor'])->name('landingpage.artikel-kantor');
-Route::get('/artikel-kantor/detail/{slug}', [LandingpageController::class, 'artikelDetail'])->name('landingpage.artikel-kantor-detail');
+Route::get('/artikel-kantor/detail/{slug}', [LandingpageController::class, 'kegiatanKantorDetail'])->name('landingpage.artikel-kantor-detail');
 
 
 Route::get('/kegiatan', [LandingpageController::class, 'kegiatanForum'])->name('kegiatan-forum');
