@@ -70,6 +70,22 @@ Route::get('/kluster1', function () {
     return view('landingpage.kluster1');
 });
 
+Route::get('/kluster2', function () {
+    return view('landingpage.kluster2');
+});
+
+Route::get('/kluster3', function () {
+    return view('landingpage.kluster3');
+});
+
+Route::get('/kluster4', function () {
+    return view('landingpage.kluster4');
+});
+Route::get('/kluster5', function () {
+    return view('landingpage.kluster5');
+});
+
+
 // Route::get('/', function () {
 //     return view('welcome');
 // });

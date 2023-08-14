@@ -12,26 +12,38 @@
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script type="text/javascript">
-        const ctx = document.getElementById('myChart');
-        const data2021 = [98, 61]; // Contoh data dua label untuk tahun 2021
-        const data2022 = [99, 67]; // Contoh data dua label untuk tahun 2022
+    // START CHART KLUSTER 2
+        const ctx = document.getElementById('kluster2');
+        const data2017 = [98, 4487, 0]; 
+        const data2018 = [105, 19943, 0]; 
+        const data2019 = [153, 4314, 0]; 
+        const data2020 = [86, 413, 1287]; 
+        const data2021 = [239, 570, 1055]; 
+        const data2022 = [931, 3918, 4982];
 
         new Chart(ctx, {
         type: 'bar',
         data: {
-            labels: ['2021', '2022'],
+            labels: ['2017','2018','2019','2020','2021', '2022'],
             datasets: [{
-            label: 'Kutipan Akta Kelahiran',
-            data: [data2021[0], data2022[0]],
-            backgroundColor: 'rgba(62, 201, 62, 0.5)', // Warna untuk label 1
-            borderWidth: 1
+                label: 'Layanan Indoor',
+                data: [data2017[0], data2018[0], data2019[0], data2020[0], data2021[0], data2022[0]],
+                backgroundColor: 'rgba(220, 159, 53, 0.7)', // Warna untuk label 2
+                borderWidth: 1
             },
             {
-            label: 'Kartu Identitas Anak (KIA)',
-            data: [data2021[1], data2022[1]],
-            backgroundColor: 'rgba(54, 162, 235, 0.5)', // Warna untuk label 2
-            borderWidth: 1
-            }]
+                label: 'Layanan Outdoor/Sosialisasi',
+                data: [data2017[1], data2018[1], data2019[1], data2020[1], data2021[1], data2022[1]],
+                backgroundColor: 'rgba(220, 53, 69, 0.7)', // Warna untuk label 1
+                borderWidth: 1
+            },
+            {
+                label: 'Layanan Online',
+                data: [data2017[2], data2018[2], data2019[2], data2020[2], data2021[2], data2022[2]],
+                backgroundColor: 'rgba(247, 104, 52, 0.7)', // Warna untuk label 2
+                borderWidth: 1
+            },
+        ]
         },
         options: {
             scales: {
@@ -39,13 +51,51 @@
                 beginAtZero: true,
                 ticks: {
                 callback: function(value) {
-                    return value + '%';
+                    return value + 'x';
                 }
                 }
             }
             }
         }
         });
+        // END CHART KLUSTER 2
+
+        // START CHART KLUSTER 1
+        // const ctx = document.getElementById('myChart');
+        // const data2021 = [98, 61]; // Contoh data dua label untuk tahun 2021
+        // const data2022 = [99, 67]; // Contoh data dua label untuk tahun 2022
+
+        // new Chart(ctx, {
+        // type: 'bar',
+        // data: {
+        //     labels: ['2021', '2022'],
+        //     datasets: [{
+        //     label: 'Kutipan Akta Kelahiran',
+        //     data: [data2021[0], data2022[0]],
+        //     backgroundColor: 'rgba(62, 201, 62, 0.5)', // Warna untuk label 1
+        //     borderWidth: 1
+        //     },
+        //     {
+        //     label: 'Kartu Identitas Anak (KIA)',
+        //     data: [data2021[1], data2022[1]],
+        //     backgroundColor: 'rgba(54, 162, 235, 0.5)', // Warna untuk label 2
+        //     borderWidth: 1
+        //     }]
+        // },
+        // options: {
+        //     scales: {
+        //     y: {
+        //         beginAtZero: true,
+        //         ticks: {
+        //         callback: function(value) {
+        //             return value + '%';
+        //         }
+        //         }
+        //     }
+        //     }
+        // }
+        // });
+        // END CHART KLUSTER 1
 
         $(document).ready(function() {
             $('.header-slide').slick({
