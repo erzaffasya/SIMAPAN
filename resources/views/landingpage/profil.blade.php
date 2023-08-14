@@ -49,44 +49,52 @@
                         </a>
                     </div>
                     <div class="col">
-                        <figure class="rounded overflow-hidden h-100 bg-white">
-                            <img src="{{ asset('tlandingpage/asset/img/kluster-2.png') }}" alt=""
-                                class="w-100 px-5 py-4">
-                            <figcaption class="bg-white px-3 py-2 text-center">
-                                <h1 class="mb-1 fs-4">KLUSTER 2</h1>
-                                <p class="text-secondary mb-0">Lingkungan Keluarga & Pengasuhan Alternatif</p>
-                            </figcaption>
-                        </figure>
+                        <a href="/kluster2" class="text-decoration-none">
+                            <figure class="rounded overflow-hidden h-100 bg-white">
+                                <img src="{{ asset('tlandingpage/asset/img/kluster-2.png') }}" alt=""
+                                    class="w-100 px-5 py-4">
+                                <figcaption class="bg-white px-3 py-2 text-center">
+                                    <h1 class="mb-1 fs-4 text-dark">KLUSTER 2</h1>
+                                    <p class="text-secondary mb-0">Lingkungan Keluarga & Pengasuhan Alternatif</p>
+                                </figcaption>
+                            </figure>
+                        </a>
                     </div>
                     <div class="col">
-                        <figure class="rounded overflow-hidden h-100 bg-white">
-                            <img src="{{ asset('tlandingpage/asset/img/kluster-3.png') }}" alt=""
-                                class="w-100 px-5 py-4">
-                            <figcaption class="bg-white px-3 py-2 text-center">
-                                <h1 class="mb-1 fs-4">KLUSTER 3</h1>
-                                <p class="text-secondary mb-0">Kesehatan Dasar & Kesejahteraan</p>
-                            </figcaption>
-                        </figure>
+                        <a href="/kluster3" class="text-decoration-none">
+                            <figure class="rounded overflow-hidden h-100 bg-white">
+                                <img src="{{ asset('tlandingpage/asset/img/kluster-3.png') }}" alt=""
+                                    class="w-100 px-5 py-4">
+                                <figcaption class="bg-white px-3 py-2 text-center">
+                                    <h1 class="mb-1 fs-4 text-dark">KLUSTER 3</h1>
+                                    <p class="text-secondary mb-0">Kesehatan Dasar & Kesejahteraan</p>
+                                </figcaption>
+                            </figure>
+                        </a>
                     </div>
                     <div class="col">
-                        <figure class="rounded overflow-hidden h-100 bg-white">
-                            <img src="{{ asset('tlandingpage/asset/img/kluster-4.png') }}" alt=""
-                                class="w-100 px-5 py-4">
-                            <figcaption class="bg-white px-3 py-2 text-center">
-                                <h1 class="mb-1 fs-4">KLUSTER 4</h1>
-                                <p class="text-secondary mb-0">Pendidikan, Pemanfaatan Waktu Luang & kegiatan Budaya</p>
-                            </figcaption>
-                        </figure>
+                        <a href="/kluster4" class="text-decoration-none">
+                            <figure class="rounded overflow-hidden h-100 bg-white">
+                                <img src="{{ asset('tlandingpage/asset/img/kluster-4.png') }}" alt=""
+                                    class="w-100 px-5 py-4">
+                                <figcaption class="bg-white px-3 py-2 text-center">
+                                    <h1 class="mb-1 fs-4 text-dark">KLUSTER 4</h1>
+                                    <p class="text-secondary mb-0">Pendidikan, Pemanfaatan Waktu Luang & kegiatan Budaya</p>
+                                </figcaption>
+                            </figure>
+                        </a>
                     </div>
                     <div class="col">
-                        <figure class="rounded overflow-hidden h-100 bg-white">
-                            <img src="{{ asset('tlandingpage/asset/img/kluster-5.png') }}" alt=""
-                                class="w-100 px-5 py-4">
-                            <figcaption class="bg-white px-3 py-2 text-center">
-                                <h1 class="mb-1 fs-4">KLUSTER 5</h1>
-                                <p class="text-secondary mb-0">Perlindungan Khusus</p>
-                            </figcaption>
-                        </figure>
+                        <a href="/kluster5" class="text-decoration-none">
+                            <figure class="rounded overflow-hidden h-100 bg-white">
+                                <img src="{{ asset('tlandingpage/asset/img/kluster-5.png') }}" alt=""
+                                    class="w-100 px-5 py-4">
+                                <figcaption class="bg-white px-3 py-2 text-center">
+                                    <h1 class="mb-1 fs-4 text-dark">KLUSTER 5</h1>
+                                    <p class="text-secondary mb-0">Perlindungan Khusus</p>
+                                </figcaption>
+                            </figure>
+                        </a>
                     </div>
                 </div>
             </div>
