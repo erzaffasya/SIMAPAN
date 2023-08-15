@@ -11,7 +11,7 @@
                         </figcaption>
                     </figure>
                 </div>
-                <div class="col-6">Hak sipil kebebasan anak adalah hak-hak asasi manusia yang melekat pada setiap anak, yang bertujuan untuk melindungi dan menghormati martabat, kebebasan, dan kepentingan mereka.</div>
+                <div class="col-6 fs-5">Usaha untuk meningkatkan kondisi kesehatan dan kesejahteraan fisik, mental, dan sosial perempuan, anak-anak, keluarga, dan masyarakat secara keseluruhan</div>
             </div>
         </div>
     </section>
@@ -86,20 +86,6 @@
                             <img class="rounded" style="object-fit: cover;" src="{{asset('tlandingpage/asset/img/empty-img.jpeg')}}" width="100%" height="350px">
                         </figure>
                     </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section>
-        <div class="container py-5">
-            <div class="row justify-content-center align-items-center">
-                <div class="col-4">
-                    <h3 class="lh-lg text-success">Data PUSPAGA HARAPAN tahun 2017-2022</h3>
-                    <p class="lh-lg text-secondary">Penguatan Kapasitas Lembaga Konsultasi Penyedia Layanan Pengasuhan Anakk bagi Orang Tua/Keluarga</p>
-                </div>
-                <div class="col-6">
-                    <canvas id="kluster2" style="height: 200px"></canvas>
                 </div>
             </div>
         </div>
