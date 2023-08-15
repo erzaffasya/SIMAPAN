@@ -19,7 +19,7 @@ class EmergencyController extends Controller
 
         $photoPath = null;
         if ($request->file('photo') != null) {
-            $photoPath = $request->file('photo')->store('photo'); // Store the photo in the 'photos' directory
+            $photoPath = $request->file('photo')->store('public/photo'); // Store the photo in the 'photos' directory
         }
 
 
@@ -38,7 +38,7 @@ class EmergencyController extends Controller
 
     public function getEmergency(Request $request)
     {
-        $task = Emergency::where('users_id', Auth::user()->id)->get();
+        $task = Emergency::orderBy('created_at', 'DESC')->where('users_id', Auth::user()->id)->get();
         $response = ["data" => $task];
         return response()->json($response, 201);
     }

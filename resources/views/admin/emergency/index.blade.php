@@ -25,6 +25,7 @@
                                 <th>Nama</th>
                                 <th>Tanggal</th>
                                 <th>Catatan</th>
+                                <th>Foto</th>
                                 <th>Gmaps</th>
                             </tr>
                         </thead>
@@ -35,6 +36,14 @@
                                     <td>{{ $item->users_id }}</td>
                                     <td>{{ $item->created_at->format('D, d M Y') }}</td>
                                     <td>{{ $item->catatan }}</td>
+                                    <td>
+                                        <a href="javascript:void(0);" class="product-img">
+                                            <img src="{{ asset("storage/photo/$item->photo") }}" alt="product">
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <img src="{{ asset('tadmin/assets/img/icons/edit.svg') }}"
+                                        alt="img">
                                     <td>
                                         <a target="_blank" href="{{ $item->gmaps }}">{{ $item->gmaps }}</a>
                                     </td>
