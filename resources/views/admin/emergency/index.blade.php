@@ -39,7 +39,7 @@
                                     <td>{{ $item->catatan }}</td>
                                     <td>
                                         <a href="javascript:void(0);" class="product-img">
-                                            <img src="{{ asset("storage/photo/$item->photo") }}" alt="product">
+                                            <img src="{{ asset("$item->photo") }}" alt="product">
                                         </a>
                                     </td>
                                     <td>
