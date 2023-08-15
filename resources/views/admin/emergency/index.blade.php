@@ -23,6 +23,7 @@
                             <tr>
                                 <th>No</th>
                                 <th>Nama</th>
+                                <th>Tanggal</th>
                                 <th>Catatan</th>
                                 <th>Gmaps</th>
                             </tr>
@@ -32,9 +33,10 @@
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
                                     <td>{{ $item->users_id }}</td>
+                                    <td>{{ $item->created_at->format('D, d M Y') }}</td>
                                     <td>{{ $item->catatan }}</td>
                                     <td>
-                                        <a href="{{ $item->gmaps }}">{{ $item->gmaps }}</a>
+                                        <a target="_blank" href="{{ $item->gmaps }}">{{ $item->gmaps }}</a>
                                     </td>
                                 </tr>
                             @endforeach

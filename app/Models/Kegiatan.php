@@ -16,6 +16,7 @@ class Kegiatan extends Model
         "judul",
         "foto",
         "isi",
+        "slug"
     ];
 
     public function kantor(){

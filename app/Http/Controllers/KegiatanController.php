@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
 use Intervention\Image\Facades\Image;
+use Str;
 
 
 class KegiatanController extends Controller
@@ -69,6 +70,7 @@ class KegiatanController extends Controller
         Kegiatan::create([
             "kantor_id" => $request->kantor_id,
             "judul" => $request->judul,
+            "slug" => Str::slug($request->judul),
             "foto" => $file_name,
             "isi" => $request->isi,
         ]);
@@ -116,7 +118,7 @@ class KegiatanController extends Controller
         ]);
 
         if ($request->foto) {
-            $path = storage_path("app/public/img/kantor");
+            $path = storage_path("app/public/img/kegiatan");
             if (File::exists("$path/$kegiatan->foto")) {
                 File::delete("$path/$kegiatan->foto");
             }
@@ -139,6 +141,7 @@ class KegiatanController extends Controller
 
         $kegiatan->kantor_id = $request->kantor_id;
         $kegiatan->judul = $request->judul;
+        $kegiatan->slug = Str::slug($request->judul);
         $kegiatan->foto = $file_name;
         $kegiatan->isi = $request->isi;
         $kegiatan->save();

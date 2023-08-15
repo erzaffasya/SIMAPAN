@@ -5,16 +5,16 @@
             <div class="row pb-5 justify-content-center">
                 <div class="col-10">
                     <figure>
-                        <img src="{{ asset("storage/img/kegiatan/$artikel->kantor_id/$artikel->foto") }}" class="w-100 rounded"
+                        <img src="{{ asset("storage/img/kegiatan/$kegiatan->kantor_id/$kegiatan->foto") }}" class="w-100 rounded"
                             alt="" height="500px">
                         <figcaption>
                             <div class="px-2 py-3 m-0 w-100">
-                                <p class="fs-6 mb-2 text-secondary">{{ $artikel->created_at->format('D, d M Y') }} -
+                                <p class="fs-6 mb-2 text-secondary">{{ $kegiatan->created_at->format('D, d M Y') }} -
                                     <span class="text-primary">By
                                         PPATBM Klandasan</span> </p>
-                                <h1 class="fs-1 fw-bold">{{ $artikel->judul }}</h1>
+                                <h1 class="fs-1 fw-bold">{{ $kegiatan->judul }}</h1>
                                 <p class="fs-6 mb-0 text-secondary">
-                                    {!! $artikel->isi !!}</p>
+                                    {!! $kegiatan->isi !!}</p>
                             </div>
                         </figcaption>
                     </figure>
@@ -29,9 +29,9 @@
 
                 <div class="col-12"></div>
 
-                @foreach ($artikelLainnya as $item)
+                @foreach ($kegiatanLainnya as $item)
                     <div class="col-3">
-                        <a class="card-artikel1" href="{{route('landingpagelandingpage.artikel-kantor-detail', $item->slug)}}">
+                        <a class="card-artikel1" href="{{route('landingpage.artikel-kantor-detail', $item->slug)}}">
                             <figure class="shadow-lg mb-0 position-relative overflow-hidden">
                                 <img src="{{ asset("storage/img/kegiatan/$item->kantor_id/$item->foto") }}" alt=""
                                     width="100%" height="350">

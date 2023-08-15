@@ -11,7 +11,7 @@ class EmergencyController extends Controller
 {
     public function index()
     {
-        $emergency = Emergency::all();
+        $emergency = Emergency::orderBy("created_at", "ASC")->get();
         return view('admin.emergency.index', compact('emergency'));
     }
 }

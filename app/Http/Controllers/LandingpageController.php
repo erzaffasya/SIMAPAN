@@ -123,9 +123,12 @@ class LandingpageController extends Controller
 
     public function kegiatanKantorDetail($slug)
     {
-        $ForumKategoriGaleri = ForumKategoriGaleri::where('slug', $slug)->first();
-        $ForumGaleri = ForumGaleri::where('id_kategori_galeri', $ForumKategoriGaleri->id)->get();
+        // $ForumKategoriGaleri = ForumKategoriGaleri::where('slug', $slug)->first();
+        // dd($ForumKategoriGaleri);
+        $kegiatan = Kegiatan::where('slug', $slug)->first();
+        $kegiatanLainnya = Kegiatan::limit(3)->get();
+        // dd($kegiatan);
         // dd($ForumGaleri, $ForumKategoriGaleri);
-        return view('landingpage.artikelkantordetail', compact('ForumGaleri', 'ForumKategoriGaleri'));
+        return view('landingpage.artikelkantordetail', compact('kegiatanLainnya','kegiatan'));
     }
 }

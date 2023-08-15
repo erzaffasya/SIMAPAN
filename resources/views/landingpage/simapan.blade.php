@@ -180,11 +180,11 @@
                 <div class="col-4">
                     <div class="d-flex align-items-center justify-content-between mb-3">
                         <h1 class="fs-3 mb-0">Kegiatan PPATBM</h1>
-                        <a href="/kegiatan" class="btn btn-link text-decoration-none">Lihat Semua</a>
+                        <a href="{{route('landingpage.artikel-kantor')}}" class="btn btn-link text-decoration-none">Lihat Semua</a>
                     </div>
                     @foreach ($kegiatan as $item)
                         <div class="card mb-3 w-100 border-0">
-                            <a href="{{route('landingpage.artikel-kantor')}}" class="text-decoration-none">
+                            <a href="{{route('landingpage.artikel-kantor-detail',$item->slug)}}" class="text-decoration-none">
                                 <div class="row g-0 align-items-center">
                                     <div class="col-md-4">
                                         <img src="{{ asset("storage/img/kegiatan/$item->kantor_id/$item->foto") }}"
