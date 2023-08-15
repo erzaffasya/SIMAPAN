@@ -60,24 +60,17 @@
                 </div>
                 <div class="row gy-2 mt-2 justify-content-center">
                     <div class="col-4 d-flex justify-content-center align-items-center">
-                        <a href="#" class="text-decoration-none d-flex">
+                        <a href="https://drive.google.com/file/d/1qQsKAsgE4xx5v-D2nZu7JQoz-JVwQuLQ/view?usp=sharing" class="text-decoration-none d-flex">
                             <img src="{{ asset('tlandingpage/asset/img/call-incoming.png') }}" height="30px"
                                 alt="" class="me-3">
                             <p class="fs-5 fw-bold text-white">Apps Mobile TOPAN</p>
                         </a>
                     </div>
-                    {{-- <div class="col-4 d-flex justify-content-center align-items-center">
-                        <a href="https://wa.me/6281283627565" class="text-decoration-none d-flex">
-                            <img src="{{ asset('tlandingpage/asset/img/call-incoming.png') }}" height="30px"
-                                alt="" class="me-3">
-                            <p class="fs-5 fw-bold text-white">Konsultasi Psikolog</p>
-                        </a>
-                    </div> --}}
                     <div class="col-4 d-flex justify-content-center align-items-center">
                         <a href="#kluster5" class="text-decoration-none d-flex">
                             <img src="{{ asset('tlandingpage/asset/img/clipboard.png') }}" height="30px"
                             alt="" class="me-3">
-                            <p class="fs-5 fw-bold text-white">Infokum Anak</p>
+                            <p class="fs-5 fw-bold text-white">Konsultasi Psikolog</p>
                         </a>
                     </div>
                     <div class="col-4 d-flex justify-content-center align-items-center">
@@ -88,7 +81,7 @@
                         </a>
                     </div>
                     <div class="col-4 d-flex justify-content-center align-items-center">
-                        <a href="https://linktr.ee/sidakktpa" class="text-decoration-none d-flex">
+                        <a href="https://wa.me/62816220077" class="text-decoration-none d-flex">
                             <img src="{{ asset('tlandingpage/asset/img/shield.png') }}" height="30px"
                             alt="" class="me-3">
                             <p class="fs-5 fw-bold text-white">Konsultasi Hukum KTA</p>
@@ -108,13 +101,14 @@
                             <p class="fs-5 fw-bold text-white">Edukasi Anak</p>
                         </a>
                     </div>
-                    {{-- <div class="col-5 d-flex align-items-center">
-                        <a href="https://linktr.ee/sidakktpa" class="text-decoration-none d-flex">
-                            <img src="{{ asset('tlandingpage/asset/img/note-text.png') }}" height="30px"
-                            alt="" class="me-3">
-                            <p class="fs-5 fw-bold text-white">Laporan Kasus KtPA</p>
-                        </a>
-                    </div> --}}
+                </div>
+                <div class="row mt-4 justify-content-between bg-danger rounded align-items-center p-3">
+                    <div class="col-8">
+                        <p class="fw-bold fs-5 text-white mb-0">Layanan Pusat Panggilan Darurat Kota Balikpapan</p>
+                    </div>
+                    <div class="col-2">
+                        <a href="#" class="btn btn-light btn-lg w-100 text-danger fw-bold">Call 112</a>
+                    </div>
                 </div>
             </div>
         </div>

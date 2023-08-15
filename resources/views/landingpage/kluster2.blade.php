@@ -11,7 +11,7 @@
                         </figcaption>
                     </figure>
                 </div>
-                <div class="col-6">Hak sipil kebebasan anak adalah hak-hak asasi manusia yang melekat pada setiap anak, yang bertujuan untuk melindungi dan menghormati martabat, kebebasan, dan kepentingan mereka.</div>
+                <div class="col-6 fs-5">upaya untuk menciptakan lingkungan keluarga yang aman, mendukung, dan berkualitas bagi perkembangan optimal anak-anak.</div>
             </div>
         </div>
     </section>
@@ -23,7 +23,7 @@
                     <p class="lh-lg text-secondary">Penguatan Kapasitas Lembaga Konsultasi Penyedia Layanan Pengasuhan Anakk bagi Orang Tua/Keluarga</p>
                 </div>
                 <div class="col-6">
-                    <canvas id="kluster2" style="height: 200px"></canvas>
+                    <canvas id="c2chart" style="height: 200px"></canvas>
                 </div>
             </div>
         </div>
@@ -59,73 +59,73 @@
     </section>
 
     <section>
-        <div class="bg-reds bg-img-overlay item1-img pt-4 pb-5 mt-5">
+        <div class="bg-reds bg-img-overlay item1-img pt-4 pb-4 mt-5">
             <div class="container">
-                <div class="row justify-content-center gy-3">
-                    <div class="col-10">
-                        <h4 class="text-center text-white mb-4 lh-md">KETERSEDIAAN INFRASTRUKTUR (Sarana Prasarana) Ramah Anak di Ruang Publik</h4>
-                    </div>
-                    <div class="col-3">
-                        <figure class="rounded overflow-hidden h-100 bg-white">
+                <div class="text-center">
+                    <h4 class="text-white mb-4 lh-md">KETERSEDIAAN INFRASTRUKTUR (Sarana Prasarana) Ramah Anak di Ruang Publik</h4>
+                </div>
+                <div class="slide-4-view row">
+                    <div class="mx-2 col h-100">
+                        <figure class="rounded overflow-hidden h-100 mb-0">
                             <img src="{{asset('tlandingpage/asset/img/empty-img.jpeg')}}" alt="" class="w-100">
-                            <figcaption class="bg-white px-3 py-2 text-center">
-                                <h5 class="mb-1 text-dark">RBA di Kelurahan</h5>
+                            <figcaption class="px-3 py-2 text-center">
+                                <p class="mb-1 text-white fs-5">RBA di Kelurahan</p>
                             </figcaption>
                         </figure>
                     </div>
-                    <div class="col-3">
-                        <figure class="rounded overflow-hidden h-100 bg-white">
+                    <div class="mx-2 col h-100">
+                        <figure class="rounded overflow-hidden h-100 mb-0">
                             <img src="{{asset('tlandingpage/asset/img/empty-img.jpeg')}}" alt="" class="w-100">
-                            <figcaption class="bg-white px-3 py-2 text-center">
-                                <h5 class="mb-1 text-dark">RBA di Kelurahan</h5>
+                            <figcaption class="px-3 py-2 text-center">
+                                <p class="mb-1 text-white fs-5">RBA di Kelurahan</p>
                             </figcaption>
                         </figure>
                     </div>
-                    <div class="col-3">
-                        <figure class="rounded overflow-hidden h-100 bg-white">
+                    <div class="mx-2 col h-100">
+                        <figure class="rounded overflow-hidden h-100 mb-0">
                             <img src="{{asset('tlandingpage/asset/img/empty-img.jpeg')}}" alt="" class="w-100">
-                            <figcaption class="bg-white px-3 py-2 text-center">
-                                <h5 class="mb-1 text-dark">RBA di Hotel</h5>
+                            <figcaption class="px-3 py-2 text-center">
+                                <p class="mb-1 text-white fs-5">RBA di Hotel</p>
                             </figcaption>
                         </figure>
                     </div>
-                    <div class="col-3">
-                        <figure class="rounded overflow-hidden h-100 bg-white">
+                    <div class="mx-2 col h-100">
+                        <figure class="rounded overflow-hidden h-100 mb-0">
                             <img src="{{asset('tlandingpage/asset/img/empty-img.jpeg')}}" alt="" class="w-100">
-                            <figcaption class="bg-white px-3 py-2 text-center">
-                                <h5 class="mb-1 text-dark">RBA di Bandara</h5>
+                            <figcaption class="px-3 py-2 text-center">
+                                <p class="mb-1 text-white fs-5">RBA di Bandara</p>
                             </figcaption>
                         </figure>
                     </div>
-                    <div class="col-3">
-                        <figure class="rounded overflow-hidden h-100 bg-white">
+                    <div class="mx-2 col h-100">
+                        <figure class="rounded overflow-hidden h-100 mb-0">
                             <img src="{{asset('tlandingpage/asset/img/empty-img.jpeg')}}" alt="" class="w-100">
-                            <figcaption class="bg-white px-3 py-2 text-center">
-                                <h5 class="mb-1 text-dark">RBA di Mall Pelayanan Publik</h5>
+                            <figcaption class="px-3 py-2 text-center">
+                                <p class="mb-1 text-white fs-5">RBA di Mall Pelayanan Publik</p>
                             </figcaption>
                         </figure>
                     </div>
-                    <div class="col-3">
-                        <figure class="rounded overflow-hidden h-100 bg-white">
+                    <div class="mx-2 col h-100">
+                        <figure class="rounded overflow-hidden h-100 mb-0">
                             <img src="{{asset('tlandingpage/asset/img/empty-img.jpeg')}}" alt="" class="w-100">
-                            <figcaption class="bg-white px-3 py-2 text-center">
-                                <h5 class="mb-1 text-dark">RBA di Sekolah</h5>
+                            <figcaption class="px-3 py-2 text-center">
+                                <p class="mb-1 text-white fs-5">RBA di Sekolah</p>
                             </figcaption>
                         </figure>
                     </div>
-                    <div class="col-3">
-                        <figure class="rounded overflow-hidden h-100 bg-white">
+                    <div class="mx-2 col h-100">
+                        <figure class="rounded overflow-hidden h-100 mb-0">
                             <img src="{{asset('tlandingpage/asset/img/empty-img.jpeg')}}" alt="" class="w-100">
-                            <figcaption class="bg-white px-3 py-2 text-center">
-                                <h5 class="mb-1 text-dark">RBA di RSUD Beriman</h5>
+                            <figcaption class="px-3 py-2 text-center">
+                                <p class="mb-1 text-white fs-5">RBA di RSUD Beriman</p>
                             </figcaption>
                         </figure>
                     </div>
-                    <div class="col-3">
-                        <figure class="rounded overflow-hidden h-100 bg-white">
+                    <div class="mx-2 col h-100">
+                        <figure class="rounded overflow-hidden h-100 mb-0">
                             <img src="{{asset('tlandingpage/asset/img/empty-img.jpeg')}}" alt="" class="w-100">
-                            <figcaption class="bg-white px-3 py-2 text-center">
-                                <h5 class="mb-1 text-dark">RBA di Taman</h5>
+                            <figcaption class="px-3 py-2 text-center">
+                                <p class="mb-1 text-white fs-5">RBA di Taman</p>
                             </figcaption>
                         </figure>
                     </div>

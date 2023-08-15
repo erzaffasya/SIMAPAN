@@ -11,7 +11,7 @@
                         </figcaption>
                     </figure>
                 </div>
-                <div class="col-6">Hak sipil kebebasan anak adalah hak-hak asasi manusia yang melekat pada setiap anak, yang bertujuan untuk melindungi dan menghormati martabat, kebebasan, dan kepentingan mereka.</div>
+                <div class="col-6">Upaya untuk meningkatkan pengetahuan, keterampilan, dan kesadaran masyarakat tentang perlindungan perempuan dan anak, serta memperkuat peran positif keluarga dan masyarakat</div>
             </div>
         </div>
     </section>
@@ -50,14 +50,25 @@
         </div>
     </section>
 
+    {{-- <section>
+        <div class="container py-5">
+            <div class="row justify-content-center align-items-center">
+                <div class="col-4">
+                    <h3 class="text-primary">Satuan Pendidikan Ramah Anak (SRA)</h3>
+                    <p class="lh-lg text-secondary">Presentase sekolah ramah anak dalam berbagai tingkat</p>
+                </div>
+            </div>
+        </div>
+    </section> --}}
+
     <section>
         <div class="container py-5">
             <div class="row align-items-center justify-content-center">
-                <div class="col-6">
+                <div class="col-10">
                     <h4 class="text-primary mb-4">Satuan Pendidikan Ramah Anak (SRA)</h4>
                     <p class="text-secondary fs-6 lh-lg">Pada Tahun 2021 terdapat 1 Sekolah yang telah di Standarisasi Sebagai Satuan Pendidikan Ramah Anak (SRA) Oleh Kementerian PPPA RI yaitu SLBN Balikpapan.<br><br> Dan Pada Tahun 2022 terdapat 1 Sekolah yang telah di Standarisasi Satuan Pendidikan Ramah Anak (SRA) oleh Kementerian PPPA , sebagai SRA Rujukan Nasional dan sebagai Lembaga Penyedia Layanan Ramah Anak (LPLRA)sebagai yaitu SD Kemala Bhayangkari 01 Balikpapan</p>
                 </div>
-                <div class="col-4">
+                <div class="col-6">
                     <div class="slide-1-view">
                         <figure class="mb-0 px-2">
                             <img class="rounded" style="object-fit: cover;" src="{{asset('tlandingpage/asset/img/empty-img.jpeg')}}" width="100%" height="350px">
@@ -69,6 +80,9 @@
                             <img class="rounded" style="object-fit: cover;" src="{{asset('tlandingpage/asset/img/empty-img.jpeg')}}" width="100%" height="350px">
                         </figure>
                     </div>
+                </div>
+                <div class="col-6">
+                    <canvas id="c4chart" style="height: 200px"></canvas>
                 </div>
             </div>
         </div>
@@ -103,4 +117,62 @@
             </div>
         </div>
     </section>
+
+    @push('scripts')
+    <script>
+        const c4ctx = document.getElementById('c4chart');
+        const c4data2022 = [0.2, 82.0, 47.0, 32.3, 75.0]; // Contoh data dua label untuk tahun 2022
+
+        new Chart(c4ctx, {
+            type: 'bar',
+            data: {
+                labels: ['2022'],
+                datasets: [{
+                label: 'TK/RA/PAUD',
+                data: [c4data2022[0]],
+                backgroundColor: 'rgba(62, 201, 62, 0.5)', // Warna untuk label 1
+                borderWidth: 1
+                },
+                {
+                label: 'SD/MI',
+                data: [c4data2022[1]],
+                backgroundColor: 'rgba(54, 162, 235, 0.5)', // Warna untuk label 2
+                borderWidth: 1
+                },
+                {
+                label: 'SMP/MTS',
+                data: [c4data2022[2]],
+                backgroundColor: 'rgba(50, 168, 133, 0.5)', // Warna untuk label 3
+                borderWidth: 1
+                },
+                {
+                label: 'SMA/SMK/MA',
+                data: [c4data2022[3]],
+                backgroundColor: 'rgba(15, 61, 122, 0.5)', // Warna untuk label 4
+                borderWidth: 1
+                },
+                {
+                label: 'SLB',
+                data: [c4data2022[4]],
+                backgroundColor: 'rgba(47, 49, 186, 0.5)', // Warna untuk label 5
+                borderWidth: 1
+                }
+                ]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        ticks: {
+                            callback: function(value) {
+                                return value + '%';
+                            }
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+
+    @endpush
 </x-guest-layout>
