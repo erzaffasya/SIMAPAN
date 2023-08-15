@@ -13,16 +13,16 @@
                 </div>
                 <div class="col-6">
                     <h1 class="fs-2 fw-bold">JUMLAH ANAK SAAT INI <span
-                            class="text-danger">{{ ($jumlahAnak->laki_laki ?? 0) + ($jumlahAnak->perempuan ?? 0) }}</span>
+                            class="text-danger">{{ number_format(($jumlahAnak->laki_laki ?? 0) + ($jumlahAnak->perempuan ?? 0)) }}</span>
                     </h1>
                     <div class="d-flex">
                         <div class="mt-4 me-4">
                             <p class="text-secondary mb-0 fs-5">Anak Laki-Laki</p>
-                            <p class="fw-bold fs-2">{{ $jumlahAnak->laki_laki ?? 0 }}</p>
+                            <p class="fw-bold fs-2">{{ number_format($jumlahAnak->laki_laki ?? 0) }}</p>
                         </div>
                         <div class="mt-4">
                             <p class="text-secondary mb-0 fs-5">Anak Perempuan</p>
-                            <p class="fw-bold fs-2">{{ $jumlahAnak->perempuan ?? 0 }}</p>
+                            <p class="fw-bold fs-2">{{ number_format($jumlahAnak->perempuan ?? 0) }}</p>
                         </div>
                     </div>
                 </div>

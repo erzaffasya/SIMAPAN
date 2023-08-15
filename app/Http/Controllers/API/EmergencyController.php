@@ -17,10 +17,12 @@ class EmergencyController extends Controller
         //     'photo' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048', // Adjust the validation rules as needed
         // ]);
 
-        $photoPath = null;
-        if ($request->file('photo') != null) {
-            $photoPath = $request->file('photo')->store('public/photo'); // Store the photo in the 'photos' directory
-        }
+        $filePath = null;
+        if ($request->file('file')->isValid()) {
+            $file = $request->file('file');
+            $fileName = time() . '_' . $file->getClientOriginalName();
+            $filePath = $file->storeAs('emergency', $fileName, 'public'); // Save the file to the storage/public/uploads directory
+        }    
 
 
         $task = Emergency::create([
@@ -30,7 +32,7 @@ class EmergencyController extends Controller
             'longitude' => $request->input('longitude'),
             'catatan' => $request->input('catatan'),
             'users_id' => Auth::user()->id,
-            'photo' => $photoPath,
+            'photo' => $filePath,
         ]);
 
         return response()->json($task, 201);
