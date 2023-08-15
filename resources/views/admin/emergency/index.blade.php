@@ -27,6 +27,7 @@
                                 <th>Catatan</th>
                                 <th>Foto</th>
                                 <th>Gmaps</th>
+                                <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
