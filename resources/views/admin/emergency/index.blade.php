@@ -27,14 +27,13 @@
                                 <th>Catatan</th>
                                 <th>Foto</th>
                                 <th>Gmaps</th>
-                                <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach ($emergency as $item)
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
-                                    <td>{{ $item->users_id }}</td>
+                                    <td>{{ $item->user->name }}</td>
                                     <td>{{ $item->created_at->format('D, d M Y') }}</td>
                                     <td>{{ $item->catatan }}</td>
                                     <td>
@@ -42,10 +41,7 @@
                                             <img src="{{ asset("$item->photo") }}" alt="product">
                                         </a>
                                     </td>
-                                    <td>
-                                        <img src="{{ asset('tadmin/assets/img/icons/edit.svg') }}"
-                                        alt="img">
-                                    <td>
+                                   <td>
                                         <a target="_blank" href="{{ $item->gmaps }}">{{ $item->gmaps }}</a>
                                     </td>
                                 </tr>
