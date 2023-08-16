@@ -7,10 +7,9 @@
                     <p class="lead text-secondary mb-4">Mari Wujudkan Balikpapan Menuju Kota Layak Anak</p>
                 </div>
             </div>
-            <div class="row align-items-center">
-                <div class="col-6">
-                    <img src="{{ asset("storage/img/struktur/$struktur->foto") }}" alt="" class="w-100 rounded"
-                        height="320px" style="object-fit: cover;">
+            <div class="row align-items-center justify-content-center">
+                <div class="col-4">
+                    <img src="{{ asset("storage/img/struktur/$struktur->foto") }}" alt="" class="w-100 rounded">
                 </div>
                 <div class="col-6">
                     <h1 class="fs-2 fw-bold">Struktur Forum Anak Balikpapan</h1>
