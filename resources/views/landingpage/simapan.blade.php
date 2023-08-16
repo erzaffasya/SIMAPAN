@@ -67,7 +67,7 @@
                         </a>
                     </div>
                     <div class="col-4 d-flex justify-content-center align-items-center">
-                        <a href="#kluster5" class="text-decoration-none d-flex">
+                        <a href="https://wa.me/62816220077" class="text-decoration-none d-flex">
                             <img src="{{ asset('tlandingpage/asset/img/clipboard.png') }}" height="30px"
                             alt="" class="me-3">
                             <p class="fs-5 fw-bold text-white">Konsultasi Psikolog</p>
@@ -79,7 +79,7 @@
                             alt="" class="me-3">
                             <p class="fs-5 fw-bold text-white">Kegiatan PPATBM</p>
                         </a>
-                    </div>
+                    </div> 
                     <div class="col-4 d-flex justify-content-center align-items-center">
                         <a href="https://wa.me/62816220077" class="text-decoration-none d-flex">
                             <img src="{{ asset('tlandingpage/asset/img/shield.png') }}" height="30px"
@@ -102,13 +102,14 @@
                         </a>
                     </div>
                 </div>
-                <div class="row mt-4 justify-content-between bg-danger rounded align-items-center p-3">
-                    <div class="col-8">
-                        <p class="fw-bold fs-5 text-white mb-0">Layanan Pusat Panggilan Darurat Kota Balikpapan</p>
+                <div class="row justify-content-center rounded align-items-center mt-3 bg-white p-0 " style="border-radius: 1rem;">
+                    <div class="col-6">
+                        <img src="https://layanan112.kominfo.go.id/images/logo/logo.png" width="100%" alt="" style="height: 100px; object-fit: center;">
+                        {{-- <p class="fw-bold fs-5 text-white mb-0">Layanan Pusat Panggilan Darurat Kota Balikpapan</p> --}}
                     </div>
-                    <div class="col-2">
+                    {{-- <div class="col-2">
                         <a href="#" class="btn btn-light btn-lg w-100 text-danger fw-bold">Call 112</a>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
         </div>
@@ -235,7 +236,7 @@
         </div>
     </section>
 
-    <section id="faq-section">
+    {{-- <section id="faq-section">
         <div class="bg-blues bg-img-overlay item1-img py-5">
             <div class="container">
                 <h1 class="display-6 mb-1 text-white text-center">Frequently Asked Question (FaQ)</h1>
@@ -300,6 +301,24 @@
                             @endforeach
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section> --}}
+
+    <section id="iklan-banner">
+        <div class="bg-blues bg-img-overlay item1-img py-5">
+            <div class="container">
+                <div class="slide-1-view">
+                    <figure class="mb-0 mx-2">
+                        <img class="rounded" src="{{asset('tlandingpage/asset/img/empty-img.jpeg')}}" width="100%" height="450px">
+                    </figure>
+                    <figure class="mb-0 mx-2">
+                        <img class="rounded" src="{{asset('tlandingpage/asset/img/empty-img.jpeg')}}" width="100%" height="450px">
+                    </figure>
+                    <figure class="mb-0 mx-2">
+                        <img class="rounded" src="{{asset('tlandingpage/asset/img/empty-img.jpeg')}}" width="100%" height="450px">
+                    </figure>
                 </div>
             </div>
         </div>

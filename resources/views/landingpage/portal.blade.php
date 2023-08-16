@@ -21,9 +21,16 @@
                     <img src="{{asset('tlandingpage/asset/img/logo-1.png')}}" alt="">
                     <img src="{{asset('tlandingpage/asset/img/logo-2.png')}}" alt="">
                     <img src="{{asset('tlandingpage/asset/img/logo-3.png')}}" alt="">
+                </div>
+                <figcaption class="fw-bold fs-5">DP3AKB | Dinas Perlindungan Pemberdayaan Perempuan Anak Keluarga Berencana</figcaption>
+            </figure>
+        </section>
+        <section id="nav-top" style="top: 5rem;">
+            <figure class="mb-0 bg-white d-flex align-items-center px-4 py-2">
+                <div class="me-2">
                     <img src="{{asset('tlandingpage/asset/img/logo-4.jpg')}}" alt="">
                 </div>
-                <figcaption class="fw-bold fs-5">DP3AKB | Strategi Peningkatan Peran Serta Masyarakat Dalam Mendukung Kota Balikpapan Menuju Kota Layak Anak</figcaption>
+                <figcaption class="fw-bold fs-5">Strategi Peningkatan Peran Serta Masyarakat Dalam Mendukung Kota Balikpapan Menuju Kota Layak Anak</figcaption>
             </figure>
         </section>
         <div id="portal-1" class="row gx-0 align-items-md-stretch h-100">
