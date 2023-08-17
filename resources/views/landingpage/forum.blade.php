@@ -10,7 +10,7 @@
             <div class="row align-items-center">
                 <div class="col-6">
                     <img src="{{ asset("storage/img/struktur/$struktur->foto") }}" alt="" class="w-100 rounded"
-                         style="object-fit: cover;">
+                        height="500px">
                 </div>
                 <div class="col-6">
                     <h1 class="fs-2 fw-bold">Struktur Forum Anak Balikpapan</h1>
