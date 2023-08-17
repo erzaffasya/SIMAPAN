@@ -15,6 +15,7 @@ class ForumKategoriGaleri extends Model
         'judul',
         'deskripsi',
         'slug',
+        'kategori',
         'foto',
         'thumbnail',
     ];

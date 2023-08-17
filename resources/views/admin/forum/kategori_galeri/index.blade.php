@@ -27,6 +27,7 @@
                         <thead>
                             <tr>
                                 <th>No</th>
+                                <th>Judul</th>
                                 <th>Kategori</th>
                                 <th>Deskripsi</th>
                                 <th>Action</th>
@@ -37,7 +38,14 @@
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
                                     <td>{{ $item->judul }}</td>
-                                    <td>{{ $item->deskripsi }}</td>
+                                    <td>
+                                        @if ($item->kategori == 'P')
+                                            Profil Anak
+                                        @else
+                                            Forum Anak
+                                        @endif
+                                    </td>
+                                    <td>{!! $item->deskripsi !!}</td>
                                     <td>
                                         <div class="d-flex">
                                             <a class="me-3"
