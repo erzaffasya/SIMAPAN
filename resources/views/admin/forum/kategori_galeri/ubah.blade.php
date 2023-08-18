@@ -52,6 +52,19 @@
                         </div>
                         <div class="col-lg-12 col-sm-12 col-12">
                             <div class="form-group">
+                                <label>Kategori</label>
+                                <select class="form-control" name="kategori">
+                                        <option @if ($forum_kategori_galeri == 'F')
+                                            selected
+                                        @endif value="F">Forum Anak</option>
+                                        <option @if ($forum_kategori_galeri == 'P')
+                                        selected
+                                    @endif value="P">Profil Anak</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-lg-12 col-sm-12 col-12">
+                            <div class="form-group">
                                 <div class="card">
                                     <div class="card-header">
                                         <h5 class="card-title">Multiple File Upload</h5>

@@ -34,6 +34,7 @@ class ForumKategoriGaleriController extends Controller
             'judul' => $request->judul,
             'deskripsi' => $request->deskripsi,
             "slug" => Str::slug($request->judul),
+            'kategori' => $request->kategori,
         ]);
 
         foreach ($request->foto as $key => $foto) {
@@ -158,6 +159,7 @@ class ForumKategoriGaleriController extends Controller
         $forum_kategori_galeri->judul = $request->judul;
         $forum_kategori_galeri->slug = Str::slug($request->judul);
         $forum_kategori_galeri->deskripsi = $request->deskripsi;
+        $forum_kategori_galeri->kategori = $request->kategori;
         $forum_kategori_galeri->save();
 
         return redirect()->route('forum-kategori-galeri.index')->with('success', 'Kategori Galeri Berhasil Ditambahkan');

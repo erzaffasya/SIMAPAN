@@ -37,8 +37,18 @@
                     <div class="row">
                         <div class="col-lg-12 col-sm-12 col-12">
                             <div class="form-group">
-                                <label>Kategori Artikel</label>
+                                <label>Judul</label>
                                 <input name="judul" type="text">
+                            </div>
+                        </div>
+
+                        <div class="col-lg-12 col-sm-12 col-12">
+                            <div class="form-group">
+                                <label>Kategori</label>
+                                <select class="form-control" name="kategori">
+                                        <option value="F">Forum Anak</option>
+                                        <option value="P">Profil Anak</option>
+                                </select>
                             </div>
                         </div>
                         <div class="col-lg-12 col-sm-12 col-12">

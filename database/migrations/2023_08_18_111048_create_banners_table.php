@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateForumKategoriGalerisTable extends Migration
+class CreateBannersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,9 @@ class CreateForumKategoriGalerisTable extends Migration
      */
     public function up()
     {
-        Schema::create('forum_kategori_galeri', function (Blueprint $table) {
+        Schema::create('banner', function (Blueprint $table) {
             $table->id();
-            $table->string("judul");
-            $table->string("deskripsi");
-            $table->string("slug");
-            $table->string("kategori");
+            $table->string('banner');
             $table->timestamps();
         });
     }
@@ -30,6 +27,6 @@ class CreateForumKategoriGalerisTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('forum_kategori_galeri');
+        Schema::dropIfExists('banner');
     }
 }
