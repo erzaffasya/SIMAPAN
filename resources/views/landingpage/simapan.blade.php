@@ -60,7 +60,8 @@
                 </div>
                 <div class="row gy-2 mt-2 justify-content-center">
                     <div class="col-4 d-flex justify-content-center align-items-center">
-                        <a href="https://drive.google.com/file/d/1qQsKAsgE4xx5v-D2nZu7JQoz-JVwQuLQ/view?usp=sharing" class="text-decoration-none d-flex">
+                        <a href="https://drive.google.com/file/d/1qQsKAsgE4xx5v-D2nZu7JQoz-JVwQuLQ/view?usp=sharing"
+                            class="text-decoration-none d-flex">
                             <img src="{{ asset('tlandingpage/asset/img/call-incoming.png') }}" height="30px"
                                 alt="" class="me-3">
                             <p class="fs-5 fw-bold text-white">Apps Mobile TOPAN</p>
@@ -68,43 +69,45 @@
                     </div>
                     <div class="col-4 d-flex justify-content-center align-items-center">
                         <a href="https://wa.me/62816220077" class="text-decoration-none d-flex">
-                            <img src="{{ asset('tlandingpage/asset/img/clipboard.png') }}" height="30px"
-                            alt="" class="me-3">
+                            <img src="{{ asset('tlandingpage/asset/img/clipboard.png') }}" height="30px" alt=""
+                                class="me-3">
                             <p class="fs-5 fw-bold text-white">Konsultasi Psikolog</p>
                         </a>
                     </div>
                     <div class="col-4 d-flex justify-content-center align-items-center">
                         <a href="/kegiatan" class="text-decoration-none d-flex">
                             <img src="{{ asset('tlandingpage/asset/img/clipboard.png') }}" height="30px"
-                            alt="" class="me-3">
+                                alt="" class="me-3">
                             <p class="fs-5 fw-bold text-white">Kegiatan PPATBM</p>
                         </a>
-                    </div> 
+                    </div>
                     <div class="col-4 d-flex justify-content-center align-items-center">
                         <a href="https://wa.me/62816220077" class="text-decoration-none d-flex">
-                            <img src="{{ asset('tlandingpage/asset/img/shield.png') }}" height="30px"
-                            alt="" class="me-3">
+                            <img src="{{ asset('tlandingpage/asset/img/shield.png') }}" height="30px" alt=""
+                                class="me-3">
                             <p class="fs-5 fw-bold text-white">Konsultasi Hukum KTA</p>
                         </a>
                     </div>
                     <div class="col-4 d-flex justify-content-center align-items-center">
                         <a href="/forum" class="text-decoration-none d-flex">
                             <img src="{{ asset('tlandingpage/asset/img/note-text.png') }}" height="30px"
-                            alt="" class="me-3">
+                                alt="" class="me-3">
                             <p class="fs-5 fw-bold text-white">Forum Anak</p>
                         </a>
                     </div>
                     <div class="col-4 d-flex justify-content-center align-items-center">
                         <a href="#highlight-parenting" class="text-decoration-none d-flex">
                             <img src="{{ asset('tlandingpage/asset/img/note-text.png') }}" height="30px"
-                            alt="" class="me-3">
+                                alt="" class="me-3">
                             <p class="fs-5 fw-bold text-white">Edukasi Anak</p>
                         </a>
                     </div>
                 </div>
-                <div class="row justify-content-center rounded align-items-center mt-3 bg-white p-0 " style="border-radius: 1rem;">
+                <div class="row justify-content-center rounded align-items-center mt-3 bg-white p-0 "
+                    style="border-radius: 1rem;">
                     <div class="col-6">
-                        <img src="https://layanan112.kominfo.go.id/images/logo/logo.png" width="100%" alt="" style="height: 100px; object-fit: center;">
+                        <img src="https://layanan112.kominfo.go.id/images/logo/logo.png" width="100%"
+                            alt="" style="height: 100px; object-fit: center;">
                         {{-- <p class="fw-bold fs-5 text-white mb-0">Layanan Pusat Panggilan Darurat Kota Balikpapan</p> --}}
                     </div>
                     {{-- <div class="col-2">
@@ -181,11 +184,13 @@
                 <div class="col-4">
                     <div class="d-flex align-items-center justify-content-between mb-3">
                         <h1 class="fs-3 mb-0">Kegiatan PPATBM</h1>
-                        <a href="{{route('landingpage.artikel-kantor')}}" class="btn btn-link text-decoration-none">Lihat Semua</a>
+                        <a href="{{ route('landingpage.artikel-kantor') }}"
+                            class="btn btn-link text-decoration-none">Lihat Semua</a>
                     </div>
                     @foreach ($kegiatan as $item)
                         <div class="card mb-3 w-100 border-0">
-                            <a href="{{route('landingpage.artikel-kantor-detail',$item->slug)}}" class="text-decoration-none">
+                            <a href="{{ route('landingpage.artikel-kantor-detail', $item->slug) }}"
+                                class="text-decoration-none">
                                 <div class="row g-0 align-items-center">
                                     <div class="col-md-4">
                                         <img src="{{ asset("storage/img/kegiatan/$item->kantor_id/$item->foto") }}"
@@ -218,18 +223,19 @@
             </div>
             <div class="row align-items-center">
                 @foreach ($forumArtikelParenting as $item)
-                <div class="col-3">
-                    <a class="card-artikel1" href="{{route('landingpage.artikeldetail', $item->slug)}}">
-                        <figure class="shadow-lg mb-0 position-relative overflow-hidden">
-                            <img src="{{ asset("storage/img/forum_artikel/$item->id_kategori_artikel/$item->foto") }}" alt=""
-                                width="100%" height="350">
-                            <figcaption class="rounded bg-white py-2 px-3 mx-auto">
-                                <p class="fw-bold mb-2 lh-sm text-dark">{!! \Illuminate\Support\Str::limit($item->judul, 55) !!}</p>
-                                <p class="fs-6 mb-0 text-secondary">{{$item->created_at->format('D, d M Y')}}</p>
-                            </figcaption>
-                        </figure>
-                    </a>
-                </div>
+                    <div class="col-3">
+                        <a class="card-artikel1" href="{{ route('landingpage.artikeldetail', $item->slug) }}">
+                            <figure class="shadow-lg mb-0 position-relative overflow-hidden">
+                                <img src="{{ asset("storage/img/forum_artikel/$item->id_kategori_artikel/$item->foto") }}"
+                                    alt="" width="100%" height="350">
+                                <figcaption class="rounded bg-white py-2 px-3 mx-auto">
+                                    <p class="fw-bold mb-2 lh-sm text-dark">{!! \Illuminate\Support\Str::limit($item->judul, 55) !!}</p>
+                                    <p class="fs-6 mb-0 text-secondary">{{ $item->created_at->format('D, d M Y') }}
+                                    </p>
+                                </figcaption>
+                            </figure>
+                        </a>
+                    </div>
                 @endforeach
             </div>
 
@@ -310,15 +316,12 @@
         <div class="bg-blues bg-img-overlay item1-img py-5">
             <div class="container">
                 <div class="slide-1-view">
-                    <figure class="mb-0 mx-2">
-                        <img class="rounded" src="{{asset('tlandingpage/asset/img/empty-img.jpeg')}}" width="100%" height="450px">
-                    </figure>
-                    <figure class="mb-0 mx-2">
-                        <img class="rounded" src="{{asset('tlandingpage/asset/img/empty-img.jpeg')}}" width="100%" height="450px">
-                    </figure>
-                    <figure class="mb-0 mx-2">
-                        <img class="rounded" src="{{asset('tlandingpage/asset/img/empty-img.jpeg')}}" width="100%" height="450px">
-                    </figure>
+                    @foreach ($banner as $item)
+                        <figure class="mb-0 mx-2">
+                            <img class="rounded" src="{{ asset("storage/img/banner/$item->banner") }}"
+                                width="100%" height="450px">
+                        </figure>
+                    @endforeach
                 </div>
             </div>
         </div>
@@ -329,14 +332,14 @@
             <div class="row justify-content-center align-items-center">
                 <div class="col-5">
                     @if ($errors->any())
-                    <div class="alert alert-danger">
-                        <ul>
-                            @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                            @endforeach
-                        </ul>
-                    </div>
-                    <br />
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                        <br />
                     @endif
 
                     <h1 class="display-6">Form Aspirasi</h1>
@@ -345,12 +348,12 @@
                     <form action="{{ route('kirim-aspirasi') }}">
                         @csrf
                         <div class="mb-3">
-                            <input type="text" name="nama" class="form-control form-control-lg" id="exampleFormControlInput1"
-                                placeholder="Nama Lengkap">
+                            <input type="text" name="nama" class="form-control form-control-lg"
+                                id="exampleFormControlInput1" placeholder="Nama Lengkap">
                         </div>
                         <div class="mb-3">
-                            <input type="email" name="email" class="form-control form-control-lg" id="exampleFormControlInput2"
-                                placeholder="Alamat Email">
+                            <input type="email" name="email" class="form-control form-control-lg"
+                                id="exampleFormControlInput2" placeholder="Alamat Email">
                         </div>
                         <div class="mb-3">
                             <textarea class="form-control form-control-lg" name="aspirasi" id="exampleFormControlTextarea1" rows="2"

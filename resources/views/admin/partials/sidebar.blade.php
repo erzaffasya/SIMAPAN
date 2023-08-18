@@ -31,6 +31,9 @@
                     <li><a href="{{ route('faq.index') }}"
                             class="{{ Request::routeIs('faq.*') ? 'active' : '' }}">FAQ</a>
                     </li>
+                    <li><a href="{{ route('banner.index') }}"
+                            class="{{ Request::routeIs('banner.*') ? 'active' : '' }}">Banner</a>
+                    </li>
                 </ul>
             </li>
             <li class="submenu">

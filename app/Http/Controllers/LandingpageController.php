@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Artikel;
+use App\Models\Banner;
 use App\Models\Faq;
 use App\Models\ForumArtikel;
 use App\Models\ForumGaleri;
@@ -28,8 +29,9 @@ class LandingpageController extends Controller
         $forumArtikelParenting = ForumArtikel::limit(4)->orderBy('id', 'DESC')->get();
         $kegiatan = Kegiatan::limit(3)->orderBy('id', 'DESC')->get();
         $faq = Faq::all();
+        $banner =  Banner::all();
         // dd($artikel->get());
-        return view('landingpage.simapan', compact('tentang', 'forumArtikel', 'kegiatan', 'faq', 'forumArtikelParenting'));
+        return view('landingpage.simapan', compact('banner','tentang', 'forumArtikel', 'kegiatan', 'faq', 'forumArtikelParenting'));
     }
 
     public function peta()
