@@ -102,7 +102,7 @@
                     @endforeach
                 </div>
             </div>
-            <div class="row align-items-center">
+            <div class="row align-items-center gy-4">
                 @foreach ($artikel3 as $item)
                     <div class="col-3">
                         <a class="card-artikel1" href="{{ route('landingpage.artikeldetail', $item->slug) }}">
@@ -117,6 +117,8 @@
                         </a>
                     </div>
                 @endforeach
+                {!! $artikel3->links('vendor.pagination.bootstrap-4') !!}
+
             </div>
             <div class="row mt-4 justify-content-between bg-primary rounded align-items-center p-3">
                 <div class="col-auto">

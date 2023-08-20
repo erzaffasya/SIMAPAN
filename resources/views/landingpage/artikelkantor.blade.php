@@ -6,7 +6,8 @@
             </div>
             <div class="row">
                 <div class="col-7">
-                    <a href="{{ route('landingpage.artikeldetail', $artikel1->slug??"") }}" class="text-decoration-none">
+                    <a href="{{ route('landingpage.artikeldetail', $artikel1->slug ?? '') }}"
+                        class="text-decoration-none">
                         <figure class="position-relative">
                             <img src="{{ asset("storage/img/kegiatan/$artikel1->kantor_id/$artikel1->foto") }}"
                                 alt="" class="w-100 rounded" height="370px">
@@ -31,7 +32,8 @@
                 <div class="col-5">
                     @foreach ($artikel2 as $item)
                         <div class="card mb-3 w-100 border-0">
-                            <a href="{{route('landingpage.artikeldetail', $item->slug??"")}}" class="text-decoration-none">
+                            <a href="{{ route('landingpage.artikeldetail', $item->slug ?? '') }}"
+                                class="text-decoration-none">
                                 <div class="row g-0">
                                     <div class="col-md-5">
                                         <img src="{{ asset("storage/img/kegiatan/$item->kantor_id/$item->foto") }}"
@@ -55,29 +57,35 @@
                     @endforeach
                 </div>
             </div>
-            <div class="row justify-content-between py-4">
-                <div class="col-4">
-                    <form action="">
+            <form action="">
+                <div class="row justify-content-between pt-4">
+                    <div class="col-6">
                         <div class="input-group mb-3">
-                            <input type="text" class="form-control form-control-lg" placeholder="Tulis Judul"
-                                aria-label="Tulis Judul" aria-describedby="button-addon2">
-                            <button class="btn btn-primary" type="button" id="button-addon2">Cari Artikel</button>
+                            <input type="text" name="c" class="form-control form-control-lg"
+                                placeholder="Tulis Judul" aria-label="Tulis Judul" aria-describedby="button-addon2" value="{{ $c }}"
+                                required>
+                            <button class="btn btn-primary" type="submit" id="button-addon2">Cari Artikel</button>
                         </div>
-                    </form>
-                </div>
-                <div class="col-3">
-                    <form action="">
-                        <select class="form-select form-select-lg" aria-label="Default select example">
-                            <option selected>Terbaru</option>
-                            <option value="1">Terpopuler</option>
+                    </div>
+                    <div class="col-3">
+                        <select class="form-select form-select-lg" aria-label="Default select example" name="s"
+                            onchange="this.closest('form').submit()">
+                            <option value="d" {{ $s == 'DESC' ? 'selected' : '' }}>Terbaru</option>
+                            <option value="a" {{ $s == 'ASC' ? 'selected' : '' }}>Terlama</option>
                         </select>
-                    </form>
+                    </div>
                 </div>
+            </form>
+            <div class="row justify-content-between pb-4">
+                @if ($c)
+                    <h6>Mencari Artikel Dengan Kata Kunci <span style="font-weight: 900">{{ $c }}</span></h6>
+                    <a href="{{ url('artikel-kantor') }}">Bersihkan</a>
+                @endif
             </div>
             <div class="row align-items-center gy-4">
-                @foreach ($artikel3 as $item)
+                @forelse ($artikel3 as $item)
                     <div class="col-3">
-                        <a class="card-artikel1" href="{{ route('landingpage.artikeldetail', $item->slug??"") }}">
+                        <a class="card-artikel1" href="{{ route('landingpage.artikeldetail', $item->slug ?? '') }}">
                             <figure class="shadow-lg mb-0 position-relative overflow-hidden">
                                 <img src="{{ asset("storage/img/kegiatan/$item->kantor_id/$item->foto") }}"
                                     alt="" width="100%" height="350">
@@ -89,7 +97,11 @@
                             </figure>
                         </a>
                     </div>
-                @endforeach
+                @empty
+                    <div class="col-12 text-center">
+                        <h5>Tidak Ada Artikel Ditemukan</h5>
+                    </div>
+                @endforelse
                 {!! $artikel3->links('vendor.pagination.bootstrap-4') !!}
 
             </div>
