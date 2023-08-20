@@ -21,9 +21,9 @@
           <img src="{{asset('tlandingpage/asset/img/logo-1.png')}}" alt="">
           <img src="{{asset('tlandingpage/asset/img/logo-2.png')}}" alt="">
           <img src="{{asset('tlandingpage/asset/img/logo-3.png')}}" alt="">
-          <img src="{{asset('tlandingpage/asset/img/logo-4.jpg')}}" alt="">
+          <img src="{{asset('tlandingpage/asset/img/logo-simapan.png')}}" alt="">
         </div>
-        <figcaption class="fw-bold fs-5">SIMAPAN (SISTEM MANAJEMEN PERLINDUNGAN ANAK)</figcaption>
+        <figcaption class="fw-bold fs-5">SISTEM MANAJEMEN PERLINDUNGAN ANAK</figcaption>
       </figure>
     </section>
     <div id="portal-1" class="row gx-0 align-items-md-stretch h-100">

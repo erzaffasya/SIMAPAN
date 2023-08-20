@@ -11,6 +11,7 @@
             <div class="card-body">
                 <form method="post" action="{{ route('kegiatan.update', $kegiatan->id) }}" enctype="multipart/form-data">
                     @csrf
+                    @method("PUT")
                     <div class="row">
 
                         <div class="col-lg-12 col-sm-12 col-12">

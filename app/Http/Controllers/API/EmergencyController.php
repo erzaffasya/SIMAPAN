@@ -16,21 +16,24 @@ class EmergencyController extends Controller
         //     'gmaps' => 'nullable|string',
         //     'photo' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048', // Adjust the validation rules as needed
         // ]);
-
-        $photoPath = null;
+        // return $request->file('photo');
+        $filePath = null;
         if ($request->file('photo') != null) {
-            $photoPath = $request->file('photo')->store('photo'); // Store the photo in the 'photos' directory
+            // dd('asdas');
+            $file = $request->file('photo');
+            $fileName = time() . '_' . $file->getClientOriginalName();
+            $filePath = $file->storeAs('emergency', $fileName, 'public'); // Save the file to the storage/public/uploads directory
         }
 
 
         $task = Emergency::create([
             'judul' => $request->input('judul'),
-            'gmaps' => "https://www.google.com/maps?q=". $request->input('latitude'). ',' . $request->input('longitude'),
+            'gmaps' => "https://www.google.com/maps?q=" . $request->input('latitude') . ',' . $request->input('longitude'),
             'latitude' => $request->input('latitude'),
             'longitude' => $request->input('longitude'),
             'catatan' => $request->input('catatan'),
             'users_id' => Auth::user()->id,
-            'photo' => $photoPath,
+            'photo' => "storage/". $filePath,
         ]);
 
         return response()->json($task, 201);
@@ -38,7 +41,7 @@ class EmergencyController extends Controller
 
     public function getEmergency(Request $request)
     {
-        $task = Emergency::where('users_id', Auth::user()->id)->get();
+        $task = Emergency::orderBy('created_at', 'DESC')->where('users_id', Auth::user()->id)->get();
         $response = ["data" => $task];
         return response()->json($response, 201);
     }

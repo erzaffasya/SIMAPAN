@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Artikel;
+use App\Models\Banner;
 use App\Models\Faq;
 use App\Models\ForumArtikel;
 use App\Models\ForumGaleri;
@@ -28,8 +29,9 @@ class LandingpageController extends Controller
         $forumArtikelParenting = ForumArtikel::limit(4)->orderBy('id', 'DESC')->get();
         $kegiatan = Kegiatan::limit(3)->orderBy('id', 'DESC')->get();
         $faq = Faq::all();
+        $banner =  Banner::all();
         // dd($artikel->get());
-        return view('landingpage.simapan', compact('tentang', 'forumArtikel', 'kegiatan', 'faq', 'forumArtikelParenting'));
+        return view('landingpage.simapan', compact('banner','tentang', 'forumArtikel', 'kegiatan', 'faq', 'forumArtikelParenting'));
     }
 
     public function peta()
@@ -59,7 +61,7 @@ class LandingpageController extends Controller
         $artikel2 = ForumArtikel::orderBy('created_at', 'DESC')->offset(1)->limit(3)->get();
         $artikel3 = ForumArtikel::orderBy('created_at', 'DESC')->offset(4)->limit(3)->get();
         $kegiatan = ForumGaleri::orderBy('created_at', 'DESC')->limit(8)->get();
-        $ForumKategoriGaleri = ForumKategoriGaleri::limit(8)->get();
+        $ForumKategoriGaleri = ForumKategoriGaleri::where('kategori', 'F')->limit(8)->get();
         // dd($kegiatan);
         return view('landingpage.forum', compact('ForumKategoriGaleri','pengurus', 'struktur', 'artikel1', 'artikel2', 'artikel3', 'kegiatan'));
     }
@@ -69,7 +71,7 @@ class LandingpageController extends Controller
         $jumlahAnak = JumlahAnak::find(1);
         $kelembagaan = Kelembagaan::find(1);
         $kegiatan = ProfilGaleri::orderBy('created_at', 'DESC')->limit(8)->get();
-        $ForumKategoriGaleri = ForumKategoriGaleri::limit(8)->get();
+        $ForumKategoriGaleri = ForumKategoriGaleri::where('kategori', 'P')->limit(8)->get();
         return view('landingpage.profil', compact('ForumKategoriGaleri','jumlahAnak', 'kelembagaan', 'kegiatan'));
     }
 
@@ -109,5 +111,26 @@ class LandingpageController extends Controller
         $ForumGaleri = ForumGaleri::where('id_kategori_galeri', $ForumKategoriGaleri->id)->get();
         // dd($ForumGaleri, $ForumKategoriGaleri);
         return view('landingpage.kegiatandetail', compact('ForumGaleri', 'ForumKategoriGaleri'));
+    }
+
+
+    public function artikelKantor()
+    {
+        $artikel1 = Kegiatan::orderBy('created_at', 'DESC')->first();
+        // dd($artikel1);
+        $artikel2 = Kegiatan::orderBy('created_at', 'DESC')->offset(1)->limit(3)->get();
+        $artikel3 = Kegiatan::orderBy('created_at', 'DESC')->paginate(8);
+        return view('landingpage.artikelkantor', compact('artikel1','artikel2','artikel3'));
+    }
+
+    public function kegiatanKantorDetail($slug)
+    {
+        // $ForumKategoriGaleri = ForumKategoriGaleri::where('slug', $slug)->first();
+        // dd($ForumKategoriGaleri);
+        $kegiatan = Kegiatan::where('slug', $slug)->first();
+        $kegiatanLainnya = Kegiatan::limit(3)->get();
+        // dd($kegiatan);
+        // dd($ForumGaleri, $ForumKategoriGaleri);
+        return view('landingpage.artikelkantordetail', compact('kegiatanLainnya','kegiatan'));
     }
 }

@@ -12,4 +12,11 @@ class Emergency extends Model
     protected $guarded = [];
 
     protected $primaryKey = 'id';
+
+
+
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'users_id', 'id');
+    }
 }

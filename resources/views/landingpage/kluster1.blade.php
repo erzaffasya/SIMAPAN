@@ -22,7 +22,7 @@
                     <h3 class="lh-lg text-success">Presentase anak yang mendapatkan Kutipan Akta Kelahiran & Kartu Identitas Anak (KIA)</h3>
                 </div>
                 <div class="col-6">
-                    <canvas id="myChart" style="height: 200px"></canvas>
+                    <canvas id="c1chart" style="height: 200px"></canvas>
                 </div>
             </div>
         </div>

@@ -17,6 +17,8 @@ class CreateForumKategoriGalerisTable extends Migration
             $table->id();
             $table->string("judul");
             $table->string("deskripsi");
+            $table->string("slug");
+            $table->string("kategori");
             $table->timestamps();
         });
     }

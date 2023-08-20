@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\ArtikelController;
 use App\Http\Controllers\AspirasiController;
+use App\Http\Controllers\BannerController;
+use App\Http\Controllers\EmergencyController;
 use App\Http\Controllers\FaqController;
 use App\Http\Controllers\FastLinkController;
 use App\Http\Controllers\ForumArtikelController;
@@ -47,25 +49,19 @@ Route::get('/artikel-detail', function () {
 });
 
 
+Route::get('/artikel-kantor', [LandingpageController::class, 'artikelKantor'])->name('landingpage.artikel-kantor');
+Route::get('/artikel-kantor/detail/{slug}', [LandingpageController::class, 'kegiatanKantorDetail'])->name('landingpage.artikel-kantor-detail');
+
+
 Route::get('/kegiatan', [LandingpageController::class, 'kegiatanForum'])->name('kegiatan-forum');
 Route::get('/kegiatan/{slug}', [LandingpageController::class, 'kegiatanForumDetail'])->name('kegiatan-forum-detail');
-// Route::get('/kegiatan', function () {
-//     return view('landingpage.kegiatan');
-// });
-// Route::get('/kegiatandetail', function () {
-//     return view('landingpage.kegiatandetail');
-// });
-
-// Route::get('/artikel-index', function () {
-//     return view('landingpage.artikelindex');
-// });
 Route::get('/reload-captcha', [LandingpageController::class, 'reloadCaptcha'])->name('reload-captcha');
 Route::get('/simapan', [LandingpageController::class, 'simapan'])->name('simapan');
 Route::get('/forum', [LandingpageController::class, 'forum'])->name('forum');
 Route::get('/profil', [LandingpageController::class, 'profil'])->name('profil');
-Route::get('/artikel', [LandingpageController::class, 'artikel'])->name('landingpage.artikel');
 Route::get('/kirim-aspirasi', [AspirasiController::class, 'store'])->name('kirim-aspirasi');
 
+Route::get('/artikel', [LandingpageController::class, 'artikel'])->name('landingpage.artikel');
 Route::get('/artikel/detail/{slug}', [LandingpageController::class, 'artikelDetail'])->name('landingpage.artikeldetail');
 // Route::get('/peta', function () {
 //     return view('landingpage.peta');
@@ -74,6 +70,22 @@ Route::get('/peta', [LandingpageController::class, 'peta'])->name('peta');
 Route::get('/kluster1', function () {
     return view('landingpage.kluster1');
 });
+
+Route::get('/kluster2', function () {
+    return view('landingpage.kluster2');
+});
+
+Route::get('/kluster3', function () {
+    return view('landingpage.kluster3');
+});
+
+Route::get('/kluster4', function () {
+    return view('landingpage.kluster4');
+});
+Route::get('/kluster5', function () {
+    return view('landingpage.kluster5');
+});
+
 
 // Route::get('/', function () {
 //     return view('welcome');
@@ -104,6 +116,8 @@ Route::middleware(['auth'])->prefix('admin')->group(function () {
     Route::resource('forum-artikel', ForumArtikelController::class);
     Route::resource('forum-kategori-galeri', ForumKategoriGaleriController::class);
     Route::resource('profil-kelembagaan', KelembagaanController::class)->only('index', 'store');
+    Route::resource('emergency', EmergencyController::class);
+    Route::resource('banner', BannerController::class);
 
     //tiny mce upload
     Route::post('tiny-upload', [TinyMceController::class, "upload"])->name('tiny-upload');

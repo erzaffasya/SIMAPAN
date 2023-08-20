@@ -31,6 +31,9 @@
                     <li><a href="{{ route('faq.index') }}"
                             class="{{ Request::routeIs('faq.*') ? 'active' : '' }}">FAQ</a>
                     </li>
+                    <li><a href="{{ route('banner.index') }}"
+                            class="{{ Request::routeIs('banner.*') ? 'active' : '' }}">Banner</a>
+                    </li>
                 </ul>
             </li>
             <li class="submenu">
@@ -65,6 +68,15 @@
                     </li>
                     <li><a href="{{ route('profil-kelembagaan.index') }}"
                             class="{{ Request::routeIs('profil-kelembagaan.*') ? 'active' : '' }}">Kelembagaan</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="submenu">
+                <a href="javascript:void(0);"><i data-feather="columns"></i> <span> EMERGENCY </span> <span
+                        class="menu-arrow"></span></a>
+                <ul>
+                    <li><a href="{{ route('emergency.index') }}"
+                            class="{{ Request::routeIs('emergency.*') ? 'active' : '' }}">Riwayat</a>
                     </li>
                 </ul>
             </li>

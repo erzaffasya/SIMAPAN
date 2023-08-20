@@ -41,14 +41,13 @@
                         <div class="col-lg-6 col-sm-6 col-12">
                             <div class="form-group">
                                 <label>Latitude</label>
-                                <input name="latitude" id="latitude" value="-1.2379274" readonly="true" type="text">
+                                <input name="latitude" id="latitude" value="-1.2379274" type="text" onchange="onChangeLocation()" >
                             </div>
                         </div>
                         <div class="col-lg-6 col-sm-6 col-12">
                             <div class="form-group">
                                 <label>Longitude</label>
-                                <input name="longitude" id="longitude" value="116.8528526" readonly="true"
-                                    type="text">
+                                <input name="longitude" id="longitude" value="116.8528526" type="text" onchange="onChangeLocation()" >
                             </div>
                         </div>
                         <div class="col-lg-12 col-sm-12 col-12">
@@ -103,6 +102,7 @@
                     var longitude = event.latLng.lng();
 
                     marker.setPosition(event.latLng);
+                    // console.log(event.latLng)
 
                     inputLongitude.value = longitude;
                     inputLatitude.value = latitude;
@@ -117,6 +117,15 @@
                 }
 
                 window.onload = loadGoogleMaps;
+            }
+        </script>
+        <script>
+            function onChangeLocation() {
+                var inputLongitude = document.getElementById('longitude');
+                var inputLatitude = document.getElementById('latitude');
+                var inputLink_map = document.getElementById('link_map');
+
+                inputLink_map.value = 'https://www.google.com/maps?q=' + inputLongitude.value + ',' + longitude.value;
             }
         </script>
     @endpush
