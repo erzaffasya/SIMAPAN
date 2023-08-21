@@ -1,6 +1,6 @@
 <div class="container py-5">
     <div class="row justify-content-center">
-        <div class="col-11 col-lg">
+        <div class="col-11 col-lg-6">
             <figure>
                 <img src="{{asset('tlandingpage/asset/img/logo-1.png')}}" alt="" class="pe-2" height="50">
                 <img src="{{asset('tlandingpage/asset/img/logo-2.png')}}" alt="" class="pe-2" height="50">
