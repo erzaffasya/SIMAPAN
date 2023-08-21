@@ -15,14 +15,17 @@
         <div class="col-2">
             <p class="text-white fs-5 fw-bold">SIMAPAN</p>
             <ul class="list-unstyled">
-                <li class="my-2"><a href="#" class="text-white text-decoration-none">Konsultasi
+                <li class="my-2"><a href="https://play.google.com/store/apps/details?id=com.laporint.lapor_int" class="text-white text-decoration-none">Apps Mobile Topan</a></li>
+                <li class="my-2"><a href="https://wa.me/62816220077" class="text-white text-decoration-none">Konsultasi
                         Psikolog</a></li>
-                <li class="my-2"><a href="#" class="text-white text-decoration-none">Kegiatan
+                <li class="my-2"><a href="/artikel-kantor" class="text-white text-decoration-none">Kegiatan
                         PPATBM</a></li>
-                <li class="my-2"><a href="#" class="text-white text-decoration-none">Laporan
+                <li class="my-2"><a href="https://linktr.ee/sidakktpa" class="text-white text-decoration-none">Laporan
                         Kasus KtPA</a></li>
-                <li class="my-2"><a href="#" class="text-white text-decoration-none">Konsultasi
-                        Hukum</a></li>
+                <li class="my-2"><a href="https://wa.me/62816220077" class="text-white text-decoration-none">Konsultasi
+                        Hukum KTA</a></li>
+                <li class="my-2"><a href="/forum" class="text-white text-decoration-none">Forum Anak</a></li>
+                <li class="my-2"><a href="/simapan#highlight-parenting" class="text-white text-decoration-none">Edukasi Anak</a></li>
             </ul>
         </div>
         <div class="col-2">

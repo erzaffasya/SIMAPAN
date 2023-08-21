@@ -27,9 +27,9 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{url('/simapan#about-program')}}">Tentang</a>
                 </li>
-                <li class="nav-item">
+                {{-- <li class="nav-item">
                     <a href="{{url('/simapan#faq-section')}}" class="nav-link" href="#faq-section">FaQ</a>
-                </li>
+                </li> --}}
                 <li class="nav-item">
                     <a class="nav-link" href="{{url('/simapan#aspirasi-section')}}">Aspirasi</a>
                 </li>
