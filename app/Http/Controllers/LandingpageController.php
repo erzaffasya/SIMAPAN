@@ -29,9 +29,9 @@ class LandingpageController extends Controller
         $forumArtikelParenting = ForumArtikel::limit(4)->orderBy('id', 'DESC')->get();
         $kegiatan = Kegiatan::limit(3)->orderBy('id', 'DESC')->get();
         $faq = Faq::all();
-        $banner =  Banner::all();
+        $banner = Banner::all();
         // dd($artikel->get());
-        return view('landingpage.simapan', compact('banner','tentang', 'forumArtikel', 'kegiatan', 'faq', 'forumArtikelParenting'));
+        return view('landingpage.simapan', compact('banner', 'tentang', 'forumArtikel', 'kegiatan', 'faq', 'forumArtikelParenting'));
     }
 
     public function peta()
@@ -59,11 +59,11 @@ class LandingpageController extends Controller
         $struktur = ForumStruktur::find(1);
         $artikel1 = ForumArtikel::orderBy('created_at', 'DESC')->first();
         $artikel2 = ForumArtikel::orderBy('created_at', 'DESC')->offset(1)->limit(3)->get();
-        $artikel3 = ForumArtikel::orderBy('created_at', 'DESC')->offset(4)->limit(3)->get();
+        $artikel3 = ForumArtikel::orderBy('created_at', 'DESC')->offset(4)->paginate(8);
         $kegiatan = ForumGaleri::orderBy('created_at', 'DESC')->limit(8)->get();
         $ForumKategoriGaleri = ForumKategoriGaleri::where('kategori', 'F')->limit(8)->get();
         // dd($kegiatan);
-        return view('landingpage.forum', compact('ForumKategoriGaleri','pengurus', 'struktur', 'artikel1', 'artikel2', 'artikel3', 'kegiatan'));
+        return view('landingpage.forum', compact('ForumKategoriGaleri', 'pengurus', 'struktur', 'artikel1', 'artikel2', 'artikel3', 'kegiatan'));
     }
 
     public function profil()
@@ -72,16 +72,23 @@ class LandingpageController extends Controller
         $kelembagaan = Kelembagaan::find(1);
         $kegiatan = ProfilGaleri::orderBy('created_at', 'DESC')->limit(8)->get();
         $ForumKategoriGaleri = ForumKategoriGaleri::where('kategori', 'P')->limit(8)->get();
-        return view('landingpage.profil', compact('ForumKategoriGaleri','jumlahAnak', 'kelembagaan', 'kegiatan'));
+        return view('landingpage.profil', compact('ForumKategoriGaleri', 'jumlahAnak', 'kelembagaan', 'kegiatan'));
     }
 
-    public function artikel()
+    public function artikel(Request $request)
     {
+        $s = $request->query("s") == "a" ? "ASC" : "DESC";
 
         $artikel1 = ForumArtikel::orderBy('created_at', 'DESC')->first();
         $artikel2 = ForumArtikel::orderBy('created_at', 'DESC')->offset(1)->limit(3)->get();
-        $artikel3 = ForumArtikel::orderBy('created_at', 'DESC')->paginate(8);
-        return view('landingpage.artikelindex', compact('artikel1', 'artikel2', 'artikel3'));
+
+        if ($c = $request->query("c")) {
+            $artikel3 = ForumArtikel::where("judul", "like", "%$c%")->orderBy('created_at', $s)->paginate(8);
+        } else {
+            $artikel3 = ForumArtikel::orderBy('created_at', $s)->paginate(8);
+        }
+
+        return view('landingpage.artikelindex', compact('artikel1', 'artikel2', 'artikel3', 'c', 's'));
     }
 
 
@@ -114,13 +121,20 @@ class LandingpageController extends Controller
     }
 
 
-    public function artikelKantor()
+    public function artikelKantor(Request $request)
     {
+        $s = $request->query("s") == "a" ? "ASC" : "DESC";
+
         $artikel1 = Kegiatan::orderBy('created_at', 'DESC')->first();
         // dd($artikel1);
         $artikel2 = Kegiatan::orderBy('created_at', 'DESC')->offset(1)->limit(3)->get();
-        $artikel3 = Kegiatan::orderBy('created_at', 'DESC')->paginate(8);
-        return view('landingpage.artikelkantor', compact('artikel1','artikel2','artikel3'));
+
+        if ($c = $request->query("c")) {
+            $artikel3 = Kegiatan::where("judul", "like", "%$c%")->orderBy('created_at', $s)->paginate(8);
+        } else {
+            $artikel3 = Kegiatan::orderBy('created_at', $s)->paginate(8);
+        }
+        return view('landingpage.artikelkantor', compact('artikel1', 'artikel2', 'artikel3', 'c', 's'));
     }
 
     public function kegiatanKantorDetail($slug)
@@ -131,6 +145,6 @@ class LandingpageController extends Controller
         $kegiatanLainnya = Kegiatan::limit(3)->get();
         // dd($kegiatan);
         // dd($ForumGaleri, $ForumKategoriGaleri);
-        return view('landingpage.artikelkantordetail', compact('kegiatanLainnya','kegiatan'));
+        return view('landingpage.artikelkantordetail', compact('kegiatanLainnya', 'kegiatan'));
     }
 }
