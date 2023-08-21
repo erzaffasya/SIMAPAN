@@ -60,7 +60,7 @@
                 </div>
                 <div class="row gy-2 mt-2 justify-content-center">
                     <div class="col-4 d-flex justify-content-center align-items-center">
-                        <a href="https://drive.google.com/file/d/1qQsKAsgE4xx5v-D2nZu7JQoz-JVwQuLQ/view?usp=sharing"
+                        <a href="https://play.google.com/store/apps/details?id=com.laporint.lapor_int"
                             class="text-decoration-none d-flex">
                             <img src="{{ asset('tlandingpage/asset/img/call-incoming.png') }}" height="30px"
                                 alt="" class="me-3">
@@ -75,7 +75,7 @@
                         </a>
                     </div>
                     <div class="col-4 d-flex justify-content-center align-items-center">
-                        <a href="/kegiatan" class="text-decoration-none d-flex">
+                        <a href="/artikel-kantor" class="text-decoration-none d-flex">
                             <img src="{{ asset('tlandingpage/asset/img/clipboard.png') }}" height="30px"
                                 alt="" class="me-3">
                             <p class="fs-5 fw-bold text-white">Kegiatan PPATBM</p>

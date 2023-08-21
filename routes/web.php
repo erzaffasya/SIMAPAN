@@ -85,6 +85,9 @@ Route::get('/kluster4', function () {
 Route::get('/kluster5', function () {
     return view('landingpage.kluster5');
 });
+Route::get('/kluster6', function () {
+    return view('landingpage.kluster6');
+});
 
 
 // Route::get('/', function () {
