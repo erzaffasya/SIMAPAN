@@ -1,6 +1,6 @@
 <div class="container py-5">
-    <div class="row">
-        <div class="col">
+    <div class="row justify-content-center">
+        <div class="col-11 col-lg">
             <figure>
                 <img src="{{asset('tlandingpage/asset/img/logo-1.png')}}" alt="" class="pe-2" height="50">
                 <img src="{{asset('tlandingpage/asset/img/logo-2.png')}}" alt="" class="pe-2" height="50">
@@ -32,7 +32,7 @@
                 </figcaption>
             </figure>
         </div>
-        <div class="col-2">
+        <div class="col-11 col-lg-2">
             <p class="text-white fs-5 fw-bold">SIMAPAN</p>
             <ul class="list-unstyled">
                 <li class="my-2"><a href="https://play.google.com/store/apps/details?id=com.laporint.lapor_int" class="text-white text-decoration-none">Apps Mobile Topan</a></li>
@@ -44,7 +44,7 @@
                 <li class="my-2"><a href="/simapan#highlight-parenting" class="text-white text-decoration-none">Edukasi Anak</a></li>
             </ul>
         </div>
-        <div class="col-2">
+        <div class="col-11 col-lg-2">
             <p class="text-white fs-5 fw-bold">Forum Anak</p>
             <ul class="list-unstyled">
                 <li class="my-2"><a href="/forum#header-hero" class="text-white text-decoration-none">Struktur Organisasi</a></li>
@@ -53,7 +53,7 @@
                 <li class="my-2"><a href="/kegiatan" class="text-white text-decoration-none">Kegiatan Forum Anak</a></li>
             </ul>
         </div>
-        <div class="col-2">
+        <div class="col-11 col-lg-2">
             <p class="text-white fs-5 fw-bold">Profil Anak</p>
             <ul class="list-unstyled">
                 <li class="my-2"><a href="/kluster1" class="text-white text-decoration-none">Kluster 1</a></li>

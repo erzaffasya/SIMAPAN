@@ -17,7 +17,7 @@
 
 <body>
     <main>
-        <section id="nav-top">
+        <section class="nav-top">
             <figure class="mb-0 bg-white d-flex align-items-center px-4 py-2">
                 <div class="me-2">
                     <img src="{{asset('tlandingpage/asset/img/logo-1.png')}}" alt="">
@@ -27,7 +27,7 @@
                 <figcaption class="fw-bold fs-5">DP3AKB | Dinas Perlindungan Pemberdayaan Perempuan Anak Keluarga Berencana</figcaption>
             </figure>
         </section>
-        <section id="nav-top" style="top: 5rem;">
+        <section class="nav-top" style="top: 5rem;">
             <figure class="mb-0 bg-white d-flex align-items-center px-4 py-2">
                 <div class="me-2">
                     <img src="{{asset('tlandingpage/asset/img/logo-4.jpg')}}" alt="">
@@ -40,7 +40,7 @@
                 <figure class="h-100 position-relative text-white">
                     <img src="{{asset('tlandingpage/asset/img/p1-1.jpg')}}" alt="">
                     <figcaption class="p-4 d-flex flex-column justify-content-end text-center">
-                        <h1 class="fw-bold">Bidang PA</h1>
+                        <h1>Bidang PA</h1>
                         <p class="fs-5">Perlindungan Anak</p>
                         <a href="{{url('/portal')}}" class="mt-3 btn btn-lg py-2 rounded-2 btn-outline-light" type="button" disabled>Kunjungi</a>
                     </figcaption>
@@ -50,7 +50,7 @@
                 <figure class="h-100 position-relative text-white">
                     <img src="{{asset('tlandingpage/asset/img/p1-2.jpg')}}" alt="">
                     <figcaption class="p-4 d-flex flex-column justify-content-end text-center">
-                        <h1 class="fw-bold">Bidang P3</h1>
+                        <h1>Bidang P3</h1>
                         <p class="fs-5">Pemberdayaan dan Perlindungan Perempuan</p>
                         <a href="#" class="mt-3 btn btn-lg py-2 rounded-2 btn-outline-light" type="button" disabled>
                             <i class="fa-solid fa-lock"></i>    
@@ -63,7 +63,7 @@
                 <figure class="h-100 position-relative text-white">
                     <img src="{{asset('tlandingpage/asset/img/p1-3.jpg')}}" alt="">
                     <figcaption class="p-4 d-flex flex-column justify-content-end text-center">
-                        <h1 class="fw-bold">Bidang KK</h1>
+                        <h1>Bidang KK</h1>
                         <p class="fs-5">Ketahanan Keluarga</p>
                         <a href="#" class="mt-3 btn btn-lg py-2 rounded-2 btn-outline-light" type="button" disabled>
                             <i class="fa-solid fa-lock"></i>    
@@ -76,7 +76,7 @@
                 <figure class="h-100 position-relative text-white">
                     <img src="{{asset('tlandingpage/asset/img/p1-4.jpg')}}" alt="">
                     <figcaption class="p-4 d-flex flex-column justify-content-end text-center">
-                        <h1 class="fw-bold">Bidang KB</h1>
+                        <h1>Bidang KB</h1>
                         <p class="fs-5">Keluarga Berencana</p>
                         <a href="#" class="mt-3 btn btn-lg py-2 rounded-2 btn-outline-light" type="button" disabled>
                             <i class="fa-solid fa-lock"></i>    

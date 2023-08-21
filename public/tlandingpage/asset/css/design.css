@@ -12,6 +12,7 @@ body {
     width: 100% !important;
     height: 100% !important;
     scroll-behavior: smooth;
+    overflow-x: hidden;
 }
 
 h1,
@@ -95,7 +96,7 @@ header {}
     filter: grayscale(1) !important;
 }
 
-#nav-top {
+.nav-top {
     position: absolute;
     width: 100%;
     display: block;
@@ -106,13 +107,13 @@ header {}
     z-index: 99;
 }
 
-#nav-top figure {
+.nav-top figure {
     width: fit-content;
     margin: 0 auto;
     border-radius: 60px;
 }
 
-#nav-top img {
+.nav-top img {
     height: 40px;
     margin-right: 10px;
 }
@@ -215,12 +216,13 @@ main {
     color: #0d6efd !important;
 }
 
-.card-artikel1 figure{
+.card-artikel1 figure {
     position: relative;
     overflow: hidden;
     border-radius: 0.25rem;
 
 }
+
 .card-artikel1 figure::before {
     content: '';
     display: block;
@@ -235,9 +237,11 @@ main {
     border-radius: 0.25rem;
     transition: all 0.3s ease;
 }
+
 .card-artikel1 figure:hover::before {
     opacity: 0.2;
 }
+
 .card-artikel1 figcaption {
     position: absolute;
     width: 90%;
@@ -249,9 +253,11 @@ main {
 .card-kegiatan {
     text-decoration: none;
 }
-.card-kegiatan figure .badge{
+
+.card-kegiatan figure .badge {
     z-index: 99;
 }
+
 .card-kegiatan figure {
     transition: all 0.3s ease;
     box-shadow: none;
@@ -261,7 +267,8 @@ main {
     filter: grayscale(1);
     transition: all 0.3s ease;
 }
-.card-kegiatan:hover figure{
+
+.card-kegiatan:hover figure {
     box-shadow: 0px 0px 50px 0px rgba(0, 0, 0, 0.2) !important;
     -webkit-box-shadow: 0px 0px 50px 0px rgba(0, 0, 0, 0.2) !important;
     -moz-box-shadow: 0px 0px 50px 0px rgba(0, 0, 0, 0.2) !important;
@@ -293,11 +300,170 @@ main {
     font-size: 0.9rem;
 }
 
-#ppatbm-program .card-hg-maps figcaption{
+#ppatbm-program .card-hg-maps figcaption {
     background: linear-gradient(180deg, rgba(0, 0, 0, 0.00) 36.98%, rgb(0, 0, 0, 0.7) 74.48%);
 }
+
 footer {
     /* background-color: blue; */
     bottom: 0;
     position: relative;
+}
+
+@media (max-width: 1399.98px) {}
+
+@media (max-width: 1199.98px) {}
+
+@media (max-width: 991.98px) {}
+
+@media (max-width: 767.98px) {}
+
+@media (max-width: 575.98px) {
+    #aspirasi-section iframe{
+        width: 100%!important;
+        height: 250px!important;
+        margin-top: 1rem!important;
+    }
+
+    #ppatbm-program .keg-ppatbm img{
+        height: 200px!important;
+    }
+    #ppatbm-program .maps-ppatbm figure{
+        height: 270px!important;
+    }
+    #ppatbm-program .maps-ppatbm figure figcaption p{
+        font-size: 1rem!important;
+        margin-bottom: 1.25rem!important;
+    }
+
+    #highlight-forumanak .col-11{
+        text-align: center;
+    }
+    #highlight-forumanak .col-11 .fs-5.text-secondary{
+        font-size: 1rem!important;
+        margin-bottom: 1.25rem!important;
+    }
+
+    #about-program iframe.yt-tentang{
+        height: 200px!important;
+        margin-bottom: 0.5rem;
+    }
+    #about-program .desc-tentang{
+        font-size: 1rem!important;
+        line-height: 1.5rem!important;
+    }
+    #about-program .iklan-tentang{
+        margin: auto 0.75rem!important;
+    }
+    #about-program .iklan-tentang img{
+        height: 70px!important;
+    }
+
+    .wa-widget {
+        z-index: 999;
+    }
+    
+    .header-slide figure {
+        padding: 0 0.5rem!important;
+    }
+    .header-slide figure img{
+        width: 220px!important;
+        height: 180px!important;
+    }
+    .crop-slider-top,
+    .crop-slider-bottom {
+        position: absolute;
+        display: block;
+        width: 250%!important;
+        left: -125%;
+        right: -125%;
+        z-index: 99;
+        margin: 0 auto!important;
+    }
+    
+    .crop-slider-top {
+        top: -0.1rem;
+    }
+    
+    .crop-slider-bottom {
+        bottom: 0;
+    }
+    
+    #header-hero .logo-simapan{
+        height: 75px;
+        margin-bottom: 0.5rem;
+    }
+    #header-hero .header-title h1{
+        font-size: 1.25rem!important;
+    }
+    #header-hero .header-title p{
+        font-size: 0.9rem!important;
+        margin-bottom: 1rem!important;
+    }
+    .nav-top:nth-of-type(2) {
+        top: 6.8rem!important;
+        z-index: 999;
+    }
+    .nav-top figure {
+        width: 90vw;
+        border-radius: 30px;
+        display: block!important;
+        text-align: center;
+    }
+    .nav-top figure > .me-2{
+        width: 100%;
+        display: block;
+        margin-bottom: 0.25rem;
+    }
+    .nav-top figcaption{
+        width: 100%;
+        display: block;
+        font-size: 0.75rem!important;
+    }
+    .nav-top img {
+        height: 25px;
+        margin-right: 10px;
+    }
+
+    .card-bidang {
+        height: 300px;
+    }
+    .card-bidang.card-portal-1:nth-of-type(1){
+        height: 550px;
+    }
+    .card-bidang figure {
+        overflow: hidden;
+    }
+    .card-bidang img {
+        position: absolute;
+        width: 100%;
+        height: 130%;
+        object-fit: cover;
+        object-position: center bottom;
+    }
+    .card-bidang.card-portal-2 img {
+        height: 170%;
+        object-fit: cover;
+        object-position: center bottom;
+    }
+    .card-bidang.card-portal-2 figcaption h1 {
+        margin-bottom: 0.75rem !important;
+    }
+    .card-bidang figcaption h1 {
+        font-size: 1.5rem !important;
+        margin-bottom: 0 !important;
+        font-weight: normal !important;
+    }
+    .card-bidang figcaption p {
+        font-size: 1rem !important;
+        margin-bottom: 0.75rem !important;
+    }
+    .card-bidang figcaption a {
+        font-size: 1rem !important;
+        margin-top: 0 !important;
+    }
+    .card-bidang.card-portal-1:nth-of-type(1) figure figcaption,
+    .card-bidang.card-portal-2:nth-of-type(3) figure figcaption {
+        background: linear-gradient(180deg, rgba(56, 105, 231, 0.00) 30.87%, #3869E7 80.48%) !important;
+    }
 }

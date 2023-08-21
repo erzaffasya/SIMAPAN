@@ -2,12 +2,12 @@
     <section id="header-hero">
         <div class="container">
             <div class="header-title text-center mt-5">
-                <div class="d-flex align-items-center justify-content-center">
-                    <img src="{{asset('tlandingpage/asset/img/logo-simapan.png')}}" alt="" height="50px">
+                <div class="d-block d-lg-flex align-items-center justify-content-center">
+                    <img src="{{asset('tlandingpage/asset/img/logo-simapan.png')}}" alt="" height="50px" class="logo-simapan">
                     <h1 class="fs-2 ms-2">SISTEM MANAJEMEN PERLINDUGAN ANAK (SIMAPAN)</h1>
                 </div>
                 <div class="mx-auto">
-                    <p class="lead text-secondary mb-4">Mari Wujudkan Balikpapan Menuju Kota Layak Anak</p>
+                    <p class="lead text-secondary fs-6 mb-4">Mari Wujudkan Balikpapan Menuju Kota Layak Anak</p>
                     <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
                         <a href="#about-program" type="button" class="btn btn-primary px-4 gap-3">Lihat Layanan</a>
                         <a href="/" type="button" class="btn btn-link px-4 text-decoration-none">Kembali ke
@@ -50,19 +50,19 @@
         <div class="bg-blues bg-img-overlay item1-img py-5">
             <div class="container">
                 <div class="row justify-content-center align-items-center">
-                    <div class="col-5">
-                        <iframe width="100%" height="315" class="rounded" src="{{ $tentang->video ?? '' }}"
+                    <div class="col-12 col-lg-5">
+                        <iframe width="100%" height="315" class="yt-tentang rounded" src="{{ $tentang->video ?? '' }}"
                             title="YouTube video player" frameborder="0"
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                             allowfullscreen></iframe>
                     </div>
-                    <div class="col-6">
-                        <h1 class="fs-2 text-white">Tentang SIMAPAN</h1>
-                        <p class="fs-5 text-white lh-lg">{{ $tentang->tentang ?? '' }}</p>
+                    <div class="col-12 col-lg-6">
+                        <h1 class="fs-2 text-white fw-normal">Tentang SIMAPAN</h1>
+                        <p class="fs-5 desc-tentang text-white lh-lg">{{ $tentang->tentang ?? '' }}</p>
                     </div>
                 </div>
                 <div class="row gy-2 mt-2 justify-content-center">
-                    <div class="col-4 d-flex justify-content-center align-items-center">
+                    <div class="col-6 col-lg-4 d-flex justify-content-center align-items-center">
                         <a href="https://play.google.com/store/apps/details?id=com.laporint.lapor_int"
                             class="text-decoration-none d-flex">
                             <img src="{{ asset('tlandingpage/asset/img/call-incoming.png') }}" height="30px"
@@ -70,35 +70,35 @@
                             <p class="fs-5 fw-bold text-white">Apps Mobile TOPAN</p>
                         </a>
                     </div>
-                    <div class="col-4 d-flex justify-content-center align-items-center">
+                    <div class="col-6 col-lg-4 d-flex justify-content-center align-items-center">
                         <a href="https://wa.me/62816220077" class="text-decoration-none d-flex">
                             <img src="{{ asset('tlandingpage/asset/img/clipboard.png') }}" height="30px" alt=""
                                 class="me-3">
                             <p class="fs-5 fw-bold text-white">Konsultasi Psikolog</p>
                         </a>
                     </div>
-                    <div class="col-4 d-flex justify-content-center align-items-center">
+                    <div class="col-6 col-lg-4 d-flex justify-content-center align-items-center">
                         <a href="/artikel-kantor" class="text-decoration-none d-flex">
                             <img src="{{ asset('tlandingpage/asset/img/clipboard.png') }}" height="30px"
                                 alt="" class="me-3">
                             <p class="fs-5 fw-bold text-white">Kegiatan PPATBM</p>
                         </a>
                     </div>
-                    <div class="col-4 d-flex justify-content-center align-items-center">
+                    <div class="col-6 col-lg-4 d-flex justify-content-center align-items-center">
                         <a href="https://wa.me/62816220077" class="text-decoration-none d-flex">
                             <img src="{{ asset('tlandingpage/asset/img/shield.png') }}" height="30px" alt=""
                                 class="me-3">
                             <p class="fs-5 fw-bold text-white">Konsultasi Hukum KTA</p>
                         </a>
                     </div>
-                    <div class="col-4 d-flex justify-content-center align-items-center">
+                    <div class="col-6 col-lg-4 d-flex justify-content-center align-items-center">
                         <a href="/forum" class="text-decoration-none d-flex">
                             <img src="{{ asset('tlandingpage/asset/img/note-text.png') }}" height="30px"
                                 alt="" class="me-3">
                             <p class="fs-5 fw-bold text-white">Forum Anak</p>
                         </a>
                     </div>
-                    <div class="col-4 d-flex justify-content-center align-items-center">
+                    <div class="col-6 col-lg-4 d-flex justify-content-center align-items-center">
                         <a href="#highlight-parenting" class="text-decoration-none d-flex">
                             <img src="{{ asset('tlandingpage/asset/img/note-text.png') }}" height="30px"
                                 alt="" class="me-3">
@@ -106,9 +106,9 @@
                         </a>
                     </div>
                 </div>
-                <div class="row justify-content-center rounded align-items-center mt-3 bg-white p-0 "
+                <div class="row justify-content-center iklan-tentang rounded align-items-center mt-3 bg-white p-0 "
                     style="border-radius: 1rem;">
-                    <div class="col-6">
+                    <div class="col-12 col-lg-6">
                         <img src="https://layanan112.kominfo.go.id/images/logo/logo.png" width="100%"
                             alt="" style="height: 100px; object-fit: center;">
                         {{-- <p class="fw-bold fs-5 text-white mb-0">Layanan Pusat Panggilan Darurat Kota Balikpapan</p> --}}
@@ -123,17 +123,17 @@
 
     <section id="highlight-forumanak">
         <div class="container py-5">
-            <div class="row align-items-center">
-                <div class="col-3">
+            <div class="row align-items-center justify-content-center">
+                <div class="col-11 col-lg-3">
                     <h1 class="display-6">Artikel Forum Anak</h1>
                     <p class="fs-5 text-secondary mb-5">Temukan informasi mengenai anak dari berbagai sumber komunitas
                         forum
                     </p>
-                    <a href="{{ route('landingpage.artikel') }}" class="btn btn-outline-primary w-100">Lihat Semua
+                    <a href="{{ route('landingpage.artikel') }}" class="d-none d-lg-block btn btn-outline-primary w-100">Lihat Semua
                         Artikel</a>
                 </div>
                 @foreach ($forumArtikel as $item)
-                    <div class="col-3">
+                    <div class="col-10 col-lg-3 mb-3">
                         <a class="card-artikel1" href="{{ route('landingpage.artikeldetail', $item->slug) }}">
                             <figure class="shadow-lg mb-0 position-relative overflow-hidden">
                                 <img src="{{ asset("storage/img/forum_artikel/$item->id_kategori_artikel/$item->foto") }}"
@@ -148,12 +148,16 @@
                         </a>
                     </div>
                 @endforeach
+                <div class="col-10 d-none-lg">
+                    <a href="{{ route('landingpage.artikel') }}" class="d-lg-none btn btn-outline-primary w-100">Lihat Semua
+                        Artikel</a>
+                </div>
             </div>
             <div class="row mt-4 justify-content-between bg-primary rounded align-items-center p-3">
-                <div class="col-auto">
+                <div class="col-11 col-lg-auto">
                     <p class="fw-bold fs-5 text-white mb-0">Tulis Artikelmu sebagai Forum Komunitas Anak</p>
                 </div>
-                <div class="col-2">
+                <div class="col-11 col-lg-2">
                     <a href="#" class="btn btn-light w-100 text-primary">Gabung Disini</a>
                 </div>
             </div>
@@ -162,20 +166,20 @@
 
     <section id="ppatbm-program">
         <div class="container py-5">
-            <div class="row">
-                <div class="col-8">
+            <div class="row justify-content-center">
+                <div class="maps-ppatbm col-11 col-lg-8">
                     <h1 class="fs-3 mb-3">Maps Pemetaan</h1>
                     <figure class="card-hg-maps position-relative rounded" style="height: 350px;">
                         <img src="{{ asset('tlandingpage/asset/img/maps-mockup.jpg') }}" alt=""
                             class="w-100 rounded h-100 position-absolute" style="top:0; left:0;z-index: 0;">
                         <figcaption class="position-relative h-100 d-flex align-items-end" style="z-index: 1;">
                             <div class="row align-items-center px-2 py-3 m-0 w-100">
-                                <div class="col">
+                                <div class="col-12 col-lg">
                                     <h1 class="fs-2 fw-normal text-white">Peta Pemetaan PPATBM</h1>
                                     <p class="fs-5 mb-0 text-white">Temukan informasi sebaran lokasi-lokasi PPATBM Kota
                                         Balikpapan</p>
                                 </div>
-                                <div class="col-auto">
+                                <div class="col-12 col-lg-auto">
                                     <div>
                                         <a href="/peta" class="btn btn-primary">Lihat Peta</a>
                                     </div>
@@ -184,11 +188,11 @@
                         </figcaption>
                     </figure>
                 </div>
-                <div class="col-4">
+                <div class="keg-ppatbm col-11 col-lg-4">
                     <div class="d-flex align-items-center justify-content-between mb-3">
                         <h1 class="fs-3 mb-0">Kegiatan PPATBM</h1>
                         <a href="{{ route('landingpage.artikel-kantor') }}"
-                            class="btn btn-link text-decoration-none">Lihat Semua</a>
+                            class="btn btn-link text-decoration-none text-end">Lihat Semua</a>
                     </div>
                     @foreach ($kegiatan as $item)
                         <div class="card mb-3 w-100 border-0">
@@ -221,12 +225,12 @@
         <div class="container py-5">
             <div class="d-flex align-items-center justify-content-between">
                 <h1 class="display-6 mb-3">Artikel Edukasi Anak</h1>
-                <a href="{{ route('landingpage.artikel') }}" class="btn btn-link text-decoration-none">Lihat
+                <a href="{{ route('landingpage.artikel') }}" class="btn btn-link text-decoration-none text-end">Lihat
                     Semua</a>
             </div>
-            <div class="row align-items-center">
+            <div class="row align-items-center justify-content-center">
                 @foreach ($forumArtikelParenting as $item)
-                    <div class="col-3">
+                    <div class="col-10 col-lg-3 mb-3">
                         <a class="card-artikel1" href="{{ route('landingpage.artikeldetail', $item->slug) }}">
                             <figure class="shadow-lg mb-0 position-relative overflow-hidden">
                                 <img src="{{ asset("storage/img/forum_artikel/$item->id_kategori_artikel/$item->foto") }}"
@@ -333,7 +337,7 @@
     <section id="aspirasi-section">
         <div class="container py-5">
             <div class="row justify-content-center align-items-center">
-                <div class="col-5">
+                <div class="col-11 col-lg-5">
                     @if ($errors->any())
                         <div class="alert alert-danger">
                             <ul>
@@ -382,7 +386,7 @@
                         <button type="submit" class="btn btn-lg w-100 btn-primary">Kirim Aspirasi</button>
                     </form>
                 </div>
-                <div class="col-5">
+                <div class="col-11 col-lg-5">
                     <iframe
                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.8562234475207!2d116.86530067445288!3d-1.258285535595073!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2df1468c55555555%3A0x9876be7af3580494!2sDinas%20Pemberdayaan%20Perempuan%20Perlindungan%20Anak%20dan%20Keluarga%20Berencana%20(DP3AKB)%20Kota%20Balikpapan!5e0!3m2!1sid!2sid!4v1690004492153!5m2!1sid!2sid"
                         width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"

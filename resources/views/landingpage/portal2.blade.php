@@ -15,7 +15,7 @@
 
 <body>
   <main>
-    <section id="nav-top">
+    <section class="nav-top">
       <figure class="mb-0 bg-white d-flex align-items-center px-4 py-2">
         <div class="me-2">
           <img src="{{asset('tlandingpage/asset/img/logo-1.png')}}" alt="">

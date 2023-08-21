@@ -6,7 +6,7 @@
             <img src="{{asset('tlandingpage/asset/img/logo-3.png')}}" height="30" class="d-inline-block align-text-top">
             <img src="{{asset('tlandingpage/asset/img/logo-4.jpg')}}" height="30" class="d-inline-block align-text-top">
             <span class="fw-bolder ms-2">DP3AKB</span>
-            <span class="ms-2">| Balikpapan</span>
+            <span class="ms-2 d-none d-lg-inline-block">| Balikpapan</span>
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
             data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
