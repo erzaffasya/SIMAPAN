@@ -15,7 +15,7 @@
                                     <p class="fs-6 mb-2 text-secondary">
                                         {{ $artikel1->created_at->format('D, d M Y') }}
                                     </p>
-                                    <h1 class="fs-3 fw-bold">
+                                    <h1 class="fs-3 fw-bold text-dark">
                                         {{-- {{ $artikel1->judul }} --}}
                                         {!! \Illuminate\Support\Str::limit($artikel1->judul, 45) !!}
                                     </h1>

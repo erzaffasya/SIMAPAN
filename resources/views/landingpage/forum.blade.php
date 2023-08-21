@@ -8,32 +8,31 @@
                 </div>
             </div>
             <div class="row align-items-center">
-                <div class="col-6">
-                    <img src="{{ asset("storage/img/struktur/$struktur->foto") }}" alt="" class="w-100 rounded"
-                        height="900px" style="object-fit: fill;">
+                <div class="col-8" style="height: 400px; overflow-y: scroll;">
+                    <img src="{{ asset("storage/img/struktur/$struktur->foto") }}" alt="" class="w-100 rounded" style="object-fit: fill;">
                 </div>
-                <div class="col-6">
-                    <h1 class="fs-2 fw-bold">Struktur Forum Anak Balikpapan</h1>
-                    <p class="fs-5">{!! $struktur->deskripsi !!} </p>
+                <div class="col-4">
+                    <h1 class="fs-2 fw-bold text-success">Struktur Forum Anak Balikpapan</h1>
+                    <p class="fs-5 text-secondary">{!! $struktur->deskripsi !!} </p>
                 </div>
             </div>
         </div>
     </section>
     <section id="pengurus-section">
-        <div class="bg-greens bg-img-overlay item1-img py-5 mt-5">
+        <div class="bg-greens bg-img-overlay item1-img pt-5 pb-4 mt-5">
             <div class="container">
                 <div class="text-center">
                     <h1 class="fs-1 fw-bold text-white mb-4">PROFIL PENGURUS</h1>
                 </div>
-                <div class="pengurus-slide row">
+                <div class="pengurus-slide">
                     @foreach ($pengurus as $item)
-                        <div class="mx-2 col bg-white h-100">
-                            <figure class="rounded overflow-hidden h-100 d-flex flex-column bg-white">
+                        <div class="mx-2 h-100">
+                            <figure class="h-100 d-flex flex-column mb-0">
                                 <img src="{{ asset("storage/img/forum/pengurus/$item->foto") }}" alt=""
-                                    class="w-100" height="280px" style="object-fit: cover;">
-                                <figcaption class="px-3 py-2 text-center h-100">
-                                    <p class="fw-bold mb-0">{{ $item->nama }}</p>
-                                    <p class="text-secondary mb-0">{{ $item->jabatan }}</p>
+                                    class="w-100" height="280px" style="object-fit: cover; border-radius: 1rem;">
+                                <figcaption class="px-0 py-2 text-center h-100">
+                                    <p class="fw-bold mb-0 fs-5 lh-sm text-white">{{ $item->nama }}</p>
+                                    <p class="text-secondary lh-sm mt-2 mb-0 text-white" style="opacity: 75%">{{ $item->jabatan }}</p>
                                 </figcaption>
                             </figure>
                         </div>
@@ -59,7 +58,7 @@
                                 <div class="px-2 py-3 m-0 w-100">
                                     <p class="fs-6 mb-2 text-secondary">{{ $artikel1->created_at->format('D, d M Y') }}
                                     </p>
-                                    <h1 class="fs-3 fw-bold">
+                                    <h1 class="fs-3 fw-bold text-dark">
                                         {{-- {{ $artikel1->judul }} --}}
                                         {!! \Illuminate\Support\Str::limit($artikel1->judul, 45) !!}
                                     </h1>

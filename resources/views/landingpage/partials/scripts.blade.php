@@ -12,14 +12,6 @@
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script type="text/javascript">
-        // const downloadButton = document.querySelector('.btn-dnld');
-        // const fileNameSpan = document.getElementById('fileName');
-
-        // downloadButton.addEventListener('click', function(event) {
-        //     const filePath = downloadButton.getAttribute('href');
-        //     const fileName = filePath.split('/').pop();
-        //     fileNameSpan.textContent = fileName;
-        // });
         $(document).ready(function() {
             
             $('.header-slide').slick({
@@ -155,12 +147,6 @@
                 }
                 });
             // END CHART KLUSTER 2
-
-            // START CHART KLUSTER 4
-            
-        // END CHART KLUSTER 4
-                
-
     </script>
 
     @stack('scripts')

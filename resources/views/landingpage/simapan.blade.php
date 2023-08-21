@@ -2,12 +2,15 @@
     <section id="header-hero">
         <div class="container">
             <div class="header-title text-center mt-5">
-                <h1 class="fs-2">SISTEM MANAJEMEN PERLINDUGAN ANAK (SIMAPAN)</h1>
+                <div class="d-flex align-items-center justify-content-center">
+                    <img src="{{asset('tlandingpage/asset/img/logo-simapan.png')}}" alt="" height="50px">
+                    <h1 class="fs-2 ms-2">SISTEM MANAJEMEN PERLINDUGAN ANAK (SIMAPAN)</h1>
+                </div>
                 <div class="mx-auto">
                     <p class="lead text-secondary mb-4">Mari Wujudkan Balikpapan Menuju Kota Layak Anak</p>
                     <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
                         <a href="#about-program" type="button" class="btn btn-primary px-4 gap-3">Lihat Layanan</a>
-                        <a href="index.php" type="button" class="btn btn-link px-4 text-decoration-none">Kembali ke
+                        <a href="/" type="button" class="btn btn-link px-4 text-decoration-none">Kembali ke
                             Portal</a>
                     </div>
                 </div>
