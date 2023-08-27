@@ -2,8 +2,8 @@
     <div class="content">
         <div class="page-header">
             <div class="page-title">
-                <h4>Artikel</h4>
-                <h6>Tambah Data Artikel</h6>
+                <h4>Kegiatan</h4>
+                <h6>Tambah Data Kegiatan</h6>
             </div>
         </div>
         <!-- /add -->
@@ -45,7 +45,7 @@
 
                         <div class="col-lg-12">
                             <button type="submit" class="btn btn-submit me-2">Submit</button>
-                            <a href="{{ route('artikel.index') }}" class="btn btn-cancel">Cancel</a>
+                            <a href="{{ route('kegiatan.index') }}" class="btn btn-cancel">Cancel</a>
                         </div>
                     </div>
                 </form>

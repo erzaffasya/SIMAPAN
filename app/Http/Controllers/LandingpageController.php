@@ -12,6 +12,7 @@ use App\Models\ForumPengurus;
 use App\Models\ForumStruktur;
 use App\Models\JumlahAnak;
 use App\Models\Kantor;
+use App\Models\Kebijakan;
 use App\Models\Kegiatan;
 use App\Models\Kelembagaan;
 use App\Models\ProfilGaleri;
@@ -146,5 +147,11 @@ class LandingpageController extends Controller
         // dd($kegiatan);
         // dd($ForumGaleri, $ForumKategoriGaleri);
         return view('landingpage.artikelkantordetail', compact('kegiatanLainnya', 'kegiatan'));
+    }
+
+    public function kluster6()
+    {
+        $lKebijakan = Kebijakan::all();
+        return view("landingpage.kluster6", compact("lKebijakan"));
     }
 }

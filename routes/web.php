@@ -15,6 +15,8 @@ use App\Http\Controllers\ForumStrukturController;
 use App\Http\Controllers\JumlahAnakController;
 use App\Http\Controllers\KantorController;
 use App\Http\Controllers\KategoriArtikelController;
+use App\Http\Controllers\KebijakanController;
+use App\Http\Controllers\KebijakanDetailController;
 use App\Http\Controllers\KegiatanController;
 use App\Http\Controllers\KelembagaanController;
 use App\Http\Controllers\LandingpageController;
@@ -67,6 +69,9 @@ Route::get('/artikel/detail/{slug}', [LandingpageController::class, 'artikelDeta
 //     return view('landingpage.peta');
 // });
 Route::get('/peta', [LandingpageController::class, 'peta'])->name('peta');
+
+Route::get('/kluster6', [LandingpageController::class, 'kluster6']);
+
 Route::get('/kluster1', function () {
     return view('landingpage.kluster1');
 });
@@ -85,9 +90,7 @@ Route::get('/kluster4', function () {
 Route::get('/kluster5', function () {
     return view('landingpage.kluster5');
 });
-Route::get('/kluster6', function () {
-    return view('landingpage.kluster6');
-});
+
 
 
 // Route::get('/', function () {
@@ -122,6 +125,8 @@ Route::middleware(['auth'])->prefix('admin')->group(function () {
     Route::resource('emergency', EmergencyController::class);
     Route::resource('banner', BannerController::class);
 
+    Route::resource('kebijakan', KebijakanController::class);
+    Route::resource('kebijakan-detail', KebijakanDetailController::class)->only("destroy");
     //tiny mce upload
     Route::post('tiny-upload', [TinyMceController::class, "upload"])->name('tiny-upload');
 });
