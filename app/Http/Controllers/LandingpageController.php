@@ -15,6 +15,7 @@ use App\Models\Kantor;
 use App\Models\Kebijakan;
 use App\Models\Kegiatan;
 use App\Models\Kelembagaan;
+use App\Models\PersentaseAnak;
 use App\Models\ProfilGaleri;
 use App\Models\Tentang;
 use Illuminate\Http\Request;
@@ -153,5 +154,12 @@ class LandingpageController extends Controller
     {
         $lKebijakan = Kebijakan::all();
         return view("landingpage.kluster6", compact("lKebijakan"));
+    }
+
+    public function kluster1()
+    {
+        $kartu_identitas = PersentaseAnak::select("kartu_identitas")->orderBy("tahun", "ASC")->pluck("kartu_identitas")->toArray();
+        $akta_kelahiran = PersentaseAnak::select("akta_kelahiran")->orderBy("tahun", "ASC")->pluck("akta_kelahiran")->toArray();
+        return view("landingpage.kluster1", compact("kartu_identitas", "akta_kelahiran"));
     }
 }
