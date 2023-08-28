@@ -15,6 +15,7 @@ use App\Models\Kantor;
 use App\Models\Kebijakan;
 use App\Models\Kegiatan;
 use App\Models\Kelembagaan;
+use App\Models\LayananPengasuhAnak;
 use App\Models\PersentaseAnak;
 use App\Models\ProfilGaleri;
 use App\Models\Tentang;
@@ -160,6 +161,16 @@ class LandingpageController extends Controller
     {
         $kartu_identitas = PersentaseAnak::select("kartu_identitas")->orderBy("tahun", "ASC")->pluck("kartu_identitas")->toArray();
         $akta_kelahiran = PersentaseAnak::select("akta_kelahiran")->orderBy("tahun", "ASC")->pluck("akta_kelahiran")->toArray();
-        return view("landingpage.kluster1", compact("kartu_identitas", "akta_kelahiran"));
+        $tahun = PersentaseAnak::select("tahun")->orderBy("tahun", "ASC")->pluck("tahun")->toArray();
+        return view("landingpage.kluster1", compact("kartu_identitas", "akta_kelahiran", "tahun"));
+    }
+
+    public function kluster2()
+    {
+        $online = LayananPengasuhAnak::select("online")->orderBy("tahun", "ASC")->pluck("online")->toArray();
+        $indoor = LayananPengasuhAnak::select("indoor")->orderBy("tahun", "ASC")->pluck("indoor")->toArray();
+        $outdoor = LayananPengasuhAnak::select("outdoor")->orderBy("tahun", "ASC")->pluck("outdoor")->toArray();
+        $tahun = LayananPengasuhAnak::select("tahun")->orderBy("tahun", "ASC")->pluck("tahun")->toArray();
+        return view("landingpage.kluster2", compact("online", "indoor", "outdoor", "tahun"));
     }
 }

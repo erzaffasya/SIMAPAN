@@ -177,11 +177,12 @@
             const c1ctx = document.getElementById('c1chart');
             const akta_kelahiran = @json($akta_kelahiran);
             const kartu_identitas = @json($kartu_identitas);
+            const tahun = @json($tahun);
 
             new Chart(c1ctx, {
                 type: 'bar',
                 data: {
-                    labels: ['2021', '2022'],
+                    labels: tahun,
                     datasets: [{
                             label: 'Kutipan Akta Kelahiran',
                             data: akta_kelahiran,

@@ -19,7 +19,9 @@ use App\Http\Controllers\KebijakanController;
 use App\Http\Controllers\KebijakanDetailController;
 use App\Http\Controllers\KegiatanController;
 use App\Http\Controllers\KelembagaanController;
+use App\Http\Controllers\Kluster1Controller;
 use App\Http\Controllers\LandingpageController;
+use App\Http\Controllers\LayananPengasuhAnakController;
 use App\Http\Controllers\PersentaseAnakController;
 use App\Http\Controllers\ProfilGaleriController;
 use App\Http\Controllers\ProfilKategoriGaleriController;
@@ -73,11 +75,7 @@ Route::get('/peta', [LandingpageController::class, 'peta'])->name('peta');
 
 Route::get('/kluster6', [LandingpageController::class, 'kluster6']);
 Route::get('/kluster1', [LandingpageController::class, 'kluster1']);
-
-
-Route::get('/kluster2', function () {
-    return view('landingpage.kluster2');
-});
+Route::get('/kluster2', [LandingpageController::class, 'kluster2']);
 
 Route::get('/kluster3', function () {
     return view('landingpage.kluster3');
@@ -128,6 +126,9 @@ Route::middleware(['auth'])->prefix('admin')->group(function () {
     Route::resource('kebijakan-detail', KebijakanDetailController::class)->only("destroy");
 
     Route::resource('persentase-anak', PersentaseAnakController::class);
+    Route::resource('layanan-pengasuh-anak', LayananPengasuhAnakController::class);
+    Route::resource('kluster1', Kluster1Controller::class);
+    // Route::resource('kluster2', Kluster2Controller::class);
     //tiny mce upload
     Route::post('tiny-upload', [TinyMceController::class, "upload"])->name('tiny-upload');
 });
