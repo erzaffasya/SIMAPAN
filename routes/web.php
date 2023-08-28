@@ -20,6 +20,7 @@ use App\Http\Controllers\KebijakanDetailController;
 use App\Http\Controllers\KegiatanController;
 use App\Http\Controllers\KelembagaanController;
 use App\Http\Controllers\Kluster1Controller;
+use App\Http\Controllers\Kluster2Controller;
 use App\Http\Controllers\LandingpageController;
 use App\Http\Controllers\LayananPengasuhAnakController;
 use App\Http\Controllers\PersentaseAnakController;
@@ -127,8 +128,9 @@ Route::middleware(['auth'])->prefix('admin')->group(function () {
 
     Route::resource('persentase-anak', PersentaseAnakController::class);
     Route::resource('layanan-pengasuh-anak', LayananPengasuhAnakController::class);
-    Route::resource('kluster1', Kluster1Controller::class);
-    // Route::resource('kluster2', Kluster2Controller::class);
+    Route::resource('kluster1', Kluster1Controller::class)->except("show", "store", "create");
+    Route::resource('kluster2', Kluster2Controller::class)->except("show", "store", "create");
+
     //tiny mce upload
     Route::post('tiny-upload', [TinyMceController::class, "upload"])->name('tiny-upload');
 });
