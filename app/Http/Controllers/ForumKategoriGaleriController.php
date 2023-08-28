@@ -13,7 +13,7 @@ class ForumKategoriGaleriController extends Controller
 {
     public function index()
     {
-        $forum_kategori_galeri = ForumKategoriGaleri::all();
+        $forum_kategori_galeri = ForumKategoriGaleri::whereIn("kategori", ["P", "F"])->get();
         return view('admin.forum.kategori_galeri.index', compact('forum_kategori_galeri'));
     }
 
