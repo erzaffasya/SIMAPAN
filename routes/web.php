@@ -79,14 +79,8 @@ Route::get('/kluster6', [LandingpageController::class, 'kluster6']);
 Route::get('/kluster1', [LandingpageController::class, 'kluster1']);
 Route::get('/kluster2', [LandingpageController::class, 'kluster2']);
 Route::get('/kluster3', [LandingpageController::class, 'kluster3']);
-
-
-Route::get('/kluster4', function () {
-    return view('landingpage.kluster4');
-});
-Route::get('/kluster5', function () {
-    return view('landingpage.kluster5');
-});
+Route::get('/kluster4', [LandingpageController::class, 'kluster4']);
+Route::get('/kluster5', [LandingpageController::class, 'kluster5']);
 
 
 

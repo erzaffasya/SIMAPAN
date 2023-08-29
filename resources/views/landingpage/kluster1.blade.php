@@ -90,13 +90,19 @@
                     </div>
                     <div class="col-6">
                         <div class="slide-1-view">
-                            @foreach ($artikel[0]->galeri as $item)
+                            @forelse ($artikel[0]->galeri as $item)
                                 <figure class="mb-0">
                                     <img class="rounded"
                                         src="{{ asset("storage/img/forum_galeri/$item->id_kategori_galeri/$item->foto") }}"
                                         width="100%" height="350px">
                                 </figure>
-                            @endforeach
+                            @empty
+                                <figure class="mb-0 px-2">
+                                    <img class="rounded" style="object-fit: cover;"
+                                        src="{{ asset('tlandingpage/asset/img/empty-img.jpeg') }}" width="100%"
+                                        height="350px">
+                                </figure>
+                            @endforelse
                         </div>
                     </div>
                     <div class="col-4">
@@ -116,13 +122,19 @@
                     </div>
                     <div class="col-7">
                         <div class="slide-2-view">
-                            @foreach ($artikel[0]->galeri as $item)
+                            @forelse ($artikel[0]->galeri as $item)
                                 <figure class="mb-0 px-2">
                                     <img class="rounded" style="object-fit: cover;"
                                         src="{{ asset("storage/img/forum_galeri/$item->id_kategori_galeri/$item->foto") }}"
                                         width="100%" height="350px">
                                 </figure>
-                            @endforeach
+                            @empty
+                                <figure class="mb-0 px-2">
+                                    <img class="rounded" style="object-fit: cover;"
+                                        src="{{ asset('tlandingpage/asset/img/empty-img.jpeg') }}" width="100%"
+                                        height="350px">
+                                </figure>
+                            @endforelse
                         </div>
                     </div>
                 </div>

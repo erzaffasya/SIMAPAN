@@ -26,13 +26,18 @@
                     </div>
                     <div class="col-7">
                         <div class="slide-2-view">
-                            @foreach ($artikel[0]->galeri as $item)
+                            @forelse ($artikel[0]->galeri as $item)
                                 <figure class="mb-0 px-2">
                                     <img class="rounded" style="object-fit: cover;"
                                         src="{{ asset("storage/img/forum_galeri/$item->id_kategori_galeri/$item->foto") }}"
                                         width="100%" height="250px">
                                 </figure>
-                            @endforeach
+                            @empty
+                                <figure class="mb-0 px-2">
+                                    <img class="rounded" style="object-fit: cover;" src="{{ asset('') }}"
+                                        width="100%" height="250px">
+                                </figure>
+                            @endforelse
                         </div>
                     </div>
                 </div>
@@ -45,13 +50,19 @@
                 <div class="row align-items-center justify-content-center">
                     <div class="col-7">
                         <div class="slide-2-view">
-                            @foreach ($artikel[1]->galeri as $item)
+                            @forelse ($artikel[1]->galeri as $item)
                                 <figure class="mb-0 px-2">
                                     <img class="rounded" style="object-fit: cover;"
                                         src="{{ asset("storage/img/forum_galeri/$item->id_kategori_galeri/$item->foto") }}"
                                         width="100%" height="250px">
                                 </figure>
-                            @endforeach
+                            @empty
+                                <figure class="mb-0 px-2">
+                                    <img class="rounded" style="object-fit: cover;"
+                                        src="{{ asset('tlandingpage/asset/img/empty-img.jpeg') }}" width="100%"
+                                        height="350px">
+                                </figure>
+                            @endforelse
                         </div>
                     </div>
                     <div class="col-4">
@@ -62,7 +73,7 @@
             </div>
         </section>
     @endif
-    @if ($artikel[2])
+    @if ($artikel->has(2))
         <section>
             <div class="container py-5">
                 <div class="row justify-content-center align-items-center">
@@ -72,13 +83,19 @@
                     </div>
                     <div class="col-4">
                         <div class="slide-1-view">
-                            @foreach ($artikel[2]->galeri as $item)
+                            @forelse ($artikel[2]->galeri as $item)
                                 <figure class="mb-0 px-2">
                                     <img class="rounded" style="object-fit: cover;"
                                         src="{{ asset("storage/img/forum_galeri/$item->id_kategori_galeri/$item->foto") }}"
                                         width="100%" height="350px">
                                 </figure>
-                            @endforeach
+                            @empty
+                                <figure class="mb-0 px-2">
+                                    <img class="rounded" style="object-fit: cover;"
+                                        src="{{ asset('tlandingpage/asset/img/empty-img.jpeg') }}" width="100%"
+                                        height="350px">
+                                </figure>
+                            @endforelse
                         </div>
                     </div>
                 </div>
@@ -135,8 +152,9 @@
                             </div>
                             <div class="accordion-item">
                                 <p class="accordion-header" id="pg3">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#cpg3" aria-expanded="false" aria-controls="cpg3">
+                                    <button class="accordion-button collapsed" type="button"
+                                        data-bs-toggle="collapse" data-bs-target="#cpg3" aria-expanded="false"
+                                        aria-controls="cpg3">
                                         Subsidi Uang Sekolah (SPP) bagi siswa di sekolah swasta (SD & SMP)
                                     </button>
                                 </p>

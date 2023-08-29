@@ -40,13 +40,19 @@
                     </div>
                     <div class="col-7">
                         <div class="slide-2-view">
-                            @foreach ($artikel[0]->galeri as $item)
+                            @forelse ($artikel[0]->galeri as $item)
                                 <figure class="mb-0 px-2">
                                     <img class="rounded" style="object-fit: cover;"
                                         src="{{ asset("storage/img/forum_galeri/$item->id_kategori_galeri/$item->foto") }}"
                                         width="100%" height="350px">
                                 </figure>
-                            @endforeach
+                            @empty
+                                <figure class="mb-0 px-2">
+                                    <img class="rounded" style="object-fit: cover;"
+                                        src="{{ asset('tlandingpage/asset/img/empty-img.jpeg') }}" width="100%"
+                                        height="350px">
+                                </figure>
+                            @endforelse
                         </div>
                     </div>
                 </div>
@@ -61,7 +67,7 @@
                         <h4 class="text-white mb-4 lh-md">{{ $artikel[1]->judul }}</h4>
                     </div>
                     <div class="slide-4-view row">
-                        @foreach ($artikel[1]->galeri as $item)
+                        @forelse ($artikel[1]->galeri as $item)
                             <div class="mx-2 col h-100">
                                 <figure class="rounded overflow-hidden h-100 mb-0">
                                     <img src="{{ asset("storage/img/forum_galeri/$item->id_kategori_galeri/$item->foto") }}"
@@ -71,7 +77,13 @@
                                     </figcaption>
                                 </figure>
                             </div>
-                        @endforeach
+                        @empty
+                            <figure class="mb-0 px-2">
+                                <img class="rounded" style="object-fit: cover;"
+                                    src="{{ asset('tlandingpage/asset/img/empty-img.jpeg') }}" width="100%"
+                                    height="350px">
+                            </figure>
+                        @endforelse
                     </div>
                 </div>
             </div>
@@ -87,13 +99,19 @@
                     </div>
                     <div class="col-10">
                         <div class="slide-2-view">
-                            @foreach ($artikel[2]->galeri as $item)
+                            @forelse ($artikel[2]->galeri as $item)
                                 <figure class="mb-0 px-2">
                                     <img class="rounded" style="object-fit: cover;"
                                         src="{{ asset("storage/img/forum_galeri/$item->id_kategori_galeri/$item->foto") }}"
                                         width="100%" height="350px">
                                 </figure>
-                            @endforeach
+                            @empty
+                                <figure class="mb-0 px-2">
+                                    <img class="rounded" style="object-fit: cover;"
+                                        src="{{ asset('tlandingpage/asset/img/empty-img.jpeg') }}" width="100%"
+                                        height="350px">
+                                </figure>
+                            @endforelse
                         </div>
                     </div>
                 </div>
@@ -110,13 +128,19 @@
                     </div>
                     <div class="col-4">
                         <div class="slide-1-view">
-                            @foreach ($artikel[3]->galeri as $item)
+                            @forelse ($artikel[3]->galeri as $item)
                                 <figure class="mb-0">
                                     <img class="rounded"
                                         src="{{ asset("storage/img/forum_galeri/$item->id_kategori_galeri/$item->foto") }}"
                                         width="100%" height="350px">
                                 </figure>
-                            @endforeach\
+                            @empty
+                                <figure class="mb-0 px-2">
+                                    <img class="rounded" style="object-fit: cover;"
+                                        src="{{ asset('tlandingpage/asset/img/empty-img.jpeg') }}" width="100%"
+                                        height="350px">
+                                </figure>
+                            @endforelse
                         </div>
                     </div>
                     <div class="col-6">
@@ -140,8 +164,9 @@
                         <div class="accordion" id="accordionExample">
                             <div class="accordion-item">
                                 <p class="accordion-header" id="pg1">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#cpg1" aria-expanded="false" aria-controls="cpg1">
+                                    <button class="accordion-button collapsed" type="button"
+                                        data-bs-toggle="collapse" data-bs-target="#cpg1" aria-expanded="false"
+                                        aria-controls="cpg1">
                                         Program Pengelolaan Pendidikan
                                     </button>
                                 </p>
@@ -156,8 +181,9 @@
                             </div>
                             <div class="accordion-item">
                                 <p class="accordion-header" id="pg2">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#cpg2" aria-expanded="false" aria-controls="cpg2">
+                                    <button class="accordion-button collapsed" type="button"
+                                        data-bs-toggle="collapse" data-bs-target="#cpg2" aria-expanded="false"
+                                        aria-controls="cpg2">
                                         Program Peningkatan Kapasitas Sumber Daya Manusia Kesehatan
                                     </button>
                                 </p>
