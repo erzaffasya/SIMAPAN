@@ -162,7 +162,8 @@ class LandingpageController extends Controller
         $kartu_identitas = PersentaseAnak::select("kartu_identitas")->orderBy("tahun", "ASC")->pluck("kartu_identitas")->toArray();
         $akta_kelahiran = PersentaseAnak::select("akta_kelahiran")->orderBy("tahun", "ASC")->pluck("akta_kelahiran")->toArray();
         $tahun = PersentaseAnak::select("tahun")->orderBy("tahun", "ASC")->pluck("tahun")->toArray();
-        return view("landingpage.kluster1", compact("kartu_identitas", "akta_kelahiran", "tahun"));
+        $artikel = ForumKategoriGaleri::where("kategori", "1")->limit(2)->get();
+        return view("landingpage.kluster1", compact("kartu_identitas", "akta_kelahiran", "tahun", "artikel"));
     }
 
     public function kluster2()
@@ -171,6 +172,25 @@ class LandingpageController extends Controller
         $indoor = LayananPengasuhAnak::select("indoor")->orderBy("tahun", "ASC")->pluck("indoor")->toArray();
         $outdoor = LayananPengasuhAnak::select("outdoor")->orderBy("tahun", "ASC")->pluck("outdoor")->toArray();
         $tahun = LayananPengasuhAnak::select("tahun")->orderBy("tahun", "ASC")->pluck("tahun")->toArray();
-        return view("landingpage.kluster2", compact("online", "indoor", "outdoor", "tahun"));
+        $artikel = ForumKategoriGaleri::where("kategori", "2")->limit(4)->get();
+        return view("landingpage.kluster2", compact("online", "indoor", "outdoor", "tahun", "artikel"));
+    }
+
+    public function kluster3()
+    {
+        $artikel = ForumKategoriGaleri::where("kategori", "3")->limit(3)->get();
+        return view("landingpage.kluster3", compact("artikel"));
+    }
+
+    public function kluster4()
+    {
+        $artikel = ForumKategoriGaleri::where("kategori", "4")->limit(3)->get();
+        return view("landingpage.kluster4", compact("artikel"));
+    }
+
+    public function kluster5()
+    {
+        $artikel = ForumKategoriGaleri::where("kategori", "5")->limit(4)->get();
+        return view("landingpage.kluster5", compact("artikel"));
     }
 }

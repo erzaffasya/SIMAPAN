@@ -29,6 +29,7 @@
             </div>
         </div>
     </section>
+
     <section>
         <div class="bg-greens bg-img-overlay item1-img pt-4 pb-5 mt-5">
             <div class="container">
@@ -75,87 +76,60 @@
             </div>
         </div>
     </section>
-    <section>
-        <div class="container py-5">
-            <div class="row align-items-start justify-content-center">
-                <div class="col-11 text-center">
-                    <h4 class="text-success mb-2">INFORMASI LAYAK ANAK</h4>
-                    <p class="text-secondary fs-6 lh-lg">Lembaga layanan informasi anak yang terstandarisasi pusat
-                        informasi sahabat anak (PISA) di Kota Balikpapan terdapata 1 Lembaga layanan yaitu perpustakaan
-                        daerah, yang ditetapkan melalui SK Walikota Balikpapan Nomor : 188.45-445/2022 dan telah
-                        terstandarisasi kategori madya oleh kementerian PPA</p>
-                </div>
-                <div class="col-6">
-                    <div class="slide-1-view">
-                        <figure class="mb-0">
-                            <img class="rounded" src="{{ asset('tlandingpage/asset/img/empty-img.jpeg') }}"
-                                width="100%" height="350px">
-                        </figure>
-                        <figure class="mb-0">
-                            <img class="rounded" src="{{ asset('tlandingpage/asset/img/empty-img.jpeg') }}"
-                                width="100%" height="350px">
-                        </figure>
-                        <figure class="mb-0">
-                            <img class="rounded" src="{{ asset('tlandingpage/asset/img/empty-img.jpeg') }}"
-                                width="100%" height="350px">
-                        </figure>
+    @if ($artikel->has(0))
+        <section>
+            <div class="container py-5">
+                <div class="row align-items-start justify-content-center">
+                    <div class="col-11 text-center">
+                        <h4 class="text-success mb-2">{{ $artikel[0]->judul }}</h4>
+                        <p class="text-secondary fs-6 lh-lg">Lembaga layanan informasi anak yang terstandarisasi pusat
+                            informasi sahabat anak (PISA) di Kota Balikpapan terdapata 1 Lembaga layanan yaitu
+                            perpustakaan
+                            daerah, yang ditetapkan melalui SK Walikota Balikpapan Nomor : 188.45-445/2022 dan telah
+                            terstandarisasi kategori madya oleh kementerian PPA</p>
                     </div>
-                </div>
-                <div class="col-4">
-                    <p class="text-success fs-6 mb-2">Bentuk informasi layak anak di Balikpapan :</p>
-                    <ol class="list-group">
-                        <li class="list-group-item">Pustaka baca taman 3 generasi</li>
-                        <li class="list-group-item">Pojok baca di perkantoran seperti mal playanan publik, kantor
-                            kecamatan, kantor kelurahan</li>
-                        <li class="list-group-item">Perpustakaan taman cerdas balikpapan selatan dan timur</li>
-                        <li class="list-group-item">Perpustakaan di sekolah</li>
-                        <li class="list-group-item">250 titik Wi-fi gratis</li>
-                        <li class="list-group-item">Kampung pustaka gunung sari ulu</li>
-                        <li class="list-group-item">Pojok baca di LKSA</li>
-                    </ol>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section>
-        <div class="container py-5">
-            <div class="row justify-content-center align-items-end">
-                <div class="col-5">
-                    <h4 class="text-success mb-2">PARTISIPASI ANAK</h4>
-                    <ul class="list-group">
-                        <li class="list-group-item">Capacity building dan pelatihan-pelatihan</li>
-                        <li class="list-group-item">Kumpul bareng forum anak bersama Himpunan Psikolog Klinis Balikpapan
-                        </li>
-                        <li class="list-group-item">Peringatan hari AIDS sedunia bersama DKK Kota Balikpapan</li>
-                        <li class="list-group-item">Trauma healing korban kebakaran bersama PUSPAGA dan HIMPSI</li>
-                        <li class="list-group-item">Peringatan Hari Anak Nasional</li>
-                        <li class="list-group-item">Mengikuti dan menyampaikan aspirasi suara anak dalam Musrenbang
-                            tingkat kelurahan, kecamatan, dan kota</li>
-                        <li class="list-group-item">Menyelenggarakan lomba-lomba untuk anak</li>
-                    </ul>
-                </div>
-                <div class="col-7">
-                    <div class="slide-2-view">
-                        <figure class="mb-0 px-2">
-                            <img class="rounded" style="object-fit: cover;"
-                                src="{{ asset('tlandingpage/asset/img/empty-img.jpeg') }}" width="100%"
-                                height="350px">
-                        </figure>
-                        <figure class="mb-0 px-2">
-                            <img class="rounded" style="object-fit: cover;"
-                                src="{{ asset('tlandingpage/asset/img/empty-img.jpeg') }}" width="100%"
-                                height="350px">
-                        </figure>
-                        <figure class="mb-0 px-2">
-                            <img class="rounded" style="object-fit: cover;"
-                                src="{{ asset('tlandingpage/asset/img/empty-img.jpeg') }}" width="100%"
-                                height="350px">
-                        </figure>
+                    <div class="col-6">
+                        <div class="slide-1-view">
+                            @foreach ($artikel[0]->galeri as $item)
+                                <figure class="mb-0">
+                                    <img class="rounded"
+                                        src="{{ asset("storage/img/forum_galeri/$item->id_kategori_galeri/$item->foto") }}"
+                                        width="100%" height="350px">
+                                </figure>
+                            @endforeach
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        {!! $artikel[0]->deskripsi !!}
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    @endif
+    @if ($artikel->has(1))
+        <section>
+            <div class="container py-5">
+                <div class="row justify-content-center align-items-end">
+                    <div class="col-5">
+                        <h4 class="text-success mb-2">{{ $artikel[1]->judul }}</h4>
+                        {!! $artikel[1]->deskripsi !!}
+                    </div>
+                    <div class="col-7">
+                        <div class="slide-2-view">
+                            @foreach ($artikel[0]->galeri as $item)
+                                <figure class="mb-0 px-2">
+                                    <img class="rounded" style="object-fit: cover;"
+                                        src="{{ asset("storage/img/forum_galeri/$item->id_kategori_galeri/$item->foto") }}"
+                                        width="100%" height="350px">
+                                </figure>
+                            @endforeach
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    @endif
 
     <section>
         <div class="container">

@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 use Image;
 use Str;
 
-class Kluster2Controller extends Controller
+class Kluster5Controller extends Controller
 {
 
     /**
@@ -18,16 +18,16 @@ class Kluster2Controller extends Controller
      */
     public function index()
     {
-        $kluster2 = ForumKategoriGaleri::where("kategori", "2")->limit(4)->get();
-        return view('admin.kluster2.index', compact("kluster2"));
+        $kluster5 = ForumKategoriGaleri::where("kategori", "5")->limit(4)->get();
+        return view('admin.kluster5.index', compact("kluster5"));
     }
 
-    public function edit(ForumKategoriGaleri $kluster2)
+    public function edit(ForumKategoriGaleri $kluster5)
     {
-        return view('admin.kluster2.ubah', compact("kluster2"));
+        return view('admin.kluster5.ubah', compact("kluster5"));
     }
 
-    public function update(Request $request, ForumKategoriGaleri $kluster2)
+    public function update(Request $request, ForumKategoriGaleri $kluster5)
     {
         $request->validate([
             'judul' => 'required',
@@ -36,14 +36,14 @@ class Kluster2Controller extends Controller
 
         if ($request->foto) {
             foreach ($request->foto as $key => $foto) {
-                $path = storage_path("app/public/img/forum_galeri/$kluster2->id");
-                $path_tmp = storage_path("app/public/img/.thumbnail/forum_galeri/$kluster2->id");
+                $path = storage_path("app/public/img/forum_galeri/$kluster5->id");
+                $path_tmp = storage_path("app/public/img/.thumbnail/forum_galeri/$kluster5->id");
                 if ($request->foto != null) {
-                    if (File::exists("$path/$kluster2->foto")) {
-                        File::delete("$path/$kluster2->foto");
+                    if (File::exists("$path/$kluster5->foto")) {
+                        File::delete("$path/$kluster5->foto");
                     }
-                    if (File::exists("$path_tmp/$kluster2->foto")) {
-                        File::delete("$path_tmp/$kluster2->foto");
+                    if (File::exists("$path_tmp/$kluster5->foto")) {
+                        File::delete("$path_tmp/$kluster5->foto");
                     }
                 }
 
@@ -67,7 +67,7 @@ class Kluster2Controller extends Controller
                 }
                 $image_tmp->save("$path_tmp/$file_name");
                 ForumGaleri::create([
-                    "id_kategori_galeri" => $kluster2->id,
+                    "id_kategori_galeri" => $kluster5->id,
                     "thumbnail" => $file_name,
                     "foto" => $file_name,
                     "judul" => "-",
@@ -75,11 +75,11 @@ class Kluster2Controller extends Controller
                 ]);
             }
         }
-        $kluster2->judul = $request->judul;
-        $kluster2->slug = Str::slug($request->judul);
-        $kluster2->deskripsi = $request->deskripsi;
-        $kluster2->save();
+        $kluster5->judul = $request->judul;
+        $kluster5->slug = Str::slug($request->judul);
+        $kluster5->deskripsi = $request->deskripsi;
+        $kluster5->save();
 
-        return redirect()->route('kluster2.index')->with('success', 'Kluster 2 Berhasil Diubah');
+        return redirect()->route('kluster5.index')->with('success', 'Kluster 2 Berhasil Diubah');
     }
 }

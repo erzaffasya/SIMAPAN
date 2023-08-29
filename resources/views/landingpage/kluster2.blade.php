@@ -30,207 +30,102 @@
             </div>
         </div>
     </section>
-
-    <section>
-        <div class="container py-5">
-            <div class="row justify-content-center align-items-center">
-                <div class="col-5">
-                    <h4 class="text-danger mb-2">PAUD HI di Kota Balikpapan</h4>
-                    <ul class="list-group">
-                        <li class="list-group-item">Gutus tugas PAUD HI di Kota Balikpapan sudah terbentuk melalui SK
-                            Wali Kota Balikpapan Nomor 188.45-403/2021 tentang perubahan SK Nomor 188.45/133/2021
-                            tentang Gugus Tugas Pengembangan Anak Usia Dini Holistik Integratif</li>
-                        <li class="list-group-item">Dari 400 PAUD di Kota Balikpapan telah ada 200 PAUD HI</li>
-                        <li class="list-group-item">PAUD HI ada di setiap kelurahan</li>
-                        <li class="list-group-item">PAUD HI melalui Disdik bekerjasama dengan Dishub, Dispustakar, DKK,
-                            DP3AKB dan PKK Kota Balikpapan dalam pembinaannya</li>
-                    </ul>
-                </div>
-                <div class="col-7">
-                    <div class="slide-2-view">
-                        <figure class="mb-0 px-2">
-                            <img class="rounded" style="object-fit: cover;"
-                                src="{{ asset('tlandingpage/asset/img/empty-img.jpeg') }}" width="100%"
-                                height="350px">
-                        </figure>
-                        <figure class="mb-0 px-2">
-                            <img class="rounded" style="object-fit: cover;"
-                                src="{{ asset('tlandingpage/asset/img/empty-img.jpeg') }}" width="100%"
-                                height="350px">
-                        </figure>
-                        <figure class="mb-0 px-2">
-                            <img class="rounded" style="object-fit: cover;"
-                                src="{{ asset('tlandingpage/asset/img/empty-img.jpeg') }}" width="100%"
-                                height="350px">
-                        </figure>
+    @if ($artikel->has(0))
+        <section>
+            <div class="container py-5">
+                <div class="row justify-content-center align-items-center">
+                    <div class="col-5">
+                        <h4 class="text-danger mb-2">{{ $artikel[0]->judul }}</h4>
+                        {!! $artikel[0]->deskripsi !!}
+                    </div>
+                    <div class="col-7">
+                        <div class="slide-2-view">
+                            @foreach ($artikel[0]->galeri as $item)
+                                <figure class="mb-0 px-2">
+                                    <img class="rounded" style="object-fit: cover;"
+                                        src="{{ asset("storage/img/forum_galeri/$item->id_kategori_galeri/$item->foto") }}"
+                                        width="100%" height="350px">
+                                </figure>
+                            @endforeach
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <section>
-        <div class="bg-reds bg-img-overlay item1-img pt-4 pb-4 mt-5">
-            <div class="container">
-                <div class="text-center">
-                    <h4 class="text-white mb-4 lh-md">KETERSEDIAAN INFRASTRUKTUR (Sarana Prasarana) Ramah Anak di Ruang
-                        Publik</h4>
-                </div>
-                <div class="slide-4-view row">
-                    <div class="mx-2 col h-100">
-                        <figure class="rounded overflow-hidden h-100 mb-0">
-                            <img src="{{ asset('tlandingpage/asset/img/empty-img.jpeg') }}" alt=""
-                                class="w-100">
-                            <figcaption class="px-3 py-2 text-center">
-                                <p class="mb-1 text-white fs-5">RBA di Kelurahan</p>
-                            </figcaption>
-                        </figure>
+        </section>
+    @endif
+    @if ($artikel->has(1))
+        <section>
+            <div class="bg-reds bg-img-overlay item1-img pt-4 pb-4 mt-5">
+                <div class="container">
+                    <div class="text-center">
+                        <h4 class="text-white mb-4 lh-md">{{ $artikel[1]->judul }}</h4>
                     </div>
-                    <div class="mx-2 col h-100">
-                        <figure class="rounded overflow-hidden h-100 mb-0">
-                            <img src="{{ asset('tlandingpage/asset/img/empty-img.jpeg') }}" alt=""
-                                class="w-100">
-                            <figcaption class="px-3 py-2 text-center">
-                                <p class="mb-1 text-white fs-5">RBA di Kelurahan</p>
-                            </figcaption>
-                        </figure>
-                    </div>
-                    <div class="mx-2 col h-100">
-                        <figure class="rounded overflow-hidden h-100 mb-0">
-                            <img src="{{ asset('tlandingpage/asset/img/empty-img.jpeg') }}" alt=""
-                                class="w-100">
-                            <figcaption class="px-3 py-2 text-center">
-                                <p class="mb-1 text-white fs-5">RBA di Hotel</p>
-                            </figcaption>
-                        </figure>
-                    </div>
-                    <div class="mx-2 col h-100">
-                        <figure class="rounded overflow-hidden h-100 mb-0">
-                            <img src="{{ asset('tlandingpage/asset/img/empty-img.jpeg') }}" alt=""
-                                class="w-100">
-                            <figcaption class="px-3 py-2 text-center">
-                                <p class="mb-1 text-white fs-5">RBA di Bandara</p>
-                            </figcaption>
-                        </figure>
-                    </div>
-                    <div class="mx-2 col h-100">
-                        <figure class="rounded overflow-hidden h-100 mb-0">
-                            <img src="{{ asset('tlandingpage/asset/img/empty-img.jpeg') }}" alt=""
-                                class="w-100">
-                            <figcaption class="px-3 py-2 text-center">
-                                <p class="mb-1 text-white fs-5">RBA di Mall Pelayanan Publik</p>
-                            </figcaption>
-                        </figure>
-                    </div>
-                    <div class="mx-2 col h-100">
-                        <figure class="rounded overflow-hidden h-100 mb-0">
-                            <img src="{{ asset('tlandingpage/asset/img/empty-img.jpeg') }}" alt=""
-                                class="w-100">
-                            <figcaption class="px-3 py-2 text-center">
-                                <p class="mb-1 text-white fs-5">RBA di Sekolah</p>
-                            </figcaption>
-                        </figure>
-                    </div>
-                    <div class="mx-2 col h-100">
-                        <figure class="rounded overflow-hidden h-100 mb-0">
-                            <img src="{{ asset('tlandingpage/asset/img/empty-img.jpeg') }}" alt=""
-                                class="w-100">
-                            <figcaption class="px-3 py-2 text-center">
-                                <p class="mb-1 text-white fs-5">RBA di RSUD Beriman</p>
-                            </figcaption>
-                        </figure>
-                    </div>
-                    <div class="mx-2 col h-100">
-                        <figure class="rounded overflow-hidden h-100 mb-0">
-                            <img src="{{ asset('tlandingpage/asset/img/empty-img.jpeg') }}" alt=""
-                                class="w-100">
-                            <figcaption class="px-3 py-2 text-center">
-                                <p class="mb-1 text-white fs-5">RBA di Taman</p>
-                            </figcaption>
-                        </figure>
+                    <div class="slide-4-view row">
+                        @foreach ($artikel[1]->galeri as $item)
+                            <div class="mx-2 col h-100">
+                                <figure class="rounded overflow-hidden h-100 mb-0">
+                                    <img src="{{ asset("storage/img/forum_galeri/$item->id_kategori_galeri/$item->foto") }}"
+                                        alt="" class="w-100">
+                                    <figcaption class="px-3 py-2 text-center">
+                                        {{-- <p class="mb-1 text-white fs-5">RBA di Kelurahan</p> --}}
+                                    </figcaption>
+                                </figure>
+                            </div>
+                        @endforeach
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <section>
-        <div class="container py-5">
-            <div class="row align-items-start justify-content-center">
-                <div class="col-11 text-center">
-                    <h4 class="text-danger mb-2">Ruang Bermain Ramah Anak (RBRA)</h4>
-                    <p class="text-secondary fs-6 lh-lg">Sesuai dengan SK Wali Kota Balikpapan Nomor 188.45-547/2022
-                        Tentang Penetapan Taman Tiga Generasi Kota Balikpapan sebagai Piloting Ruang Bermain Ramah Anak
-                        Kota Balikpapan</p>
-                </div>
-                <div class="col-10">
-                    <div class="slide-2-view">
-                        <figure class="mb-0 px-2">
-                            <img class="rounded" style="object-fit: cover;"
-                                src="{{ asset('tlandingpage/asset/img/empty-img.jpeg') }}" width="100%"
-                                height="350px">
-                        </figure>
-                        <figure class="mb-0 px-2">
-                            <img class="rounded" style="object-fit: cover;"
-                                src="{{ asset('tlandingpage/asset/img/empty-img.jpeg') }}" width="100%"
-                                height="350px">
-                        </figure>
-                        <figure class="mb-0 px-2">
-                            <img class="rounded" style="object-fit: cover;"
-                                src="{{ asset('tlandingpage/asset/img/empty-img.jpeg') }}" width="100%"
-                                height="350px">
-                        </figure>
+        </section>
+    @endif
+    @if ($artikel->has(2))
+        <section>
+            <div class="container py-5">
+                <div class="row align-items-start justify-content-center">
+                    <div class="col-11 text-center">
+                        <h4 class="text-danger mb-2">{{ $artikel[2]->judul }}</h4>
+                        <p class="text-secondary fs-6 lh-lg">{!! $artikel[2]->deskripsi !!}</p>
+                    </div>
+                    <div class="col-10">
+                        <div class="slide-2-view">
+                            @foreach ($artikel[2]->galeri as $item)
+                                <figure class="mb-0 px-2">
+                                    <img class="rounded" style="object-fit: cover;"
+                                        src="{{ asset("storage/img/forum_galeri/$item->id_kategori_galeri/$item->foto") }}"
+                                        width="100%" height="350px">
+                                </figure>
+                            @endforeach
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    @endif
 
-    <section>
-        <div class="container py-5">
-            <div class="row align-items-start justify-content-center">
-                <div class="col-11 text-center">
-                    <h4 class="text-danger mb-2">Program Rute Aman Selamat Sekolah (RASS)</h4>
-                </div>
-                <div class="col-4">
-                    <div class="slide-1-view">
-                        <figure class="mb-0">
-                            <img class="rounded" src="{{ asset('tlandingpage/asset/img/empty-img.jpeg') }}"
-                                width="100%" height="350px">
-                        </figure>
-                        <figure class="mb-0">
-                            <img class="rounded" src="{{ asset('tlandingpage/asset/img/empty-img.jpeg') }}"
-                                width="100%" height="350px">
-                        </figure>
-                        <figure class="mb-0">
-                            <img class="rounded" src="{{ asset('tlandingpage/asset/img/empty-img.jpeg') }}"
-                                width="100%" height="350px">
-                        </figure>
+    @if ($artikel->has(3))
+        <section>
+            <div class="container py-5">
+                <div class="row align-items-start justify-content-center">
+                    <div class="col-11 text-center">
+                        <h4 class="text-danger mb-2">{{ $artikel[3]->judul }}</h4>
+                    </div>
+                    <div class="col-4">
+                        <div class="slide-1-view">
+                            @foreach ($artikel[3]->galeri as $item)
+                                <figure class="mb-0">
+                                    <img class="rounded"
+                                        src="{{ asset("storage/img/forum_galeri/$item->id_kategori_galeri/$item->foto") }}"
+                                        width="100%" height="350px">
+                                </figure>
+                            @endforeach\
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        {!! $artikel[3]->deskripsi !!}
                     </div>
                 </div>
-                <div class="col-6">
-                    <p class="text-danger fs-6 mb-2">Terdapat 10 Program Rute Aman Selamat Sekolah di Kota Balikpapan
-                    </p>
-                    <ol class="list-group">
-                        <li class="list-group-item">DISHUB melalui program usulan Kajian RASS</li>
-                        <li class="list-group-item">DISHUB melalui program SALUD(SAdar Lalu Lintas sejak dini) bagi
-                            PAUD</li>
-                        <li class="list-group-item">DISHUB melalui Area Traffic Control System (ATCS)</li>
-                        <li class="list-group-item">DISHUB melalui Piket pengamanan Lalu lintas Anak Sekolah</li>
-                        <li class="list-group-item">Polresta Balikpapan melalui program Pengamanan jalan di sekolah
-                        </li>
-                        <li class="list-group-item">Guiding Blocks di trotoar untuk penyandang disabilitas</li>
-                        <li class="list-group-item">Program DISHUB MENYAPA di Smart FM</li>
-                        <li class="list-group-item">Sosialisasi Tertib berlalu lintas kepada anak-anak sekolah dasar
-                        </li>
-                        <li class="list-group-item">Pemilihan pelajar pelapor keselataman LLAJ tahun 2022 untuk tingkat
-                            Kota Balikpapan</li>
-                        <li class="list-group-item">Program Bus Sekolah berbayar botol plastik</li>
-                    </ol>
-                </div>
             </div>
-        </div>
-    </section>
+        </section>
+    @endif
 
     <section>
         <div class="bg-reds bg-img-overlay item1-img py-5">
@@ -245,9 +140,8 @@
                         <div class="accordion" id="accordionExample">
                             <div class="accordion-item">
                                 <p class="accordion-header" id="pg1">
-                                    <button class="accordion-button collapsed" type="button"
-                                        data-bs-toggle="collapse" data-bs-target="#cpg1" aria-expanded="false"
-                                        aria-controls="cpg1">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#cpg1" aria-expanded="false" aria-controls="cpg1">
                                         Program Pengelolaan Pendidikan
                                     </button>
                                 </p>
@@ -262,9 +156,8 @@
                             </div>
                             <div class="accordion-item">
                                 <p class="accordion-header" id="pg2">
-                                    <button class="accordion-button collapsed" type="button"
-                                        data-bs-toggle="collapse" data-bs-target="#cpg2" aria-expanded="false"
-                                        aria-controls="cpg2">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#cpg2" aria-expanded="false" aria-controls="cpg2">
                                         Program Peningkatan Kapasitas Sumber Daya Manusia Kesehatan
                                     </button>
                                 </p>
