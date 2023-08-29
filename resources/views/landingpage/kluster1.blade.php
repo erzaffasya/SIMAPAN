@@ -122,7 +122,7 @@
                     </div>
                     <div class="col-7">
                         <div class="slide-2-view">
-                            @forelse ($artikel[0]->galeri as $item)
+                            @forelse ($artikel[1]->galeri as $item)
                                 <figure class="mb-0 px-2">
                                     <img class="rounded" style="object-fit: cover;"
                                         src="{{ asset("storage/img/forum_galeri/$item->id_kategori_galeri/$item->foto") }}"
