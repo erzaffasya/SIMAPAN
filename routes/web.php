@@ -21,11 +21,12 @@ use App\Http\Controllers\KegiatanController;
 use App\Http\Controllers\KelembagaanController;
 use App\Http\Controllers\Kluster1Controller;
 use App\Http\Controllers\Kluster2Controller;
+use App\Http\Controllers\Kluster3Controller;
+use App\Http\Controllers\Kluster4Controller;
+use App\Http\Controllers\Kluster5Controller;
 use App\Http\Controllers\LandingpageController;
 use App\Http\Controllers\LayananPengasuhAnakController;
 use App\Http\Controllers\PersentaseAnakController;
-use App\Http\Controllers\ProfilGaleriController;
-use App\Http\Controllers\ProfilKategoriGaleriController;
 use App\Http\Controllers\TentangController;
 use App\Http\Controllers\TinyMceController;
 use Illuminate\Support\Facades\Route;
@@ -77,10 +78,8 @@ Route::get('/peta', [LandingpageController::class, 'peta'])->name('peta');
 Route::get('/kluster6', [LandingpageController::class, 'kluster6']);
 Route::get('/kluster1', [LandingpageController::class, 'kluster1']);
 Route::get('/kluster2', [LandingpageController::class, 'kluster2']);
+Route::get('/kluster3', [LandingpageController::class, 'kluster3']);
 
-Route::get('/kluster3', function () {
-    return view('landingpage.kluster3');
-});
 
 Route::get('/kluster4', function () {
     return view('landingpage.kluster4');
@@ -130,6 +129,9 @@ Route::middleware(['auth'])->prefix('admin')->group(function () {
     Route::resource('layanan-pengasuh-anak', LayananPengasuhAnakController::class);
     Route::resource('kluster1', Kluster1Controller::class)->except("show", "store", "create");
     Route::resource('kluster2', Kluster2Controller::class)->except("show", "store", "create");
+    Route::resource('kluster3', Kluster3Controller::class)->except("show", "store", "create");
+    Route::resource('kluster4', Kluster4Controller::class)->except("show", "store", "create");
+    Route::resource('kluster5', Kluster5Controller::class)->except("show", "store", "create");
 
     //tiny mce upload
     Route::post('tiny-upload', [TinyMceController::class, "upload"])->name('tiny-upload');
