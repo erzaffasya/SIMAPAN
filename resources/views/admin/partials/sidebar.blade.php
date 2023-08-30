@@ -80,6 +80,51 @@
                     </li>
                 </ul>
             </li>
+            <li class="submenu">
+                <a href="javascript:void(0);"><i data-feather="columns"></i> <span> KLUSTER </span> <span
+                        class="menu-arrow"></span></a>
+                <ul>
+                    <li><a href="{{ route('kluster1.index') }}"
+                            class="{{ Request::routeIs('kluster1.*') ? 'active' : '' }}">Kluster 1</a>
+                    </li>
+                    <li><a href="{{ route('kluster2.index') }}"
+                            class="{{ Request::routeIs('kluster2.*') ? 'active' : '' }}">Kluster 2</a>
+                    </li>
+                    <li><a href="{{ route('kluster3.index') }}"
+                            class="{{ Request::routeIs('kluster3.*') ? 'active' : '' }}">Kluster 3</a>
+                    </li>
+                    <li><a href="{{ route('kluster4.index') }}"
+                            class="{{ Request::routeIs('kluster4.*') ? 'active' : '' }}">Kluster 4</a>
+                    </li>
+                    <li><a href="{{ route('kluster5.index') }}"
+                            class="{{ Request::routeIs('kluster5.*') ? 'active' : '' }}">Kluster 5</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="submenu">
+                <a href="javascript:void(0);"><i data-feather="columns"></i> <span> Grafik </span> <span
+                        class="menu-arrow"></span></a>
+                <ul>
+                    <li><a href="{{ route('persentase-anak.index') }}"
+                            class="{{ Request::routeIs('persentase-anak.*') ? 'active' : '' }}">Persentase Anak</a>
+                    </li>
+                    <li><a href="{{ route('layanan-pengasuh-anak.index') }}"
+                            class="{{ Request::routeIs('layanan-pengasuh-anak.*') ? 'active' : '' }}">Layanan Pengasuh Anak</a>
+                    </li>
+                    <li><a href="{{ route('sekolah-ramah-anak.index') }}"
+                            class="{{ Request::routeIs('sekolah-ramah-anak.*') ? 'active' : '' }}">Sekolah Ramah Anak</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="submenu">
+                <a href="javascript:void(0);"><i data-feather="columns"></i> <span> Dokumen </span> <span
+                        class="menu-arrow"></span></a>
+                <ul>
+                    <li><a href="{{ route('kebijakan.index') }}"
+                            class="{{ Request::routeIs('kebijakan.*') ? 'active' : '' }}">Kebijakan</a>
+                    </li>
+                </ul>
+            </li>
         </ul>
     </div>
 </div>
