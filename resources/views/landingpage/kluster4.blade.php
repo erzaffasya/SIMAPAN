@@ -127,16 +127,15 @@
             </div>
         </section>
     @endif
-
     @push('scripts')
         <script>
             const c4ctx = document.getElementById('c4chart');
-            const c4data2022 = [0.2, 82.0, 47.0, 32.3, 75.0]; // Contoh data dua label untuk tahun 2022
-
+            const c4data2022 = @json($sekolah_ramah_anak); // Contoh data dua label untuk tahun 2022
+            const tahun = @json($tahun);
             new Chart(c4ctx, {
                 type: 'bar',
                 data: {
-                    labels: ['2022'],
+                    labels: tahun,
                     datasets: [{
                             label: 'TK/RA/PAUD',
                             data: [c4data2022[0]],
