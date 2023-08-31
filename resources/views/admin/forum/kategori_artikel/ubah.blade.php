@@ -9,7 +9,7 @@
         <!-- /add -->
         <div class="card">
             <div class="card-body">
-                <form method="post" action="{{ route('forum-kategori-artikel.update', $kategori_artikel->id) }}"
+                <form method="post" action="{{ route('forum-kategori-artikel.update', $forum_kategori_artikel->id) }}"
                     enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
@@ -17,13 +17,13 @@
                         <div class="col-lg-12">
                             <div class="form-group">
                                 <label>Judul</label>
-                                <input name="judul" value="{{ $kategori_artikel->judul }}" type="text" required>
+                                <input name="judul" value="{{ $forum_kategori_artikel->judul }}" type="text" required>
                             </div>
                         </div>
                         <div class="col-lg-12">
                             <div class="form-group">
                                 <label>Deskripsi</label>
-                                <textarea name="isi" class="form-control">{{ $kategori_artikel->isi }}</textarea>
+                                <textarea name="isi" class="form-control">{{ $forum_kategori_artikel->isi }}</textarea>
                             </div>
                         </div>
 

@@ -29,6 +29,7 @@ use App\Http\Controllers\LayananPengasuhAnakController;
 use App\Http\Controllers\PersentaseAnakController;
 use App\Http\Controllers\TentangController;
 use App\Http\Controllers\TinyMceController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -126,6 +127,8 @@ Route::middleware(['auth'])->prefix('admin')->group(function () {
     Route::resource('kluster3', Kluster3Controller::class)->except("show", "store", "create");
     Route::resource('kluster4', Kluster4Controller::class)->except("show", "store", "create");
     Route::resource('kluster5', Kluster5Controller::class)->except("show", "store", "create");
+    Route::resource('user', UserController::class);
+    Route::get('/profile', [UserController::class, 'profile'])->name('profile');
 
     //tiny mce upload
     Route::post('tiny-upload', [TinyMceController::class, "upload"])->name('tiny-upload');

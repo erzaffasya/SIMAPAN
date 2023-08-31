@@ -27,6 +27,7 @@
                                 <th>Catatan</th>
                                 <th>Foto</th>
                                 <th>Gmaps</th>
+                                <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -44,7 +45,18 @@
                                    <td>
                                         <a target="_blank" href="{{ $item->gmaps }}">{{ $item->gmaps }}</a>
                                     </td>
+                                    <td>
+                                      
+                                        <a class='confirm-text' href='javascript:void(0);' data-bs-toggle='modal'
+                                        data-bs-target='#deleteModal' data-id='{{ $item->id }}'
+                                        data-action='{{ route('emergency.destroy', $item->id) }}'
+                                        data-message='{{ $item->name }}'>
+                                        <img src="{{ asset('tadmin/assets/img/icons/delete.svg') }}"
+                                            alt="img">
+                                    </a>
+                                    </td>
                                 </tr>
+                                
                             @endforeach
                         </tbody>
                     </table>

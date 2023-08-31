@@ -44,6 +44,7 @@
                             <h5>Admin</h5>
                         </div>
                     </div>
+                    <a class="dropdown-item pb-0" href="{{route('profile')}}">Change Password</a>
                     <hr class="m-0">
                     <a class="dropdown-item logout pb-0" href="{{route('logout')}}"><img src="{{asset('tadmin/assets/img/icons/log-out.svg')}}" class="me-2'" alt="img">Logout</a>
                 </div>
