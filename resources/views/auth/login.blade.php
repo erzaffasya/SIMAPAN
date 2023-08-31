@@ -36,12 +36,12 @@
                     <div class="login-userset">
                         <form action="{{ route('login') }}" method="post">
                             @csrf
-                            <div class="login-logo logo-normal">
+                            {{-- <div class="login-logo logo-normal">
                                 <img src="{{ asset('tadmin/assets/img/logo.png') }}" alt="img">
                             </div>
                             <a href="index.html" class="login-logo logo-white">
                                 <img src="{{ asset('tadmin/assets/img/logo-white.png') }}" alt="">
-                            </a>
+                            </a> --}}
                             <div class="login-userheading">
                                 <h3>Sign In</h3>
                                 <h4>Please login to your account</h4>
