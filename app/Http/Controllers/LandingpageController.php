@@ -18,6 +18,7 @@ use App\Models\Kelembagaan;
 use App\Models\LayananPengasuhAnak;
 use App\Models\PersentaseAnak;
 use App\Models\ProfilGaleri;
+use App\Models\SekolahRamahAnak;
 use App\Models\Tentang;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -184,8 +185,18 @@ class LandingpageController extends Controller
 
     public function kluster4()
     {
+        $sekolah_ramah_anak = SekolahRamahAnak::where("isaktif", true)->limit(1)->get();
+        $tahun = $sekolah_ramah_anak->pluck("tahun")->toArray();
+        $sd = $sekolah_ramah_anak->pluck("sd")->first();
+        $paud = $sekolah_ramah_anak->pluck("paud")->first();
+        $smp = $sekolah_ramah_anak->pluck("smp")->first();
+        $sma = $sekolah_ramah_anak->pluck("slta")->first();
+        $slb = $sekolah_ramah_anak->pluck("slb")->first();
+        $sekolah_ramah_anak = [$paud, $sd, $smp, $sma, $slb];
+
+
         $artikel = ForumKategoriGaleri::where("kategori", "4")->limit(3)->get();
-        return view("landingpage.kluster4", compact("artikel"));
+        return view("landingpage.kluster4", compact("artikel", "sekolah_ramah_anak", "tahun"));
     }
 
     public function kluster5()

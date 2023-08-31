@@ -27,6 +27,7 @@ use App\Http\Controllers\Kluster5Controller;
 use App\Http\Controllers\LandingpageController;
 use App\Http\Controllers\LayananPengasuhAnakController;
 use App\Http\Controllers\PersentaseAnakController;
+use App\Http\Controllers\SekolahRamahAnakController;
 use App\Http\Controllers\TentangController;
 use App\Http\Controllers\TinyMceController;
 use App\Http\Controllers\UserController;
@@ -122,6 +123,7 @@ Route::middleware(['auth'])->prefix('admin')->group(function () {
 
     Route::resource('persentase-anak', PersentaseAnakController::class);
     Route::resource('layanan-pengasuh-anak', LayananPengasuhAnakController::class);
+    Route::resource('sekolah-ramah-anak', SekolahRamahAnakController::class);
     Route::resource('kluster1', Kluster1Controller::class)->except("show", "store", "create");
     Route::resource('kluster2', Kluster2Controller::class)->except("show", "store", "create");
     Route::resource('kluster3', Kluster3Controller::class)->except("show", "store", "create");
