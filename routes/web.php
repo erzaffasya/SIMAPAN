@@ -28,6 +28,7 @@ use App\Http\Controllers\LandingpageController;
 use App\Http\Controllers\LayananPengasuhAnakController;
 use App\Http\Controllers\PersentaseAnakController;
 use App\Http\Controllers\SekolahRamahAnakController;
+use App\Http\Controllers\SimapanArtikelController;
 use App\Http\Controllers\TentangController;
 use App\Http\Controllers\TinyMceController;
 use App\Http\Controllers\UserController;
@@ -105,7 +106,7 @@ Route::middleware(['auth'])->prefix('admin')->group(function () {
     Route::resource('kantor', KantorController::class);
     Route::resource('kegiatan', KegiatanController::class);
     Route::resource('kategori-artikel', KategoriArtikelController::class);
-    Route::resource('artikel', ArtikelController::class);
+    Route::resource('artikel', ArtikelController::class);                       // Kantor 
     Route::resource('fastlink', FastLinkController::class);
     Route::resource('jumlahanak', JumlahAnakController::class)->only('index', 'store');
     Route::resource('forum-struktur', ForumStrukturController::class)->only('index', 'store');
@@ -132,6 +133,8 @@ Route::middleware(['auth'])->prefix('admin')->group(function () {
     Route::resource('user', UserController::class);
     Route::get('/profile', [UserController::class, 'profile'])->name('profile');
 
+
+    Route::resource('simapan-artikel', SimapanArtikelController::class);
     //tiny mce upload
     Route::post('tiny-upload', [TinyMceController::class, "upload"])->name('tiny-upload');
 });

@@ -3,7 +3,8 @@
         <div class="container">
             <div class="header-title text-center mt-5">
                 <div class="d-block d-lg-flex align-items-center justify-content-center">
-                    <img src="{{asset('tlandingpage/asset/img/logo-simapan.png')}}" alt="" height="50px" class="logo-simapan">
+                    <img src="{{ asset('tlandingpage/asset/img/logo-simapan.png') }}" alt="" height="50px"
+                        class="logo-simapan">
                     <h1 class="fs-2 ms-2">SISTEM MANAJEMEN PERLINDUGAN ANAK (SIMAPAN)</h1>
                 </div>
                 <div class="mx-auto">
@@ -51,8 +52,8 @@
             <div class="container">
                 <div class="row justify-content-center align-items-center">
                     <div class="col-12 col-lg-5">
-                        <iframe width="100%" height="315" class="yt-tentang rounded" src="{{ $tentang->video ?? '' }}"
-                            title="YouTube video player" frameborder="0"
+                        <iframe width="100%" height="315" class="yt-tentang rounded"
+                            src="{{ $tentang->video ?? '' }}" title="YouTube video player" frameborder="0"
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                             allowfullscreen></iframe>
                     </div>
@@ -72,8 +73,8 @@
                     </div>
                     <div class="col-6 col-lg-4 d-flex justify-content-center align-items-center">
                         <a href="https://wa.me/62816220077" class="text-decoration-none d-flex">
-                            <img src="{{ asset('tlandingpage/asset/img/clipboard.png') }}" height="30px" alt=""
-                                class="me-3">
+                            <img src="{{ asset('tlandingpage/asset/img/clipboard.png') }}" height="30px"
+                                alt="" class="me-3">
                             <p class="fs-5 fw-bold text-white">Konsultasi Psikolog</p>
                         </a>
                     </div>
@@ -129,7 +130,8 @@
                     <p class="fs-5 text-secondary mb-5">Temukan informasi mengenai anak dari berbagai sumber komunitas
                         forum
                     </p>
-                    <a href="{{ route('landingpage.artikel') }}" class="d-none d-lg-block btn btn-outline-primary w-100">Lihat Semua
+                    <a href="{{ route('landingpage.artikel') }}"
+                        class="d-none d-lg-block btn btn-outline-primary w-100">Lihat Semua
                         Artikel</a>
                 </div>
                 @foreach ($forumArtikel as $item)
@@ -149,7 +151,8 @@
                     </div>
                 @endforeach
                 <div class="col-10 d-none-lg">
-                    <a href="{{ route('landingpage.artikel') }}" class="d-lg-none btn btn-outline-primary w-100">Lihat Semua
+                    <a href="{{ route('landingpage.artikel') }}"
+                        class="d-lg-none btn btn-outline-primary w-100">Lihat Semua
                         Artikel</a>
                 </div>
             </div>

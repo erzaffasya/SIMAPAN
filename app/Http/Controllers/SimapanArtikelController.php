@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 use App\Models\ForumArtikel;
 use Str;
 
-class ForumArtikelController extends Controller
+class SimapanArtikelController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,8 +17,8 @@ class ForumArtikelController extends Controller
      */
     public function index()
     {
-        $forum_artikel = ForumArtikel::where('id_kategori_artikel',2)->get();
-        return view('admin.forum.artikel.index', compact('forum_artikel'));
+        $forum_artikel = ForumArtikel::where('id_kategori_artikel', 1)->get();
+        return view('admin.simapan.artikel.index', compact('forum_artikel'));
     }
 
     /**
@@ -28,7 +28,7 @@ class ForumArtikelController extends Controller
     public function create()
     {
         $lKategori = ForumKategoriArtikel::all();
-        return view('admin.forum.artikel.tambah', compact('lKategori'));
+        return view('admin.simapan.artikel.tambah', compact('lKategori'));
 
     }
 
@@ -76,7 +76,7 @@ class ForumArtikelController extends Controller
         }
 
         ForumArtikel::create([
-            "id_kategori_artikel" => 2,
+            "id_kategori_artikel" => 1,
             "slug" => Str::slug($request->judul),
             "foto" => $file_name,
             "thumbnail" => $file_name,
@@ -85,7 +85,7 @@ class ForumArtikelController extends Controller
         ]);
 
 
-        return redirect()->route('forum-artikel.index')
+        return redirect()->route('simapan-artikel.index')
             ->with('success', 'ForumArtikel Berhasil Ditambahkan');
     }
 
@@ -107,7 +107,7 @@ class ForumArtikelController extends Controller
     public function edit(ForumArtikel $forum_artikel)
     {
         $lKategori = ForumKategoriArtikel::all();
-        return view('admin.forum.artikel.ubah', compact('lKategori', 'forum_artikel'));
+        return view('admin.simapan.artikel.ubah', compact('lKategori', 'forum_artikel'));
     }
 
     /**
@@ -158,7 +158,7 @@ class ForumArtikelController extends Controller
             $file_name = $forum_artikel->foto;
         }
 
-        $forum_artikel->id_kategori_artikel = 2;
+        $forum_artikel->id_kategori_artikel = 1;
         $forum_artikel->judul = $request->judul;
         $forum_artikel->slug = Str::slug($request->judul);
         $forum_artikel->foto = $file_name;
@@ -166,7 +166,7 @@ class ForumArtikelController extends Controller
         $forum_artikel->isi = $request->isi;
         $forum_artikel->save();
 
-        return redirect()->route('forum-artikel.index')
+        return redirect()->route('simapan-artikel.index')
             ->with('success', 'ForumArtikel Berhasil Diubah');
     }
 
@@ -188,7 +188,7 @@ class ForumArtikelController extends Controller
         $forum_artikel->delete();
 
 
-        return redirect()->route('forum-artikel.index')
+        return redirect()->route('simapan-artikel.index')
             ->with('success', 'ForumArtikel Berhasil Dihapus');
     }
 }

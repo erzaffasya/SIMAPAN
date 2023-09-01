@@ -29,8 +29,8 @@ class LandingpageController extends Controller
     public function simapan()
     {
         $tentang = Tentang::find(1);
-        $forumArtikel = ForumArtikel::limit(3)->orderBy('id', 'DESC')->get();
-        $forumArtikelParenting = ForumArtikel::limit(4)->orderBy('id', 'DESC')->get();
+        $forumArtikel = ForumArtikel::where('id_kategori_artikel',2)->limit(3)->orderBy('id', 'DESC')->get();
+        $forumArtikelParenting = ForumArtikel::where('id_kategori_artikel',1)->limit(4)->orderBy('id', 'DESC')->get();
         $kegiatan = Kegiatan::limit(3)->orderBy('id', 'DESC')->get();
         $faq = Faq::all();
         $banner = Banner::all();
@@ -61,9 +61,9 @@ class LandingpageController extends Controller
     {
         $pengurus = ForumPengurus::all();
         $struktur = ForumStruktur::find(1);
-        $artikel1 = ForumArtikel::orderBy('created_at', 'DESC')->first();
-        $artikel2 = ForumArtikel::orderBy('created_at', 'DESC')->offset(1)->limit(3)->get();
-        $artikel3 = ForumArtikel::orderBy('created_at', 'DESC')->offset(4)->paginate(8);
+        $artikel1 = ForumArtikel::where('id_kategori_artikel',2)->orderBy('created_at', 'DESC')->first();
+        $artikel2 = ForumArtikel::where('id_kategori_artikel',2)->orderBy('created_at', 'DESC')->offset(1)->limit(3)->get();
+        $artikel3 = ForumArtikel::where('id_kategori_artikel',2)->orderBy('created_at', 'DESC')->offset(4)->paginate(8);
         $kegiatan = ForumGaleri::orderBy('created_at', 'DESC')->limit(8)->get();
         $ForumKategoriGaleri = ForumKategoriGaleri::where('kategori', 'F')->limit(8)->get();
         // dd($kegiatan);

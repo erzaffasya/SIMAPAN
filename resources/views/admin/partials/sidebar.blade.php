@@ -29,6 +29,9 @@
                         <li><a href="{{ route('banner.index') }}"
                                 class="{{ Request::routeIs('banner.*') ? 'active' : '' }}">Banner</a>
                         </li>
+                        <li><a href="{{ route('simapan-artikel.index') }}"
+                                class="{{ Request::routeIs('simapan-artikel.*') ? 'active' : '' }}">Artikel</a>
+                        </li>
                     </ul>
                 </li>
             @endif
@@ -58,18 +61,6 @@
                 </li>
             @endif
             @if (Auth::user()->role == 'forum' || Auth::user()->role == 'admin')
-                <li class="submenu">
-                    <a href="javascript:void(0);"><i data-feather="columns"></i> <span> PROFIL </span> <span
-                            class="menu-arrow"></span></a>
-                    <ul>
-                        <li><a href="{{ route('jumlahanak.index') }}"
-                                class="{{ Request::routeIs('jumlahanak.*') ? 'active' : '' }}">Jumlah Anak</a>
-                        </li>
-                        <li><a href="{{ route('profil-kelembagaan.index') }}"
-                                class="{{ Request::routeIs('profil-kelembagaan.*') ? 'active' : '' }}">Kelembagaan</a>
-                        </li>
-                    </ul>
-                </li>
 
                 <li class="submenu">
                         <a href="javascript:void(0);"><i data-feather="columns"></i> <span> PROFIL </span> <span
