@@ -6,7 +6,7 @@
                 <h6>Manajemen Artikel</h6>
             </div>
             <div class="page-btn">
-                <a href="{{ route('forum-artikel.create') }}" class="btn btn-added"><img
+                <a href="{{ route('simapan-artikel.create') }}" class="btn btn-added"><img
                         src="{{ asset('tadmin/assets/img/icons/plus.svg') }}" alt="img">Tambah Artikel</a>
             </div>
         </div>
@@ -41,13 +41,13 @@
                                     <td>{{ $item->foto }}</td>
                                     <td>
                                         <div class="d-flex">
-                                            <a class="me-3" href="{{ route('forum-artikel.edit', $item->id) }}">
+                                            <a class="me-3" href="{{ route('simapan-artikel.edit', $item->id) }}">
                                                 <img src="{{ asset('tadmin/assets/img/icons/edit.svg') }}"
                                                     alt="img">
                                             </a>
                                             <a class='confirm-text' href='javascript:void(0);' data-bs-toggle='modal'
                                                 data-bs-target='#deleteModal' data-id='{{ $item->id }}'
-                                                data-action='{{ route('forum-artikel.destroy', $item->id) }}'
+                                                data-action='{{ route('simapan-artikel.destroy', $item->id) }}'
                                                 data-message='{{ $item->name }}'>
                                                 <img src="{{ asset('tadmin/assets/img/icons/delete.svg') }}"
                                                     alt="img">
