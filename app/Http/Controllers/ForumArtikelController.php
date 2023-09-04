@@ -47,8 +47,8 @@ class ForumArtikelController extends Controller
 
 
         if ($request->foto) {
-            $path = storage_path("app/public/img/forum_artikel/$request->id_kategori");
-            $path_tmp = storage_path("app/public/img/.thumbnail/forum_artikel/$request->id_kategori");
+            $path = storage_path("app/public/img/forum_artikel/2");
+            $path_tmp = storage_path("app/public/img/.thumbnail/forum_artikel/2");
             $extention = $request->foto->extension();
             $file_name = time() . '.' . $extention;
             $image = $request->file('foto');
@@ -141,19 +141,19 @@ class ForumArtikelController extends Controller
             $image->resize(1080, null, function ($constraint) {
                 $constraint->aspectRatio();
             });
-            if (!File::exists("$path/$request->id_kategori")) {
-                File::makeDirectory("$path/$request->id_kategori", $mode = 0777, true, true);
+            if (!File::exists("$path/2")) {
+                File::makeDirectory("$path/2", $mode = 0777, true, true);
             }
-            $image->save("$path/$request->id_kategori/$file_name");
+            $image->save("$path/2/$file_name");
             $image_tmp = Image::make($request->file('foto'));
             $image_tmp->resize(600, null, function ($constraint) {
                 $constraint->aspectRatio();
             });
 
-            if (!File::exists("$path_tmp/$request->id_kategori")) {
-                File::makeDirectory("$path_tmp/$request->id_kategori", $mode = 0777, true, true);
+            if (!File::exists("$path_tmp/2")) {
+                File::makeDirectory("$path_tmp/2", $mode = 0777, true, true);
             }
-            $image_tmp->save("$path_tmp/$request->id_kategori/$file_name");
+            $image_tmp->save("$path_tmp/2/$file_name");
         } else {
             $file_name = $forum_artikel->foto;
         }
