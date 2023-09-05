@@ -54,7 +54,7 @@ class LandingpageController extends Controller
             ];
         }
         // dd($location);
-        return view('landingpage.peta', compact('location'));
+        return view('landingpage.peta', compact('location', 'Kantor'));
     }
 
     public function forum()

@@ -9,7 +9,7 @@
         <div class="container py-5">
             <div class="text-center mb-4">
                 <h1 class="display-6 fw-bold mb-2">Peta Pemetaan PPATBM</h1>
-                <p class="fs-5 text-secondary">Terdiri dari 20 lokasi PPATBM yang tersebar diseluruh wilayah Kota
+                <p class="fs-5 text-secondary">Terdiri dari {{$Kantor->count()}} lokasi PPATBM yang tersebar diseluruh wilayah Kota
                     Balikpapan</p>
             </div>
             <div class="row justify-content-center">
