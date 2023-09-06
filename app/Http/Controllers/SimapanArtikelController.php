@@ -104,9 +104,10 @@ class SimapanArtikelController extends Controller
      *
      * @param  \App\Models\ForumArtikel  $forum_artikel
      */
-    public function edit(ForumArtikel $forum_artikel)
+    public function edit($id)
     {
         // dd('asd');
+        $forum_artikel = ForumArtikel::find($id);
         $lKategori = ForumKategoriArtikel::all();
         return view('admin.simapan.artikel.ubah', compact('lKategori', 'forum_artikel'));
     }
@@ -187,7 +188,7 @@ class SimapanArtikelController extends Controller
         if (File::exists("$path_tmp/$forum_artikel->id_kategori/$forum_artikel->foto")) {
             File::delete("$path_tmp/$forum_artikel->id_kategori/$forum_artikel->foto");
         }
-        
+
         $forum_artikel->delete();
 
 
