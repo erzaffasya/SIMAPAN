@@ -1,5 +1,6 @@
 <div class="sidebar-inner slimscroll">
     <div id="sidebar-menu" class="sidebar-menu">
+
         <ul>
             <li>
                 <a href="#"><img src="{{ asset('tadmin/assets/img/icons/dashboard.svg') }}" alt="img"><span>
@@ -61,67 +62,66 @@
                 </li>
             @endif
             @if (Auth::user()->role == 'forum' || Auth::user()->role == 'admin')
-
                 <li class="submenu">
-                        <a href="javascript:void(0);"><i data-feather="columns"></i> <span> PROFIL </span> <span
-                                class="menu-arrow"></span></a>
-                        <ul>
-                            <li><a href="{{ route('jumlahanak.index') }}"
-                                    class="{{ Request::routeIs('jumlahanak.*') ? 'active' : '' }}">Jumlah Anak</a>
-                            </li>
-                            <li><a href="{{ route('profil-kelembagaan.index') }}"
-                                    class="{{ Request::routeIs('profil-kelembagaan.*') ? 'active' : '' }}">Kelembagaan</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="submenu">
-                        <a href="javascript:void(0);"><i data-feather="columns"></i> <span> KLUSTER </span> <span
-                                class="menu-arrow"></span></a>
-                        <ul>
-                            <li><a href="{{ route('kluster1.index') }}"
-                                    class="{{ Request::routeIs('kluster1.*') ? 'active' : '' }}">Kluster 1</a>
-                            </li>
-                            <li><a href="{{ route('kluster2.index') }}"
-                                    class="{{ Request::routeIs('kluster2.*') ? 'active' : '' }}">Kluster 2</a>
-                            </li>
-                            <li><a href="{{ route('kluster3.index') }}"
-                                    class="{{ Request::routeIs('kluster3.*') ? 'active' : '' }}">Kluster 3</a>
-                            </li>
-                            <li><a href="{{ route('kluster4.index') }}"
-                                    class="{{ Request::routeIs('kluster4.*') ? 'active' : '' }}">Kluster 4</a>
-                            </li>
-                            <li><a href="{{ route('kluster5.index') }}"
-                                    class="{{ Request::routeIs('kluster5.*') ? 'active' : '' }}">Kluster 5</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="submenu">
-                        <a href="javascript:void(0);"><i data-feather="columns"></i> <span> Grafik </span> <span
-                                class="menu-arrow"></span></a>
-                        <ul>
-                            <li><a href="{{ route('persentase-anak.index') }}"
-                                    class="{{ Request::routeIs('persentase-anak.*') ? 'active' : '' }}">Persentase Anak</a>
-                            </li>
-                            <li><a href="{{ route('layanan-pengasuh-anak.index') }}"
-                                    class="{{ Request::routeIs('layanan-pengasuh-anak.*') ? 'active' : '' }}">Layanan
-                                    Pengasuh
-                                    Anak</a>
-                            </li>
-                            <li><a href="{{ route('sekolah-ramah-anak.index') }}"
-                                    class="{{ Request::routeIs('sekolah-ramah-anak.*') ? 'active' : '' }}">Sekolah Ramah
-                                    Anak</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="submenu">
-                        <a href="javascript:void(0);"><i data-feather="columns"></i> <span> Dokumen </span> <span
-                                class="menu-arrow"></span></a>
-                        <ul>
-                            <li><a href="{{ route('kebijakan.index') }}"
-                                    class="{{ Request::routeIs('kebijakan.*') ? 'active' : '' }}">Kebijakan</a>
-                            </li>
-                        </ul>
-                    </li>
+                    <a href="javascript:void(0);"><i data-feather="columns"></i> <span> PROFIL </span> <span
+                            class="menu-arrow"></span></a>
+                    <ul>
+                        <li><a href="{{ route('jumlahanak.index') }}"
+                                class="{{ Request::routeIs('jumlahanak.*') ? 'active' : '' }}">Jumlah Anak</a>
+                        </li>
+                        <li><a href="{{ route('profil-kelembagaan.index') }}"
+                                class="{{ Request::routeIs('profil-kelembagaan.*') ? 'active' : '' }}">Kelembagaan</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="submenu">
+                    <a href="javascript:void(0);"><i data-feather="columns"></i> <span> KLUSTER </span> <span
+                            class="menu-arrow"></span></a>
+                    <ul>
+                        <li><a href="{{ route('kluster.edit', 1) }}"
+                                class="{{ Request::path() == 'admin/kluster/1/edit' ? 'active' : '' }}">Kluster 1</a>
+                        </li>
+                        <li><a href="{{ route('kluster.edit', 2) }}"
+                                class="{{ Request::path() == 'admin/kluster/2/edit' ? 'active' : '' }}">Kluster 2</a>
+                        </li>
+                        <li><a href="{{ route('kluster.edit', 3) }}"
+                                class="{{ Request::path() == 'admin/kluster/3/edit' ? 'active' : '' }}">Kluster 3</a>
+                        </li>
+                        <li><a href="{{ route('kluster.edit', 4) }}"
+                                class="{{ Request::path() == 'admin/kluster/4/edit' ? 'active' : '' }}">Kluster 4</a>
+                        </li>
+                        <li><a href="{{ route('kluster.edit', 5) }}"
+                                class="{{ Request::path() == 'admin/kluster/5/edit' ? 'active' : '' }}">Kluster 5</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="submenu">
+                    <a href="javascript:void(0);"><i data-feather="columns"></i> <span> Grafik </span> <span
+                            class="menu-arrow"></span></a>
+                    <ul>
+                        <li><a href="{{ route('persentase-anak.index') }}"
+                                class="{{ Request::routeIs('persentase-anak.*') ? 'active' : '' }}">Persentase Anak</a>
+                        </li>
+                        <li><a href="{{ route('layanan-pengasuh-anak.index') }}"
+                                class="{{ Request::routeIs('layanan-pengasuh-anak.*') ? 'active' : '' }}">Layanan
+                                Pengasuh
+                                Anak</a>
+                        </li>
+                        <li><a href="{{ route('sekolah-ramah-anak.index') }}"
+                                class="{{ Request::routeIs('sekolah-ramah-anak.*') ? 'active' : '' }}">Sekolah Ramah
+                                Anak</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="submenu">
+                    <a href="javascript:void(0);"><i data-feather="columns"></i> <span> Dokumen </span> <span
+                            class="menu-arrow"></span></a>
+                    <ul>
+                        <li><a href="{{ route('kebijakan.index') }}"
+                                class="{{ Request::routeIs('kebijakan.*') ? 'active' : '' }}">Kebijakan</a>
+                        </li>
+                    </ul>
+                </li>
             @endif
             @if (Auth::user()->role == 'admin')
                 <li class="submenu">

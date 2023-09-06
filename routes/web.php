@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\ArtikelController;
+use App\Http\Controllers\ArtikelKlusterController;
+use App\Http\Controllers\ArtikelKlusterDetailController;
 use App\Http\Controllers\AspirasiController;
 use App\Http\Controllers\BannerController;
 use App\Http\Controllers\EmergencyController;
@@ -24,6 +26,7 @@ use App\Http\Controllers\Kluster2Controller;
 use App\Http\Controllers\Kluster3Controller;
 use App\Http\Controllers\Kluster4Controller;
 use App\Http\Controllers\Kluster5Controller;
+use App\Http\Controllers\KlusterController;
 use App\Http\Controllers\LandingpageController;
 use App\Http\Controllers\LayananPengasuhAnakController;
 use App\Http\Controllers\PersentaseAnakController;
@@ -106,7 +109,7 @@ Route::middleware(['auth'])->prefix('admin')->group(function () {
     Route::resource('kantor', KantorController::class);
     Route::resource('kegiatan', KegiatanController::class);
     Route::resource('kategori-artikel', KategoriArtikelController::class);
-    Route::resource('artikel', ArtikelController::class);                       // Kantor 
+    Route::resource('artikel', ArtikelController::class); // Kantor
     Route::resource('fastlink', FastLinkController::class);
     Route::resource('jumlahanak', JumlahAnakController::class)->only('index', 'store');
     Route::resource('forum-struktur', ForumStrukturController::class)->only('index', 'store');
@@ -125,11 +128,9 @@ Route::middleware(['auth'])->prefix('admin')->group(function () {
     Route::resource('persentase-anak', PersentaseAnakController::class);
     Route::resource('layanan-pengasuh-anak', LayananPengasuhAnakController::class);
     Route::resource('sekolah-ramah-anak', SekolahRamahAnakController::class);
-    Route::resource('kluster1', Kluster1Controller::class)->except("show", "store", "create");
-    Route::resource('kluster2', Kluster2Controller::class)->except("show", "store", "create");
-    Route::resource('kluster3', Kluster3Controller::class)->except("show", "store", "create");
-    Route::resource('kluster4', Kluster4Controller::class)->except("show", "store", "create");
-    Route::resource('kluster5', Kluster5Controller::class)->except("show", "store", "create");
+    Route::resource('kluster.artikel', ArtikelKlusterController::class);
+    Route::resource('artikel-kluster-detail', ArtikelKlusterDetailController::class)->only("destroy");
+    Route::resource('kluster', KlusterController::class)->except("store", "create");
     Route::resource('user', UserController::class);
     Route::get('/profile', [UserController::class, 'profile'])->name('profile');
 

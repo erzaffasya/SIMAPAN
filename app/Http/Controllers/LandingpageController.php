@@ -15,22 +15,21 @@ use App\Models\Kantor;
 use App\Models\Kebijakan;
 use App\Models\Kegiatan;
 use App\Models\Kelembagaan;
+use App\Models\Kluster;
 use App\Models\LayananPengasuhAnak;
 use App\Models\PersentaseAnak;
 use App\Models\ProfilGaleri;
 use App\Models\SekolahRamahAnak;
 use App\Models\Tentang;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
-use Intervention\Image\Facades\Image;
 
 class LandingpageController extends Controller
 {
     public function simapan()
     {
         $tentang = Tentang::find(1);
-        $forumArtikel = ForumArtikel::where('id_kategori_artikel',2)->limit(3)->orderBy('id', 'DESC')->get();
-        $forumArtikelParenting = ForumArtikel::where('id_kategori_artikel',1)->limit(4)->orderBy('id', 'DESC')->get();
+        $forumArtikel = ForumArtikel::where('id_kategori_artikel', 2)->limit(3)->orderBy('id', 'DESC')->get();
+        $forumArtikelParenting = ForumArtikel::where('id_kategori_artikel', 1)->limit(4)->orderBy('id', 'DESC')->get();
         $kegiatan = Kegiatan::limit(3)->orderBy('id', 'DESC')->get();
         $faq = Faq::all();
         $banner = Banner::all();
@@ -61,9 +60,9 @@ class LandingpageController extends Controller
     {
         $pengurus = ForumPengurus::all();
         $struktur = ForumStruktur::find(1);
-        $artikel1 = ForumArtikel::where('id_kategori_artikel',2)->orderBy('created_at', 'DESC')->first();
-        $artikel2 = ForumArtikel::where('id_kategori_artikel',2)->orderBy('created_at', 'DESC')->offset(1)->limit(3)->get();
-        $artikel3 = ForumArtikel::where('id_kategori_artikel',2)->orderBy('created_at', 'DESC')->offset(4)->paginate(8);
+        $artikel1 = ForumArtikel::where('id_kategori_artikel', 2)->orderBy('created_at', 'DESC')->first();
+        $artikel2 = ForumArtikel::where('id_kategori_artikel', 2)->orderBy('created_at', 'DESC')->offset(1)->limit(3)->get();
+        $artikel3 = ForumArtikel::where('id_kategori_artikel', 2)->orderBy('created_at', 'DESC')->offset(4)->paginate(8);
         $kegiatan = ForumGaleri::orderBy('created_at', 'DESC')->limit(8)->get();
         $ForumKategoriGaleri = ForumKategoriGaleri::where('kategori', 'F')->limit(8)->get();
         // dd($kegiatan);
@@ -163,8 +162,8 @@ class LandingpageController extends Controller
         $kartu_identitas = PersentaseAnak::select("kartu_identitas")->orderBy("tahun", "ASC")->pluck("kartu_identitas")->toArray();
         $akta_kelahiran = PersentaseAnak::select("akta_kelahiran")->orderBy("tahun", "ASC")->pluck("akta_kelahiran")->toArray();
         $tahun = PersentaseAnak::select("tahun")->orderBy("tahun", "ASC")->pluck("tahun")->toArray();
-        $artikel = ForumKategoriGaleri::where("kategori", "1")->limit(2)->get();
-        return view("landingpage.kluster1", compact("kartu_identitas", "akta_kelahiran", "tahun", "artikel"));
+        $kluster = Kluster::where("kluster", "1")->with(['artikel', 'artikel.detail'])->first();
+        return view("landingpage.kluster1", compact("kartu_identitas", "akta_kelahiran", "tahun", "kluster"));
     }
 
     public function kluster2()
@@ -173,14 +172,14 @@ class LandingpageController extends Controller
         $indoor = LayananPengasuhAnak::select("indoor")->orderBy("tahun", "ASC")->pluck("indoor")->toArray();
         $outdoor = LayananPengasuhAnak::select("outdoor")->orderBy("tahun", "ASC")->pluck("outdoor")->toArray();
         $tahun = LayananPengasuhAnak::select("tahun")->orderBy("tahun", "ASC")->pluck("tahun")->toArray();
-        $artikel = ForumKategoriGaleri::where("kategori", "2")->limit(4)->get();
-        return view("landingpage.kluster2", compact("online", "indoor", "outdoor", "tahun", "artikel"));
+        $kluster = Kluster::where("kluster", "2")->with(['artikel', 'artikel.detail'])->first();
+        return view("landingpage.kluster2", compact("online", "indoor", "outdoor", "tahun", "kluster"));
     }
 
     public function kluster3()
     {
-        $artikel = ForumKategoriGaleri::where("kategori", "3")->limit(3)->get();
-        return view("landingpage.kluster3", compact("artikel"));
+        $kluster = Kluster::where("kluster", "3")->with(['artikel', 'artikel.detail'])->first();
+        return view("landingpage.kluster3", compact("kluster"));
     }
 
     public function kluster4()
@@ -194,14 +193,13 @@ class LandingpageController extends Controller
         $slb = $sekolah_ramah_anak->pluck("slb")->first();
         $sekolah_ramah_anak = [$paud, $sd, $smp, $sma, $slb];
 
-
-        $artikel = ForumKategoriGaleri::where("kategori", "4")->limit(3)->get();
-        return view("landingpage.kluster4", compact("artikel", "sekolah_ramah_anak", "tahun"));
+        $kluster = Kluster::where("kluster", "4")->with(['artikel', 'artikel.detail'])->first();
+        return view("landingpage.kluster4", compact("kluster", "sekolah_ramah_anak", "tahun"));
     }
 
     public function kluster5()
     {
-        $artikel = ForumKategoriGaleri::where("kategori", "5")->limit(4)->get();
-        return view("landingpage.kluster5", compact("artikel"));
+        $kluster = Kluster::where("kluster", "5")->with(['artikel', 'artikel.detail'])->first();
+        return view("landingpage.kluster5", compact("kluster"));
     }
 }
