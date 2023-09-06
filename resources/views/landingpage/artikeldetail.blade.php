@@ -9,7 +9,7 @@
                             alt="" height="500px">
                         <figcaption>
                             <div class="px-2 py-3 m-0 w-100">
-                                <p class="fs-6 mb-2 text-secondary">{{ $artikel->created_at->format('D, d M Y') }} -
+                                <p class="fs-6 mb-2 text-secondary">{{ $artikel->created_at->format('D, d M Y') }} 
                                     {{-- <span class="text-primary">By
                                         {{$artikel->iuse}}</span>  --}}
                                     </p>
