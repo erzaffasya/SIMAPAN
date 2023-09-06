@@ -34,6 +34,15 @@
             autoplay: true,
             autoplaySpeed: 0,
             speed: 2000,
+            responsive: [
+                    {
+                    breakpoint: 768,
+                    settings: {
+                        slidesToShow: 2,
+                        slidesToScroll: 1
+                    }
+                },
+            ]
         });
         $('.slide-1-view').slick({
             infinite: true,

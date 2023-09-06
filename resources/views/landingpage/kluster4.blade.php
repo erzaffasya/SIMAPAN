@@ -2,7 +2,7 @@
     <section>
         <div class="container pt-5">
             <div class="row justify-content-center align-items-center">
-                <div class="col-4">
+                <div class="col-10 mb-2 col-lg-4">
                     <figure class="d-flex align-items-center mb-0">
                         <img src="{{ asset('tlandingpage/asset/img/kluster-4.png') }}" alt="" width="40%">
                         <figcaption class="ps-4">
@@ -11,7 +11,7 @@
                         </figcaption>
                     </figure>
                 </div>
-                <div class="col-6">Upaya untuk meningkatkan pengetahuan, keterampilan, dan kesadaran masyarakat tentang
+                <div class="col-10 col-lg-6 mb-4">Upaya untuk meningkatkan pengetahuan, keterampilan, dan kesadaran masyarakat tentang
                     perlindungan perempuan dan anak, serta memperkuat peran positif keluarga dan masyarakat</div>
             </div>
         </div>
@@ -20,12 +20,12 @@
         <section>
             <div class="container py-5">
                 <div class="row align-items-start justify-content-center">
-                    <div class="col-11 text-center">
+                    <div class="col-10 col-lg-11 text-center">
                         <h4 class="text-primary mb-2">{{ $artikel[0]->judul }}</h4>
                         <p class="text-secondary fs-6 lh-lg">Upaya-upaya yang telah dilakukan untuk menangani anak putus
                             sekolah dan mendukung kebijakan Wajib Belajar 12 Tahun yaitu :</p>
                     </div>
-                    <div class="col-4">
+                    <div class="col-10 col-lg-4">
                         <div class="slide-1-view">
                             @forelse ($artikel[0]->galeri as $item)
                                 <figure class="mb-0">
@@ -42,7 +42,7 @@
                             @endforelse
                         </div>
                     </div>
-                    <div class="col-8">
+                    <div class="col-10 col-lg-8">
                         {!! $artikel[0]->deskripsi !!}
                     </div>
                 </div>
@@ -54,7 +54,7 @@
     {{-- <section>
         <div class="container py-5">
             <div class="row justify-content-center align-items-center">
-                <div class="col-4">
+                <div class="col-10 col-lg-4">
                     <h3 class="text-primary">Satuan Pendidikan Ramah Anak (SRA)</h3>
                     <p class="lh-lg text-secondary">Presentase sekolah ramah anak dalam berbagai tingkat</p>
                 </div>
@@ -65,12 +65,12 @@
         <section>
             <div class="container py-5">
                 <div class="row align-items-center justify-content-center">
-                    <div class="col-10">
+                    <div class="col-10 col-lg-10">
                         <h4 class="text-primary mb-4">{{ $artikel[1]->judul }}</h4>
                         <p class="text-secondary fs-6 lh-lg">{!! $artikel[1]->deskripsi !!}
                         </p>
                     </div>
-                    <div class="col-6">
+                    <div class="col-10 col-lg-6">
                         <div class="slide-1-view">
                             @forelse ($artikel[1]->galeri as $item)
                                 <figure class="mb-0 px-2">
@@ -87,7 +87,7 @@
                             @endforelse
                         </div>
                     </div>
-                    <div class="col-6">
+                    <div class="col-10 col-lg-6">
                         <canvas id="c4chart" style="height: 200px"></canvas>
                     </div>
                 </div>
@@ -99,7 +99,7 @@
         <section>
             <div class="container py-5">
                 <div class="row align-items-center justify-content-center">
-                    <div class="col-6">
+                    <div class="col-10 col-lg-6">
                         <div class="slide-2-view">
                             @forelse ($artikel[2]->galeri as $item)
                                 <figure class="mb-0 px-2">
@@ -116,7 +116,7 @@
                             @endforelse
                         </div>
                     </div>
-                    <div class="col-4">
+                    <div class="col-10 col-lg-4">
                         <h4 class="text-primary mb-4">{{ $artikel[2]->judul }}</h4>
                         <p class="text-secondary fs-6 lh-lg">Di Kota Balikpapan telah terbentuk 3 Rumah Ibadah Ramah
                             Anak
