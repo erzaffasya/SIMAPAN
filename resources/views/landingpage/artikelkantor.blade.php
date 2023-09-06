@@ -2,11 +2,11 @@
     <section id="ppatbm-program">
         <div class="container py-5">
             <div class="d-flex align-items-center justify-content-between">
-                <h1 class="display-6 fw-bold mb-3">Artikel Forum Anak</h1>
+                <h1 class="display-6 fw-bold mb-3">Artikel PPATBM</h1>
             </div>
             <div class="row">
-                <div class="col-7">
-                    <a href="{{ route('landingpage.artikeldetail', $artikel1->slug ?? '') }}"
+                <div class="col-12 col-lg-7">
+                    <a href="{{ route('landingpage.artikel-kantor-detail', $artikel1->slug ?? '') }}"
                         class="text-decoration-none">
                         <figure class="position-relative">
                             <img src="{{ asset("storage/img/kegiatan/$artikel1->kantor_id/$artikel1->foto") }}"
@@ -29,10 +29,10 @@
                         </figure>
                     </a>
                 </div>
-                <div class="col-5">
+                <div class="col-12 col-lg-5">
                     @foreach ($artikel2 as $item)
                         <div class="card mb-3 w-100 border-0">
-                            <a href="{{ route('landingpage.artikeldetail', $item->slug ?? '') }}"
+                            <a href="{{ route('landingpage.artikel-kantor-detail', $item->slug ?? '') }}"
                                 class="text-decoration-none">
                                 <div class="row g-0">
                                     <div class="col-md-5">
@@ -59,7 +59,7 @@
             </div>
             <form action="">
                 <div class="row justify-content-between pt-4">
-                    <div class="col-6">
+                    <div class="col-12 col-lg-6">
                         <div class="input-group mb-3">
                             <input type="text" name="c" class="form-control form-control-lg"
                                 placeholder="Tulis Judul" aria-label="Tulis Judul" aria-describedby="button-addon2" value="{{ $c }}"
@@ -67,7 +67,7 @@
                             <button class="btn btn-primary" type="submit" id="button-addon2">Cari Artikel</button>
                         </div>
                     </div>
-                    <div class="col-3">
+                    <div class="col-12 col-lg-3">
                         <select class="form-select form-select-lg" aria-label="Default select example" name="s"
                             onchange="this.closest('form').submit()">
                             <option value="d" {{ $s == 'DESC' ? 'selected' : '' }}>Terbaru</option>
@@ -84,8 +84,8 @@
             </div>
             <div class="row align-items-center gy-4">
                 @forelse ($artikel3 as $item)
-                    <div class="col-3">
-                        <a class="card-artikel1" href="{{ route('landingpage.artikeldetail', $item->slug ?? '') }}">
+                    <div class="col-12 col-lg-3">
+                        <a class="card-artikel1" href="{{ route('landingpage.artikel-kantor-detail', $item->slug ?? '') }}">
                             <figure class="shadow-lg mb-0 position-relative overflow-hidden">
                                 <img src="{{ asset("storage/img/kegiatan/$item->kantor_id/$item->foto") }}"
                                     alt="" width="100%" height="350">
@@ -106,10 +106,10 @@
 
             </div>
             <div class="row mt-4 justify-content-between bg-primary rounded align-items-center p-3">
-                <div class="col-auto">
+                <div class="col-12 col-lg-auto">
                     <p class="fw-bold fs-5 text-white mb-0">Tulis Artikelmu sebagai Forum Komunitas Anak</p>
                 </div>
-                <div class="col-2">
+                <div class="col-12 col-lg-2">
                     <a href="#" class="btn btn-light w-100 text-primary">Gabung Disini</a>
                 </div>
             </div>

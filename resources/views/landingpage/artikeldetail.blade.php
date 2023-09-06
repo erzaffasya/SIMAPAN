@@ -3,15 +3,16 @@
     <section id="artikel-detail">
         <div class="container">
             <div class="row pb-5 justify-content-center">
-                <div class="col-10">
+                <div class="col-12 col-lg-10">
                     <figure>
-                        <img src="{{ asset("storage/img/forum_artikel/$artikel->id_kategori_artikel/$artikel->foto") }}" class="w-100 rounded"
+                        <img src="{{ asset("storage/img/forum_artikel/$artikel->id_kategori_artikel/$artikel->foto") }}" class="artikel-head-img w-100 rounded"
                             alt="" height="500px">
                         <figcaption>
                             <div class="px-2 py-3 m-0 w-100">
-                                <p class="fs-6 mb-2 text-secondary">{{ $artikel->created_at->format('D, d M Y') }} -
-                                    <span class="text-primary">By
-                                        PPATBM Klandasan</span> </p>
+                                <p class="fs-6 mb-2 text-secondary">{{ $artikel->created_at->format('D, d M Y') }} 
+                                    {{-- <span class="text-primary">By
+                                        {{$artikel->iuse}}</span>  --}}
+                                    </p>
                                 <h1 class="fs-1 fw-bold">{{ $artikel->judul }}</h1>
                                 <p class="fs-6 mb-0 text-secondary">
                                     {!! $artikel->isi !!}</p>
@@ -30,7 +31,7 @@
                 <div class="col-12"></div>
 
                 @foreach ($artikelLainnya as $item)
-                    <div class="col-3">
+                    <div class="col-10 mb-3 col-lg-3">
                         <a class="card-artikel1" href="{{route('landingpage.artikeldetail', $item->slug)}}">
                             <figure class="shadow-lg mb-0 position-relative overflow-hidden">
                                 <img src="{{ asset("storage/img/forum_artikel/$item->id_kategori_artikel/$item->foto") }}" alt=""

@@ -2,7 +2,7 @@
     <section>
         <div class="container pt-5">
             <div class="row justify-content-center align-items-center">
-                <div class="col-4">
+                <div class="col-10 col-lg-4 mb-2">
                     <figure class="d-flex align-items-center mb-0">
                         <img src="{{ asset('tlandingpage/asset/img/kluster-5.png') }}" alt="" width="30%">
                         <figcaption class="ps-4">
@@ -11,7 +11,7 @@
                         </figcaption>
                     </figure>
                 </div>
-                <div class="col-6">Hak sipil kebebasan anak adalah hak-hak asasi manusia yang melekat pada setiap anak,
+                <div class="col-10 col-lg-6 mb-4">Hak sipil kebebasan anak adalah hak-hak asasi manusia yang melekat pada setiap anak,
                     yang bertujuan untuk melindungi dan menghormati martabat, kebebasan, dan kepentingan mereka.</div>
             </div>
         </div>

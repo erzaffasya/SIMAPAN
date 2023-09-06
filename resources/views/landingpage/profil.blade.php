@@ -8,10 +8,10 @@
                 </div>
             </div>
             <div class="row align-items-center justify-content-center">
-                <div class="col-5">
+                <div class="col-12 col-lg-5">
                     <img src="{{ asset('tlandingpage/asset/img/anak.png') }}" alt="" class="w-100">
                 </div>
-                <div class="col-6">
+                <div class="col-12 col-lg-6">
                     <h1 class="fs-2 fw-bold">JUMLAH ANAK SAAT INI <span
                             class="text-danger">{{ number_format(($jumlahAnak->laki_laki ?? 0) + ($jumlahAnak->perempuan ?? 0)) }}</span>
                     </h1>
@@ -35,8 +35,8 @@
                 <div class="text-center">
                     <h1 class="fs-1 fw-bold text-white mb-4">INFORMASI KLUSTER ANAK</h1>
                 </div>
-                <div class="row">
-                    <div class="col-2">
+                <div class="row justify-content-center">
+                    <div class="col-6 col-lg-2 mb-2">
                         <a href="/kluster6" class="text-decoration-none">
                             <figure class="rounded overflow-hidden h-100 bg-white">
                                 <img src="{{ asset('tlandingpage/asset/img/kluster-6.png') }}" alt=""
@@ -48,7 +48,7 @@
                             </figure>
                         </a>
                     </div>
-                    <div class="col-2">
+                    <div class="col-6 col-lg-2 mb-2">
                         <a href="/kluster1" class="text-decoration-none">
                             <figure class="rounded overflow-hidden h-100 bg-white">
                                 <img src="{{ asset('tlandingpage/asset/img/kluster-1.png') }}" alt=""
@@ -60,7 +60,7 @@
                             </figure>
                         </a>
                     </div>
-                    <div class="col-2">
+                    <div class="col-6 col-lg-2 mb-2">
                         <a href="/kluster2" class="text-decoration-none">
                             <figure class="rounded overflow-hidden h-100 bg-white">
                                 <img src="{{ asset('tlandingpage/asset/img/kluster-2.png') }}" alt=""
@@ -72,7 +72,7 @@
                             </figure>
                         </a>
                     </div>
-                    <div class="col-2">
+                    <div class="col-6 col-lg-2 mb-2">
                         <a href="/kluster3" class="text-decoration-none">
                             <figure class="rounded overflow-hidden h-100 bg-white">
                                 <img src="{{ asset('tlandingpage/asset/img/kluster-3.png') }}" alt=""
@@ -84,7 +84,7 @@
                             </figure>
                         </a>
                     </div>
-                    <div class="col-2">
+                    <div class="col-6 col-lg-2 mb-2">
                         <a href="/kluster4" class="text-decoration-none">
                             <figure class="rounded overflow-hidden h-100 bg-white">
                                 <img src="{{ asset('tlandingpage/asset/img/kluster-4.png') }}" alt=""
@@ -96,7 +96,7 @@
                             </figure>
                         </a>
                     </div>
-                    <div class="col-2">
+                    <div class="col-6 col-lg-2 mb-2">
                         <a href="/kluster5" class="text-decoration-none">
                             <figure class="rounded overflow-hidden h-100 bg-white">
                                 <img src="{{ asset('tlandingpage/asset/img/kluster-5.png') }}" alt=""
@@ -115,11 +115,11 @@
     <section id="lembaga-section">
         <div class="container py-5">
             <div class="row align-items-center">
-                <div class="col-6">
+                <div class="col-12 col-lg-6">
                     <img src="{{ asset('storage/img/kelembagaan/' . $kelembagaan->foto ?? null) }}" class="w-100"
                         height="370px" alt="">
                 </div>
-                <div class="col-6">
+                <div class="col-12 col-lg-6">
                     <h1 class="fs-1 fw-bold mb-3">{{ $kelembagaan->judul ?? null }}</h1>
                     <div class="fs-5 text-secondary lh-2">
                         {!! $kelembagaan->deskripsi ?? null !!}

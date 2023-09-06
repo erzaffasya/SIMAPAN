@@ -9,7 +9,7 @@
         <!-- /add -->
         <div class="card">
             <div class="card-body">
-                <form method="post" action="{{ route('forum-artikel.update', $forum_artikel->id) }}"
+                <form method="post" action="{{ route('simapan-artikel.update', $forum_artikel->id) }}"
                     enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
@@ -50,7 +50,7 @@
 
                         <div class="col-lg-12">
                             <button type="submit" class="btn btn-submit me-2">Submit</button>
-                            <a href="{{ route('forum-artikel.index') }}" class="btn btn-cancel">Cancel</a>
+                            <a href="{{ route('simapan-artikel.index') }}" class="btn btn-cancel">Cancel</a>
                         </div>
                     </div>
                 </form>

@@ -10,21 +10,10 @@
         <!-- /add -->
         <div class="card">
             <div class="card-body">
-                <form method="post" action="{{ route('forum-artikel.store') }}" enctype="multipart/form-data">
+                <form method="post" action="{{ route('simapan-artikel.store') }}" enctype="multipart/form-data">
                     @csrf
                     <div class="row">
 
-                        {{-- <div class="col-lg-12 col-sm-12 col-12">
-                            <div class="form-group">
-                                <label>Kategori</label>
-                                <select class="form-control" name="id_kategori">
-                                    <option value="">Pilih Kategori</option>
-                                    @foreach ($lKategori as $item)
-                                        <option value="{{ $item->id }}">{{ $item->judul }}</option>
-                                    @endforeach
-                                </select>
-                            </div>
-                        </div> --}}
                         <div class="col-lg-12 col-sm-12 col-12">
                             <div class="form-group">
                                 <label>Judul</label>
@@ -46,7 +35,7 @@
 
                         <div class="col-lg-12">
                             <button type="submit" class="btn btn-submit me-2">Submit</button>
-                            <a href="{{ route('forum-artikel.index') }}" class="btn btn-cancel">Cancel</a>
+                            <a href="{{ route('simapan-artikel.index') }}" class="btn btn-cancel">Cancel</a>
                         </div>
                     </div>
                 </form>

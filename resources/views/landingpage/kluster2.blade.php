@@ -2,7 +2,7 @@
     <section>
         <div class="container pt-5">
             <div class="row justify-content-center align-items-center">
-                <div class="col-4">
+                <div class="col-10 mb-2 col-lg-4">
                     <figure class="d-flex align-items-center mb-0">
                         <img src="{{ asset('tlandingpage/asset/img/kluster-2.png') }}" alt="" width="50%">
                         <figcaption class="ps-4">
@@ -11,7 +11,7 @@
                         </figcaption>
                     </figure>
                 </div>
-                <div class="col-6 fs-5">upaya untuk menciptakan lingkungan keluarga yang aman, mendukung, dan berkualitas
+                <div class="col-10 col-lg-6 fs-5">upaya untuk menciptakan lingkungan keluarga yang aman, mendukung, dan berkualitas
                     bagi perkembangan optimal anak-anak.</div>
             </div>
         </div>
@@ -19,12 +19,12 @@
     <section>
         <div class="container py-5">
             <div class="row justify-content-center align-items-center">
-                <div class="col-4">
+                <div class="col-10 col-lg-4">
                     <h3 class="lh-lg text-danger">Data PUSPAGA HARAPAN tahun 2017-2022</h3>
                     <p class="lh-lg text-secondary">Penguatan Kapasitas Lembaga Konsultasi Penyedia Layanan Pengasuhan
                         Anakk bagi Orang Tua/Keluarga</p>
                 </div>
-                <div class="col-6">
+                <div class="col-10 col-lg-6">
                     <canvas id="c2chart" style="height: 200px"></canvas>
                 </div>
             </div>
@@ -75,12 +75,12 @@
         <div class="bg-reds bg-img-overlay item1-img py-5">
             <div class="container">
                 <div class="row justify-content-center">
-                    <div class="col-4">
+                    <div class="col-10 col-lg-4">
                         <p class="fs-4 text-white fs-6 lh-lg">Terdapat 9 Program</p>
                         <h3 class="text-white mb-4 lh-lg">Fokus Pembangunan Peningkatan Kualitas Sumber Daya Manusia
                             yang Berkualitas dan Berdaya Saing</h3>
                     </div>
-                    <div class="col-8">
+                    <div class="col-10 col-lg-8">
                         <div class="accordion" id="accordionExample">
                             <div class="accordion-item">
                                 <p class="accordion-header" id="pg1">

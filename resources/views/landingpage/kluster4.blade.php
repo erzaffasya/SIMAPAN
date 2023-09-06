@@ -2,7 +2,7 @@
     <section>
         <div class="container pt-5">
             <div class="row justify-content-center align-items-center">
-                <div class="col-4">
+                <div class="col-10 mb-2 col-lg-4">
                     <figure class="d-flex align-items-center mb-0">
                         <img src="{{ asset('tlandingpage/asset/img/kluster-4.png') }}" alt="" width="40%">
                         <figcaption class="ps-4">
@@ -11,7 +11,7 @@
                         </figcaption>
                     </figure>
                 </div>
-                <div class="col-6">Upaya untuk meningkatkan pengetahuan, keterampilan, dan kesadaran masyarakat tentang
+                <div class="col-10 col-lg-6 mb-4">Upaya untuk meningkatkan pengetahuan, keterampilan, dan kesadaran masyarakat tentang
                     perlindungan perempuan dan anak, serta memperkuat peran positif keluarga dan masyarakat</div>
             </div>
         </div>

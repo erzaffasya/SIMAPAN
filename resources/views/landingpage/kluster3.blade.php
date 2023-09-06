@@ -2,7 +2,7 @@
     <section>
         <div class="container pt-5">
             <div class="row justify-content-center align-items-center">
-                <div class="col-4">
+                <div class="col-10 mb-2 col-lg-4">
                     <figure class="d-flex align-items-center mb-0">
                         <img src="{{ asset('tlandingpage/asset/img/kluster-3.png') }}" alt="" width="30%">
                         <figcaption class="ps-4">
@@ -11,7 +11,7 @@
                         </figcaption>
                     </figure>
                 </div>
-                <div class="col-6 fs-5">Usaha untuk meningkatkan kondisi kesehatan dan kesejahteraan fisik, mental, dan
+                <div class="col-10 col-lg-6 fs-6 mb-4">Usaha untuk meningkatkan kondisi kesehatan dan kesejahteraan fisik, mental, dan
                     sosial perempuan, anak-anak, keluarga, dan masyarakat secara keseluruhan</div>
             </div>
         </div>
@@ -61,11 +61,11 @@
         <div class="bg-greens bg-img-overlay item1-img py-5">
             <div class="container">
                 <div class="row justify-content-center">
-                    <div class="col-10 text-center">
+                    <div class="col-11 col-lg-10 text-center">
                         {{-- <p class="fs-4 text-white fs-6 lh-lg">Terdapat 9 Program</p> --}}
                         <h2 class="text-white mb-2 lh-lg">Program Prioritas</h2>
                     </div>
-                    <div class="col-8">
+                    <div class="col-11 col-lg-8">
                         <div class="accordion" id="accordionExample">
                             <div class="accordion-item">
                                 <p class="accordion-header" id="pg1">
