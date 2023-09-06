@@ -47,8 +47,8 @@ class SimapanArtikelController extends Controller
 
 
         if ($request->foto) {
-            $path = storage_path("app/public/img/forum_artikel/$request->id_kategori");
-            $path_tmp = storage_path("app/public/img/.thumbnail/forum_artikel/$request->id_kategori");
+            $path = storage_path("app/public/img/forum_artikel/1");
+            $path_tmp = storage_path("app/public/img/.thumbnail/forum_artikel/1");
             $extention = $request->foto->extension();
             $file_name = time() . '.' . $extention;
             $image = $request->file('foto');
@@ -130,11 +130,11 @@ class SimapanArtikelController extends Controller
         if ($request->foto) {
             $path = storage_path("app/public/img/forum_artikel");
             $path_tmp = storage_path("app/public/img/.thumbnail/forum_artikel");
-            if (File::exists("$path/$forum_artikel->id_kategori/$forum_artikel->foto")) {
-                File::delete("$path/$forum_artikel->id_kategori/$forum_artikel->foto");
+            if (File::exists("$path/1/$forum_artikel->foto")) {
+                File::delete("$path/1/$forum_artikel->foto");
             }
-            if (File::exists("$path_tmp/$forum_artikel->id_kategori/$forum_artikel->foto")) {
-                File::delete("$path_tmp/$forum_artikel->id_kategori/$forum_artikel->foto");
+            if (File::exists("$path_tmp/1/$forum_artikel->foto")) {
+                File::delete("$path_tmp/1/$forum_artikel->foto");
             }
             $extention = $request->foto->extension();
             $file_name = time() . '.' . $extention;
@@ -143,19 +143,19 @@ class SimapanArtikelController extends Controller
             $image->resize(1080, null, function ($constraint) {
                 $constraint->aspectRatio();
             });
-            if (!File::exists("$path/$request->id_kategori")) {
-                File::makeDirectory("$path/$request->id_kategori", $mode = 0777, true, true);
+            if (!File::exists("$path/1")) {
+                File::makeDirectory("$path/1", $mode = 0777, true, true);
             }
-            $image->save("$path/$request->id_kategori/$file_name");
+            $image->save("$path/1/$file_name");
             $image_tmp = Image::make($request->file('foto'));
             $image_tmp->resize(600, null, function ($constraint) {
                 $constraint->aspectRatio();
             });
 
-            if (!File::exists("$path_tmp/$request->id_kategori")) {
-                File::makeDirectory("$path_tmp/$request->id_kategori", $mode = 0777, true, true);
+            if (!File::exists("$path_tmp/1")) {
+                File::makeDirectory("$path_tmp/1", $mode = 0777, true, true);
             }
-            $image_tmp->save("$path_tmp/$request->id_kategori/$file_name");
+            $image_tmp->save("$path_tmp/1/$file_name");
         } else {
             $file_name = $forum_artikel->foto;
         }
@@ -182,11 +182,11 @@ class SimapanArtikelController extends Controller
         $forum_artikel = ForumArtikel::find($id);
         $path = storage_path("app/public/img/forum_artikel");
         $path_tmp = storage_path("app/public/img/.thumbnail/forum_artikel");
-        if (File::exists("$path/$forum_artikel->id_kategori/$forum_artikel->foto")) {
-            File::delete("$path/$forum_artikel->id_kategori/$forum_artikel->foto");
+        if (File::exists("$path/1/$forum_artikel->foto")) {
+            File::delete("$path/1/$forum_artikel->foto");
         }
-        if (File::exists("$path_tmp/$forum_artikel->id_kategori/$forum_artikel->foto")) {
-            File::delete("$path_tmp/$forum_artikel->id_kategori/$forum_artikel->foto");
+        if (File::exists("$path_tmp/1/$forum_artikel->foto")) {
+            File::delete("$path_tmp/1/$forum_artikel->foto");
         }
 
         $forum_artikel->delete();
