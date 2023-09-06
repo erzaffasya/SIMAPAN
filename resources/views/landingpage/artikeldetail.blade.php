@@ -11,7 +11,7 @@
                             <div class="px-2 py-3 m-0 w-100">
                                 <p class="fs-6 mb-2 text-secondary">{{ $artikel->created_at->format('D, d M Y') }} -
                                     <span class="text-primary">By
-                                        PPATBM Klandasan</span> </p>
+                                        {{Auth::user()->name}}</span> </p>
                                 <h1 class="fs-1 fw-bold">{{ $artikel->judul }}</h1>
                                 <p class="fs-6 mb-0 text-secondary">
                                     {!! $artikel->isi !!}</p>
