@@ -2,7 +2,7 @@
     <section>
         <div class="container pt-5">
             <div class="row justify-content-center align-items-center">
-                <div class="col-4">
+                <div class="col-10 col-lg-4">
                     <figure class="d-flex align-items-center mb-0">
                         <img src="{{ asset('tlandingpage/asset/img/kluster-1.png') }}" alt="" width="30%">
                         <figcaption class="ps-4">
@@ -11,7 +11,7 @@
                         </figcaption>
                     </figure>
                 </div>
-                <div class="col-6">Hak sipil kebebasan anak adalah hak-hak asasi manusia yang melekat pada setiap anak,
+                <div class="col-10 col-lg-6">Hak sipil kebebasan anak adalah hak-hak asasi manusia yang melekat pada setiap anak,
                     yang bertujuan untuk melindungi dan menghormati martabat, kebebasan, dan kepentingan mereka.</div>
             </div>
         </div>
@@ -19,11 +19,11 @@
     <section>
         <div class="container py-5">
             <div class="row justify-content-center align-items-center">
-                <div class="col-4">
+                <div class="col-10 col-lg-4">
                     <h3 class="lh-lg text-success">Presentase anak yang mendapatkan Kutipan Akta Kelahiran & Kartu
                         Identitas Anak (KIA)</h3>
                 </div>
-                <div class="col-6">
+                <div class="col-10 col-lg-6">
                     <canvas id="c1chart" style="height: 200px"></canvas>
                 </div>
             </div>
@@ -38,7 +38,7 @@
                         <h4 class="text-center text-white mb-4 lh-md">UPAYA PERCEPATAN AKTA KELAHIRAN TERUTAMA BAGI ANAK
                             YANG MEMERLUKAN PERLINDUNGAN KHUSUS (AMPK)</h4>
                     </div>
-                    <div class="col-3">
+                    <div class="col-10 mb-2 col-lg-3">
                         <a href="/kluster1" class="text-decoration-none">
                             <figure class="rounded overflow-hidden h-100 bg-white">
                                 <img src="{{ asset('tlandingpage/asset/img/empty-img.jpeg') }}" alt=""
@@ -50,7 +50,7 @@
                             </figure>
                         </a>
                     </div>
-                    <div class="col-3">
+                    <div class="col-10 mb-2 col-lg-3">
                         <figure class="rounded overflow-hidden h-100 bg-white">
                             <img src="{{ asset('tlandingpage/asset/img/empty-img.jpeg') }}" alt=""
                                 class="w-100">
@@ -61,7 +61,7 @@
                             </figcaption>
                         </figure>
                     </div>
-                    <div class="col-3">
+                    <div class="col-10 mb-2 col-lg-3">
                         <figure class="rounded overflow-hidden h-100 bg-white">
                             <img src="{{ asset('tlandingpage/asset/img/empty-img.jpeg') }}" alt=""
                                 class="w-100">
@@ -145,7 +145,7 @@
 
     <section>
         <div class="container">
-            <div class="rounded bg-success bg-img-overlay item1-img py-2 mb-5">
+            <div class="rounded bg-success bg-img-overlay item1-img py-2 mb-5 mt-4">
                 <div class="row justify-content-center">
                     <div class="col-10">
                         <div class="p-3 text-white text-center">

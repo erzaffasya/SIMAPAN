@@ -2,7 +2,7 @@
     <section>
         <div class="container pt-5">
             <div class="row justify-content-center align-items-center">
-                <div class="col-4">
+                <div class="col-10 mb-2 col-lg-4">
                     <figure class="d-flex align-items-center mb-0">
                         <img src="{{ asset('tlandingpage/asset/img/kluster-2.png') }}" alt="" width="50%">
                         <figcaption class="ps-4">
@@ -11,7 +11,7 @@
                         </figcaption>
                     </figure>
                 </div>
-                <div class="col-6 fs-5">upaya untuk menciptakan lingkungan keluarga yang aman, mendukung, dan berkualitas
+                <div class="col-10 col-lg-6 fs-5">upaya untuk menciptakan lingkungan keluarga yang aman, mendukung, dan berkualitas
                     bagi perkembangan optimal anak-anak.</div>
             </div>
         </div>
@@ -19,12 +19,12 @@
     <section>
         <div class="container py-5">
             <div class="row justify-content-center align-items-center">
-                <div class="col-4">
+                <div class="col-10 col-lg-4">
                     <h3 class="lh-lg text-danger">Data PUSPAGA HARAPAN tahun 2017-2022</h3>
                     <p class="lh-lg text-secondary">Penguatan Kapasitas Lembaga Konsultasi Penyedia Layanan Pengasuhan
                         Anakk bagi Orang Tua/Keluarga</p>
                 </div>
-                <div class="col-6">
+                <div class="col-10 col-lg-6">
                     <canvas id="c2chart" style="height: 200px"></canvas>
                 </div>
             </div>
@@ -34,11 +34,11 @@
         <section>
             <div class="container py-5">
                 <div class="row justify-content-center align-items-center">
-                    <div class="col-5">
+                    <div class="col-10 col-lg-5">
                         <h4 class="text-danger mb-2">{{ $artikel[0]->judul }}</h4>
                         {!! $artikel[0]->deskripsi !!}
                     </div>
-                    <div class="col-7">
+                    <div class="col-10 col-lg-7">
                         <div class="slide-2-view">
                             @forelse ($artikel[0]->galeri as $item)
                                 <figure class="mb-0 px-2">
@@ -93,11 +93,11 @@
         <section>
             <div class="container py-5">
                 <div class="row align-items-start justify-content-center">
-                    <div class="col-11 text-center">
+                    <div class="col-11 col-lg-11 text-center">
                         <h4 class="text-danger mb-2">{{ $artikel[2]->judul }}</h4>
                         <p class="text-secondary fs-6 lh-lg">{!! $artikel[2]->deskripsi !!}</p>
                     </div>
-                    <div class="col-10">
+                    <div class="col-11 col-lg-10">
                         <div class="slide-2-view">
                             @forelse ($artikel[2]->galeri as $item)
                                 <figure class="mb-0 px-2">
@@ -126,7 +126,7 @@
                     <div class="col-11 text-center">
                         <h4 class="text-danger mb-2">{{ $artikel[3]->judul }}</h4>
                     </div>
-                    <div class="col-4">
+                    <div class="col-11 col-lg-4">
                         <div class="slide-1-view">
                             @forelse ($artikel[3]->galeri as $item)
                                 <figure class="mb-0">
@@ -143,7 +143,7 @@
                             @endforelse
                         </div>
                     </div>
-                    <div class="col-6">
+                    <div class="col-11 col-lg-6">
                         {!! $artikel[3]->deskripsi !!}
                     </div>
                 </div>
@@ -155,12 +155,12 @@
         <div class="bg-reds bg-img-overlay item1-img py-5">
             <div class="container">
                 <div class="row justify-content-center">
-                    <div class="col-4">
+                    <div class="col-10 col-lg-4">
                         <p class="fs-4 text-white fs-6 lh-lg">Terdapat 9 Program</p>
                         <h3 class="text-white mb-4 lh-lg">Fokus Pembangunan Peningkatan Kualitas Sumber Daya Manusia
                             yang Berkualitas dan Berdaya Saing</h3>
                     </div>
-                    <div class="col-8">
+                    <div class="col-10 col-lg-8">
                         <div class="accordion" id="accordionExample">
                             <div class="accordion-item">
                                 <p class="accordion-header" id="pg1">
