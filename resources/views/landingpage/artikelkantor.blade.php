@@ -2,7 +2,7 @@
     <section id="ppatbm-program">
         <div class="container py-5">
             <div class="d-flex align-items-center justify-content-between">
-                <h1 class="display-6 fw-bold mb-3">Artikel Forum Anak</h1>
+                <h1 class="display-6 fw-bold mb-3">Artikel PPATBM</h1>
             </div>
             <div class="row">
                 <div class="col-12 col-lg-7">
