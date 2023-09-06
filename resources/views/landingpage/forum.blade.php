@@ -24,9 +24,9 @@
                 <div class="text-center">
                     <h1 class="fs-1 fw-bold text-white mb-4">PROFIL PENGURUS</h1>
                 </div>
-                <div class="pengurus-slide justify-content-center">
+                <div class="pengurus-slide">
                     @foreach ($pengurus as $item)
-                        <div class="mx-2 h-100 col-6 col-lg-2 mb-2">
+                        <div class="mx-2 h-100">
                             <figure class="h-100 d-flex flex-column mb-0">
                                 <img src="{{ asset("storage/img/forum/pengurus/$item->foto") }}" alt=""
                                     class="w-100" height="280px" style="object-fit: cover; border-radius: 1rem;">
