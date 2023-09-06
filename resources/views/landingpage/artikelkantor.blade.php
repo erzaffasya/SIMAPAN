@@ -6,7 +6,7 @@
             </div>
             <div class="row">
                 <div class="col-7">
-                    <a href="{{ route('landingpage.artikeldetail', $artikel1->slug ?? '') }}"
+                    <a href="{{ route('landingpage.artikel-kantor-detail', $artikel1->slug ?? '') }}"
                         class="text-decoration-none">
                         <figure class="position-relative">
                             <img src="{{ asset("storage/img/kegiatan/$artikel1->kantor_id/$artikel1->foto") }}"
@@ -32,7 +32,7 @@
                 <div class="col-5">
                     @foreach ($artikel2 as $item)
                         <div class="card mb-3 w-100 border-0">
-                            <a href="{{ route('landingpage.artikeldetail', $item->slug ?? '') }}"
+                            <a href="{{ route('landingpage.artikel-kantor-detail', $item->slug ?? '') }}"
                                 class="text-decoration-none">
                                 <div class="row g-0">
                                     <div class="col-md-5">
@@ -85,7 +85,7 @@
             <div class="row align-items-center gy-4">
                 @forelse ($artikel3 as $item)
                     <div class="col-3">
-                        <a class="card-artikel1" href="{{ route('landingpage.artikeldetail', $item->slug ?? '') }}">
+                        <a class="card-artikel1" href="{{ route('landingpage.artikel-kantor-detail', $item->slug ?? '') }}">
                             <figure class="shadow-lg mb-0 position-relative overflow-hidden">
                                 <img src="{{ asset("storage/img/kegiatan/$item->kantor_id/$item->foto") }}"
                                     alt="" width="100%" height="350">
