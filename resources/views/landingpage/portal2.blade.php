@@ -15,8 +15,8 @@
 
 <body>
   <main>
-    <section class="nav-top">
-      <figure class="mb-0 bg-white d-flex align-items-center px-4 py-2">
+    <section class="nav-top nav-top-portal2">
+      <figure class="mb-0 bg-white d-flex flex-wrap justify-content-center align-items-center px-4 py-2">
         <div class="me-2">
           <img src="{{asset('tlandingpage/asset/img/logo-1.png')}}" alt="">
           <img src="{{asset('tlandingpage/asset/img/logo-2.png')}}" alt="">
@@ -27,7 +27,7 @@
       </figure>
     </section>
     <div id="portal-1" class="row gx-0 align-items-md-stretch h-100">
-      <div class="card-bidang card-portal-2 col-md-4">
+      <div class="card-bidang card-portal-2 col-md-4 col-sm-6 col-12">
         <figure class="h-100 position-relative text-white">
           <img src="{{asset('tlandingpage/asset/img/p2-1.jpg')}}" alt="">
           <figcaption class="p-4 d-flex flex-column justify-content-end text-center">
@@ -36,7 +36,7 @@
           </figcaption>
         </figure>
       </div>
-      <div class="card-bidang card-portal-2 col-md-4">
+      <div class="card-bidang card-portal-2 col-md-4 col-sm-6 col-12">
         <figure class="h-100 position-relative text-white">
           <img src="{{asset('tlandingpage/asset/img/p2-2.jpg')}}" alt="">
           <figcaption class="p-4 d-flex flex-column justify-content-end text-center">
@@ -45,7 +45,7 @@
           </figcaption>
         </figure>
       </div>
-      <div class="card-bidang card-portal-2 col-md-4">
+      <div class="card-bidang card-portal-2 col-md-4 col-sm-12 col-12">
         <figure class="h-100 position-relative text-white">
           <img src="{{asset('tlandingpage/asset/img/p2-3.jpg')}}" alt="">
           <figcaption class="p-4 d-flex flex-column justify-content-end text-center">
