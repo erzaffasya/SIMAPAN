@@ -16,21 +16,29 @@
             </div>
         </div>
     </section>
-    @if ($artikel->has(0))
+
+    @php
+        $countartikel = 0;
+    @endphp
+    @foreach ($kluster->artikel ?? [] as $artikel)
+        @php
+            if ($artikel->jenis == 'A') {
+                $countartikel = $countartikel + 1;
+            }
+        @endphp
         <section>
             <div class="container py-5">
                 <div class="row align-items-start justify-content-center">
-                    <div class="col-10 col-lg-11 text-center">
-                        <h4 class="text-primary mb-2">{{ $artikel[0]->judul }}</h4>
-                        <p class="text-secondary fs-6 lh-lg">Upaya-upaya yang telah dilakukan untuk menangani anak putus
-                            sekolah dan mendukung kebijakan Wajib Belajar 12 Tahun yaitu :</p>
+                    <div class="col-11 text-center order-1">
+                        <h4 class="text-success mb-2">{{ $artikel->title }}</h4>
+                        <p class="text-secondary fs-6 lh-lg">{{ $artikel->subtitle }}</p>
                     </div>
-                    <div class="col-10 col-lg-4">
+                    <div class="col-6 {{ $countartikel % 2 ? 'order-2' : 'order-3' }}">
                         <div class="slide-1-view">
-                            @forelse ($artikel[0]->galeri as $item)
+                            @forelse ($artikel->detail as $item)
                                 <figure class="mb-0">
                                     <img class="rounded"
-                                        src="{{ asset("storage/img/forum_galeri/$item->id_kategori_galeri/$item->foto") }}"
+                                        src="{{ asset("storage/img/artikel_kluster/$kluster->kluster/$item->foto") }}"
                                         width="100%" height="350px">
                                 </figure>
                             @empty
@@ -42,91 +50,14 @@
                             @endforelse
                         </div>
                     </div>
-                    <div class="col-10 col-lg-8">
-                        {!! $artikel[0]->deskripsi !!}
+                    <div class="col-4 {{ $countartikel % 2 ? 'order-3' : 'order-2' }}">
+                        {!! $artikel->description !!}
                     </div>
                 </div>
             </div>
         </section>
+    @endforeach
 
-    @endif
-
-    {{-- <section>
-        <div class="container py-5">
-            <div class="row justify-content-center align-items-center">
-                <div class="col-10 col-lg-4">
-                    <h3 class="text-primary">Satuan Pendidikan Ramah Anak (SRA)</h3>
-                    <p class="lh-lg text-secondary">Presentase sekolah ramah anak dalam berbagai tingkat</p>
-                </div>
-            </div>
-        </div>
-    </section> --}}
-    @if ($artikel->has(1))
-        <section>
-            <div class="container py-5">
-                <div class="row align-items-center justify-content-center">
-                    <div class="col-10 col-lg-10">
-                        <h4 class="text-primary mb-4">{{ $artikel[1]->judul }}</h4>
-                        <p class="text-secondary fs-6 lh-lg">{!! $artikel[1]->deskripsi !!}
-                        </p>
-                    </div>
-                    <div class="col-10 col-lg-6">
-                        <div class="slide-1-view">
-                            @forelse ($artikel[1]->galeri as $item)
-                                <figure class="mb-0 px-2">
-                                    <img class="rounded" style="object-fit: cover;"
-                                        src="{{ asset("storage/img/forum_galeri/$item->id_kategori_galeri/$item->foto") }}"
-                                        width="100%" height="350px">
-                                </figure>
-                            @empty
-                                <figure class="mb-0 px-2">
-                                    <img class="rounded" style="object-fit: cover;"
-                                        src="{{ asset('tlandingpage/asset/img/empty-img.jpeg') }}" width="100%"
-                                        height="350px">
-                                </figure>
-                            @endforelse
-                        </div>
-                    </div>
-                    <div class="col-10 col-lg-6">
-                        <canvas id="c4chart" style="height: 200px"></canvas>
-                    </div>
-                </div>
-            </div>
-        </section>
-    @endif
-
-    @if ($artikel->has(2))
-        <section>
-            <div class="container py-5">
-                <div class="row align-items-center justify-content-center">
-                    <div class="col-10 col-lg-6">
-                        <div class="slide-2-view">
-                            @forelse ($artikel[2]->galeri as $item)
-                                <figure class="mb-0 px-2">
-                                    <img class="rounded" style="object-fit: cover;"
-                                        src="{{ asset("storage/img/forum_galeri/$item->id_kategori_galeri/$item->foto") }}"
-                                        width="100%" height="350px">
-                                </figure>
-                            @empty
-                                <figure class="mb-0 px-2">
-                                    <img class="rounded" style="object-fit: cover;"
-                                        src="{{ asset('tlandingpage/asset/img/empty-img.jpeg') }}" width="100%"
-                                        height="350px">
-                                </figure>
-                            @endforelse
-                        </div>
-                    </div>
-                    <div class="col-10 col-lg-4">
-                        <h4 class="text-primary mb-4">{{ $artikel[2]->judul }}</h4>
-                        <p class="text-secondary fs-6 lh-lg">Di Kota Balikpapan telah terbentuk 3 Rumah Ibadah Ramah
-                            Anak
-                            yang diresmikan oleh Wali Kota Balikpapan yaitu :</p>
-                        {!! $artikel[2]->deskripsi !!}
-                    </div>
-                </div>
-            </div>
-        </section>
-    @endif
     @push('scripts')
         <script>
             const c4ctx = document.getElementById('c4chart');

@@ -16,77 +16,28 @@
             </div>
         </div>
     </section>
-    @if ($artikel->has(0))
+    @php
+        $countartikel = 0;
+    @endphp
+    @foreach ($kluster->artikel ?? [] as $artikel)
+        @php
+            if ($artikel->jenis == 'A') {
+                $countartikel = $countartikel + 1;
+            }
+        @endphp
         <section>
             <div class="container py-5">
-                <div class="row align-items-center justify-content-center">
-                    <div class="col-10 col-lg-4">
-                        <h4 class="text-success mb-4">{{ $artikel[0]->judul }}</h4>
-                        <p class="text-secondary fs-6 lh-lg">{!! $artikel[0]->deskripsi !!}</p>
+                <div class="row align-items-start justify-content-center">
+                    <div class="col-11 text-center order-1">
+                        <h4 class="text-success mb-2">{{ $artikel->title }}</h4>
+                        <p class="text-secondary fs-6 lh-lg">{{ $artikel->subtitle }}</p>
                     </div>
-                    <div class="col-10 col-lg-7">
-                        <div class="slide-2-view">
-                            @forelse ($artikel[0]->galeri as $item)
-                                <figure class="mb-0 px-2">
-                                    <img class="rounded" style="object-fit: cover;"
-                                        src="{{ asset("storage/img/forum_galeri/$item->id_kategori_galeri/$item->foto") }}"
-                                        width="100%" height="250px">
-                                </figure>
-                            @empty
-                                <figure class="mb-0 px-2">
-                                    <img class="rounded" style="object-fit: cover;" src="{{ asset('') }}"
-                                        width="100%" height="250px">
-                                </figure>
-                            @endforelse
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    @endif
-    @if ($artikel->has(1))
-        <section>
-            <div class="container py-5">
-                <div class="row align-items-center justify-content-center">
-                    <div class="col-10 col-lg-7">
-                        <div class="slide-2-view">
-                            @forelse ($artikel[1]->galeri as $item)
-                                <figure class="mb-0 px-2">
-                                    <img class="rounded" style="object-fit: cover;"
-                                        src="{{ asset("storage/img/forum_galeri/$item->id_kategori_galeri/$item->foto") }}"
-                                        width="100%" height="250px">
-                                </figure>
-                            @empty
-                                <figure class="mb-0 px-2">
-                                    <img class="rounded" style="object-fit: cover;"
-                                        src="{{ asset('tlandingpage/asset/img/empty-img.jpeg') }}" width="100%"
-                                        height="350px">
-                                </figure>
-                            @endforelse
-                        </div>
-                    </div>
-                    <div class="col-10 col-lg-4">
-                        <h4 class="text-success mb-4">{{ $artikel[1]->judul }}</h4>
-                        <p class="text-secondary fs-6 lh-lg">{!! $artikel[1]->deskripsi !!}</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-    @endif
-    @if ($artikel->has(2))
-        <section>
-            <div class="container py-5">
-                <div class="row justify-content-center align-items-center">
-                    <div class="col-10 col-lg-6">
-                        <h4 class="text-success mb-2">{{ $artikel[2]->judul }}</h4>
-                        {!! $artikel[2]->deskripsi !!}
-                    </div>
-                    <div class="col-10 col-lg-4">
+                    <div class="col-6 {{ $countartikel % 2 ? 'order-2' : 'order-3' }}">
                         <div class="slide-1-view">
-                            @forelse ($artikel[2]->galeri as $item)
-                                <figure class="mb-0 px-2">
-                                    <img class="rounded" style="object-fit: cover;"
-                                        src="{{ asset("storage/img/forum_galeri/$item->id_kategori_galeri/$item->foto") }}"
+                            @forelse ($artikel->detail as $item)
+                                <figure class="mb-0">
+                                    <img class="rounded"
+                                        src="{{ asset("storage/img/artikel_kluster/$kluster->kluster/$item->foto") }}"
                                         width="100%" height="350px">
                                 </figure>
                             @empty
@@ -98,10 +49,13 @@
                             @endforelse
                         </div>
                     </div>
+                    <div class="col-4 {{ $countartikel % 2 ? 'order-3' : 'order-2' }}">
+                        {!! $artikel->description !!}
+                    </div>
                 </div>
             </div>
         </section>
-    @endif
+    @endforeach
 
     <section>
         <div class="bg-greens bg-img-overlay item1-img py-5">
@@ -152,9 +106,8 @@
                             </div>
                             <div class="accordion-item">
                                 <p class="accordion-header" id="pg3">
-                                    <button class="accordion-button collapsed" type="button"
-                                        data-bs-toggle="collapse" data-bs-target="#cpg3" aria-expanded="false"
-                                        aria-controls="cpg3">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#cpg3" aria-expanded="false" aria-controls="cpg3">
                                         Subsidi Uang Sekolah (SPP) bagi siswa di sekolah swasta (SD & SMP)
                                     </button>
                                 </p>
@@ -174,9 +127,8 @@
                             </div>
                             <div class="accordion-item">
                                 <p class="accordion-header" id="pg4">
-                                    <button class="accordion-button collapsed" type="button"
-                                        data-bs-toggle="collapse" data-bs-target="#cpg4" aria-expanded="false"
-                                        aria-controls="cpg4">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#cpg4" aria-expanded="false" aria-controls="cpg4">
                                         Pengelolaan Jaminan Kesehatan Masyarakat
                                     </button>
                                 </p>

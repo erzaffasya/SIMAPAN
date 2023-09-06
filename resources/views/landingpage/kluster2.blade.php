@@ -30,108 +30,28 @@
             </div>
         </div>
     </section>
-    @if ($artikel->has(0))
-        <section>
-            <div class="container py-5">
-                <div class="row justify-content-center align-items-center">
-                    <div class="col-10 col-lg-5">
-                        <h4 class="text-danger mb-2">{{ $artikel[0]->judul }}</h4>
-                        {!! $artikel[0]->deskripsi !!}
-                    </div>
-                    <div class="col-10 col-lg-7">
-                        <div class="slide-2-view">
-                            @forelse ($artikel[0]->galeri as $item)
-                                <figure class="mb-0 px-2">
-                                    <img class="rounded" style="object-fit: cover;"
-                                        src="{{ asset("storage/img/forum_galeri/$item->id_kategori_galeri/$item->foto") }}"
-                                        width="100%" height="350px">
-                                </figure>
-                            @empty
-                                <figure class="mb-0 px-2">
-                                    <img class="rounded" style="object-fit: cover;"
-                                        src="{{ asset('tlandingpage/asset/img/empty-img.jpeg') }}" width="100%"
-                                        height="350px">
-                                </figure>
-                            @endforelse
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    @endif
-    @if ($artikel->has(1))
-        <section>
-            <div class="bg-reds bg-img-overlay item1-img pt-4 pb-4 mt-5">
-                <div class="container">
-                    <div class="text-center">
-                        <h4 class="text-white mb-4 lh-md">{{ $artikel[1]->judul }}</h4>
-                    </div>
-                    <div class="slide-4-view row">
-                        @forelse ($artikel[1]->galeri as $item)
-                            <div class="mx-2 col h-100">
-                                <figure class="rounded overflow-hidden h-100 mb-0">
-                                    <img src="{{ asset("storage/img/forum_galeri/$item->id_kategori_galeri/$item->foto") }}"
-                                        alt="" class="w-100">
-                                    <figcaption class="px-3 py-2 text-center">
-                                        {{-- <p class="mb-1 text-white fs-5">RBA di Kelurahan</p> --}}
-                                    </figcaption>
-                                </figure>
-                            </div>
-                        @empty
-                            <figure class="mb-0 px-2">
-                                <img class="rounded" style="object-fit: cover;"
-                                    src="{{ asset('tlandingpage/asset/img/empty-img.jpeg') }}" width="100%"
-                                    height="350px">
-                            </figure>
-                        @endforelse
-                    </div>
-                </div>
-            </div>
-        </section>
-    @endif
-    @if ($artikel->has(2))
+    @php
+        $countartikel = 0;
+    @endphp
+    @foreach ($kluster->artikel ?? [] as $artikel)
+        @php
+            if ($artikel->jenis == 'A') {
+                $countartikel = $countartikel + 1;
+            }
+        @endphp
         <section>
             <div class="container py-5">
                 <div class="row align-items-start justify-content-center">
-                    <div class="col-11 col-lg-11 text-center">
-                        <h4 class="text-danger mb-2">{{ $artikel[2]->judul }}</h4>
-                        <p class="text-secondary fs-6 lh-lg">{!! $artikel[2]->deskripsi !!}</p>
+                    <div class="col-11 text-center order-1">
+                        <h4 class="text-success mb-2">{{ $artikel->title }}</h4>
+                        <p class="text-secondary fs-6 lh-lg">{{ $artikel->subtitle }}</p>
                     </div>
-                    <div class="col-11 col-lg-10">
-                        <div class="slide-2-view">
-                            @forelse ($artikel[2]->galeri as $item)
-                                <figure class="mb-0 px-2">
-                                    <img class="rounded" style="object-fit: cover;"
-                                        src="{{ asset("storage/img/forum_galeri/$item->id_kategori_galeri/$item->foto") }}"
-                                        width="100%" height="350px">
-                                </figure>
-                            @empty
-                                <figure class="mb-0 px-2">
-                                    <img class="rounded" style="object-fit: cover;"
-                                        src="{{ asset('tlandingpage/asset/img/empty-img.jpeg') }}" width="100%"
-                                        height="350px">
-                                </figure>
-                            @endforelse
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    @endif
-
-    @if ($artikel->has(3))
-        <section>
-            <div class="container py-5">
-                <div class="row align-items-start justify-content-center">
-                    <div class="col-11 text-center">
-                        <h4 class="text-danger mb-2">{{ $artikel[3]->judul }}</h4>
-                    </div>
-                    <div class="col-11 col-lg-4">
+                    <div class="col-6 {{ $countartikel % 2 ? 'order-2' : 'order-3' }}">
                         <div class="slide-1-view">
-                            @forelse ($artikel[3]->galeri as $item)
+                            @forelse ($artikel->detail as $item)
                                 <figure class="mb-0">
                                     <img class="rounded"
-                                        src="{{ asset("storage/img/forum_galeri/$item->id_kategori_galeri/$item->foto") }}"
+                                        src="{{ asset("storage/img/artikel_kluster/$kluster->kluster/$item->foto") }}"
                                         width="100%" height="350px">
                                 </figure>
                             @empty
@@ -143,13 +63,13 @@
                             @endforelse
                         </div>
                     </div>
-                    <div class="col-11 col-lg-6">
-                        {!! $artikel[3]->deskripsi !!}
+                    <div class="col-4 {{ $countartikel % 2 ? 'order-3' : 'order-2' }}">
+                        {!! $artikel->description !!}
                     </div>
                 </div>
             </div>
         </section>
-    @endif
+    @endforeach
 
     <section>
         <div class="bg-reds bg-img-overlay item1-img py-5">
@@ -164,9 +84,8 @@
                         <div class="accordion" id="accordionExample">
                             <div class="accordion-item">
                                 <p class="accordion-header" id="pg1">
-                                    <button class="accordion-button collapsed" type="button"
-                                        data-bs-toggle="collapse" data-bs-target="#cpg1" aria-expanded="false"
-                                        aria-controls="cpg1">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#cpg1" aria-expanded="false" aria-controls="cpg1">
                                         Program Pengelolaan Pendidikan
                                     </button>
                                 </p>
@@ -181,9 +100,8 @@
                             </div>
                             <div class="accordion-item">
                                 <p class="accordion-header" id="pg2">
-                                    <button class="accordion-button collapsed" type="button"
-                                        data-bs-toggle="collapse" data-bs-target="#cpg2" aria-expanded="false"
-                                        aria-controls="cpg2">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#cpg2" aria-expanded="false" aria-controls="cpg2">
                                         Program Peningkatan Kapasitas Sumber Daya Manusia Kesehatan
                                     </button>
                                 </p>
@@ -198,9 +116,8 @@
                             </div>
                             <div class="accordion-item">
                                 <p class="accordion-header" id="pg3">
-                                    <button class="accordion-button collapsed" type="button"
-                                        data-bs-toggle="collapse" data-bs-target="#cpg3" aria-expanded="false"
-                                        aria-controls="cpg3">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#cpg3" aria-expanded="false" aria-controls="cpg3">
                                         Program Pemberdayaan Masyarakat Bidang Kesehatan
                                     </button>
                                 </p>
@@ -215,9 +132,8 @@
                             </div>
                             <div class="accordion-item">
                                 <p class="accordion-header" id="pg4">
-                                    <button class="accordion-button collapsed" type="button"
-                                        data-bs-toggle="collapse" data-bs-target="#cpg4" aria-expanded="false"
-                                        aria-controls="cpg4">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#cpg4" aria-expanded="false" aria-controls="cpg4">
                                         Program Pemenuhan Upaya Kesehatan Perorangan dan Upaya Kesehatan Masyarakat
                                     </button>
                                 </p>
