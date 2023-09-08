@@ -87,7 +87,7 @@
                                             <label class="custom-file-container__custom-file">
                                                 <input type="file"
                                                     class="custom-file-container__custom-file__custom-file-input"
-                                                    name='detail_foto[]' multiple>
+                                                    name='detail_a_foto[]' multiple>
                                                 <input type="hidden" name="MAX_FILE_SIZE" value="10485760" />
                                                 <span
                                                     class="custom-file-container__custom-file__custom-file-control"></span>
@@ -107,19 +107,19 @@
                                 <div class="card">
                                     <div class="card-body row">
                                         <div class="col-4">
-                                            <input type="file" type="detail_foto[0]">
-                                            <input type="text" name="detail_title[0]" placeholder="Judul">
-                                            <input type="text" name="detail_subtitle[0]" placeholder="Sub Judul">
+                                            <input type="file" name="detail_b_foto[0]">
+                                            <input type="text" name="detail_b_title[0]" placeholder="Judul">
+                                            <input type="text" name="detail_b_subtitle[0]" placeholder="Sub Judul">
                                         </div>
                                         <div class="col-4">
-                                            <input type="file" type="detail_foto[1]">
-                                            <input type="text" name="detail_title[1]" placeholder="Judul">
-                                            <input type="text" name="detail_subtitle[1]" placeholder="Sub Judul">
+                                            <input type="file" name="detail_b_foto[1]">
+                                            <input type="text" name="detail_b_title[1]" placeholder="Judul">
+                                            <input type="text" name="detail_b_subtitle[1]" placeholder="Sub Judul">
                                         </div>
                                         <div class="col-4">
-                                            <input type="file" type="detail_foto[2]">
-                                            <input type="text" name="detail_title[2]" placeholder="Judul">
-                                            <input type="text" name="detail_subtitle[2]" placeholder="Sub Judul">
+                                            <input type="file" name="detail_b_foto[2]">
+                                            <input type="text" name="detail_b_title[2]" placeholder="Judul">
+                                            <input type="text" name="detail_b_subtitle[2]" placeholder="Sub Judul">
                                         </div>
                                     </div>
                                 </div>
@@ -135,7 +135,7 @@
                                             <div class="col-lg-11">
                                                 <div class="form-group">
                                                     <label>Judul</label>
-                                                    <input name="detail_title[]" type="text">
+                                                    <input name="detail_c_title[]" type="text">
                                                 </div>
                                             </div>
                                             <div class="col-lg-1">
@@ -144,8 +144,7 @@
                                             <div class="col-lg-11">
                                                 <div class="form-group">
                                                     <label>Deskripsi</label>
-                                                    <x-forms.tinymce-editor
-                                                        name="detail_description[]"></x-forms.tinymce-editor>
+                                                    <textarea class="form-control" rows="3" name="detail_c_description[]"></textarea>
                                                 </div>
                                             </div>
                                         </div>
@@ -237,22 +236,16 @@
 
                     // Bersihkan nilai input
                     newField.find("input[type='text']").val("");
-                    newField.find("textarea").val("");
+                    // newField.find("textarea").val("");
 
                     // Tambahkan elemen baru ke dalam div
                     jenisTextDiv.after(newField);
 
-                    // Tambahkan tombol "Hapus"
-                    newField.append('<button type="button" class="btn btn-outline-danger">remove</button>');
-                });
-
-                // Tambahkan event listener untuk menghapus input field pada jenis Text
-                jenisTextDiv.on("click", ".btn-outline-danger", function() {
-                    $(this).closest(".col-lg-12").remove(); // Hapus elemen yang mengandung tombol "Hapus"
-                });
-                // Tambahkan event listener untuk menghapus input field pada jenis Text
-                jenisTextDiv.on("click", ".btn-outline-danger", function() {
-                    $(this).closest(".col-lg-12").remove(); // Hapus elemen yang mengandung tombol "Hapus"
+                    // Tambahkan event listener untuk menghapus input field pada jenis Text
+                    jenisTextDiv.on("click", ".btn-outline-danger", function() {
+                        $(this).closest(".col-lg-12")
+                            .remove(); // Hapus elemen yang mengandung tombol "Hapus"
+                    });
                 });
             });
         </script>

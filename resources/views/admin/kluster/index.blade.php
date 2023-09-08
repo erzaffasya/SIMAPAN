@@ -57,6 +57,7 @@
                                 <tr>
                                     <th>No</th>
                                     <th>Judul</th>
+                                    <th>Jenis</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -64,7 +65,8 @@
                                 @foreach ($kluster->artikel ?? [] as $item)
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
-                                        <td>{{ $item->judul }}</td>
+                                        <td>{{ $item->title }}</td>
+                                        <td>{{ $item->jenis }}</td>
                                         <td>
                                             <div class="d-flex">
                                                 <a class="me-3"
