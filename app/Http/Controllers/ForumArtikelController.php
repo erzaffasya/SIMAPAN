@@ -128,11 +128,11 @@ class ForumArtikelController extends Controller
         if ($request->foto) {
             $path = storage_path("app/public/img/forum_artikel");
             $path_tmp = storage_path("app/public/img/.thumbnail/forum_artikel");
-            if (File::exists("$path/$forum_artikel->id_kategori/$forum_artikel->foto")) {
-                File::delete("$path/$forum_artikel->id_kategori/$forum_artikel->foto");
+            if (File::exists("$path/2/$forum_artikel->foto")) {
+                File::delete("$path/2/$forum_artikel->foto");
             }
-            if (File::exists("$path_tmp/$forum_artikel->id_kategori/$forum_artikel->foto")) {
-                File::delete("$path_tmp/$forum_artikel->id_kategori/$forum_artikel->foto");
+            if (File::exists("$path_tmp/2/$forum_artikel->foto")) {
+                File::delete("$path_tmp/2/$forum_artikel->foto");
             }
             $extention = $request->foto->extension();
             $file_name = time() . '.' . $extention;
@@ -179,11 +179,11 @@ class ForumArtikelController extends Controller
     {
         $path = storage_path("app/public/img/forum_artikel");
         $path_tmp = storage_path("app/public/img/.thumbnail/forum_artikel");
-        if (File::exists("$path/$forum_artikel->id_kategori/$forum_artikel->foto")) {
-            File::delete("$path/$forum_artikel->id_kategori/$forum_artikel->foto");
+        if (File::exists("$path/2/$forum_artikel->foto")) {
+            File::delete("$path/2/$forum_artikel->foto");
         }
-        if (File::exists("$path_tmp/$forum_artikel->id_kategori/$forum_artikel->foto")) {
-            File::delete("$path_tmp/$forum_artikel->id_kategori/$forum_artikel->foto");
+        if (File::exists("$path_tmp/2/$forum_artikel->foto")) {
+            File::delete("$path_tmp/2/$forum_artikel->foto");
         }
         $forum_artikel->delete();
 
