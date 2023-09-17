@@ -128,7 +128,7 @@
 
                         {{-- Show If Jenis text --}}
                         <div class="col-lg-12 col-sm-12 col-12 jenis-text">
-                            <div class="form-group">
+                            <div class="form-group isi">
                                 <div class="card">
                                     <div class="card-body">
                                         <div class="row">
@@ -139,17 +139,16 @@
                                                 </div>
                                             </div>
                                             <div class="col-lg-1">
-                                                <button type="button" class="btn btn-outline-danger">remove</button>
+                                                <br>
+                                                <button type="button" class="btn btn-outline-secondary">New
+                                                    Field</button>
                                             </div>
                                             <div class="col-lg-11">
                                                 <div class="form-group">
                                                     <label>Deskripsi</label>
-                                                    <textarea class="form-control" rows="3" name="detail_c_description[]"></textarea>
+                                                    <textarea class="form-control" rows="3" name="detail_c_subtitle[]"></textarea>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="row">
-                                            <button type="button" class="btn btn-outline-secondary">New Field</button>
                                         </div>
                                     </div>
                                 </div>
@@ -232,20 +231,53 @@
 
                 // Tambahkan event listener untuk menambah input field pada jenis Text
                 jenisTextDiv.on("click", ".btn-outline-secondary", function() {
-                    var newField = jenisTextDiv.clone(); // Salin elemen input
+                    var newField = $(`<div class="form-group isi">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-lg-11">
+                                                <div class="form-group">
+                                                    <label>Judul</label>
+                                                    <input name="detail_c_title[]" type="text">
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-1">
+                                                <br>
+                                                <button type="button" class="btn btn-outline-danger">remove</button>
+                                            </div>
+                                            <div class="col-lg-11">
+                                                <div class="form-group">
+                                                    <label>Deskripsi</label>
+                                                    <textarea class="form-control" rows="3" name="detail_c_subtitle[]"></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>`); // New elemen input
 
                     // Bersihkan nilai input
-                    newField.find("input[type='text']").val("");
+                    // newField.find("input[type='text']").val("");
                     // newField.find("textarea").val("");
 
                     // Tambahkan elemen baru ke dalam div
-                    jenisTextDiv.after(newField);
+                    jenisTextDiv.append(newField);
 
                     // Tambahkan event listener untuk menghapus input field pada jenis Text
                     jenisTextDiv.on("click", ".btn-outline-danger", function() {
-                        $(this).closest(".col-lg-12")
+                        console.log(($(this)));
+                        $(this).closest(".form-group.isi")
                             .remove(); // Hapus elemen yang mengandung tombol "Hapus"
                     });
+                    jenisTextDiv = $(".jenis-text");
+                    // jenisTextDiv.find(".col-lg-1").empty();
+                    // var btnRemoveText = $(
+                    //     '<button type="button" class="btn btn-outline-danger">remove</button>')
+                    // jenisTextDiv.find(".col-lg-1").append(btnRemoveText);
+
+                    // console.log(btnRemoveText);
+
+
                 });
             });
         </script>

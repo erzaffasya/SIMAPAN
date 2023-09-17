@@ -22,7 +22,7 @@ class ArtikelKluster extends Model
 
     public function detail()
     {
-        return $this->hasMany(ArtikelKlusterDetail::class);
+        return $this->hasMany(ArtikelKlusterDetail::class, "artikel_kluster_id", "id");
     }
 
     public function kluster()

@@ -4,9 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\ArtikelKluster;
 use App\Models\ArtikelKlusterDetail;
-use App\Models\ForumGaleri;
-use App\Models\ForumKategoriGaleri;
 use App\Models\Kluster;
+use DB;
 use File;
 use Illuminate\Http\Request;
 use Image;
@@ -75,7 +74,6 @@ class ArtikelKlusterController extends Controller
                             "foto" => $file_name,
                             "title" => '-',
                             "subtitle" => '-',
-                            "description" => '-',
                         ]);
                     }
                 }
@@ -115,7 +113,6 @@ class ArtikelKlusterController extends Controller
                         "foto" => $file_name,
                         "title" => $request->detail_b_title[$key] ?? '-',
                         "subtitle" => $request->detail_b_subtitle[$key] ?? '-',
-                        "description" => '-',
                     ]);
                 }
                 break;
@@ -127,7 +124,6 @@ class ArtikelKlusterController extends Controller
                         "foto" => '-',
                         "title" => $request->detail_c_title[$key] ?? '-',
                         "subtitle" => '-',
-                        "description" => $request->detail_c_description[$key] ?? '-',
                     ]);
                 }
 
@@ -153,132 +149,132 @@ class ArtikelKlusterController extends Controller
             'description' => 'nullable',
         ]);
 
-        switch ($request->jenis) {
-            case 'A':
-                if ($request->detail_a_foto) {
-                    $file_name = null;
-                    foreach ($request->detail_a_foto as $key => $foto) {
-                        $path = storage_path("app/public/img/artikel_kluster/$kluster->kluster");
-                        $path_tmp = storage_path("app/public/img/.thumbnail/artikel_kluster/$kluster->kluster");
-                        if ($request->detail_a_foto != null) {
-                            if (File::exists("$path/{$artikel->detail[$key]->foto}")) {
-                                File::delete("$path/{$artikel->detail[$key]->foto}");
-                            }
-                            if (File::exists("$path_tmp/{$artikel->detail[$key]->foto}")) {
-                                File::delete("$path_tmp/{$artikel->detail[$key]->foto}");
-                            }
-                        }
+        DB::transaction(function () use ($artikel, $request, $kluster) {
+            try {
+                switch ($request->jenis) {
+                    case 'A':
+                        if ($request->detail_a_foto) {
+                            $file_name = null;
+                            foreach ($request->detail_a_foto as $key => $foto) {
+                                $path = storage_path("app/public/img/artikel_kluster/$kluster->kluster");
+                                $path_tmp = storage_path("app/public/img/.thumbnail/artikel_kluster/$kluster->kluster");
 
-                        $extention = $foto->extension();
-                        $file_name = time() . $key . '.' . $extention;
-                        $image = Image::make($foto);
-                        $image->resize(1080, null, function ($constraint) {
-                            $constraint->aspectRatio();
-                        });
-                        if (!File::exists("$path")) {
-                            File::makeDirectory("$path", $mode = 0777, true, true);
-                        }
+                                $extention = $foto->extension();
+                                $file_name = time() . $key . '.' . $extention;
+                                $image = Image::make($foto);
+                                $image->resize(1080, null, function ($constraint) {
+                                    $constraint->aspectRatio();
+                                });
+                                if (!File::exists("$path")) {
+                                    File::makeDirectory("$path", $mode = 0777, true, true);
+                                }
 
-                        $image->save("$path/$file_name");
-                        $image_tmp = Image::make($foto);
-                        $image_tmp->resize(600, null, function ($constraint) {
-                            $constraint->aspectRatio();
-                        });
+                                $image->save("$path/$file_name");
+                                $image_tmp = Image::make($foto);
+                                $image_tmp->resize(600, null, function ($constraint) {
+                                    $constraint->aspectRatio();
+                                });
 
-                        if (!File::exists("$path_tmp")) {
-                            File::makeDirectory("$path_tmp", $mode = 0777, true, true);
-                        }
-                        $image_tmp->save("$path_tmp/$file_name");
-                    }
-                    ArtikelKlusterDetail::create([
-                        "artikel_kluster_id" => $kluster->id,
-                        "foto" => $file_name,
-                        "title" => '-',
-                        "subtitle" => '-',
-                        "description" => '-',
-                    ]);
-                }
-                break;
-
-            case 'B':
-                for ($key = 0; $key < 3; $key++) {
-                    $file_name = "";
-                    if ($foto = $request->detail_b_foto[$key]) {
-                        $path = storage_path("app/public/img/artikel_kluster/$kluster->kluster");
-                        $path_tmp = storage_path("app/public/img/.thumbnail/artikel_kluster/$kluster->kluster");
-                        if ($request->detail_b_foto != null) {
-                            if (File::exists("$path/{$artikel->detail[$key]->foto}")) {
-                                File::delete("$path/{$artikel->detail[$key]->foto}");
-                            }
-                            if (File::exists("$path_tmp/{$artikel->detail[$key]->foto}")) {
-                                File::delete("$path_tmp/{$artikel->detail[$key]->foto}");
+                                if (!File::exists("$path_tmp")) {
+                                    File::makeDirectory("$path_tmp", $mode = 0777, true, true);
+                                }
+                                $image_tmp->save("$path_tmp/$file_name");
+                                ArtikelKlusterDetail::create([
+                                    "artikel_kluster_id" => $artikel->id,
+                                    "foto" => $file_name,
+                                    "title" => '-',
+                                    "subtitle" => '-',
+                                ]);
                             }
                         }
+                        break;
 
-                        $extention = $foto->extension();
-                        $file_name = time() . $key . '.' . $extention;
-                        $image = Image::make($foto);
-                        $image->resize(1080, null, function ($constraint) {
-                            $constraint->aspectRatio();
-                        });
-                        if (!File::exists("$path")) {
-                            File::makeDirectory("$path", $mode = 0777, true, true);
+                    case 'B':
+                        for ($key = 0; $key < 3; $key++) {
+                            $file_name = "";
+                            if (isset($request->detail_b_foto[$key]) && $foto = $request->detail_b_foto[$key]) {
+                                $path = storage_path("app/public/img/artikel_kluster/$kluster->kluster");
+                                $path_tmp = storage_path("app/public/img/.thumbnail/artikel_kluster/$kluster->kluster");
+                                if ($request->detail_b_foto != null) {
+                                    if (File::exists("$path/{$artikel->detail[$key]->foto}")) {
+                                        File::delete("$path/{$artikel->detail[$key]->foto}");
+                                    }
+                                    if (File::exists("$path_tmp/{$artikel->detail[$key]->foto}")) {
+                                        File::delete("$path_tmp/{$artikel->detail[$key]->foto}");
+                                    }
+                                }
+
+                                $extention = $foto->extension();
+                                $file_name = time() . $key . '.' . $extention;
+                                $image = Image::make($foto);
+                                $image->resize(1080, null, function ($constraint) {
+                                    $constraint->aspectRatio();
+                                });
+                                if (!File::exists("$path")) {
+                                    File::makeDirectory("$path", $mode = 0777, true, true);
+                                }
+
+                                $image->save("$path/$file_name");
+                                $image_tmp = Image::make($foto);
+                                $image_tmp->resize(600, null, function ($constraint) {
+                                    $constraint->aspectRatio();
+                                });
+
+                                if (!File::exists("$path_tmp")) {
+                                    File::makeDirectory("$path_tmp", $mode = 0777, true, true);
+                                }
+                                $image_tmp->save("$path_tmp/$file_name");
+                            }
+                            if ($artikel->jenis != $request->jenis) {
+                                if ($key == 0) {
+                                    $artikel->detail()->delete();
+                                }
+                                ArtikelKlusterDetail::create([
+                                    "artikel_kluster_id" => $artikel->id,
+                                    "foto" => $file_name,
+                                    "title" => $request->detail_b_title[$key] ?? '-',
+                                    "subtitle" => $request->detail_b_subtitle[$key] ?? '-',
+                                ]);
+                            } else {
+                                $file_name = isset($request->detail_b_foto[$key]) ? $file_name : (isset($artikel->detail[$key]) ? $artikel->detail[$key]->foto : null);
+                                $artikel->detail[$key]->foto = $file_name;
+                                $artikel->detail[$key]->title = $request->detail_b_title[$key] ?? '-';
+                                $artikel->detail[$key]->subtitle = $request->detail_b_subtitle[$key] ?? '-';
+                                $artikel->detail[$key]->save();
+                            }
+
                         }
+                        break;
 
-                        $image->save("$path/$file_name");
-                        $image_tmp = Image::make($foto);
-                        $image_tmp->resize(600, null, function ($constraint) {
-                            $constraint->aspectRatio();
-                        });
-
-                        if (!File::exists("$path_tmp")) {
-                            File::makeDirectory("$path_tmp", $mode = 0777, true, true);
-                        }
-                        $image_tmp->save("$path_tmp/$file_name");
-                    }
-                    if ($artikel->jenis != $request->jenis) {
+                    case 'C':
                         $artikel->detail()->delete();
-                        ArtikelKlusterDetail::create([
-                            "artikel_kluster_id" => $kluster->id,
-                            "foto" => $file_name,
-                            "title" => $request->detail_b_title[$key] ?? '-',
-                            "subtitle" => $request->detail_b_subtitle[$key] ?? '-',
-                            "description" => '-',
-                        ]);
-                    } else {
-                        $file_name = $request->detail_b_foto[$key] == null ? $artikel->detail[$key]->foto : $file_name;
-                        $artikel->detail[$key]->foto = $file_name;
-                        $artikel->detail[$key]->title = $request->detail_b_title[$key] ?? '-';
-                        $artikel->detail[$key]->subtitle = $request->detail_b_subtitle[$key] ?? '-';
-                        $artikel->detail[$key]->save();
-                    }
+                        foreach ($request->detail_c_title as $key => $title) {
+                            ArtikelKlusterDetail::create([
+                                "artikel_kluster_id" => $artikel->id,
+                                "foto" => '-',
+                                "title" => $request->detail_c_title[$key] ?? '-',
+                                "subtitle" => $request->detail_c_subtitle[$key] ?? '-',
+                            ]);
+                        }
 
-                }
-                break;
-
-            case 'C':
-                $artikel->detail()->delete();
-                foreach ($request->detail_c_title as $key => $title) {
-                    ArtikelKlusterDetail::create([
-                        "artikel_kluster_id" => $artikel->id,
-                        "foto" => '-',
-                        "title" => $request->detail_c_title[$key] ?? '-',
-                        "subtitle" => '-',
-                        "description" => $request->detail_c_description[$key] ?? '-',
-                    ]);
+                        break;
+                    default:
+                        # code...
+                        break;
                 }
 
-                break;
-            default:
-                # code...
-                break;
-        }
+                $artikel->title = $request->title;
+                $artikel->jenis = $request->jenis;
+                $artikel->subtitle = $request->subtitle;
+                $artikel->description = $request->description;
+                $artikel->save();
+                //code...
+            } catch (\Throwable $th) {
+                dd($th);
+            }
 
-        $artikel->title = $request->title;
-        $artikel->jenis = $request->jenis;
-        $artikel->subtitle = $request->subtitle;
-        $artikel->description = $request->description;
-        $artikel->save();
+        });
+
 
         return redirect()->route('kluster.edit', $kluster->kluster)->with('success', "Kluster $kluster->kluster Berhasil Di Ubah");
     }

@@ -120,6 +120,7 @@
                                 </div>
                             </div>
                         </div>
+                        {{-- @dd($artikel->detail) --}}
 
                         {{-- Show If Jenis Foto --}}
                         <div class="col-lg-12 col-sm-12 col-12 jenis-foto">
@@ -128,18 +129,24 @@
                                     <div class="card-body row">
                                         <div class="col-4">
                                             <input type="file" name="detail_b_foto[0]">
-                                            <input type="text" name="detail_b_title[0]" placeholder="Judul">
-                                            <input type="text" name="detail_b_subtitle[0]" placeholder="Sub Judul">
+                                            <input type="text" name="detail_b_title[0]" placeholder="Judul"
+                                                value="{{ isset($artikel->detail[0]) ? $artikel->detail[0]->title : '' }}">
+                                            <input type="text" name="detail_b_subtitle[0]" placeholder="Sub Judul"
+                                                value="{{ isset($artikel->detail[0]) ? $artikel->detail[0]->subtitle : '' }}">
                                         </div>
                                         <div class="col-4">
                                             <input type="file" name="detail_b_foto[1]">
-                                            <input type="text" name="detail_b_title[1]" placeholder="Judul">
-                                            <input type="text" name="detail_b_subtitle[1]" placeholder="Sub Judul">
+                                            <input type="text" name="detail_b_title[1]" placeholder="Judul"
+                                                value="{{ isset($artikel->detail[1]) ? $artikel->detail[1]->title : '' }}">
+                                            <input type="text" name="detail_b_subtitle[1]" placeholder="Sub Judul"
+                                                value="{{ isset($artikel->detail[1]) ? $artikel->detail[1]->subtitle : '' }}">
                                         </div>
                                         <div class="col-4">
                                             <input type="file" name="detail_b_foto[2]">
-                                            <input type="text" name="detail_b_title[2]" placeholder="Judul">
-                                            <input type="text" name="detail_b_subtitle[2]" placeholder="Sub Judul">
+                                            <input type="text" name="detail_b_title[2]" placeholder="Judul"
+                                                value="{{ isset($artikel->detail[2]) ? $artikel->detail[2]->title : '' }}">
+                                            <input type="text" name="detail_b_subtitle[2]" placeholder="Sub Judul"
+                                                value="{{ isset($artikel->detail[2]) ? $artikel->detail[2]->subtitle : '' }}">
                                         </div>
                                     </div>
                                 </div>
@@ -148,33 +155,66 @@
 
                         {{-- Show If Jenis text --}}
                         <div class="col-lg-12 col-sm-12 col-12 jenis-text">
-                            <div class="form-group">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <div class="row">
-                                            <div class="col-lg-11">
-                                                <div class="form-group">
-                                                    <label>Judul</label>
-                                                    <input name="detail_c_title[]" type="text">
+                            @forelse ($artikel->detail as $detail)
+                                <div class="form-group isi">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="col-lg-11">
+                                                    <div class="form-group">
+                                                        <label>Judul</label>
+                                                        <input name="detail_c_title[]" type="text"
+                                                            value="{{ $detail->title }}">
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-1">
+                                                    <br>
+                                                    @if ($loop->iteration == 1)
+                                                        <button type="button" class="btn btn-outline-secondary">New
+                                                            Field</button>
+                                                    @else
+                                                        <button type="button"
+                                                            class="btn btn-outline-danger">remove</button>
+                                                    @endif
+                                                </div>
+                                                <div class="col-lg-11">
+                                                    <div class="form-group">
+                                                        <label>Deskripsi</label>
+                                                        <textarea class="form-control" rows="3" name="detail_c_description[]">{{ $detail->subtitle }}</textarea>
+                                                    </div>
                                                 </div>
                                             </div>
-                                            <div class="col-lg-1">
-                                                <button type="button" class="btn btn-outline-danger">remove</button>
-                                            </div>
-                                            <div class="col-lg-11">
-                                                <div class="form-group">
-                                                    <label>Deskripsi</label>
-                                                    <textarea class="form-control" rows="3" name="detail_c_description[]"></textarea>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <button type="button" class="btn btn-outline-secondary">New
-                                                Field</button>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            @empty
+                                <div class="form-group isi">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="col-lg-11">
+                                                    <div class="form-group">
+                                                        <label>Judul</label>
+                                                        <input name="detail_c_title[]" type="text">
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-1">
+
+                                                    <br>
+                                                    <button type="button" class="btn btn-outline-secondary">New
+                                                        Field</button>
+                                                </div>
+                                                <div class="col-lg-11">
+                                                    <div class="form-group">
+                                                        <label>Deskripsi</label>
+                                                        <textarea class="form-control" rows="3" name="detail_c_description[]"></textarea>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            @endforelse
                         </div>
 
                         <div class="col-lg-12">
@@ -255,22 +295,51 @@
 
                 // Tambahkan event listener untuk menambah input field pada jenis Text
                 jenisTextDiv.on("click", ".btn-outline-secondary", function() {
-                    var newField = jenisTextDiv.clone(); // Salin elemen input
+                    var newField = $(`<div class="form-group isi">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-lg-11">
+                                                <div class="form-group">
+                                                    <label>Judul</label>
+                                                    <input name="detail_c_title[]" type="text">
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-1">
+                                                <br>
+                                                <button type="button" class="btn btn-outline-danger">remove</button>
+                                            </div>
+                                            <div class="col-lg-11">
+                                                <div class="form-group">
+                                                    <label>Deskripsi</label>
+                                                    <textarea class="form-control" rows="3" name="detail_c_subtitle[]"></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>`); // New elemen input
 
                     // Bersihkan nilai input
-                    newField.find("input[type='text']").val("");
-                    newField.find("textarea").val("");
+                    // newField.find("input[type='text']").val("");
+                    // newField.find("textarea").val("");
 
                     // Tambahkan elemen baru ke dalam div
-                    jenisTextDiv.after(newField);
-
+                    jenisTextDiv.append(newField);
+                    jenisTextDiv.on("click", ".btn-outline-danger", function() {
+                        console.log(($(this)));
+                        $(this).closest(".form-group.isi")
+                            .remove(); // Hapus elemen yang mengandung tombol "Hapus"
+                    });
                     // Tambahkan tombol "Hapus"
-                    newField.append('<button type="button" class="btn btn-outline-danger">remove</button>');
+                    // newField.append('<button type="button" class="btn btn-outline-danger">remove</button>');
                 });
 
                 // Tambahkan event listener untuk menghapus input field pada jenis Text
                 jenisTextDiv.on("click", ".btn-outline-danger", function() {
-                    $(this).closest(".col-lg-12").remove(); // Hapus elemen yang mengandung tombol "Hapus"
+                    console.log(($(this)));
+                    $(this).closest(".form-group.isi")
+                        .remove(); // Hapus elemen yang mengandung tombol "Hapus"
                 });
 
 

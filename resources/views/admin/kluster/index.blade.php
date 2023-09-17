@@ -34,9 +34,10 @@
                         </div>
                     </div>
                 </form>
-
-                <hr>
-                <!-- /Filter -->
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-body">
                 <div class="col-lg-12">
                     <div class="table-top">
                         <div class="search-set">
@@ -66,7 +67,21 @@
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
                                         <td>{{ $item->title }}</td>
-                                        <td>{{ $item->jenis }}</td>
+                                        @switch($item->jenis)
+                                            @case('A')
+                                                <td>Artikel</td>
+                                            @break
+
+                                            @case('B')
+                                                <td>Foto</td>
+                                            @break
+
+                                            @case('C')
+                                                <td>Text</td>
+                                            @break
+
+                                            @default
+                                        @endswitch
                                         <td>
                                             <div class="d-flex">
                                                 <a class="me-3"
