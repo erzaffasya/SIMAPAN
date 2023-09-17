@@ -6,8 +6,8 @@
                     <figure class="d-flex align-items-center mb-0">
                         <img src="{{ asset('tlandingpage/asset/img/kluster-1.png') }}" alt="" width="30%">
                         <figcaption class="ps-4">
-                            <h1>{{ $kluster->titile }}</h1>
-                            <p class="mb-0 fs-5 text-secondary">{{ $kluster->subtitile }}</p>
+                            <h1>{{ $kluster->title }}</h1>
+                            <p class="mb-0 fs-5 text-secondary">{{ $kluster->subtitle }}</p>
                         </figcaption>
                     </figure>
                 </div>
@@ -65,7 +65,7 @@
                                     @endforelse
                                 </div>
                             </div>
-                            <div class="col-4 {{ $countartikel % 2 ? 'order-3' : 'order-2' }}">
+                            <div class="col-6 {{ $countartikel % 2 ? 'order-3' : 'order-2' }}">
                                 {!! $artikel->description !!}
                             </div>
                         </div>
@@ -168,13 +168,15 @@
                                                 <p class="accordion-header" id="pg1">
                                                     <button class="accordion-button collapsed" type="button"
                                                         data-bs-toggle="collapse"
-                                                        data-bs-target="#cpg1{{ $loop->iteration }}" aria-expanded="false"
-                                                        aria-controls="cpg1{{ $loop->iteration }}">
+                                                        data-bs-target="#cpg1{{ $artikel->id }}{{ $loop->iteration }}"
+                                                        aria-expanded="false"
+                                                        aria-controls="cpg1{{ $artikel->id }}{{ $loop->iteration }}">
                                                         {{ $item->title }}
                                                     </button>
                                                 </p>
-                                                <div id="cpg1{{ $loop->iteration }}" class="accordion-collapse collapse"
-                                                    aria-labelledby="pg1" data-bs-parent="#accordionExample">
+                                                <div id="cpg1{{ $artikel->id }}{{ $loop->iteration }}"
+                                                    class="accordion-collapse collapse" aria-labelledby="pg1"
+                                                    data-bs-parent="#accordionExample">
                                                     <div class="accordion-body">
                                                         {{ $item->description }}
                                                     </div>

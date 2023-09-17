@@ -34,7 +34,7 @@
                                 <h4 class="text-success mb-2">{{ $artikel->title }}</h4>
                                 <p class="text-secondary fs-6 lh-lg">{{ $artikel->subtitle }}</p>
                             </div>
-                            <div class="col-6 {{ $countartikel % 2 ? 'order-2' : 'order-3' }}">
+                            <div class="{{ $countartikel % 2 ? 'col-6 order-2' : 'col-6 order-3' }}">
                                 <div class="slide-1-view">
                                     @forelse ($artikel->detail as $item)
                                         <figure class="mb-0">
@@ -51,7 +51,7 @@
                                     @endforelse
                                 </div>
                             </div>
-                            <div class="col-4 {{ $countartikel % 2 ? 'order-3' : 'order-2' }}">
+                            <div class="{{ $countartikel % 2 ? 'col-6  order-3' : 'col-4  order-2' }}">
                                 {!! $artikel->description !!}
                             </div>
                         </div>
