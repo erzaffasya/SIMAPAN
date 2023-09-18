@@ -27,9 +27,6 @@ class ArtikelKlusterController extends Controller
     public function store(Request $request, Kluster $kluster)
     {
         $request->validate([
-            'title' => 'required',
-            'subtitle' => 'required',
-            'description' => 'required',
             'jenis' => 'required',
         ]);
 
@@ -72,8 +69,8 @@ class ArtikelKlusterController extends Controller
                         ArtikelKlusterDetail::create([
                             "artikel_kluster_id" => $artikelkluster->id,
                             "foto" => $file_name,
-                            "title" => '-',
-                            "subtitle" => '-',
+                            "title" => null,
+                            "subtitle" => null,
                         ]);
                     }
                 }
@@ -111,8 +108,8 @@ class ArtikelKlusterController extends Controller
                     ArtikelKlusterDetail::create([
                         "artikel_kluster_id" => $artikelkluster->id,
                         "foto" => $file_name,
-                        "title" => $request->detail_b_title[$key] ?? '-',
-                        "subtitle" => $request->detail_b_subtitle[$key] ?? '-',
+                        "title" => $request->detail_b_title[$key] ?? null,
+                        "subtitle" => $request->detail_b_subtitle[$key] ?? null,
                     ]);
                 }
                 break;
@@ -121,9 +118,9 @@ class ArtikelKlusterController extends Controller
                 foreach ($request->detail_c_title as $key => $title) {
                     ArtikelKlusterDetail::create([
                         "artikel_kluster_id" => $artikelkluster->id,
-                        "foto" => '-',
-                        "title" => $request->detail_c_title[$key] ?? '-',
-                        "subtitle" => '-',
+                        "foto" => null,
+                        "title" => $request->detail_c_title[$key] ?? null,
+                        "subtitle" => $request->detail_c_subtitle[$key] ?? null,
                     ]);
                 }
 
@@ -145,8 +142,6 @@ class ArtikelKlusterController extends Controller
     {
         $request->validate([
             'jenis' => 'required',
-            'subtitle' => 'nullable',
-            'description' => 'nullable',
         ]);
 
         DB::transaction(function () use ($artikel, $request, $kluster) {
@@ -182,8 +177,8 @@ class ArtikelKlusterController extends Controller
                                 ArtikelKlusterDetail::create([
                                     "artikel_kluster_id" => $artikel->id,
                                     "foto" => $file_name,
-                                    "title" => '-',
-                                    "subtitle" => '-',
+                                    "title" => null,
+                                    "subtitle" => null,
                                 ]);
                             }
                         }
@@ -232,14 +227,14 @@ class ArtikelKlusterController extends Controller
                                 ArtikelKlusterDetail::create([
                                     "artikel_kluster_id" => $artikel->id,
                                     "foto" => $file_name,
-                                    "title" => $request->detail_b_title[$key] ?? '-',
-                                    "subtitle" => $request->detail_b_subtitle[$key] ?? '-',
+                                    "title" => $request->detail_b_title[$key] ?? null,
+                                    "subtitle" => $request->detail_b_subtitle[$key] ?? null,
                                 ]);
                             } else {
                                 $file_name = isset($request->detail_b_foto[$key]) ? $file_name : (isset($artikel->detail[$key]) ? $artikel->detail[$key]->foto : null);
                                 $artikel->detail[$key]->foto = $file_name;
-                                $artikel->detail[$key]->title = $request->detail_b_title[$key] ?? '-';
-                                $artikel->detail[$key]->subtitle = $request->detail_b_subtitle[$key] ?? '-';
+                                $artikel->detail[$key]->title = $request->detail_b_title[$key] ?? null;
+                                $artikel->detail[$key]->subtitle = $request->detail_b_subtitle[$key] ?? null;
                                 $artikel->detail[$key]->save();
                             }
 
@@ -251,9 +246,9 @@ class ArtikelKlusterController extends Controller
                         foreach ($request->detail_c_title as $key => $title) {
                             ArtikelKlusterDetail::create([
                                 "artikel_kluster_id" => $artikel->id,
-                                "foto" => '-',
-                                "title" => $request->detail_c_title[$key] ?? '-',
-                                "subtitle" => $request->detail_c_subtitle[$key] ?? '-',
+                                "foto" => null,
+                                "title" => $request->detail_c_title[$key] ?? null,
+                                "subtitle" => $request->detail_c_subtitle[$key] ?? null,
                             ]);
                         }
 

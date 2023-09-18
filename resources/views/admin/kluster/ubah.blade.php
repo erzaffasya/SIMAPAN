@@ -47,13 +47,13 @@
                         <div class="col-lg-12">
                             <div class="form-group">
                                 <label>Judul</label>
-                                <input name="title" type="text" value="{{ $artikel->title }}" required>
+                                <input name="title" type="text" value="{{ $artikel->title }}">
                             </div>
                         </div>
                         <div class="col-lg-12">
                             <div class="form-group">
                                 <label>Sub Judul</label>
-                                <input name="subtitle" type="text" value="{{ $artikel->subtitle }}" required>
+                                <input name="subtitle" type="text" value="{{ $artikel->subtitle }}">
                             </div>
                         </div>
 
@@ -180,7 +180,7 @@
                                                 <div class="col-lg-11">
                                                     <div class="form-group">
                                                         <label>Deskripsi</label>
-                                                        <textarea class="form-control" rows="3" name="detail_c_description[]">{{ $detail->subtitle }}</textarea>
+                                                        <textarea class="form-control" rows="3" name="detail_c_subtitle[]">{{ $detail->subtitle }}</textarea>
                                                     </div>
                                                 </div>
                                             </div>
@@ -207,7 +207,7 @@
                                                 <div class="col-lg-11">
                                                     <div class="form-group">
                                                         <label>Deskripsi</label>
-                                                        <textarea class="form-control" rows="3" name="detail_c_description[]"></textarea>
+                                                        <textarea class="form-control" rows="3" name="detail_c_subtitle[]"></textarea>
                                                     </div>
                                                 </div>
                                             </div>

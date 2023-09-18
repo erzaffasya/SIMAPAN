@@ -30,11 +30,14 @@
                 <section>
                     <div class="container py-5">
                         <div class="row align-items-start justify-content-center">
-                            <div class="col-11 text-center order-1">
-                                <h4 class="text-success mb-2">{{ $artikel->title }}</h4>
-                                <p class="text-secondary fs-6 lh-lg">{{ $artikel->subtitle }}</p>
-                            </div>
-                            <div class="col-6 {{ $countartikel % 2 ? 'order-2' : 'order-3' }}">
+                            @if ($artikel->title != null)
+                                <div class="col-11 text-center order-1">
+                                    <h4 class="text-success mb-2">{{ $artikel->title }}</h4>
+                                    <p class="text-secondary fs-6 lh-lg">{{ $artikel->subtitle }}</p>
+                                </div>
+                            @endif
+                            <div
+                                class="{{ $artikel->description == null ? 'col-10' : 'col-6' }} {{ $countartikel % 2 ? 'order-2' : 'order-3' }}">
                                 <div class="slide-1-view">
                                     @forelse ($artikel->detail as $item)
                                         <figure class="mb-0">
@@ -51,9 +54,11 @@
                                     @endforelse
                                 </div>
                             </div>
-                            <div class="col-6 {{ $countartikel % 2 ? 'order-3' : 'order-2' }}">
-                                {!! $artikel->description !!}
-                            </div>
+                            @if ($artikel->description != null)
+                                <div class="col-6 {{ $countartikel % 2 ? 'order-3' : 'order-2' }}">
+                                    {!! $artikel->description !!}
+                                </div>
+                            @endif
                         </div>
                     </div>
                 </section>
@@ -164,7 +169,7 @@
                                                     class="accordion-collapse collapse" aria-labelledby="pg1"
                                                     data-bs-parent="#accordionExample">
                                                     <div class="accordion-body">
-                                                        {{ $item->description }}
+                                                        {{ $item->subtitle }}
                                                     </div>
                                                 </div>
                                             </div>

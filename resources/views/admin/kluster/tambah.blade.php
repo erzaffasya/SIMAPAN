@@ -45,13 +45,13 @@
                         <div class="col-lg-12">
                             <div class="form-group">
                                 <label>Judul</label>
-                                <input name="title" type="text" required>
+                                <input name="title" type="text">
                             </div>
                         </div>
                         <div class="col-lg-12">
                             <div class="form-group">
                                 <label>Sub Judul</label>
-                                <input name="subtitle" type="text" required>
+                                <input name="subtitle" type="text">
                             </div>
                         </div>
 
