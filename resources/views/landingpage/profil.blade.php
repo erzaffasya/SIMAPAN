@@ -33,7 +33,7 @@
         <div class="bg-reds bg-img-overlay item1-img py-5 mt-5">
             <div class="container">
                 <div class="text-center">
-                    <h1 class="fs-1 fw-bold text-white mb-4">INFORMASI KLUSTER ANAK</h1>
+                    <h1 class="fs-1 fw-bold text-white mb-4">INDIKATOR BALIKPAPAN MENUJU KOTA LAYAK ANAK</h1>
                 </div>
                 <div class="row justify-content-center">
                     <div class="col-6 col-lg-2 mb-2">

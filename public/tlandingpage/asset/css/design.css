@@ -205,6 +205,14 @@ main {
 #about-program {
     margin-top: -1.25rem;
 }
+#about-program .iklan-tentang{
+    border-radius: 1rem;
+}
+#about-program .iklan-tentang img{
+    width: 100%;
+    height: 100px!important;
+    object-fit: cover;
+}
 
 .card-artikel1 {
     transition: all 0.3s ease;
@@ -302,10 +310,23 @@ main {
     font-size: 0.9rem;
 }
 
+#ppatbm-program .card-hg-maps{
+    height: 350px;
+}
+#ppatbm-program .card-hg-maps img{
+    top:0; 
+    left:0;
+    z-index: 0;
+}
 #ppatbm-program .card-hg-maps figcaption {
+    z-index: 1;
     background: linear-gradient(180deg, rgba(0, 0, 0, 0.00) 36.98%, rgb(0, 0, 0, 0.7) 74.48%);
 }
-
+#aspirasi-section iframe{
+    width: 600px;
+    height: 450px;
+    border: 0;
+}
 footer {
     /* background-color: blue; */
     bottom: 0;
@@ -438,6 +459,163 @@ footer {
 }
 
 @media (max-width: 991.98px) {
+    .wa-widget {
+        z-index: 999;
+        right: 0.5rem!important;
+        bottom: 0.5rem!important;
+    }
+    
+    /*----------------------CUSTOM SIZE---------------------- */
+    p.fs-5{
+        font-size: 1rem!important;
+        margin-bottom: 0!important;
+    }
+    /*----------------------CUSTOM SIZE---------------------- */
+    .join-forumanak{
+        text-align: center;
+    }
+    .join-forumanak p{
+        margin-bottom: 0rem!important;
+    }
+
+    /*----------------------HEADER SLIDE---------------------- */
+    
+    #header-hero .logo-simapan{
+        height: 100px;
+        margin-bottom: 1rem;
+    }
+    #header-hero .header-title h1{
+        font-size: 1.5rem!important;
+        margin-left: 0!important;
+    }
+    #header-hero .header-title p{
+        font-size: 1rem!important;
+        margin-bottom: 1rem!important;
+    }
+    #header-hero .header-slide figure {
+        padding: 0 0.25rem!important;
+    }
+    #header-hero .header-slide figure img{
+        width: 300px!important;
+        height: 300px!important;
+    }
+    #header-hero .crop-slider-top,
+    #header-hero .crop-slider-bottom {
+        position: absolute;
+        display: block;
+        width: 200%!important;
+        left: -100%;
+        right: -100%;
+        z-index: 99;
+        margin: 0 auto!important;
+    }
+    #header-hero .crop-slider-top {
+        top: -1px;
+    }
+    #header-hero .crop-slider-bottom {
+        bottom: -0.5rem;
+    }
+    /*----------------------HEADER SLIDE---------------------- */
+
+
+    /*----------------------ABOUT PROGRAM---------------------- */
+    #about-program > .bg-blues{
+        padding: 1.5rem 0!important;
+    }
+    #about-program iframe.yt-tentang{
+        height: 300px!important;
+        margin-bottom: 0.5rem;
+    }
+    #about-program .desc-tentang{
+        font-size: 1rem!important;
+        line-height: 1.75rem!important;
+    }
+    #about-program .iklan-tentang{
+        margin: auto 0.75rem!important;
+    }
+    #about-program .iklan-tentang img{
+        height: 100px!important;
+    }
+    #about-program .about-program-layanan{
+        margin-bottom: 1rem;
+        padding: 0 1rem;
+    }
+    #about-program .about-program-layanan > div.col-5{
+        margin: 0.5rem 0;
+        justify-content: start!important;
+    }
+    /*----------------------ABOUT PROGRAM---------------------- */
+
+
+    /*----------------------HIGHLIGHT FORUMANAK & PARENTING---------------------- */
+    #highlight-forumanak > .py-5,
+    #highlight-parenting > .py-5{
+        padding: 1.5rem 0!important;
+    }
+    #highlight-forumanak .col-11:nth-of-type(1){
+        text-align: center;
+    }
+    #highlight-forumanak .col-11 .fs-5.text-secondary{
+        margin-bottom: 1.25rem!important;
+    }
+    #highlight-forumanak .card-artikel1 img,
+    #highlight-parenting .card-artikel1 img{
+        height: 275px!important;
+    }
+    #highlight-forumanak .card-artikel1 figcaption p,
+    #highlight-parenting .card-artikel1 figcaption p{
+        font-size: 1rem!important;
+    }
+    #highlight-parenting > .container > .d-flex{
+        padding: 0 1rem!important;
+    }
+    /*----------------------HIGHLIGHT FORUMANAK---------------------- */
+
+
+    /*----------------------PPATBM PROGRAM---------------------- */
+    #ppatbm-program > .py-5{
+        padding: 1.5rem 0!important;
+    }
+    #ppatbm-program .maps-ppatbm figure{
+        height: 300px!important;
+    }
+    #ppatbm-program .maps-ppatbm figure figcaption p{
+        font-size: 1rem!important;
+        margin-bottom: 1.25rem!important;
+    }
+    #ppatbm-program .keg-ppatbm .card img{
+        height: 240px!important;
+    }
+    #ppatbm-program .keg-ppatbm .card .card-body{
+        padding: 1rem 0.75rem;
+    }
+    #ppatbm-program .keg-ppatbm .card .card-body p{
+        font-size: 1rem!important;
+        margin-bottom: 0!important;
+    }
+    /*----------------------PPATBM PROGRAM---------------------- */
+    
+
+    /*----------------------ASPIRASI---------------------- */
+    #aspirasi-section > .py-5{
+        padding: 1.5rem 0!important;
+    }
+    #aspirasi-section form{
+        margin-top: 1.25rem;
+        font-size: 1.1rem!important;
+    }
+    #aspirasi-section iframe{
+         width: 100%!important;
+         height: 275px!important;
+         margin-top: 1rem!important;
+    }
+    #aspirasi-section .form-control-lg,
+    #aspirasi-section form .btn{
+        font-size: 1rem!important;
+    }
+    /*----------------------ASPIRASI---------------------- */
+
+
     .nav-top{
         z-index: 102;
     }
@@ -500,90 +678,161 @@ footer {
 }
 
 @media (max-width: 767.98px) {
-    #artikel-detail .artikel-head-img{
-        height: 300px;
-    }
-    #aspirasi-section iframe{
-        width: 100%!important;
-        height: 250px!important;
-        margin-top: 1rem!important;
-    }
-
-    #ppatbm-program .keg-ppatbm img{
-        height: 200px!important;
-    }
-    #ppatbm-program .maps-ppatbm figure{
-        height: 270px!important;
-    }
-    #ppatbm-program .maps-ppatbm figure figcaption p{
-        font-size: 1rem!important;
-        margin-bottom: 1.25rem!important;
-    }
-
-    #highlight-forumanak .col-11{
-        text-align: center;
-    }
-    #highlight-forumanak .col-11 .fs-5.text-secondary{
-        font-size: 1rem!important;
-        margin-bottom: 1.25rem!important;
-    }
-
-    #about-program iframe.yt-tentang{
-        height: 200px!important;
-        margin-bottom: 0.5rem;
-    }
-    #about-program .desc-tentang{
-        font-size: 1rem!important;
-        line-height: 1.5rem!important;
-    }
-    #about-program .iklan-tentang{
-        margin: auto 0.75rem!important;
-    }
-    #about-program .iklan-tentang img{
-        height: 70px!important;
-    }
-
     .wa-widget {
         z-index: 999;
+        right: 0.5rem!important;
+        bottom: 0.5rem!important;
     }
     
-    .header-slide figure {
-        padding: 0 0.5rem!important;
+    /*----------------------CUSTOM SIZE---------------------- */
+    p.fs-5{
+        font-size: 1rem!important;
+        margin-bottom: 0!important;
     }
-    .header-slide figure img{
-        width: 220px!important;
-        height: 180px!important;
+    /*----------------------CUSTOM SIZE---------------------- */
+    .join-forumanak{
+        text-align: center;
     }
-    .crop-slider-top,
-    .crop-slider-bottom {
-        position: absolute;
-        display: block;
-        width: 250%!important;
-        left: -125%;
-        right: -125%;
-        z-index: 99;
-        margin: 0 auto!important;
+    .join-forumanak p{
+        margin-bottom: 0.5rem!important;
     }
-    
-    .crop-slider-top {
-        top: -0.1rem;
-    }
-    
-    .crop-slider-bottom {
-        bottom: 0;
-    }
+
+    /*----------------------HEADER SLIDE---------------------- */
     
     #header-hero .logo-simapan{
-        height: 90px;
-        margin-bottom: 0.5rem;
+        height: 100px;
+        margin-bottom: 1rem;
     }
     #header-hero .header-title h1{
         font-size: 1.5rem!important;
+        margin-left: 0!important;
     }
     #header-hero .header-title p{
         font-size: 1rem!important;
         margin-bottom: 1rem!important;
     }
+    #header-hero .header-slide figure {
+        padding: 0 0.25rem!important;
+    }
+    #header-hero .header-slide figure img{
+        width: 250px!important;
+        height: 250px!important;
+    }
+    #header-hero .crop-slider-top,
+    #header-hero .crop-slider-bottom {
+        position: absolute;
+        display: block;
+        width: 200%!important;
+        left: -100%;
+        right: -100%;
+        z-index: 99;
+        margin: 0 auto!important;
+    }
+    #header-hero .crop-slider-top {
+        top: -1px;
+    }
+    #header-hero .crop-slider-bottom {
+        bottom: -3px;
+    }
+    /*----------------------HEADER SLIDE---------------------- */
+
+
+    /*----------------------ABOUT PROGRAM---------------------- */
+    #about-program > .bg-blues{
+        padding: 1.5rem 0!important;
+    }
+    #about-program iframe.yt-tentang{
+        height: 250px!important;
+        margin-bottom: 0.5rem;
+    }
+    #about-program .desc-tentang{
+        font-size: 1rem!important;
+        line-height: 1.75rem!important;
+    }
+    #about-program .iklan-tentang{
+        margin: auto 0.75rem!important;
+    }
+    #about-program .iklan-tentang img{
+        height: 80px!important;
+    }
+    #about-program .about-program-layanan{
+        margin-bottom: 1rem;
+        padding: 0 1rem;
+    }
+    #about-program .about-program-layanan > div.col-5{
+        margin: 0.5rem 0;
+        justify-content: start!important;
+    }
+    /*----------------------ABOUT PROGRAM---------------------- */
+
+
+    /*----------------------HIGHLIGHT FORUMANAK & PARENTING---------------------- */
+    #highlight-forumanak > .py-5,
+    #highlight-parenting > .py-5{
+        padding: 1.5rem 0!important;
+    }
+    #highlight-forumanak .col-11:nth-of-type(1){
+        text-align: center;
+    }
+    #highlight-forumanak .col-11 .fs-5.text-secondary{
+        margin-bottom: 1.25rem!important;
+    }
+    #highlight-forumanak .card-artikel1 img,
+    #highlight-parenting .card-artikel1 img{
+        height: 275px!important;
+    }
+    #highlight-forumanak .card-artikel1 figcaption p,
+    #highlight-parenting .card-artikel1 figcaption p{
+        font-size: 1rem!important;
+    }
+    #highlight-parenting > .container > .d-flex{
+        padding: 0 1rem!important;
+    }
+    /*----------------------HIGHLIGHT FORUMANAK---------------------- */
+
+
+    /*----------------------PPATBM PROGRAM---------------------- */
+    #ppatbm-program > .py-5{
+        padding: 1.5rem 0!important;
+    }
+    #ppatbm-program .maps-ppatbm figure{
+        height: 300px!important;
+    }
+    #ppatbm-program .maps-ppatbm figure figcaption p{
+        font-size: 1rem!important;
+        margin-bottom: 1.25rem!important;
+    }
+    #ppatbm-program .keg-ppatbm .card img{
+        height: 240px!important;
+    }
+    #ppatbm-program .keg-ppatbm .card .card-body{
+        padding: 1rem 0.75rem;
+    }
+    #ppatbm-program .keg-ppatbm .card .card-body p{
+        font-size: 1rem!important;
+        margin-bottom: 0!important;
+    }
+    /*----------------------PPATBM PROGRAM---------------------- */
+    
+
+    /*----------------------ASPIRASI---------------------- */
+    #aspirasi-section > .py-5{
+        padding: 1.5rem 0!important;
+    }
+    #aspirasi-section form{
+        margin-top: 1.25rem;
+        font-size: 1.1rem!important;
+    }
+    #aspirasi-section iframe{
+         width: 100%!important;
+         height: 275px!important;
+         margin-top: 1rem!important;
+    }
+    #aspirasi-section .form-control-lg,
+    #aspirasi-section form .btn{
+        font-size: 1rem!important;
+    }
+    /*----------------------ASPIRASI---------------------- */
 
     .nav-top{
         z-index: 102;
@@ -661,31 +910,70 @@ footer {
 }
 
 @media (max-width: 575.98px) {
-    #aspirasi-section iframe{
-        width: 100%!important;
-        height: 250px!important;
-        margin-top: 1rem!important;
+    .wa-widget {
+        z-index: 999;
+        right: 0.5rem!important;
+        bottom: 0.5rem!important;
     }
-
-    #ppatbm-program .keg-ppatbm img{
-        height: 200px!important;
+    
+    /*----------------------CUSTOM SIZE---------------------- */
+    p.fs-5{
+        font-size: 0.9rem!important;
+        margin-bottom: 0!important;
     }
-    #ppatbm-program .maps-ppatbm figure{
-        height: 270px!important;
-    }
-    #ppatbm-program .maps-ppatbm figure figcaption p{
-        font-size: 1rem!important;
-        margin-bottom: 1.25rem!important;
-    }
-
-    #highlight-forumanak .col-11{
+    /*----------------------CUSTOM SIZE---------------------- */
+    .join-forumanak{
         text-align: center;
     }
-    #highlight-forumanak .col-11 .fs-5.text-secondary{
-        font-size: 1rem!important;
-        margin-bottom: 1.25rem!important;
+    .join-forumanak p{
+        margin-bottom: 0.5rem!important;
     }
 
+    /*----------------------HEADER SLIDE---------------------- */
+    
+    #header-hero .logo-simapan{
+        height: 75px;
+        margin-bottom: 0.5rem;
+    }
+    #header-hero .header-title h1{
+        font-size: 1.25rem!important;
+        margin-left: 0!important;
+    }
+    #header-hero .header-title p{
+        font-size: 0.9rem!important;
+        margin-bottom: 1rem!important;
+    }
+    #header-hero .header-slide figure {
+        padding: 0 0.5rem!important;
+    }
+    #header-hero .header-slide figure img{
+        width: 220px!important;
+        height: 200px!important;
+    }
+    #header-hero .crop-slider-top,
+    #header-hero .crop-slider-bottom {
+        position: absolute;
+        display: block;
+        width: 250%!important;
+        left: -125%;
+        right: -125%;
+        z-index: 99;
+        margin: 0 auto!important;
+    }
+    #header-hero .crop-slider-top {
+        top: -0.1rem;
+    }
+    
+    #header-hero .crop-slider-bottom {
+        bottom: 0;
+    }
+    /*----------------------HEADER SLIDE---------------------- */
+
+
+    /*----------------------ABOUT PROGRAM---------------------- */
+    #about-program > .bg-blues{
+        padding: 1.5rem 0!important;
+    }
     #about-program iframe.yt-tentang{
         height: 200px!important;
         margin-bottom: 0.5rem;
@@ -700,49 +988,86 @@ footer {
     #about-program .iklan-tentang img{
         height: 70px!important;
     }
+    #about-program .about-program-layanan{
+        margin-bottom: 1rem;
+    }
+    #about-program .about-program-layanan > div.col-5{
+        margin: 0.5rem 0;
+        padding: 0!important;
+        justify-content: start!important;
+    }
+    /*----------------------ABOUT PROGRAM---------------------- */
 
-    .wa-widget {
-        z-index: 999;
+
+    /*----------------------HIGHLIGHT FORUMANAK & PARENTING---------------------- */
+    #highlight-forumanak > .py-5,
+    #highlight-parenting > .py-5{
+        padding: 1.5rem 0!important;
     }
-    
-    .header-slide figure {
-        padding: 0 0.5rem!important;
+    #highlight-forumanak .col-11:nth-of-type(1){
+        text-align: center;
     }
-    .header-slide figure img{
-        width: 220px!important;
-        height: 180px!important;
+    #highlight-forumanak .col-11 .fs-5.text-secondary{
+        margin-bottom: 1.25rem!important;
     }
-    .crop-slider-top,
-    .crop-slider-bottom {
-        position: absolute;
-        display: block;
-        width: 250%!important;
-        left: -125%;
-        right: -125%;
-        z-index: 99;
-        margin: 0 auto!important;
+    #highlight-forumanak .card-artikel1 img,
+    #highlight-parenting .card-artikel1 img{
+        height: 250px!important;
     }
-    
-    .crop-slider-top {
-        top: -0.1rem;
-    }
-    
-    .crop-slider-bottom {
-        bottom: 0;
-    }
-    
-    #header-hero .logo-simapan{
-        height: 75px;
-        margin-bottom: 0.5rem;
-    }
-    #header-hero .header-title h1{
-        font-size: 1.25rem!important;
-    }
-    #header-hero .header-title p{
+    #highlight-forumanak .card-artikel1 figcaption p,
+    #highlight-parenting .card-artikel1 figcaption p{
         font-size: 0.9rem!important;
-        margin-bottom: 1rem!important;
     }
+    #highlight-parenting > .container > .d-flex{
+        padding: 0 1rem!important;
+    }
+    /*----------------------HIGHLIGHT FORUMANAK---------------------- */
 
+
+    /*----------------------PPATBM PROGRAM---------------------- */
+    #ppatbm-program > .py-5{
+        padding: 1.5rem 0!important;
+    }
+    #ppatbm-program .maps-ppatbm figure{
+        height: 270px!important;
+    }
+    #ppatbm-program .maps-ppatbm figure figcaption p{
+        font-size: 0.9rem!important;
+        margin-bottom: 1.25rem!important;
+    }
+    #ppatbm-program .keg-ppatbm .card img{
+        height: 220px!important;
+    }
+    #ppatbm-program .keg-ppatbm .card .card-body{
+        padding: 0.75rem 0.5rem;
+    }
+    #ppatbm-program .keg-ppatbm .card .card-body p{
+        font-size: 0.9rem!important;
+        margin-bottom: 0!important;
+    }
+    /*----------------------PPATBM PROGRAM---------------------- */
+    
+
+    /*----------------------ASPIRASI---------------------- */
+    #aspirasi-section > .py-5{
+        padding: 1.5rem 0!important;
+    }
+    #aspirasi-section form{
+        margin-top: 1rem;
+        font-size: 1rem!important;
+    }
+    #aspirasi-section iframe{
+         width: 100%!important;
+         height: 250px!important;
+         margin-top: 1rem!important;
+    }
+    #aspirasi-section .form-control-lg,
+    #aspirasi-section form .btn{
+        font-size: 1rem!important;
+    }
+    /*----------------------ASPIRASI---------------------- */
+
+    
     .nav-top{
         z-index: 102;
     }

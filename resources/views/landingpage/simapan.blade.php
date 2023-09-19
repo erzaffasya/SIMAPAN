@@ -51,19 +51,19 @@
         <div class="bg-blues bg-img-overlay item1-img py-5">
             <div class="container">
                 <div class="row justify-content-center align-items-center">
-                    <div class="col-12 col-lg-5">
+                    <div class="col-11 col-sm-12 col-md-10 col-lg-5">
                         <iframe width="100%" height="315" class="yt-tentang rounded"
                             src="{{ $tentang->video ?? '' }}" title="YouTube video player" frameborder="0"
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                             allowfullscreen></iframe>
                     </div>
-                    <div class="col-12 col-lg-6">
+                    <div class="col-11 col-sm-12 col-md-10 col-lg-6">
                         <h1 class="fs-2 text-white fw-normal">Tentang SIMAPAN</h1>
                         <p class="fs-5 desc-tentang text-white lh-lg">{{ $tentang->tentang ?? '' }}</p>
                     </div>
                 </div>
-                <div class="row gy-2 mt-2 justify-content-center">
-                    <div class="col-6 col-lg-4 d-flex justify-content-center align-items-center">
+                <div class="row gy-2 mt-2 justify-content-center about-program-layanan">
+                    <div class="col-5 col-sm-6 col-md-5 col-lg-4 d-flex justify-content-center align-items-center">
                         <a href="https://play.google.com/store/apps/details?id=com.laporint.lapor_int"
                             class="text-decoration-none d-flex">
                             <img src="{{ asset('tlandingpage/asset/img/call-incoming.png') }}" height="30px"
@@ -71,35 +71,35 @@
                             <p class="fs-5 fw-bold text-white">Apps Mobile TOPAN</p>
                         </a>
                     </div>
-                    <div class="col-6 col-lg-4 d-flex justify-content-center align-items-center">
+                    <div class="col-5 col-sm-6 col-md-5 col-lg-4 d-flex justify-content-center align-items-center">
                         <a href="https://wa.me/62816220077" class="text-decoration-none d-flex">
                             <img src="{{ asset('tlandingpage/asset/img/clipboard.png') }}" height="30px"
                                 alt="" class="me-3">
                             <p class="fs-5 fw-bold text-white">Konsultasi Psikolog</p>
                         </a>
                     </div>
-                    <div class="col-6 col-lg-4 d-flex justify-content-center align-items-center">
+                    <div class="col-5 col-sm-6 col-md-5 col-lg-4 d-flex justify-content-center align-items-center">
                         <a href="/artikel-kantor" class="text-decoration-none d-flex">
                             <img src="{{ asset('tlandingpage/asset/img/clipboard.png') }}" height="30px"
                                 alt="" class="me-3">
                             <p class="fs-5 fw-bold text-white">Kegiatan PPATBM</p>
                         </a>
                     </div>
-                    <div class="col-6 col-lg-4 d-flex justify-content-center align-items-center">
+                    <div class="col-5 col-sm-6 col-md-5 col-lg-4 d-flex justify-content-center align-items-center">
                         <a href="https://wa.me/62816220077" class="text-decoration-none d-flex">
                             <img src="{{ asset('tlandingpage/asset/img/shield.png') }}" height="30px" alt=""
                                 class="me-3">
                             <p class="fs-5 fw-bold text-white">Konsultasi Hukum KTA</p>
                         </a>
                     </div>
-                    <div class="col-6 col-lg-4 d-flex justify-content-center align-items-center">
+                    <div class="col-5 col-sm-6 col-md-5 col-lg-4 d-flex justify-content-center align-items-center">
                         <a href="/forum" class="text-decoration-none d-flex">
                             <img src="{{ asset('tlandingpage/asset/img/note-text.png') }}" height="30px"
                                 alt="" class="me-3">
                             <p class="fs-5 fw-bold text-white">Forum Anak</p>
                         </a>
                     </div>
-                    <div class="col-6 col-lg-4 d-flex justify-content-center align-items-center">
+                    <div class="col-5 col-sm-6 col-md-5 col-lg-4 d-flex justify-content-center align-items-center">
                         <a href="#highlight-parenting" class="text-decoration-none d-flex">
                             <img src="{{ asset('tlandingpage/asset/img/note-text.png') }}" height="30px"
                                 alt="" class="me-3">
@@ -107,16 +107,10 @@
                         </a>
                     </div>
                 </div>
-                <div class="row justify-content-center iklan-tentang rounded align-items-center mt-3 bg-white p-0 "
-                    style="border-radius: 1rem;">
-                    <div class="col-12 col-lg-6">
-                        <img src="https://layanan112.kominfo.go.id/images/logo/logo.png" width="100%"
-                            alt="" style="height: 100px; object-fit: center;">
-                        {{-- <p class="fw-bold fs-5 text-white mb-0">Layanan Pusat Panggilan Darurat Kota Balikpapan</p> --}}
+                <div class="row justify-content-center iklan-tentang rounded align-items-center mt-3 bg-white p-0 ">
+                    <div class="col-12 col-sm-12 col-md-10 col-lg-6">
+                        <img src="https://layanan112.kominfo.go.id/images/logo/logo.png">
                     </div>
-                    {{-- <div class="col-2">
-                        <a href="#" class="btn btn-light btn-lg w-100 text-danger fw-bold">Call 112</a>
-                    </div> --}}
                 </div>
             </div>
         </div>
@@ -135,7 +129,7 @@
                         Artikel</a>
                 </div>
                 @foreach ($forumArtikel as $item)
-                    <div class="col-10 col-lg-3 mb-3">
+                    <div class="col-11 col-sm-11 col-md-6 col-lg-3 mb-3">
                         <a class="card-artikel1" href="{{ route('landingpage.artikeldetail', $item->slug) }}">
                             <figure class="shadow-lg mb-0 position-relative overflow-hidden">
                                 <img src="{{ asset("storage/img/forum_artikel/$item->id_kategori_artikel/$item->foto") }}"
@@ -150,17 +144,17 @@
                         </a>
                     </div>
                 @endforeach
-                <div class="col-10 d-none-lg">
+                <div class="col-10 col-sm-10 col-md-8 d-none-lg">
                     <a href="{{ route('landingpage.artikel') }}"
                         class="d-lg-none btn btn-outline-primary w-100">Lihat Semua
                         Artikel</a>
                 </div>
             </div>
-            <div class="row mt-4 justify-content-between bg-primary rounded align-items-center p-3">
-                <div class="col-12 col-lg-auto">
+            <div class="join-forumanak row mt-4 justify-content-between bg-primary rounded align-items-center p-3">
+                <div class="col-12 col-sm-12 col-md-8 col-lg-auto">
                     <p class="fw-bold fs-5 text-white mb-0">Tulis Artikelmu sebagai Forum Komunitas Anak</p>
                 </div>
-                <div class="col-12 col-lg-2">
+                <div class="col-12 col-sm-12 col-md-4 col-lg-2">
                     <a href="#" class="btn btn-light w-100 text-primary">Gabung Disini</a>
                 </div>
             </div>
@@ -172,10 +166,10 @@
             <div class="row justify-content-center">
                 <div class="maps-ppatbm col-11 col-lg-8">
                     <h1 class="fs-3 mb-3">Maps Pemetaan</h1>
-                    <figure class="card-hg-maps position-relative rounded" style="height: 350px;">
+                    <figure class="card-hg-maps position-relative rounded">
                         <img src="{{ asset('tlandingpage/asset/img/maps-mockup.jpg') }}" alt=""
-                            class="w-100 rounded h-100 position-absolute" style="top:0; left:0;z-index: 0;">
-                        <figcaption class="position-relative h-100 d-flex align-items-end" style="z-index: 1;">
+                            class="w-100 rounded h-100 position-absolute">
+                        <figcaption class="position-relative h-100 d-flex align-items-end">
                             <div class="row align-items-center px-2 py-3 m-0 w-100">
                                 <div class="col-12 col-lg">
                                     <h1 class="fs-2 fw-normal text-white">Peta Pemetaan PPATBM</h1>
@@ -233,7 +227,7 @@
             </div>
             <div class="row align-items-center justify-content-center">
                 @foreach ($forumArtikelParenting as $item)
-                    <div class="col-10 col-lg-3 mb-3">
+                    <div class="col-11 col-lg-3 mb-3">
                         <a class="card-artikel1" href="{{ route('landingpage.artikeldetail', $item->slug) }}">
                             <figure class="shadow-lg mb-0 position-relative overflow-hidden">
                                 <img src="{{ asset("storage/img/forum_artikel/$item->id_kategori_artikel/$item->foto") }}"
@@ -391,9 +385,9 @@
                 </div>
                 <div class="col-11 col-lg-5">
                     <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.8562234475207!2d116.86530067445288!3d-1.258285535595073!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2df1468c55555555%3A0x9876be7af3580494!2sDinas%20Pemberdayaan%20Perempuan%20Perlindungan%20Anak%20dan%20Keluarga%20Berencana%20(DP3AKB)%20Kota%20Balikpapan!5e0!3m2!1sid!2sid!4v1690004492153!5m2!1sid!2sid"
-                        width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
-                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.8562234475207!2d116.86530067445288!3d-1.258285535595073!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2df1468c55555555%3A0x9876be7af3580494!2sDinas%20Pemberdayaan%20Perempuan%20Perlindungan%20Anak%20dan%20Keluarga%20Berencana%20(DP3AKB)%20Kota%20Balikpapan!5e0!3m2!1sid!2sid!4v1690004492153!5m2!1sid!2sid" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
                 </div>
             </div>
         </div>
