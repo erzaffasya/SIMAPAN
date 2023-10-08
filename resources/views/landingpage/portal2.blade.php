@@ -5,6 +5,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="{{ asset('tlandingpage/asset/img/logo-3.png') }}">
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
@@ -45,7 +46,7 @@
           </figcaption>
         </figure>
       </div>
-      <div class="card-bidang card-portal-2 col-md-4 col-sm-12 col-12">
+      <div class="active-portal card-bidang card-portal-2 col-md-4 col-sm-12 col-12">
         <figure class="h-100 position-relative text-white">
           <img src="{{asset('tlandingpage/asset/img/p2-3.jpg')}}" alt="">
           <figcaption class="p-4 d-flex flex-column justify-content-end text-center">

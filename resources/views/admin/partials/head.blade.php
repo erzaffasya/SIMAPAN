@@ -8,7 +8,7 @@
 <title>DASHBOARD | SIMAPAN</title>
 
 <!-- Favicon -->
-<link rel="shortcut icon" type="image/x-icon" href="{{ asset('tadmin/assets/img/favicon.png') }}">
+<link rel="shortcut icon" type="image/x-icon" href="{{ asset('tadmin/assets/img/favicon.ico') }}">
 
 <!-- Bootstrap CSS -->
 <link rel="stylesheet" href="{{ asset('tadmin/assets/css/bootstrap.min.css') }}">

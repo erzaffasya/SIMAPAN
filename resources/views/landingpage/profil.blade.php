@@ -116,7 +116,7 @@
         <div class="container py-5">
             <div class="row align-items-center">
                 <div class="col-12 col-lg-6">
-                    <img src="{{ asset('storage/img/kelembagaan/' . $kelembagaan->foto ?? null) }}" class="w-100"
+                    <img src="{{ asset('storage/img/kelembagaan/' . $kelembagaan->foto) }}" class="w-100"
                         height="370px" alt="">
                 </div>
                 <div class="col-12 col-lg-6">

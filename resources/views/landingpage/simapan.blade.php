@@ -155,7 +155,7 @@
                     <p class="fw-bold fs-5 text-white mb-0">Tulis Artikelmu sebagai Forum Komunitas Anak</p>
                 </div>
                 <div class="col-12 col-sm-12 col-md-4 col-lg-2">
-                    <a href="#" class="btn btn-light w-100 text-primary">Gabung Disini</a>
+                    <a href="{{route('login')}}" class="btn btn-light w-100 text-primary">Gabung Disini</a>
                 </div>
             </div>
         </div>

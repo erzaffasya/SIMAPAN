@@ -5297,6 +5297,7 @@ span.select2-container.select2-container--default.select2-container--open {
 }
 
 .customizer-links {
+  display: none;
   position: fixed;
   top: 50%;
   right: 0;

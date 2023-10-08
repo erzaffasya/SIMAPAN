@@ -5,6 +5,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="{{ asset('tlandingpage/asset/img/logo-3.png') }}">
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
@@ -36,21 +37,21 @@
             </figure>
         </section>
         <div id="portal-1" class="row gx-0 align-items-md-stretch h-100">
-            <div class="card-bidang card-portal-1 col-md-3 col-sm-6 col-12">
+            <div class="active-portal card-bidang card-portal-1 col-lg-24 col-md-4 col-sm-6 col-12">
                 <figure class="h-100 position-relative text-white">
                     <img src="{{asset('tlandingpage/asset/img/p1-1.jpg')}}" alt="">
                     <figcaption class="p-4 d-flex flex-column justify-content-end text-center">
-                        <h1>Bidang PA</h1>
+                        <h2>Bidang PA</h2>
                         <p class="fs-5">Perlindungan Anak</p>
                         <a href="{{url('/portal')}}" class="mt-3 btn btn-lg py-2 rounded-2 btn-outline-light" type="button" disabled>Kunjungi</a>
                     </figcaption>
                 </figure>
             </div>
-            <div class="card-bidang card-portal-1 col-md-3 col-sm-6 col-12">
+            <div class="card-bidang card-portal-1 col-lg-24 col-md-4 col-sm-6 col-12">
                 <figure class="h-100 position-relative text-white">
                     <img src="{{asset('tlandingpage/asset/img/p1-2.jpg')}}" alt="">
                     <figcaption class="p-4 d-flex flex-column justify-content-end text-center">
-                        <h1>Bidang P3</h1>
+                        <h2>Bidang P3</h2>
                         <p class="fs-5">Pemberdayaan dan Perlindungan Perempuan</p>
                         <a href="#" class="mt-3 btn btn-lg py-2 rounded-2 btn-outline-light" type="button" disabled>
                             <i class="fa-solid fa-lock"></i>    
@@ -59,11 +60,11 @@
                     </figcaption>
                 </figure>
             </div>
-            <div class="card-bidang card-portal-1 col-md-3 col-sm-6 col-12">
+            <div class="card-bidang card-portal-1 col-lg-24 col-md-4 col-sm-6 col-12">
                 <figure class="h-100 position-relative text-white">
                     <img src="{{asset('tlandingpage/asset/img/p1-3.jpg')}}" alt="">
                     <figcaption class="p-4 d-flex flex-column justify-content-end text-center">
-                        <h1>Bidang KK</h1>
+                        <h2>Bidang KK</h2>
                         <p class="fs-5">Ketahanan Keluarga</p>
                         <a href="#" class="mt-3 btn btn-lg py-2 rounded-2 btn-outline-light" type="button" disabled>
                             <i class="fa-solid fa-lock"></i>    
@@ -72,16 +73,26 @@
                     </figcaption>
                 </figure>
             </div>
-            <div class="card-bidang card-portal-1 col-md-3 col-sm-6 col-12">
+            <div class="card-bidang card-portal-1 col-lg-24 col-md-6 col-sm-6 col-12">
                 <figure class="h-100 position-relative text-white">
                     <img src="{{asset('tlandingpage/asset/img/p1-4.jpg')}}" alt="">
                     <figcaption class="p-4 d-flex flex-column justify-content-end text-center">
-                        <h1>Bidang KB</h1>
+                        <h2>Bidang KB</h2>
                         <p class="fs-5">Keluarga Berencana</p>
                         <a href="#" class="mt-3 btn btn-lg py-2 rounded-2 btn-outline-light" type="button" disabled>
                             <i class="fa-solid fa-lock"></i>    
                             <span class="ms-2">Kunjungi</span>
                         </a>
+                    </figcaption>
+                </figure>
+            </div>
+            <div class="active-portal card-bidang card-portal-1 col-lg-24 col-md-6 col-sm-12 col-12">
+                <figure class="h-100 position-relative text-white">
+                    <img src="{{asset('tlandingpage/asset/img/p1-5.jpeg')}}" alt="">
+                    <figcaption class="p-4 d-flex flex-column justify-content-end text-center">
+                        <h2>Sekretariat</h2>
+                        <p class="fs-5">Struktur Sekretariat</p>
+                        <a href="#" class="mt-3 btn btn-lg py-2 rounded-2 btn-outline-light" type="button" disabled>Kunjungi</a>
                     </figcaption>
                 </figure>
             </div>
