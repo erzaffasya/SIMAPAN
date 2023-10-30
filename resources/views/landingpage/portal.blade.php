@@ -47,14 +47,15 @@
                     </figcaption>
                 </figure>
             </div>
-            <div class="card-bidang card-portal-1 col-lg-24 col-md-4 col-sm-6 col-12">
-                <figure class="h-100 position-relative text-white">
+            <div class="active-portal card-bidang card-portal-1 col-lg-24 col-md-6 col-sm-12 col-12">
+                
+                <figure class="h-100  position-relative text-white">
                     <img src="{{asset('tlandingpage/asset/img/p1-2.jpg')}}" alt="">
                     <figcaption class="p-4 d-flex flex-column justify-content-end text-center">
                         <h2>Bidang P3</h2>
                         <p class="fs-5">Pemberdayaan dan Perlindungan Perempuan</p>
-                        <a href="#" class="mt-3 btn btn-lg py-2 rounded-2 btn-outline-light" type="button" disabled>
-                            <i class="fa-solid fa-lock"></i>    
+                        <a href="#" target="_blank" class="mt-3 btn btn-lg py-2 rounded-2 btn-outline-light" type="button">
+                           
                             <span class="ms-2">Kunjungi</span>
                         </a>
                     </figcaption>
