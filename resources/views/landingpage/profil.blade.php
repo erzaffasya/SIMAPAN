@@ -157,4 +157,252 @@
             </div>
         </div>
     </section>
+    {{-- <section id="chart-section">
+        <div class="container py-5">
+            <h1 class="fs-2 fw-bold mb-3 text-center">Statistik Anak Balikpapan</h1>
+            <div class="row">
+                <!-- Bar Chart Canvas -->
+                <div class="col-lg-6 mb-4">
+                    <canvas id="barChart" width="400" height="400"></canvas>
+                </div>
+                <!-- Donut Chart Canvas -->
+                <div class="col-lg-6 mb-4">
+                    <canvas id="donutChart" width="400" height="400"></canvas>
+                </div>
+            </div>
+        </div>
+    </section> --}}
+    <section id="chart-section">
+        <div class="container py-5">
+            <h1 class="fs-2 fw-bold mb-5 text-center text-uppercase">Statistik Kasus</h1>
+            <div class="row">
+                <!-- Bar Chart Canvas for KDRT/NON KDRT -->
+                <div class="col-lg-6 mb-4">
+                    <h5>Grafik KDRT/NON KDRT</h5>
+                    <canvas id="barChartKDRT" width="400" height="150"></canvas>
+                </div>
+                <!-- Bar Chart Canvas for Age Groups -->
+                <div class="col-lg-6 mb-4">
+                    <h5>Grafik Total Kasus</h5>
+                    <canvas id="barChartAge" width="400" height="150"></canvas>
+                </div>
+            </div>
+            <div class="row">
+                <!-- Doughnut Chart Canvas for Types of Violence -->
+                <div class="col-lg-3 mb-4">
+                    <h5>Grafik Jenis Kekerasan</h5>
+                    <canvas id="donutChartType"></canvas>
+                </div>
+                <!-- Doughnut Chart Canvas for Types of Services -->
+                <div class="col-lg-3 mb-4">
+                    <h5>Grafik Jenis Layanan</h5>
+                    <canvas id="donutChartService"></canvas>
+                </div>
+                <!-- Doughnut Chart Canvas for District Locations -->
+                <div class="col-lg-3 mb-4">
+                    <h5>Grafik Perkecamatan</h5>
+                    <canvas id="donutChartDistrict"></canvas>
+                </div>
+                <!-- Doughnut Chart Canvas for Village Locations -->
+                <div class="col-lg-3 mb-4">
+                    <h5>Grafik Perkelurahan</h5>
+                    <canvas id="donutChartVillage"></canvas>
+                </div>
+                <div class="col-lg-12 mb-4">
+                    <h5>Grafik Pengaduan</h5>
+                    <canvas id="lineChartCases" height="80"></canvas>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    @push('scripts')
+        <script>
+            // Bar Chart for KDRT / NON KDRT Cases
+            var ctxBarKDRT = document.getElementById('barChartKDRT').getContext('2d');
+            var barChartKDRT = new Chart(ctxBarKDRT, {
+                type: 'bar',
+                data: {
+                    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Des'],
+                    datasets: [
+                        {
+                            label: 'KDRT',
+                            data: [12, 19, 3, 5, 2, 3, 9, 6, 7, 8, 5, 1],
+                            backgroundColor: 'rgba(54, 162, 235, 0.5)'
+                        },
+                        {
+                            label: 'NON KDRT',
+                            data: [7, 11, 5, 8, 3, 7, 2, 6, 9, 4, 6, 2],
+                            backgroundColor: 'rgba(255, 206, 86, 0.5)'
+                        }
+                    ]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+
+            // Bar Chart for Cases by Age Group
+            var ctxBarAge = document.getElementById('barChartAge').getContext('2d');
+            var barChartAge = new Chart(ctxBarAge, {
+                type: 'bar',
+                data: {
+                    labels: ['Dibawah 18 Tahun', 'Diatas 18 Tahun'],
+                    datasets: [
+                        {
+                            label: 'Kasus per Age Group',
+                            data: [33, 67],
+                            backgroundColor: ['rgba(75, 192, 192, 0.5)', 'rgba(153, 102, 255, 0.5)']
+                        }
+                    ]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+
+            // Doughnut Charts setup
+            var doughnutOptions = {
+                type: 'doughnut',
+            };
+
+            // Doughnut Chart for Types of Violence
+            var ctxDonutType = document.getElementById('donutChartType').getContext('2d');
+            var donutChartType = new Chart(ctxDonutType, Object.assign({}, doughnutOptions, {
+                data: {
+                    labels: ['Fisik', 'Psikis', 'Seksual', 'Eksploitasi', 'Perdagangan Orang', 'Penelantaran', 'Lainnya'],
+                    datasets: [{
+                        data: [12, 19, 3, 5, 2, 3, 4],
+                        backgroundColor: [
+                            'rgba(255, 99, 132, 0.5)',
+                            'rgba(54, 162, 235, 0.5)',
+                            'rgba(255, 206, 86, 0.5)',
+                            'rgba(75, 192, 192, 0.5)',
+                            'rgba(153, 102, 255, 0.5)',
+                            'rgba(255, 159, 64, 0.5)',
+                            'rgba(201, 203, 207, 0.5)'
+                        ]
+                    }]
+                },
+                options: {
+                    plugins: {
+                        legend: {
+                            display: false
+                        }
+                    }
+                },
+            }));
+
+            // Doughnut Chart for Types of Services
+            var ctxDonutService = document.getElementById('donutChartService').getContext('2d');
+            var donutChartService = new Chart(ctxDonutService, Object.assign({}, doughnutOptions, {
+                data: {
+                    labels: ['Layanan Pengaduan', 'Layanan Penjangkauan', 'Layanan Pendampingan Psikolog', 'Layanan Pendampingan Hukum', 'Layanan Pendampingan Medis', 'Layanan Mediasi', 'Layanan Penampungan Sementara'],
+                    datasets: [{
+                        data: [20, 25, 15, 10, 5, 13, 12],
+                        backgroundColor: [
+                            'rgba(255, 99, 132, 0.5)',
+                            'rgba(54, 162, 235, 0.5)',
+                            'rgba(255, 206, 86, 0.5)',
+                            'rgba(75, 192, 192, 0.5)',
+                            'rgba(153, 102, 255, 0.5)',
+                            'rgba(255, 159, 64, 0.5)',
+                            'rgba(201, 203, 207, 0.5)'
+                        ]
+                    }]
+                },
+                options: {
+                    plugins: {
+                        legend: {
+                            display: false
+                        }
+                    }
+                },
+            }));
+
+            // Doughnut Chart for District Locations
+            var ctxDonutDistrict = document.getElementById('donutChartDistrict').getContext('2d');
+            var donutChartDistrict = new Chart(ctxDonutDistrict, Object.assign({}, doughnutOptions, {
+                data: {
+                    labels: ['Kecamatan A', 'Kecamatan B', 'Kecamatan C', 'Kecamatan D'],
+                    datasets: [{
+                        data: [10, 20, 30, 40],
+                        backgroundColor: [
+                            'rgba(255, 99, 132, 0.5)',
+                            'rgba(54, 162, 235, 0.5)',
+                            'rgba(255, 206, 86, 0.5)',
+                            'rgba(75, 192, 192, 0.5)'
+                        ]
+                    }]
+                },
+                options: {
+                    plugins: {
+                        legend: {
+                            display: false
+                        }
+                    }
+                },
+            }));
+
+            // Doughnut Chart for Village Locations
+            var ctxDonutVillage = document.getElementById('donutChartVillage').getContext('2d');
+            var donutChartVillage = new Chart(ctxDonutVillage, Object.assign({}, doughnutOptions, {
+                data: {
+                    labels: ['Kelurahan 1', 'Kelurahan 2', 'Kelurahan 3', 'Kelurahan 4'],
+                    datasets: [{
+                        data: [5, 15, 25, 55],
+                        backgroundColor: [
+                            'rgba(255, 99, 132, 0.5)',
+                            'rgba(54, 162, 235, 0.5)',
+                            'rgba(255, 206, 86, 0.5)',
+                            'rgba(75, 192, 192, 0.5)'
+                        ]
+                    }]
+                },
+                options: {
+                    plugins: {
+                        legend: {
+                            display: false
+                        }
+                    }
+                },
+            }));
+
+            var ctxLineChart = document.getElementById('lineChartCases').getContext('2d');
+            var lineChartCases = new Chart(ctxLineChart, {
+                type: 'line',
+                data: {
+                    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Des'],
+                    datasets: [{
+                        label: 'Number of Cases',
+                        data: [20, 30, 45, 50, 65, 60, 70, 80, 75, 90, 95, 100], // Replace with actual data
+                        fill: false,
+                        borderColor: 'rgb(75, 192, 192)',
+                        tension: 0.1
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            display: false
+                        }
+                    }
+                }
+            });
+        </script>
+    @endpush
+
 </x-guest-layout>
