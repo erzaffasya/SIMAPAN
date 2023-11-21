@@ -10,7 +10,7 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    
+
     <link rel="stylesheet" href="{{asset('tlandingpage/asset/css/design.css')}}">
 
     <title>Portal DP3AKB</title>
@@ -48,14 +48,14 @@
                 </figure>
             </div>
             <div class="active-portal card-bidang card-portal-1 col-lg-24 col-md-6 col-sm-12 col-12">
-                
+
                 <figure class="h-100  position-relative text-white">
                     <img src="{{asset('tlandingpage/asset/img/p1-2.jpg')}}" alt="">
                     <figcaption class="p-4 d-flex flex-column justify-content-end text-center">
                         <h2>Bidang P3</h2>
                         <p class="fs-5">Pemberdayaan dan Perlindungan Perempuan</p>
-                        <a href="#" target="_blank" class="mt-3 btn btn-lg py-2 rounded-2 btn-outline-light" type="button">
-                           
+                        <a href="{{url('/portal-p3')}}" target="_blank" class="mt-3 btn btn-lg py-2 rounded-2 btn-outline-light" type="button">
+
                             <span class="ms-2">Kunjungi</span>
                         </a>
                     </figcaption>
@@ -68,7 +68,7 @@
                         <h2>Bidang KK</h2>
                         <p class="fs-5">Ketahanan Keluarga</p>
                         <a href="#" class="mt-3 btn btn-lg py-2 rounded-2 btn-outline-light" type="button" disabled>
-                            <i class="fa-solid fa-lock"></i>    
+                            <i class="fa-solid fa-lock"></i>
                             <span class="ms-2">Kunjungi</span>
                         </a>
                     </figcaption>
@@ -81,7 +81,7 @@
                         <h2>Bidang KB</h2>
                         <p class="fs-5">Keluarga Berencana</p>
                         <a href="#" class="mt-3 btn btn-lg py-2 rounded-2 btn-outline-light" type="button" disabled>
-                            <i class="fa-solid fa-lock"></i>    
+                            <i class="fa-solid fa-lock"></i>
                             <span class="ms-2">Kunjungi</span>
                         </a>
                     </figcaption>

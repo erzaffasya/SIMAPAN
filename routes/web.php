@@ -56,6 +56,11 @@ Route::get('/portal', function () {
     return view('landingpage.portal2');
 });
 
+Route::get('/portal-p3', function () {
+    return view('landingpage.portal3');
+});
+
+
 
 Route::get('/artikel-detail', function () {
     return view('landingpage.artikeldetail');
