@@ -30,7 +30,7 @@
     <div id="portal-1" class="row gx-0 align-items-md-stretch h-100">
       <div class="card-bidang card-portal-2 col-md-3 col-sm-6 col-12">
         <figure class="h-100 position-relative text-white">
-          <img src="{{asset('tlandingpage/asset/img/p2-1.jpg')}}" alt="">
+          <img src="{{asset('tlandingpage/asset/img/siga.jpeg')}}" alt="">
           <figcaption class="p-4 d-flex flex-column justify-content-end text-center">
             <h1 class="fw-bold display-6">SIGA</h1>
             <a href="{{url('profil')}}" class="mt-3 btn btn-lg py-2 rounded-2 btn-outline-light" type="button">Kunjungi</a>
@@ -39,7 +39,7 @@
       </div>
       <div class="card-bidang card-portal-2 col-md-3 col-sm-6 col-12">
         <figure class="h-100 position-relative text-white">
-          <img src="{{asset('tlandingpage/asset/img/p2-2.jpg')}}" alt="">
+          <img src="{{asset('tlandingpage/asset/img/puspaga.jpeg')}}" alt="">
           <figcaption class="p-4 d-flex flex-column justify-content-end text-center">
             <h1 class="fw-bold display-6">PUSPAGA</h1>
             <a href="{{url('forum')}}" class="mt-3 btn btn-lg py-2 rounded-2 btn-outline-light" type="button">Kunjungi</a>
@@ -48,7 +48,7 @@
       </div>
       <div class="active-portal card-bidang card-portal-2 col-md-3 col-sm-12 col-12">
         <figure class="h-100 position-relative text-white">
-          <img src="{{asset('tlandingpage/asset/img/p2-3.jpg')}}" alt="">
+          <img src="{{asset('tlandingpage/asset/img/pemberdayaan.jpeg')}}" alt="">
           <figcaption class="p-4 d-flex flex-column justify-content-end text-center">
             <h1 class="fw-bold fs-2">Pemberdayaan <br> Masyarakat</h1>
             {{-- <p class="fs-5 text-white">Sistem Manajemen Perlindungan Anak Balikpapan</p> --}}
@@ -57,11 +57,11 @@
         </figure>
       </div>
 
-      <div class="active-portal card-bidang card-portal-2 col-md-3 col-sm-12 col-12">
+      <div class="card-bidang card-portal-2 col-md-3 col-sm-12 col-12">
         <figure class="h-100 position-relative text-white">
-          <img src="{{asset('tlandingpage/asset/img/p2-3.jpg')}}" alt="">
+          <img src="{{asset('tlandingpage/asset/img/teknologi.jpeg')}}" alt="">
           <figcaption class="p-4 d-flex flex-column justify-content-end text-center">
-            <h1 class="fw-bold fs-2">Sistem Informasi Keluarga</h1>
+            <h1 class="fw-bold fs-2">Teknologi Tepat Guna</h1>
             {{-- <p class="fs-5 text-white">Sistem Manajemen Perlindungan Anak Balikpapan</p> --}}
             <a href="{{url('simapan')}}" class="mt-3 btn btn-lg py-2 rounded-2 btn-outline-light" type="button">Kunjungi</a>
           </figcaption>
