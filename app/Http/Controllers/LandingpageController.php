@@ -202,4 +202,12 @@ class LandingpageController extends Controller
         $kluster = Kluster::where("kluster", "5")->with(['artikel', 'artikel.detail'])->first();
         return view("landingpage.kluster5", compact("kluster"));
     }
+    public function pemberdayaan()
+    {
+        return view("landingpage.pemberdayaan");
+    }
+    public function siga()
+    {
+        return view("landingpage.siga");
+    }
 }

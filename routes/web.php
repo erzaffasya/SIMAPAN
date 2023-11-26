@@ -86,6 +86,8 @@ Route::get('/artikel/detail/{slug}', [LandingpageController::class, 'artikelDeta
 // });
 Route::get('/peta', [LandingpageController::class, 'peta'])->name('peta');
 
+Route::get('/pemberdayaan', [LandingpageController::class, 'pemberdayaan']);
+Route::get('/siga', [LandingpageController::class, 'siga']);
 Route::get('/kluster6', [LandingpageController::class, 'kluster6']);
 Route::get('/kluster1', [LandingpageController::class, 'kluster1']);
 Route::get('/kluster2', [LandingpageController::class, 'kluster2']);
