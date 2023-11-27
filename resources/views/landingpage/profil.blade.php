@@ -218,8 +218,9 @@
     
     @push('scripts')
         <script>
-            // Bar Chart for KDRT / NON KDRT Cases
+            // Grafik KDRT
             var ctxBarKDRT = document.getElementById('barChartKDRT').getContext('2d');
+            var data_kdrt =  @json($grafikKDRT);
             var barChartKDRT = new Chart(ctxBarKDRT, {
                 type: 'bar',
                 data: {
@@ -227,7 +228,7 @@
                     datasets: [
                         {
                             label: 'KDRT',
-                            data: [12, 19, 3, 5, 2, 3, 9, 6, 7, 8, 5, 1],
+                            data: [7, 11, 5, 8, 3, 7, 2, 6, 9, 4, 6, 2],
                             backgroundColor: 'rgba(54, 162, 235, 0.5)'
                         },
                         {
@@ -246,8 +247,10 @@
                 }
             });
 
-            // Bar Chart for Cases by Age Group
+            // Grafik Total Kasus
             var ctxBarAge = document.getElementById('barChartAge').getContext('2d');
+            var data_total_kasus =  @json($grafikTotalKasus);
+            console.log(data_total_kasus)
             var barChartAge = new Chart(ctxBarAge, {
                 type: 'bar',
                 data: {
@@ -274,8 +277,10 @@
                 type: 'doughnut',
             };
 
-            // Doughnut Chart for Types of Violence
+            // Jenis Kekerasan
             var ctxDonutType = document.getElementById('donutChartType').getContext('2d');
+            var data_jenis_kekerasan =  @json($grafikJenisKekerasan);
+            console.log(data_jenis_kekerasan)
             var donutChartType = new Chart(ctxDonutType, Object.assign({}, doughnutOptions, {
                 data: {
                     labels: ['Fisik', 'Psikis', 'Seksual', 'Eksploitasi', 'Perdagangan Orang', 'Penelantaran', 'Lainnya'],
@@ -301,8 +306,10 @@
                 },
             }));
 
-            // Doughnut Chart for Types of Services
+            // Grafik Jenis Layanan
             var ctxDonutService = document.getElementById('donutChartService').getContext('2d');
+            var data_jenis_layanan =  @json($grafikJenisLayanan);
+            console.log(data_jenis_layanan)
             var donutChartService = new Chart(ctxDonutService, Object.assign({}, doughnutOptions, {
                 data: {
                     labels: ['Layanan Pengaduan', 'Layanan Penjangkauan', 'Layanan Pendampingan Psikolog', 'Layanan Pendampingan Hukum', 'Layanan Pendampingan Medis', 'Layanan Mediasi', 'Layanan Penampungan Sementara'],
@@ -328,8 +335,10 @@
                 },
             }));
 
-            // Doughnut Chart for District Locations
+            // Grafik Perkecamatan
             var ctxDonutDistrict = document.getElementById('donutChartDistrict').getContext('2d');
+            var data_perkecamatan =  @json($grafikPerkecamatan);
+            console.log(data_perkecamatan)
             var donutChartDistrict = new Chart(ctxDonutDistrict, Object.assign({}, doughnutOptions, {
                 data: {
                     labels: ['Kecamatan A', 'Kecamatan B', 'Kecamatan C', 'Kecamatan D'],
@@ -352,8 +361,10 @@
                 },
             }));
 
-            // Doughnut Chart for Village Locations
+            // Grafik Perkelurahan
             var ctxDonutVillage = document.getElementById('donutChartVillage').getContext('2d');
+            var data_perkelurahan =  @json($grafikPerkelurahan);
+            console.log(data_perkelurahan)
             var donutChartVillage = new Chart(ctxDonutVillage, Object.assign({}, doughnutOptions, {
                 data: {
                     labels: ['Kelurahan 1', 'Kelurahan 2', 'Kelurahan 3', 'Kelurahan 4'],
@@ -376,7 +387,10 @@
                 },
             }));
 
+            // Grafik Pengaduan
             var ctxLineChart = document.getElementById('lineChartCases').getContext('2d');
+            var data_pengaduan =  @json($grafikPengaduan);
+            console.log(data_pengaduan)
             var lineChartCases = new Chart(ctxLineChart, {
                 type: 'line',
                 data: {

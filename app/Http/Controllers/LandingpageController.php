@@ -21,6 +21,7 @@ use App\Models\PersentaseAnak;
 use App\Models\ProfilGaleri;
 use App\Models\SekolahRamahAnak;
 use App\Models\Tentang;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Http\Request;
 
 class LandingpageController extends Controller
@@ -75,7 +76,31 @@ class LandingpageController extends Controller
         $kelembagaan = Kelembagaan::find(1);
         $kegiatan = ProfilGaleri::orderBy('created_at', 'DESC')->limit(8)->get();
         $ForumKategoriGaleri = ForumKategoriGaleri::where('kategori', 'P')->limit(8)->get();
-        return view('landingpage.profil', compact('ForumKategoriGaleri', 'jumlahAnak', 'kelembagaan', 'kegiatan'));
+
+        $apiKDRT = Http::get('https://pengaduan.mafindo.co.id/api/grafik-kdrt');
+        $grafikKDRT = $apiKDRT->json();
+        
+        $apiTotalKasus = Http::get('https://pengaduan.mafindo.co.id/api/grafik-total-kasus');
+        $grafikTotalKasus = $apiTotalKasus->json();
+
+        $apiJenisKekerasan = Http::get('https://pengaduan.mafindo.co.id/api/grafik-jenis-kekerasan');
+        $grafikJenisKekerasan = $apiJenisKekerasan->json();
+
+        $apiJenisLayan = Http::get('https://pengaduan.mafindo.co.id/api/grafik-jenis-layanan');
+        $grafikJenisLayanan = $apiJenisLayan->json();
+
+        $apiPerkecamatan = Http::get('https://pengaduan.mafindo.co.id/api/grafik-perkecamatan');
+        $grafikPerkecamatan = $apiPerkecamatan->json();
+
+        $apiPerkelurahan = Http::get('https://pengaduan.mafindo.co.id/api/grafik-perkelurahan');
+        $grafikPerkelurahan = $apiPerkelurahan->json();
+
+        $apiPengaduan = Http::get('https://pengaduan.mafindo.co.id/api/grafik-pengaduan');
+        $grafikPengaduan = $apiPengaduan->json();
+
+
+        return view('landingpage.profil', compact('grafikKDRT', 'grafikTotalKasus', 'grafikJenisKekerasan', 'grafikJenisLayanan', 'grafikPerkecamatan', 
+        'grafikPerkelurahan', 'grafikPengaduan', 'ForumKategoriGaleri', 'jumlahAnak', 'kelembagaan', 'kegiatan'));
     }
 
     public function artikel(Request $request)
