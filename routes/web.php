@@ -29,12 +29,16 @@ use App\Http\Controllers\Kluster5Controller;
 use App\Http\Controllers\KlusterController;
 use App\Http\Controllers\LandingpageController;
 use App\Http\Controllers\LayananPengasuhAnakController;
+use App\Http\Controllers\PemberdayaanMasyarakatController;
 use App\Http\Controllers\PersentaseAnakController;
 use App\Http\Controllers\SekolahRamahAnakController;
+use App\Http\Controllers\SigaController;
+use App\Http\Controllers\SigaJenisController;
 use App\Http\Controllers\SimapanArtikelController;
 use App\Http\Controllers\TentangController;
 use App\Http\Controllers\TinyMceController;
 use App\Http\Controllers\UserController;
+use App\Models\PemberdayaanMasyarakat;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -145,6 +149,13 @@ Route::middleware(['auth'])->prefix('admin')->group(function () {
     Route::resource('simapan-artikel', SimapanArtikelController::class);
     //tiny mce upload
     Route::post('tiny-upload', [TinyMceController::class, "upload"])->name('tiny-upload');
+
+
+    Route::resource('siga', SigaController::class);
+
+    Route::resource('jenis-siga', SigaJenisController::class);
+    Route::resource('pemberdayaan-masyarakat', PemberdayaanMasyarakatController::class);
+
 });
 
 $middleware = array_merge(\Config::get('lfm.middlewares'), [

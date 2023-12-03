@@ -142,6 +142,29 @@
                         </li>
                     </ul>
                 </li>
+
+                <li class="submenu">
+                    <a href="javascript:void(0);"><i data-feather="columns"></i> <span> SIGA </span> <span
+                            class="menu-arrow"></span></a>
+                    <ul>
+                        <li><a href="{{ route('jenis-siga.index') }}"
+                                class="{{ Request::routeIs('jenis-siga.*') ? 'active' : '' }}">Jenis SIGA</a>
+                        </li>
+                        <li><a href="{{ route('siga.index') }}"
+                                class="{{ Request::routeIs('siga.*') ? 'active' : '' }}">SIGA</a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="submenu">
+                    <a href="javascript:void(0);"><i data-feather="columns"></i> <span> Pemberdayaan Masyarakat </span> <span
+                            class="menu-arrow"></span></a>
+                    <ul>
+                        <li><a href="{{ route('pemberdayaan-masyarakat.index') }}"
+                                class="{{ Request::routeIs('pemberdayaan-masyarakat.*') ? 'active' : '' }}">Pemberdayaan Masyarakat</a>
+                        </li>
+                    </ul>
+                </li>
             @endif
         </ul>
     </div>

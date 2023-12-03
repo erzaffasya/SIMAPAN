@@ -17,9 +17,12 @@ use App\Models\Kegiatan;
 use App\Models\Kelembagaan;
 use App\Models\Kluster;
 use App\Models\LayananPengasuhAnak;
+use App\Models\PemberdayaanMasyarakat;
 use App\Models\PersentaseAnak;
 use App\Models\ProfilGaleri;
 use App\Models\SekolahRamahAnak;
+use App\Models\Siga;
+use App\Models\SigaJenis;
 use App\Models\Tentang;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Http\Request;
@@ -229,10 +232,13 @@ class LandingpageController extends Controller
     }
     public function pemberdayaan()
     {
-        return view("landingpage.pemberdayaan");
+        $pemberdayaan = PemberdayaanMasyarakat::all();
+        return view("landingpage.pemberdayaan", compact('pemberdayaan'));
     }
     public function siga()
     {
-        return view("landingpage.siga");
+        $siga = Siga::all();
+        $sigaJenis = SigaJenis::all();
+        return view("landingpage.siga", compact('siga', 'sigaJenis'));
     }
 }
