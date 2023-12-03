@@ -91,7 +91,8 @@
                                     class="w-100 px-5 py-4">
                                 <figcaption class="bg-white px-3 py-2 text-center">
                                     <h1 class="mb-1 fs-4 text-dark">KLUSTER 4</h1>
-                                    <p class="text-secondary mb-0">Pendidikan, Pemanfaatan Waktu Luang & kegiatan Budaya</p>
+                                    <p class="text-secondary mb-0">Pendidikan, Pemanfaatan Waktu Luang & kegiatan Budaya
+                                    </p>
                                 </figcaption>
                             </figure>
                         </a>
@@ -215,25 +216,29 @@
             </div>
         </div>
     </section>
-    
+
     @push('scripts')
         <script>
             // Grafik KDRT
             var ctxBarKDRT = document.getElementById('barChartKDRT').getContext('2d');
-            var data_kdrt =  @json($grafikKDRT);
+            var data_kdrt = @json($grafikKDRT);
+
+            // Transform the data object into an array of values
+            var kdrtData = Object.values(data_kdrt[0]);
+            var nonKdrtData = Object.values(data_kdrt[1]); // Assuming data_kdrt[1] is similar in structure
+
             var barChartKDRT = new Chart(ctxBarKDRT, {
                 type: 'bar',
                 data: {
                     labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Des'],
-                    datasets: [
-                        {
+                    datasets: [{
                             label: 'KDRT',
-                            data: [7, 11, 5, 8, 3, 7, 2, 6, 9, 4, 6, 2],
+                            data: kdrtData,
                             backgroundColor: 'rgba(54, 162, 235, 0.5)'
                         },
                         {
                             label: 'NON KDRT',
-                            data: [7, 11, 5, 8, 3, 7, 2, 6, 9, 4, 6, 2],
+                            data: nonKdrtData,
                             backgroundColor: 'rgba(255, 206, 86, 0.5)'
                         }
                     ]
@@ -249,19 +254,26 @@
 
             // Grafik Total Kasus
             var ctxBarAge = document.getElementById('barChartAge').getContext('2d');
-            var data_total_kasus =  @json($grafikTotalKasus);
-            console.log(data_total_kasus)
+            var data_pengaduan_total_kasus = @json($grafikTotalKasus);
             var barChartAge = new Chart(ctxBarAge, {
                 type: 'bar',
                 data: {
                     labels: ['Dibawah 18 Tahun', 'Diatas 18 Tahun'],
-                    datasets: [
+                    datasets: [{
+                            label: 'Laki-laki',
+                            data: [data_pengaduan_total_kasus.find(d => d.jenis_kelamin == 'L')
+                                ?.total_dibawah_18, data_pengaduan_total_kasus.find(d => d
+                                    .jenis_kelamin == 'L')?.total_diatas_18
+                            ],
+                        },
                         {
-                            label: 'Kasus per Age Group',
-                            data: [33, 67],
-                            backgroundColor: ['rgba(75, 192, 192, 0.5)', 'rgba(153, 102, 255, 0.5)']
+                            label: 'Perempuan',
+                            data: [data_pengaduan_total_kasus.find(d => d.jenis_kelamin == 'P')
+                                ?.total_dibawah_18, data_pengaduan_total_kasus.find(d => d
+                                    .jenis_kelamin == 'P')?.total_diatas_18
+                            ]
                         }
-                    ]
+                    ],
                 },
                 options: {
                     scales: {
@@ -279,22 +291,14 @@
 
             // Jenis Kekerasan
             var ctxDonutType = document.getElementById('donutChartType').getContext('2d');
-            var data_jenis_kekerasan =  @json($grafikJenisKekerasan);
-            console.log(data_jenis_kekerasan)
+            var data_jenis_kekerasan = @json($grafikJenisKekerasan);
+            var labels = data_jenis_kekerasan.map(item => item.jenis_kekerasan);
+            var values = data_jenis_kekerasan.map(item => item.total);
             var donutChartType = new Chart(ctxDonutType, Object.assign({}, doughnutOptions, {
                 data: {
-                    labels: ['Fisik', 'Psikis', 'Seksual', 'Eksploitasi', 'Perdagangan Orang', 'Penelantaran', 'Lainnya'],
+                    labels: labels,
                     datasets: [{
-                        data: [12, 19, 3, 5, 2, 3, 4],
-                        backgroundColor: [
-                            'rgba(255, 99, 132, 0.5)',
-                            'rgba(54, 162, 235, 0.5)',
-                            'rgba(255, 206, 86, 0.5)',
-                            'rgba(75, 192, 192, 0.5)',
-                            'rgba(153, 102, 255, 0.5)',
-                            'rgba(255, 159, 64, 0.5)',
-                            'rgba(201, 203, 207, 0.5)'
-                        ]
+                        data: values
                     }]
                 },
                 options: {
@@ -308,22 +312,14 @@
 
             // Grafik Jenis Layanan
             var ctxDonutService = document.getElementById('donutChartService').getContext('2d');
-            var data_jenis_layanan =  @json($grafikJenisLayanan);
-            console.log(data_jenis_layanan)
+            var data_jenis_layanan = @json($grafikJenisLayanan);
+            var labels = data_jenis_layanan.map(item => item.jenis_layanan);
+            var values = data_jenis_layanan.map(item => item.total);
             var donutChartService = new Chart(ctxDonutService, Object.assign({}, doughnutOptions, {
                 data: {
-                    labels: ['Layanan Pengaduan', 'Layanan Penjangkauan', 'Layanan Pendampingan Psikolog', 'Layanan Pendampingan Hukum', 'Layanan Pendampingan Medis', 'Layanan Mediasi', 'Layanan Penampungan Sementara'],
+                    labels: labels,
                     datasets: [{
-                        data: [20, 25, 15, 10, 5, 13, 12],
-                        backgroundColor: [
-                            'rgba(255, 99, 132, 0.5)',
-                            'rgba(54, 162, 235, 0.5)',
-                            'rgba(255, 206, 86, 0.5)',
-                            'rgba(75, 192, 192, 0.5)',
-                            'rgba(153, 102, 255, 0.5)',
-                            'rgba(255, 159, 64, 0.5)',
-                            'rgba(201, 203, 207, 0.5)'
-                        ]
+                        data: values
                     }]
                 },
                 options: {
@@ -337,19 +333,14 @@
 
             // Grafik Perkecamatan
             var ctxDonutDistrict = document.getElementById('donutChartDistrict').getContext('2d');
-            var data_perkecamatan =  @json($grafikPerkecamatan);
-            console.log(data_perkecamatan)
+            var data_perkecamatan = @json($grafikPerkecamatan);
+            var labels = Object.values(data_perkecamatan[0]);
+            var values = Object.values(data_perkecamatan[1]); 
             var donutChartDistrict = new Chart(ctxDonutDistrict, Object.assign({}, doughnutOptions, {
                 data: {
-                    labels: ['Kecamatan A', 'Kecamatan B', 'Kecamatan C', 'Kecamatan D'],
+                    labels: labels,
                     datasets: [{
-                        data: [10, 20, 30, 40],
-                        backgroundColor: [
-                            'rgba(255, 99, 132, 0.5)',
-                            'rgba(54, 162, 235, 0.5)',
-                            'rgba(255, 206, 86, 0.5)',
-                            'rgba(75, 192, 192, 0.5)'
-                        ]
+                        data: values
                     }]
                 },
                 options: {
@@ -363,19 +354,14 @@
 
             // Grafik Perkelurahan
             var ctxDonutVillage = document.getElementById('donutChartVillage').getContext('2d');
-            var data_perkelurahan =  @json($grafikPerkelurahan);
-            console.log(data_perkelurahan)
+            var data_perkelurahan = @json($grafikPerkelurahan);
+            var labels = Object.values(data_perkelurahan[0]);
+            var values = Object.values(data_perkelurahan[1]); 
             var donutChartVillage = new Chart(ctxDonutVillage, Object.assign({}, doughnutOptions, {
                 data: {
-                    labels: ['Kelurahan 1', 'Kelurahan 2', 'Kelurahan 3', 'Kelurahan 4'],
+                    labels: labels,
                     datasets: [{
-                        data: [5, 15, 25, 55],
-                        backgroundColor: [
-                            'rgba(255, 99, 132, 0.5)',
-                            'rgba(54, 162, 235, 0.5)',
-                            'rgba(255, 206, 86, 0.5)',
-                            'rgba(75, 192, 192, 0.5)'
-                        ]
+                        data: values
                     }]
                 },
                 options: {
@@ -389,15 +375,15 @@
 
             // Grafik Pengaduan
             var ctxLineChart = document.getElementById('lineChartCases').getContext('2d');
-            var data_pengaduan =  @json($grafikPengaduan);
-            console.log(data_pengaduan)
+            var data_pengaduan = @json($grafikPengaduan);
+            var values = Object.values(data_pengaduan);
             var lineChartCases = new Chart(ctxLineChart, {
                 type: 'line',
                 data: {
                     labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Des'],
                     datasets: [{
                         label: 'Number of Cases',
-                        data: [20, 30, 45, 50, 65, 60, 70, 80, 75, 90, 95, 100], // Replace with actual data
+                        data: values, // Replace with actual data
                         fill: false,
                         borderColor: 'rgb(75, 192, 192)',
                         tension: 0.1
