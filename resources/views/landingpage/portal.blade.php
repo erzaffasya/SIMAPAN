@@ -54,7 +54,7 @@
                     <figcaption class="p-4 d-flex flex-column justify-content-end text-center">
                         <h2>Bidang P3</h2>
                         <p class="fs-5">Pemberdayaan dan Perlindungan Perempuan</p>
-                        <a href="{{url('/portal-p3')}}" target="_blank" class="mt-3 btn btn-lg py-2 rounded-2 btn-outline-light" type="button">
+                        <a href="{{url('/portal-p3')}}" class="mt-3 btn btn-lg py-2 rounded-2 btn-outline-light" type="button">
 
                             <span class="ms-2">Kunjungi</span>
                         </a>
