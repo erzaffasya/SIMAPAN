@@ -2,7 +2,7 @@
     <section id="header-hero">
         <div class="container">
             <div class="header-title text-center mt-5">
-                <h1 class="fs-1 fw-bold">PEMBERDAYAAN MASYARAKAT</h1>
+                <h1 class="fs-1 fw-bold">TEKNOLOGI TEPAT GUNA</h1>
             </div>
         </div>
     </section>
@@ -10,7 +10,7 @@
         <div class="bg-reds bg-img-overlay item1-img py-5 mt-5">
             <div class="container">
                 <div class="text-center">
-                    <h1 class="fs-1 fw-bold text-white mb-4">INOVASI PROGRAM DP3AKB</h1>
+                    <h1 class="fs-1 fw-bold text-white mb-4">Berita Teknologi Tepat Guna</h1>
                 </div>
                 <div class="row justify-content-center">
                     @foreach ($pemberdayaan as $item)
