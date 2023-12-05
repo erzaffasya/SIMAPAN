@@ -91,6 +91,6 @@
         }
     </script>
     <script
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA3IzKovEv9pbMJ-pLfP9cO7nTSJXIDPDU&callback=initMap&v=weekly"
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCZi50l6nIdg0PwgoDK04LjyDQVCGTDuTo&callback=initMap&v=weekly"
         async defer></script>
 </x-guest-layout>

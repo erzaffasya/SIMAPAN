@@ -50,8 +50,10 @@ class SigaJenisController extends Controller
             ->with('success', 'SigaJenis Berhasil Diubah');
     }
 
-    public function destroy(SigaJenis $sigaJenis)
+    public function destroy($id)
     {
+
+        $sigaJenis = SigaJenis::find($id);
         $sigaJenis->delete();
         return redirect()->route('jenis-siga.index')
             ->with('success', 'SigaJenis Berhasil Dihapus');
