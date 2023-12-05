@@ -24,7 +24,7 @@
           <img src="{{asset('tlandingpage/asset/img/logo-3.png')}}" alt="">
           <img src="{{asset('tlandingpage/asset/img/logo-simapan.png')}}" alt="">
         </div>
-        <figcaption class="fw-bold fs-5">Pemberdayaan Perempuan dan Perlindungan Anak</figcaption>
+        <figcaption class="fw-bold fs-5">Pemberdayaan dan Perlindungan Perempuan dan Pemberdayaan Masyarakat</figcaption>
       </figure>
     </section>
     <div id="portal-1" class="row gx-0 align-items-md-stretch h-100">
