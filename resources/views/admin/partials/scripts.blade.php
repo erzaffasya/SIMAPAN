@@ -23,7 +23,7 @@
     <script src="{{ asset('tadmin/assets/js/script.js') }}"></script>
 
     <script
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCZi50l6nIdg0PwgoDK04LjyDQVCGTDuTo&libraries=places&callback=initMap"
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBMRsqoHgHJR6rS6NYNyeFe9-m6JMz2fM8&libraries=places&callback=initMap"
         async defer></script>
 
     <script>
