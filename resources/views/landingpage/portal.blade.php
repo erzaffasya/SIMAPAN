@@ -93,7 +93,7 @@
                     <figcaption class="p-4 d-flex flex-column justify-content-end text-center">
                         <h2>Sekretariat</h2>
                         <p class="fs-5">Struktur Sekretariat</p>
-                        <a href="#" class="mt-3 btn btn-lg py-2 rounded-2 btn-outline-light" type="button" disabled>Kunjungi</a>
+                        <a href="https://sekretariat.clientku.com/" target="_blank" class="mt-3 btn btn-lg py-2 rounded-2 btn-outline-light" type="button" >Kunjungi</a>
                     </figcaption>
                 </figure>
             </div>
