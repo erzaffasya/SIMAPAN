@@ -80,25 +80,25 @@ class LandingpageController extends Controller
         $kegiatan = ProfilGaleri::orderBy('created_at', 'DESC')->limit(8)->get();
         $ForumKategoriGaleri = ForumKategoriGaleri::where('kategori', 'P')->limit(8)->get();
 
-        $apiKDRT = Http::get('https://pengaduan.mafindo.co.id/api/grafik-kdrt');
+        $apiKDRT = Http::get('http://103.144.82.202/api/grafik-kdrt');
         $grafikKDRT = $apiKDRT->json();
         
-        $apiTotalKasus = Http::get('https://pengaduan.mafindo.co.id/api/grafik-total-kasus');
+        $apiTotalKasus = Http::get('http://103.144.82.202/api/grafik-total-kasus');
         $grafikTotalKasus = $apiTotalKasus->json();
 
-        $apiJenisKekerasan = Http::get('https://pengaduan.mafindo.co.id/api/grafik-jenis-kekerasan');
+        $apiJenisKekerasan = Http::get('http://103.144.82.202/api/grafik-jenis-kekerasan');
         $grafikJenisKekerasan = $apiJenisKekerasan->json();
 
-        $apiJenisLayan = Http::get('https://pengaduan.mafindo.co.id/api/grafik-jenis-layanan');
+        $apiJenisLayan = Http::get('http://103.144.82.202/api/grafik-jenis-layanan');
         $grafikJenisLayanan = $apiJenisLayan->json();
 
-        $apiPerkecamatan = Http::get('https://pengaduan.mafindo.co.id/api/grafik-perkecamatan');
+        $apiPerkecamatan = Http::get('http://103.144.82.202/api/grafik-perkecamatan');
         $grafikPerkecamatan = $apiPerkecamatan->json();
 
-        $apiPerkelurahan = Http::get('https://pengaduan.mafindo.co.id/api/grafik-perkelurahan');
+        $apiPerkelurahan = Http::get('http://103.144.82.202/api/grafik-perkelurahan');
         $grafikPerkelurahan = $apiPerkelurahan->json();
 
-        $apiPengaduan = Http::get('https://pengaduan.mafindo.co.id/api/grafik-pengaduan');
+        $apiPengaduan = Http::get('http://103.144.82.202/api/grafik-pengaduan');
         $grafikPengaduan = $apiPengaduan->json();
 
 
