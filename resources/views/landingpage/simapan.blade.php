@@ -155,7 +155,7 @@
                     <p class="fw-bold fs-5 text-white mb-0">Tulis Artikelmu sebagai Forum Komunitas Anak</p>
                 </div>
                 <div class="col-12 col-sm-12 col-md-4 col-lg-2">
-                    <a href="{{route('login')}}" class="btn btn-light w-100 text-primary">Gabung Disini</a>
+                    <a href="{{ route('login') }}" class="btn btn-light w-100 text-primary">Gabung Disini</a>
                 </div>
             </div>
         </div>
@@ -322,8 +322,10 @@
                 <div class="slide-1-view">
                     @foreach ($banner as $item)
                         <figure class="mb-0 mx-2">
-                            <img class="rounded" src="{{ asset("storage/img/banner/$item->banner") }}"
-                                width="100%" height="450px">
+                            <a target="_blank" href="{{ route('banner-detail', $item->id) }}">
+                                <img class="rounded" src="{{ asset("storage/img/banner/$item->banner") }}"
+                                    width="100%" height="450px">
+                            </a>
                         </figure>
                     @endforeach
                 </div>
@@ -385,8 +387,8 @@
                 </div>
                 <div class="col-11 col-lg-5">
                     <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.8562234475207!2d116.86530067445288!3d-1.258285535595073!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2df1468c55555555%3A0x9876be7af3580494!2sDinas%20Pemberdayaan%20Perempuan%20Perlindungan%20Anak%20dan%20Keluarga%20Berencana%20(DP3AKB)%20Kota%20Balikpapan!5e0!3m2!1sid!2sid!4v1690004492153!5m2!1sid!2sid" allowfullscreen="" loading="lazy"
-                        referrerpolicy="no-referrer-when-downgrade">
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.8562234475207!2d116.86530067445288!3d-1.258285535595073!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2df1468c55555555%3A0x9876be7af3580494!2sDinas%20Pemberdayaan%20Perempuan%20Perlindungan%20Anak%20dan%20Keluarga%20Berencana%20(DP3AKB)%20Kota%20Balikpapan!5e0!3m2!1sid!2sid!4v1690004492153!5m2!1sid!2sid"
+                        allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
                     </iframe>
                 </div>
             </div>

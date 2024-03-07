@@ -16,8 +16,26 @@
 
                         <div class="col-lg-12 col-sm-12 col-12">
                             <div class="form-group">
+                                <label>Judul</label>
+                                <input name="judul" value="{{ $banner->judul }}" type="text">
+                            </div>
+                        </div>
+                        <div class="col-lg-12 col-sm-12 col-12">
+                            <div class="form-group">
                                 <label>Banner</label>
                                 <input name="banner" type="file" accept="image/*">
+                            </div>
+                        </div>
+                        <div class="col-lg-12 col-sm-12 col-12">
+                            <div class="form-group">
+                                <label>Gambar</label>
+                                <input name="gambar" type="file" accept="image/*">
+                            </div>
+                        </div>
+                        <div class="col-lg-12">
+                            <div class="form-group">
+                                <label>Deskripsi</label>
+                                <textarea name="deskripsi" class="form-control">{{ $banner->deskripsi }}</textarea>
                             </div>
                         </div>
 

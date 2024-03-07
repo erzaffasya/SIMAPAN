@@ -145,6 +145,8 @@ Route::middleware(['auth'])->prefix('admin')->group(function () {
     Route::resource('user', UserController::class);
     Route::get('/profile', [UserController::class, 'profile'])->name('profile');
 
+    Route::get('/banner-detail/{id}', [BannerController::class, 'show'])->name('banner-detail');
+
 
     Route::resource('simapan-artikel', SimapanArtikelController::class);
     //tiny mce upload

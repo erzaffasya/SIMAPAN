@@ -12,6 +12,9 @@ class Banner extends Model
     protected $table = 'banner';
 
     protected $fillable = [
-        "banner"
+        "banner",
+        "judul",
+        "deskripsi",
+        "gambar"
     ];
 }

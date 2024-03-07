@@ -26,7 +26,10 @@
                         <thead>
                             <tr>
                                 <th>No</th>
+                                <th>Judul</th>
                                 <th>Banner</th>
+                                <th>Gambar</th>
+                                <th>Deskripsi</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -34,7 +37,10 @@
                             @foreach ($banner as $item)
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
+                                    <td>{{ $item->judul }}</td>
                                     <td>{{ $item->banner }}</td>
+                                    <td>{{ $item->gambar }}</td>
+                                    <td>{{ $item->deskripsi }}</td>
                                     <td>
                                         <div class="d-flex">
                                             <a class="me-3" href="{{ route('banner.edit', $item->id) }}">

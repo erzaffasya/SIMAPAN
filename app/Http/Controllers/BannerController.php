@@ -47,7 +47,6 @@ class BannerController extends Controller
             $file_name = time() . '.' . $extention;
             $image = $request->file('banner');
             $image = Image::make($request->file('banner'));
-
             if (!File::exists("$path")) {
                 File::makeDirectory("$path", $mode = 0777, true, true);
             }
@@ -57,8 +56,28 @@ class BannerController extends Controller
             $file_name = null;
         }
 
+        if ($request->gambar) {
+            $path = storage_path("app/public/img/banner");
+            $extention = $request->banner->extension();
+            $file_name1 = time() . '1.' . $extention;
+            $image = $request->file('banner');
+            $image = Image::make($request->file('banner'));
+            if (!File::exists("$path")) {
+                File::makeDirectory("$path", $mode = 0777, true, true);
+            }
+            $image->save("$path/$file_name1");
+            
+        } else {
+            $file_name1 = null;
+        }
+
+        
+
         Banner::create([
             "banner" => $file_name,
+            "gambar" => $file_name1,
+            "judul" => $request->judul,
+            "deskripsi" => $request->deskripsi,
         ]);
 
 
@@ -71,9 +90,10 @@ class BannerController extends Controller
      *
      * @param  \App\Models\Banner  $banner
      */
-    public function show(Banner $banner)
+    public function show($id)
     {
-        abort(404);
+        $banner = Banner::find($id);
+        return view('landingpage.banner-detail', compact('banner'));
     }
 
     /**
@@ -122,7 +142,34 @@ class BannerController extends Controller
             $file_name = $banner->banner;
         }
 
+
+        if ($request->gambar) {
+            $path = storage_path("app/public/img/banner");
+
+            if (File::exists("$path/$banner->banner")) {
+                File::delete("$path/$banner->banner");
+            }
+
+            $extention = $request->gambar->extension();
+            $file_name1 = time() . '1.' . $extention;
+            $image = $request->file('gambar');
+            $image = Image::make($request->file('gambar'));
+            $image->resize(1080, null, function ($constraint) {
+                $constraint->aspectRatio();
+            });
+            if (!File::exists("$path")) {
+                File::makeDirectory("$path", $mode = 0777, true, true);
+            }
+            $image->save("$path/$file_name1");
+
+        } else {
+            $file_name1 = $banner->gambar;
+        }
+        
+        $banner->gambar = $file_name1;
         $banner->banner = $file_name;
+        $banner->judul = $request->judul;
+        $banner->deskripsi = $request->deskripsi;
         $banner->save();
 
         return redirect()->route('banner.index')
