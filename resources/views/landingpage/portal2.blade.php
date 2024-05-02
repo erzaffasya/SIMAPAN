@@ -8,7 +8,7 @@
     <link rel="icon" href="{{ asset('tlandingpage/asset/img/logo-3.png') }}">
 
     <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="{{asset('tlandingpage/asset/css/bootstrap.min.css')}}" rel="stylesheet">
     <link rel="stylesheet" href="{{asset('tlandingpage/asset/css/design.css')}}">
 
     <title>Portal DP3AKB</title>
