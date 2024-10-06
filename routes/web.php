@@ -38,7 +38,6 @@ use App\Http\Controllers\SimapanArtikelController;
 use App\Http\Controllers\TentangController;
 use App\Http\Controllers\TinyMceController;
 use App\Http\Controllers\UserController;
-use App\Models\PemberdayaanMasyarakat;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -70,6 +69,7 @@ Route::get('/artikel-detail', function () {
     return view('landingpage.artikeldetail');
 });
 
+Route::get('/banner-detail/{id}', [BannerController::class, 'show'])->name('banner-detail');
 
 Route::get('/artikel-kantor', [LandingpageController::class, 'artikelKantor'])->name('landingpage.artikel-kantor');
 Route::get('/artikel-kantor/detail/{slug}', [LandingpageController::class, 'kegiatanKantorDetail'])->name('landingpage.artikel-kantor-detail');
@@ -145,7 +145,6 @@ Route::middleware(['auth'])->prefix('admin')->group(function () {
     Route::resource('user', UserController::class);
     Route::get('/profile', [UserController::class, 'profile'])->name('profile');
 
-    Route::get('/banner-detail/{id}', [BannerController::class, 'show'])->name('banner-detail');
 
 
     Route::resource('simapan-artikel', SimapanArtikelController::class);
