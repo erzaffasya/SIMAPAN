@@ -29,6 +29,7 @@
                                 <th>Kategori</th>
                                 <th>Judul</th>
                                 <th>Foto</th>
+                                <th>Kelurahan</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -39,6 +40,7 @@
                                     <td>{{ $item->kategori->judul ?? '-' }}</td>
                                     <td>{{ $item->judul }}</td>
                                     <td>{{ $item->foto }}</td>
+                                    <td>{{ $item->kelurahan->nama ?? '-' }}</td>
                                     <td>
                                         <div class="d-flex">
                                             <a class="me-3" href="{{ route('forum-artikel.edit', $item->id) }}">

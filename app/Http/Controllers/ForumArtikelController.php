@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Kelurahan;
 use App\Models\ForumKategoriArtikel;
 use Illuminate\Support\Facades\File;
 use Intervention\Image\Facades\Image;
@@ -17,7 +18,7 @@ class ForumArtikelController extends Controller
      */
     public function index()
     {
-        $forum_artikel = ForumArtikel::where('id_kategori_artikel',2)->get();
+        $forum_artikel = ForumArtikel::where('id_kategori_artikel', 2)->with('kelurahan')->get();
         return view('admin.forum.artikel.index', compact('forum_artikel'));
     }
 
@@ -28,8 +29,9 @@ class ForumArtikelController extends Controller
     public function create()
     {
         $lKategori = ForumKategoriArtikel::all();
-        return view('admin.forum.artikel.tambah', compact('lKategori'));
+        $lKelurahan = Kelurahan::all();
 
+        return view('admin.forum.artikel.tambah', compact(['lKategori', 'lKelurahan']));
     }
 
     /**
@@ -42,6 +44,7 @@ class ForumArtikelController extends Controller
         $request->validate([
             'judul' => 'required',
             'isi' => 'required',
+            'kelurahan_id' => 'required',
             'foto' => 'required|mimes:jpeg,png,jpg,gif',
         ]);
 
@@ -77,6 +80,7 @@ class ForumArtikelController extends Controller
 
         ForumArtikel::create([
             "id_kategori_artikel" => 2,
+            "kelurahan_id" => $request->kelurahan_id,
             "slug" => Str::slug($request->judul),
             "foto" => $file_name,
             "thumbnail" => $file_name,
@@ -107,7 +111,10 @@ class ForumArtikelController extends Controller
     public function edit(ForumArtikel $forum_artikel)
     {
         $lKategori = ForumKategoriArtikel::all();
-        return view('admin.forum.artikel.ubah', compact('lKategori', 'forum_artikel'));
+        $lKelurahan = Kelurahan::all();
+
+        $forum_artikel->with('kelurahan');
+        return view('admin.forum.artikel.ubah', compact(['lKategori', 'forum_artikel', 'lKelurahan']));
     }
 
     /**
@@ -122,6 +129,7 @@ class ForumArtikelController extends Controller
             'judul' => 'required',
             'isi' => 'required',
             'foto' => 'nullable|mimes:jpeg,png,jpg,gif',
+            'kelurahan_id' => 'required',
         ]);
 
 
@@ -159,6 +167,7 @@ class ForumArtikelController extends Controller
         }
 
         $forum_artikel->id_kategori_artikel = 2;
+        $forum_artikel->kelurahan_id = $request->kelurahan_id;
         $forum_artikel->judul = $request->judul;
         $forum_artikel->slug = Str::slug($request->judul);
         $forum_artikel->foto = $file_name;

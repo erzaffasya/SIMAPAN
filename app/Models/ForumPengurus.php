@@ -15,5 +15,11 @@ class ForumPengurus extends Model
         "nama",
         "jabatan",
         "foto",
+        "kelurahan_id",
     ];
+
+    public function kelurahan()
+    {
+        return $this->belongsTo(Kelurahan::class);
+    }
 }

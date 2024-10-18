@@ -62,11 +62,11 @@ class LandingpageController extends Controller
 
     public function forum()
     {
-        $pengurus = ForumPengurus::all();
+        $pengurus = ForumPengurus::with('kelurahan')->get();
         $struktur = ForumStruktur::find(1);
-        $artikel1 = ForumArtikel::where('id_kategori_artikel', 2)->orderBy('created_at', 'DESC')->first();
-        $artikel2 = ForumArtikel::where('id_kategori_artikel', 2)->orderBy('created_at', 'DESC')->offset(1)->limit(3)->get();
-        $artikel3 = ForumArtikel::where('id_kategori_artikel', 2)->orderBy('created_at', 'DESC')->offset(4)->paginate(8);
+        $artikel1 = ForumArtikel::where('id_kategori_artikel', 2)->with('kelurahan')->orderBy('created_at', 'DESC')->first();
+        $artikel2 = ForumArtikel::where('id_kategori_artikel', 2)->with('kelurahan')->orderBy('created_at', 'DESC')->offset(1)->limit(3)->get();
+        $artikel3 = ForumArtikel::where('id_kategori_artikel', 2)->with('kelurahan')->orderBy('created_at', 'DESC')->offset(4)->paginate(8);
         $kegiatan = ForumGaleri::orderBy('created_at', 'DESC')->limit(8)->get();
         $ForumKategoriGaleri = ForumKategoriGaleri::where('kategori', 'F')->limit(8)->get();
         // dd($kegiatan);

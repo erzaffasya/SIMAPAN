@@ -28,6 +28,7 @@
                                 <th>No</th>
                                 <th>Nama</th>
                                 <th>Jabatan</th>
+                                <th>Kelurahan</th>
                                 <th>Foto</th>
                                 <th>Action</th>
                             </tr>
@@ -38,6 +39,7 @@
                                     <td>{{ $loop->iteration }}</td>
                                     <td>{{ $item->nama }}</td>
                                     <td>{{ $item->jabatan }}</td>
+                                    <td>{{ $item->kelurahan->nama ?? "-" }}</td>
                                     <td>{{ $item->foto }}</td>
                                     <td>
                                         <div class="d-flex">
