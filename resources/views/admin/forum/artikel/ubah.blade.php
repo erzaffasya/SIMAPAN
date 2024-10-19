@@ -41,7 +41,7 @@
                                     <option value="">Pilih Kelurahan</option>
                                     @foreach ($lKelurahan as $item)
                                         <option value="{{ $item->id }}"
-                                            {{ $forum_penguru->kelurahan_id == $item->id ? 'selected' : '' }}>
+                                            {{ $forum_artikel->kelurahan_id == $item->id ? 'selected' : '' }}>
                                             {{ $item->nama }}</option>
                                     @endforeach
                                 </select>
