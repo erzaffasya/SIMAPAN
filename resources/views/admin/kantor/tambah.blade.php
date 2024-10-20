@@ -130,35 +130,5 @@
                 inputLink_map.value = 'https://www.google.com/maps?q=' + inputLongitude.value + ',' + longitude.value;
             }
         </script>
-        <script>
-            // Data kelurahan dari Laravel
-            const kelurahanData = @json($lKelurahan);
-
-            // Menangani perubahan pada dropdown Kecamatan
-            document.getElementById('kecamatan').addEventListener('change', function() {
-                const kecamatanCode = this.value;
-                const kelurahanSelect = document.getElementById('kelurahan');
-
-                // Bersihkan opsi kelurahan
-                kelurahanSelect.innerHTML = '<option value="">Pilih Kelurahan</option>';
-                kelurahanSelect.disabled = true; // Disable kelurahan
-
-                if (kecamatanCode) {
-                    // Filter kelurahan berdasarkan kecamatan yang dipilih
-                    const filteredKelurahan = kelurahanData.filter(k => k.district_code === kecamatanCode);
-
-                    // Tambahkan opsi kelurahan yang sesuai
-                    filteredKelurahan.forEach(kelurahan => {
-                        const option = document.createElement('option');
-                        option.value = kelurahan.code;
-                        option.textContent = kelurahan.name;
-                        kelurahanSelect.appendChild(option);
-                    });
-
-                    // Enable kelurahan jika ada opsi yang tersedia
-                    kelurahanSelect.disabled = filteredKelurahan.length === 0 ? true : false;
-                }
-            });
-        </script>
     @endpush
 </x-app-layout>
