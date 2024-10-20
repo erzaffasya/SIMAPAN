@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Laravolt\Indonesia\Models\Kecamatan;
+use Laravolt\Indonesia\Models\Kelurahan;
 
 class ForumArtikel extends Model
 {
@@ -13,7 +15,8 @@ class ForumArtikel extends Model
 
     protected $fillable = [
         "id_kategori_artikel",
-        "kantor_id",
+        "kelurahan",
+        "kecamatan",
         "foto",
         "thumbnail",
         "judul",
@@ -26,8 +29,13 @@ class ForumArtikel extends Model
         return $this->belongsTo(ForumKategoriArtikel::class, 'id_kategori_artikel', 'id');
     }
 
-    public function kantor()
+    public function kelurahanForumArtikel()
     {
-        return $this->belongsTo(Kantor::class);
+        return $this->belongsTo(Kelurahan::class, 'kelurahan', 'code', 'code');
+    }
+
+    public function kecamatanForumArtikel()
+    {
+        return $this->belongsTo(Kecamatan::class, 'kecamatan', 'code', 'code');
     }
 }

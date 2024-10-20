@@ -30,25 +30,6 @@
                                 <textarea name="deskripsi" class="form-control"></textarea>
                             </div>
                         </div>
-                        <div class="col-lg-6 col-sm-6 col-12">
-                            <div class="form-group">
-                                <label>Kecamatan</label>
-                                <select name="kecamatan" class="form-control" id="kecamatan">
-                                    <option value="">Pilih Kecamatan</option>
-                                    @foreach ($lKecamatan as $item)
-                                        <option value="{{ $item->code }}">{{ $item->name }}</option>
-                                    @endforeach
-                                </select>
-                            </div>
-                        </div>
-                        <div class="col-lg-6 col-sm-6 col-12">
-                            <div class="form-group">
-                                <label>Kelurahan</label>
-                                <select name="kelurahan" class="form-control" id="kelurahan" disabled>
-                                    <option value="">Pilih Kelurahan</option>
-                                </select>
-                            </div>
-                        </div>
                         <div class="col-lg-12">
                             <div class="form-group">
                                 <label>Maps</label>

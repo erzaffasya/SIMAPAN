@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Laravolt\Indonesia\Models\Kecamatan;
+use Laravolt\Indonesia\Models\Kelurahan;
 
 class ForumPengurus extends Model
 {
@@ -15,11 +17,18 @@ class ForumPengurus extends Model
         "nama",
         "jabatan",
         "foto",
-        "kantor_id"
+        "kelurahan",
+        "kecamatan",
+        "is_show",
     ];
 
-    public function kantor()
+    public function kelurahanForumPengurus()
     {
-        return $this->belongsTo(Kantor::class);
+        return $this->belongsTo(Kelurahan::class, 'kelurahan', 'code', 'code');
+    }
+
+    public function kecamatanForumPengurus()
+    {
+        return $this->belongsTo(Kecamatan::class, 'kecamatan', 'code', 'code');
     }
 }

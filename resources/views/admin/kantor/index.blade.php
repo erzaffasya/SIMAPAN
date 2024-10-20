@@ -28,8 +28,6 @@
                             <tr>
                                 <th>No</th>
                                 <th>Kantor</th>
-                                <th>Kelurahan</th>
-                                <th>Kecamatan</th>
                                 <th>Foto</th>
                                 <th>Deskripsi</th>
                                 <th>Latitude</th>
@@ -44,12 +42,6 @@
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
                                     <td>{{ $item->kantor }}</td>
-                                    <td>{{ $item->kecamatanKantor ? ucwords(strtolower($item->kecamatanKantor->name)) : '-' }}
-                                    </td>
-                                    <td>{{ $item->kelurahanKantor ? ucwords(strtolower($item->kelurahanKantor->name)) : '-' }}
-                                    </td>
-
-
                                     <td>
                                         <a href="javascript:void(0);" class="product-img">
                                             <img src="{{ asset("storage/img/kantor/$item->foto") }}" alt="product">

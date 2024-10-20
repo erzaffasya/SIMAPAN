@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddKantorColumnArtikelForumTable extends Migration
+class AddKecamatanKelurahanColumnForumArtikelTable extends Migration
 {
     /**
      * Run the migrations.
@@ -15,7 +15,8 @@ class AddKantorColumnArtikelForumTable extends Migration
     {
         //
         Schema::table('forum_artikel', function (Blueprint $table) {
-            $table->foreignId("kantor_id")->nullable()->constrained("kantor");
+            $table->string('kecamatan')->nullable();
+            $table->string('kelurahan')->nullable();
         });
     }
 
@@ -28,7 +29,8 @@ class AddKantorColumnArtikelForumTable extends Migration
     {
         //
         Schema::table('forum_artikel', function (Blueprint $table) {
-            $table->dropColumn("kantor_id");
+            $table->dropColumn('kecamatan');
+            $table->dropColumn('kelurahan');
         });
     }
 }

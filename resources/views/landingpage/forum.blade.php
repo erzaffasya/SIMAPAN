@@ -8,7 +8,7 @@
                 </div>
             </div>
             <div class="row align-items-center">
-                <div class="col-12 col-lg-8" style="height: 400px; overflow-y: scroll;">
+                <div class="col-12 col-lg-8" style="height: 400px; overflow-y: auto;">
                     <img src="{{ asset("storage/img/struktur/$struktur->foto") }}" alt="" class="w-100 rounded"
                         style="object-fit: fill;">
                 </div>
@@ -28,34 +28,53 @@
 
                 <div class="text-end mb-4">
                     <!-- Dropdown Filter Kantor -->
-                    <label for="kantor" class="text-white">Filter Berdasarkan Kantor:</label>
+                    <label for="kantor" class="text-white">Filter:</label>
                     <select id="kantor-filter" class="form-select"
-                        style="width: 200px; display: inline-block;  width: 300px; border: 2px solid green; color: green;">
-                        <option value="">Semua Kantor</option>
+                        style="width: 200px; display: inline-block;  width: 200px; border: 2px solid green; color: green;">
+                        <option value="">Semua Kecamatan</option>
+                        @foreach ($kantor as $item)
+                            <option value="{{ $item->id }}">{{ $item->kantor }}</option>
+                        @endforeach
+                    </select>
+
+                    <select id="kantor-filter" class="form-select"
+                        style="width: 200px; display: inline-block;  width: 200px; border: 2px solid green; color: green;">
+                        <option value="">Semua Kelurahan</option>
                         @foreach ($kantor as $item)
                             <option value="{{ $item->id }}">{{ $item->kantor }}</option>
                         @endforeach
                     </select>
                 </div>
 
-                <div class="pengurus-slide">
+                {{-- <div class="pengurus-slide">
+
+                </div> --}}
+
+
+                <div class="row w-100 justify-content-between">
                     @foreach ($pengurus as $item)
-                        <div class="mx-2 h-100 pengurus-item" data-kantor-id="{{ $item->kantor_id }}">
+                        <div class="col-xl-3 col-lg-2-4 col-md-3 col-sm-6 h-100 pengurus-item"
+                            style="margin-bottom: 1rem;" data-kantor-id="{{ $item->kantor_id }}">
                             <figure class="h-100 d-flex flex-column mb-0">
                                 <img src="{{ asset("storage/img/forum/pengurus/$item->foto") }}" alt=""
                                     class="w-100" height="280px" style="object-fit: cover; border-radius: 1rem;">
+                                {{-- <p class="text-center text-white" style="font-size: 12px;">
+                                    {{ optional($item->kantor)->kantor }}</p> --}}
                                 <figcaption class="px-0 py-2 text-center h-100">
                                     <p class="fw-bold mb-0 fs-5 lh-sm text-warning">{{ $item->nama }}</p>
                                     <p class="text-secondary lh-sm mt-2 mb-0 text-white" style="opacity: 75%">
                                         {{ $item->jabatan }}</p>
                                 </figcaption>
-                                <p class="text-center text-white" style="font-size: 12px;">
-                                    {{ optional($item->kantor)->kantor }}</p>
+
                             </figure>
                         </div>
                     @endforeach
                 </div>
+
+
             </div>
+
+
         </div>
     </section>
 
@@ -198,6 +217,9 @@
             </div>
         </div>
     </section>
+
+
+
     <script>
         document.getElementById('kantor-filter').addEventListener('change', function() {
             // Ambil value yang dipilih dari dropdown

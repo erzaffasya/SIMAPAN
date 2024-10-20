@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddKecamatanKelurahanColumnKantorTable extends Migration
+class AddIsShowColumnForumPengurusTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,9 +14,8 @@ class AddKecamatanKelurahanColumnKantorTable extends Migration
     public function up()
     {
         //
-        Schema::table('kantor', function (Blueprint $table) {
-            $table->string('kecamatan')->nullable();
-            $table->string('kelurahan')->nullable();
+        Schema::table('forum_pengurus', function (Blueprint $table) {
+            $table->boolean('is_show')->default(true);
         });
     }
 
@@ -27,10 +26,8 @@ class AddKecamatanKelurahanColumnKantorTable extends Migration
      */
     public function down()
     {
-        //
-        Schema::table('kantor', function (Blueprint $table) {
-            $table->dropColumn('kecamatan');
-            $table->dropColumn('kelurahan');
+        Schema::table('forum_pengurus', function (Blueprint $table) {
+            $table->dropColumn('is_show');
         });
     }
 }

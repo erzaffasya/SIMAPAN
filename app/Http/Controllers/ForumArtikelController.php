@@ -19,8 +19,9 @@ class ForumArtikelController extends Controller
     public function index()
     {
         $forum_artikel = ForumArtikel::where('id_kategori_artikel', 2)->with([
-            'kantor.kecamatanKantor', 'kantor.kelurahanKantor'
-            ])->get();
+            'kelurahanForumArtikel',
+            'kecamatanForumArtikel'
+        ])->get();
         return view('admin.forum.artikel.index', compact('forum_artikel'));
     }
 
@@ -31,9 +32,9 @@ class ForumArtikelController extends Controller
     public function create()
     {
         $lKategori = ForumKategoriArtikel::all();
-        $kantor = Kantor::with(['kecamatanKantor', 'kelurahanKantor'])->get();
-
-        return view('admin.forum.artikel.tambah', compact(['lKategori','kantor']));
+        $lKecamatan = \Indonesia::search('balikpapan')->allDistricts();
+        $lKelurahan =  \Indonesia::search('balikpapan')->allVillages();
+        return view('admin.forum.artikel.tambah', compact(['lKategori', 'lKecamatan', 'lKelurahan']));
     }
 
     /**
@@ -47,7 +48,8 @@ class ForumArtikelController extends Controller
             'judul' => 'required',
             'isi' => 'required',
             'foto' => 'required|mimes:jpeg,png,jpg,gif',
-            'kantor_id' => 'required|exists:kantor,id',
+            'kecamatan' => 'required',
+            'kelurahan' => 'required',
         ]);
 
 
@@ -82,7 +84,8 @@ class ForumArtikelController extends Controller
 
         ForumArtikel::create([
             "id_kategori_artikel" => 2,
-            'kantor_id' => $request->kantor_id,
+            "kecamatan" => $request->kecamatan,
+            "kelurahan" => $request->kelurahan,
             "slug" => Str::slug($request->judul),
             "foto" => $file_name,
             "thumbnail" => $file_name,
@@ -114,9 +117,10 @@ class ForumArtikelController extends Controller
     public function edit(ForumArtikel $forum_artikel)
     {
         $lKategori = ForumKategoriArtikel::all();
-        $kantor = Kantor::with(['kecamatanKantor', 'kelurahanKantor'])->get();
-        $forum_artikel->with(['kantor.kecamatanKantor', 'kantor.kelurahanKantor']);
-        return view('admin.forum.artikel.ubah', compact(['kantor', 'lKategori', 'forum_artikel']));
+        $lKecamatan = \Indonesia::search('balikpapan')->allDistricts();
+        $lKelurahan =  \Indonesia::search('balikpapan')->allVillages();
+        $forum_artikel->with(['kecamatanForumArtikel', 'kelurahanForumArtikel']);
+        return view('admin.forum.artikel.ubah', compact(['lKategori', 'forum_artikel', 'lKecamatan', 'lKelurahan']));
     }
 
     /**
@@ -131,7 +135,8 @@ class ForumArtikelController extends Controller
             'judul' => 'required',
             'isi' => 'required',
             'foto' => 'nullable|mimes:jpeg,png,jpg,gif',
-            'kantor_id' => 'required|exists:kantor,id',
+            'kecamatan' => 'required',
+            'kelurahan' => 'required',
         ]);
 
 
@@ -174,7 +179,8 @@ class ForumArtikelController extends Controller
         $forum_artikel->foto = $file_name;
         $forum_artikel->thumbnail = $file_name;
         $forum_artikel->isi = $request->isi;
-        $forum_artikel->kantor_id = $request->kantor_id;
+        $forum_artikel->kecamatan = $request->kecamatan;
+        $forum_artikel->kelurahan = $request->kelurahan;
         $forum_artikel->save();
 
         return redirect()->route('forum-artikel.index')

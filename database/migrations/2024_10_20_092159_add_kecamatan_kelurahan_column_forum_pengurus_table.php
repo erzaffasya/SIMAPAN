@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddKantorColumnPengurusForumTable extends Migration
+class AddKecamatanKelurahanColumnForumPengurusTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,9 @@ class AddKantorColumnPengurusForumTable extends Migration
      */
     public function up()
     {
-        //
         Schema::table('forum_pengurus', function (Blueprint $table) {
-            $table->foreignId("kantor_id")->nullable()->constrained("kantor");
+            $table->string('kecamatan')->nullable();
+            $table->string('kelurahan')->nullable();
         });
     }
 
@@ -26,9 +26,9 @@ class AddKantorColumnPengurusForumTable extends Migration
      */
     public function down()
     {
-        //
         Schema::table('forum_pengurus', function (Blueprint $table) {
-            $table->dropColumn("kantor_id");
+            $table->dropColumn('kecamatan');
+            $table->dropColumn('kelurahan');
         });
     }
 }

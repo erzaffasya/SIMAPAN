@@ -28,10 +28,10 @@
                                 <th>No</th>
                                 <th>Nama</th>
                                 <th>Jabatan</th>
-                                <th>Kantor</th>
                                 <th>Kecamatan</th>
                                 <th>Keluruhan</th>
                                 <th>Foto</th>
+                                <th>Tampilkan</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -41,12 +41,12 @@
                                     <td>{{ $loop->iteration }}</td>
                                     <td>{{ $item->nama }}</td>
                                     <td>{{ $item->jabatan }}</td>
-                                    <td>{{ $item->kantor ? $item->kantor->kantor : '-' }}</td>
-                                    <td>{{ $item->kantor ? ($item->kantor->kecamatanKantor ? ucwords(strtolower($item->kantor->kecamatanKantor->name)) : '-') : '-' }}
+                                    <td>{{ $item->kecamatanForumPengurus ? ucwords(strtolower($item->kecamatanForumPengurus->name)) : '-' }}
                                     </td>
-                                    <td>{{ $item->kantor ? ($item->kantor->kelurahanKantor ? ucwords(strtolower($item->kantor->kelurahanKantor->name)) : '-') : '-' }}
+                                    <td>{{ $item->kelurahanForumPengurus ? ucwords(strtolower($item->kelurahanForumPengurus->name)) : '-' }}
                                     </td>
                                     <td>{{ $item->foto }}</td>
+                                    <td>{{ $item->is_show == 1 ? 'Ya' : 'Tidak' }}</td>
                                     <td>
                                         <div class="d-flex">
                                             <a class="me-3" href="{{ route('forum-pengurus.edit', $item->id) }}">
