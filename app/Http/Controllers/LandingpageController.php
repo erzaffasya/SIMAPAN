@@ -78,6 +78,61 @@ class LandingpageController extends Controller
         return view('landingpage.forum', compact('ForumKategoriGaleri', 'pengurus', 'struktur', 'artikel1', 'artikel2', 'artikel3', 'kegiatan', 'kecamatan', 'kelurahan'));
     }
 
+    public function getArtikelByKelurahan($kelurahanId)
+    {
+        if ($kelurahanId === 'all') {
+            // Jika semua kelurahan dipilih, ambil artikel tanpa filter kelurahan
+            $artikel1 = ForumArtikel::with('kelurahanForumArtikel') // Eager loading kelurahan
+                ->where('id_kategori_artikel', 2)
+                ->orderBy('created_at', 'DESC')
+                ->first();
+
+            $artikel2 = ForumArtikel::with('kelurahanForumArtikel') // Eager loading kelurahan
+                ->where('id_kategori_artikel', 2)
+                ->orderBy('created_at', 'DESC')
+                ->offset(1)
+                ->limit(3)
+                ->get();
+
+            $artikel3 = ForumArtikel::with('kelurahanForumArtikel') // Eager loading kelurahan
+                ->where('id_kategori_artikel', 2)
+                ->orderBy('created_at', 'DESC')
+                ->offset(4)
+                ->paginate(8);
+        } else {
+            // Jika kelurahan dipilih, filter artikel berdasarkan kelurahan
+            $artikel1 = ForumArtikel::with('kelurahanForumArtikel') // Eager loading kelurahan
+                ->where('id_kategori_artikel', 2)
+                ->where('kelurahan', $kelurahanId)
+                ->orderBy('created_at', 'DESC')
+                ->first();
+
+            $artikel2 = ForumArtikel::with('kelurahanForumArtikel') // Eager loading kelurahan
+                ->where('id_kategori_artikel', 2)
+                ->where('kelurahan', $kelurahanId)
+                ->orderBy('created_at', 'DESC')
+                ->offset(1)
+                ->limit(3)
+                ->get();
+
+            $artikel3 = ForumArtikel::with('kelurahanForumArtikel') // Eager loading kelurahan
+                ->where('id_kategori_artikel', 2)
+                ->where('kelurahan', $kelurahanId)
+                ->orderBy('created_at', 'DESC')
+                ->offset(4)
+                ->paginate(8);
+        }
+
+        // Return JSON response
+        return response()->json([
+            'artikel1' => $artikel1,
+            'artikel2' => $artikel2,
+            'artikel3' => $artikel3
+        ]);
+    }
+
+
+
     public function profil()
     {
         $jumlahAnak = JumlahAnak::find(1);

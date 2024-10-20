@@ -156,7 +156,6 @@ Route::middleware(['auth'])->prefix('admin')->group(function () {
 
     Route::resource('jenis-siga', SigaJenisController::class);
     Route::resource('pemberdayaan-masyarakat', PemberdayaanMasyarakatController::class);
-
 });
 
 $middleware = array_merge(\Config::get('lfm.middlewares'), [
@@ -262,5 +261,8 @@ Route::group(compact('prefix', 'as', 'namespace'), function () {
     Route::get($files_url, 'RedirectController@getFile')
         ->where('file_name', '.*');
 });
+
+Route::get('/forum/artikel-kelurahan/{kelurahanId}', [LandingPageController::class, 'getArtikelByKelurahan']);
+
 
 require __DIR__ . '/auth.php';
