@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Kelurahan;
+use App\Models\Kantor;
 use App\Models\ForumKategoriArtikel;
 use Illuminate\Support\Facades\File;
 use Intervention\Image\Facades\Image;
@@ -18,7 +18,9 @@ class ForumArtikelController extends Controller
      */
     public function index()
     {
-        $forum_artikel = ForumArtikel::where('id_kategori_artikel', 2)->with('kelurahan')->get();
+        $forum_artikel = ForumArtikel::where('id_kategori_artikel', 2)->with([
+            'kantor.kecamatanKantor', 'kantor.kelurahanKantor'
+            ])->get();
         return view('admin.forum.artikel.index', compact('forum_artikel'));
     }
 
@@ -29,9 +31,9 @@ class ForumArtikelController extends Controller
     public function create()
     {
         $lKategori = ForumKategoriArtikel::all();
-        $lKelurahan = Kelurahan::all();
+        $kantor = Kantor::with(['kecamatanKantor', 'kelurahanKantor'])->get();
 
-        return view('admin.forum.artikel.tambah', compact(['lKategori', 'lKelurahan']));
+        return view('admin.forum.artikel.tambah', compact(['lKategori','kantor']));
     }
 
     /**
@@ -44,8 +46,8 @@ class ForumArtikelController extends Controller
         $request->validate([
             'judul' => 'required',
             'isi' => 'required',
-            'kelurahan_id' => 'required',
             'foto' => 'required|mimes:jpeg,png,jpg,gif',
+            'kantor_id' => 'required|exists:kantor,id',
         ]);
 
 
@@ -80,12 +82,13 @@ class ForumArtikelController extends Controller
 
         ForumArtikel::create([
             "id_kategori_artikel" => 2,
-            "kelurahan_id" => $request->kelurahan_id,
+            'kantor_id' => $request->kantor_id,
             "slug" => Str::slug($request->judul),
             "foto" => $file_name,
             "thumbnail" => $file_name,
             "judul" => $request->judul,
             "isi" => $request->isi
+
         ]);
 
 
@@ -111,10 +114,9 @@ class ForumArtikelController extends Controller
     public function edit(ForumArtikel $forum_artikel)
     {
         $lKategori = ForumKategoriArtikel::all();
-        $lKelurahan = Kelurahan::all();
-
-        $forum_artikel->with('kelurahan');
-        return view('admin.forum.artikel.ubah', compact(['lKategori', 'forum_artikel', 'lKelurahan']));
+        $kantor = Kantor::with(['kecamatanKantor', 'kelurahanKantor'])->get();
+        $forum_artikel->with(['kantor.kecamatanKantor', 'kantor.kelurahanKantor']);
+        return view('admin.forum.artikel.ubah', compact(['kantor', 'lKategori', 'forum_artikel']));
     }
 
     /**
@@ -129,7 +131,7 @@ class ForumArtikelController extends Controller
             'judul' => 'required',
             'isi' => 'required',
             'foto' => 'nullable|mimes:jpeg,png,jpg,gif',
-            'kelurahan_id' => 'required',
+            'kantor_id' => 'required|exists:kantor,id',
         ]);
 
 
@@ -167,12 +169,12 @@ class ForumArtikelController extends Controller
         }
 
         $forum_artikel->id_kategori_artikel = 2;
-        $forum_artikel->kelurahan_id = $request->kelurahan_id;
         $forum_artikel->judul = $request->judul;
         $forum_artikel->slug = Str::slug($request->judul);
         $forum_artikel->foto = $file_name;
         $forum_artikel->thumbnail = $file_name;
         $forum_artikel->isi = $request->isi;
+        $forum_artikel->kantor_id = $request->kantor_id;
         $forum_artikel->save();
 
         return redirect()->route('forum-artikel.index')

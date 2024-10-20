@@ -28,8 +28,10 @@
                                 <th>No</th>
                                 <th>Kategori</th>
                                 <th>Judul</th>
+                                <th>Kantor</th>
+                                <th>Kecamatan</th>
+                                <th>Keluruhan</th>
                                 <th>Foto</th>
-                                <th>Kelurahan</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -39,8 +41,12 @@
                                     <td>{{ $loop->iteration }}</td>
                                     <td>{{ $item->kategori->judul ?? '-' }}</td>
                                     <td>{{ $item->judul }}</td>
+                                    <td>{{ $item->kantor ? $item->kantor->kantor : '-' }}</td>
+                                    <td>{{ $item->kantor ? $item->kantor->kecamatanKantor ? ucwords(strtolower($item->kantor->kecamatanKantor->name)) : '-' : '-' }}
+                                    </td>
+                                    <td>{{ $item->kantor ? $item->kantor->kelurahanKantor ? ucwords(strtolower($item->kantor->kelurahanKantor->name)) : '-' : '-' }}
+                                    </td>
                                     <td>{{ $item->foto }}</td>
-                                    <td>{{ $item->kelurahan->nama ?? '-' }}</td>
                                     <td>
                                         <div class="d-flex">
                                             <a class="me-3" href="{{ route('forum-artikel.edit', $item->id) }}">

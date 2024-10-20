@@ -35,8 +35,6 @@
                                     <p class="fw-bold mb-0 fs-5 lh-sm text-white">{{ $item->nama }}</p>
                                     <p class="text-secondary lh-sm mt-2 mb-0 text-white" style="opacity: 75%">
                                         {{ $item->jabatan }}</p>
-                                    <p class="lh-sm text-white" style="opacity: 75%">
-                                        {{ $item->kelurahan ? $item->kelurahan->nama : '-' }}</p>
                                 </figcaption>
                             </figure>
                         </div>
@@ -67,9 +65,6 @@
                                         {!! \Illuminate\Support\Str::limit($artikel1->judul, 45) !!}
                                     </h1>
                                     <p class="fs-6 mb-0 text-secondary">
-                                        {{ $artikel1->kelurahan->nama ?? '-' }}
-                                    </p>
-                                    <p class="fs-6 mb-0 text-secondary">
                                         {{-- {!! $artikel1->isi !!} --}}
                                         {{-- { \Illuminate\Support\Str::limit($artikel1->isi, 45)} --}}
                                         {!! Str::limit(strip_tags($artikel1->isi), $limit = 200, $end = '...') !!}
@@ -98,8 +93,6 @@
                                                 {!! \Illuminate\Support\Str::limit($item->judul, 62) !!}
                                             </p>
                                             <p class="fs-6 mb-0 text-secondary">
-                                                {{ $item->kelurahan ? $item->kelurahan->nama : '-' }}
-                                            <p class="fs-6 mb-0 text-secondary">
                                                 {!! Str::limit(strip_tags($item->isi), $limit = 62, $end = '...') !!}
                                             </p>
                                         </div>
@@ -119,9 +112,6 @@
                                     alt="" width="100%" height="350">
                                 <figcaption class="rounded bg-white py-2 px-3 mx-auto">
                                     <p class="fw-bold mb-2 lh-sm text-dark">{!! \Illuminate\Support\Str::limit($item->judul, 55) !!}</p>
-                                    <p class="fs-6 mb-0 text-secondary">
-                                        {{ $item->kelurahan ? $item->kelurahan->nama : '-' }}
-                                    </p>
                                     <p class="fs-6 mb-0 text-secondary">{{ $item->created_at->format('D, d M Y') }}</p>
                                 </figcaption>
                             </figure>

@@ -30,6 +30,25 @@
                                 <textarea name="deskripsi" class="form-control"></textarea>
                             </div>
                         </div>
+                        <div class="col-lg-6 col-sm-6 col-12">
+                            <div class="form-group">
+                                <label>Kecamatan</label>
+                                <select name="kecamatan" class="form-control" id="kecamatan">
+                                    <option value="">Pilih Kecamatan</option>
+                                    @foreach ($lKecamatan as $item)
+                                        <option value="{{ $item->code }}">{{ $item->name }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-sm-6 col-12">
+                            <div class="form-group">
+                                <label>Kelurahan</label>
+                                <select name="kelurahan" class="form-control" id="kelurahan" disabled>
+                                    <option value="">Pilih Kelurahan</option>
+                                </select>
+                            </div>
+                        </div>
                         <div class="col-lg-12">
                             <div class="form-group">
                                 <label>Maps</label>
@@ -41,13 +60,15 @@
                         <div class="col-lg-6 col-sm-6 col-12">
                             <div class="form-group">
                                 <label>Latitude</label>
-                                <input name="latitude" id="latitude" value="-1.2379274" type="text" onchange="onChangeLocation()" >
+                                <input name="latitude" id="latitude" value="-1.2379274" type="text"
+                                    onchange="onChangeLocation()">
                             </div>
                         </div>
                         <div class="col-lg-6 col-sm-6 col-12">
                             <div class="form-group">
                                 <label>Longitude</label>
-                                <input name="longitude" id="longitude" value="116.8528526" type="text" onchange="onChangeLocation()" >
+                                <input name="longitude" id="longitude" value="116.8528526" type="text"
+                                    onchange="onChangeLocation()">
                             </div>
                         </div>
                         <div class="col-lg-12 col-sm-12 col-12">
@@ -127,6 +148,36 @@
 
                 inputLink_map.value = 'https://www.google.com/maps?q=' + inputLongitude.value + ',' + longitude.value;
             }
+        </script>
+        <script>
+            // Data kelurahan dari Laravel
+            const kelurahanData = @json($lKelurahan);
+
+            // Menangani perubahan pada dropdown Kecamatan
+            document.getElementById('kecamatan').addEventListener('change', function() {
+                const kecamatanCode = this.value;
+                const kelurahanSelect = document.getElementById('kelurahan');
+
+                // Bersihkan opsi kelurahan
+                kelurahanSelect.innerHTML = '<option value="">Pilih Kelurahan</option>';
+                kelurahanSelect.disabled = true; // Disable kelurahan
+
+                if (kecamatanCode) {
+                    // Filter kelurahan berdasarkan kecamatan yang dipilih
+                    const filteredKelurahan = kelurahanData.filter(k => k.district_code === kecamatanCode);
+
+                    // Tambahkan opsi kelurahan yang sesuai
+                    filteredKelurahan.forEach(kelurahan => {
+                        const option = document.createElement('option');
+                        option.value = kelurahan.code;
+                        option.textContent = kelurahan.name;
+                        kelurahanSelect.appendChild(option);
+                    });
+
+                    // Enable kelurahan jika ada opsi yang tersedia
+                    kelurahanSelect.disabled = filteredKelurahan.length === 0 ? true : false;
+                }
+            });
         </script>
     @endpush
 </x-app-layout>

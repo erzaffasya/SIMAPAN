@@ -28,7 +28,9 @@
                                 <th>No</th>
                                 <th>Nama</th>
                                 <th>Jabatan</th>
-                                <th>Kelurahan</th>
+                                <th>Kantor</th>
+                                <th>Kecamatan</th>
+                                <th>Keluruhan</th>
                                 <th>Foto</th>
                                 <th>Action</th>
                             </tr>
@@ -39,7 +41,11 @@
                                     <td>{{ $loop->iteration }}</td>
                                     <td>{{ $item->nama }}</td>
                                     <td>{{ $item->jabatan }}</td>
-                                    <td>{{ $item->kelurahan->nama ?? "-" }}</td>
+                                    <td>{{ $item->kantor ? $item->kantor->kantor : '-' }}</td>
+                                    <td>{{ $item->kantor ? ($item->kantor->kecamatanKantor ? ucwords(strtolower($item->kantor->kecamatanKantor->name)) : '-') : '-' }}
+                                    </td>
+                                    <td>{{ $item->kantor ? ($item->kantor->kelurahanKantor ? ucwords(strtolower($item->kantor->kelurahanKantor->name)) : '-') : '-' }}
+                                    </td>
                                     <td>{{ $item->foto }}</td>
                                     <td>
                                         <div class="d-flex">

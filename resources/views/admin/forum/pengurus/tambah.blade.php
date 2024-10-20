@@ -28,19 +28,19 @@
                         </div>
                         <div class="col-lg-12 col-sm-12 col-12">
                             <div class="form-group">
-                                <label>Foto</label>
-                                <input name="foto" type="file" accept="image/*">
+                                <label>Kantor</label>
+                                <select name="kantor_id" class="form-select">
+                                    <option value="">Pilih Kantor</option>
+                                    @foreach ($kantor as $item)
+                                        <option value="{{ $item->id }}">{{ $item->kantor }}{{$item->kecamatanKantor ? ', '.ucwords(strtolower($item->kecamatanKantor->name)): ''}}{{ $item->kelurahanKantor ? ', '.ucwords(strtolower($item->kelurahanKantor->name)) : ''}}</option>
+                                    @endforeach
+                                </select>
                             </div>
                         </div>
                         <div class="col-lg-12 col-sm-12 col-12">
                             <div class="form-group">
-                                <label>Kelurahan</label>
-                                <select name="kelurahan_id" class="form-select">
-                                    <option value="">Pilih Kelurahan</option>
-                                    @foreach ($lKelurahan as $item)
-                                        <option value="{{ $item->id }}">{{ $item->nama }}</option>
-                                    @endforeach
-                                </select>
+                                <label>Foto</label>
+                                <input name="foto" type="file" accept="image/*">
                             </div>
                         </div>
                         <div class="col-lg-12">

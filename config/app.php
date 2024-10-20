@@ -176,6 +176,7 @@ return [
             // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        Laravolt\Indonesia\ServiceProvider::class
 
     ],
 
@@ -233,6 +234,7 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         'Image' => Intervention\Image\Facades\Image::class,
+        'Indonesia' => Laravolt\Indonesia\Facade::class
     ],
 
 ];

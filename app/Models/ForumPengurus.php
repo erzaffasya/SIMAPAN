@@ -15,11 +15,11 @@ class ForumPengurus extends Model
         "nama",
         "jabatan",
         "foto",
-        "kelurahan_id",
+        "kantor_id"
     ];
 
-    public function kelurahan()
+    public function kantor()
     {
-        return $this->belongsTo(Kelurahan::class);
+        return $this->belongsTo(Kantor::class);
     }
 }

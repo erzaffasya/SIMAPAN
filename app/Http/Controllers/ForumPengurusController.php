@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\ForumPengurus;
-use App\Models\Kelurahan;
+use App\Models\Kantor;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use Intervention\Image\Facades\Image;
@@ -16,7 +16,7 @@ class ForumPengurusController extends Controller
      */
     public function index()
     {
-        $lPengurus = ForumPengurus::with('kelurahan')->get();
+        $lPengurus = ForumPengurus::with(['kantor.kecamatanKantor', 'kantor.kelurahanKantor' ])->get();
 
         return view('admin.forum.pengurus.index', compact('lPengurus'));
     }
@@ -27,8 +27,9 @@ class ForumPengurusController extends Controller
      */
     public function create()
     {
-        $lKelurahan = Kelurahan::all();
-        return view('admin.forum.pengurus.tambah', compact('lKelurahan'));
+        $kantor = Kantor::with(['kecamatanKantor', 'kelurahanKantor'])->get();
+
+        return view('admin.forum.pengurus.tambah', compact('kantor'));
     }
 
     /**
@@ -42,7 +43,7 @@ class ForumPengurusController extends Controller
             "nama" => 'required',
             "jabatan" => 'required',
             "foto" => 'required|mimes:jpeg,png,jpg,gif',
-            "kelurahan_id" => 'required|exists:kelurahan,id',
+            "kantor_id" => 'required',
         ]);
 
         if ($request->has("foto")) {
@@ -67,7 +68,7 @@ class ForumPengurusController extends Controller
             "nama" => $request->nama,
             "jabatan" => $request->jabatan,
             "foto" => $file_name,
-            "kelurahan_id" => $request->kelurahan_id,
+            "kantor_id" => $request->kantor_id
         ]);
 
         return redirect()->route('forum-pengurus.index')->with('success', "Forum pengurus berhasil Dibuat");
@@ -89,10 +90,10 @@ class ForumPengurusController extends Controller
      * @param  \App\Models\ForumPengurus  $forum_penguru
      */
     public function edit(ForumPengurus $forum_penguru)
-    {   
-        $lKelurahan = Kelurahan::all();
-        $forum_penguru->with('kelurahan');
-        return view('admin.forum.pengurus.ubah', compact(['forum_penguru','lKelurahan']));
+    {  
+        $forum_penguru = ForumPengurus::with(['kantor.kecamatanKantor', 'kantor.kelurahanKantor'])->find($forum_penguru->id);
+        $kantor = Kantor::with(['kecamatanKantor', 'kelurahanKantor'])->get();
+        return view('admin.forum.pengurus.ubah', compact(['forum_penguru','kantor']));
     }
 
     /**
@@ -107,7 +108,7 @@ class ForumPengurusController extends Controller
             "nama" => 'required',
             "jabatan" => 'required',
             "foto" => 'nullable|mimes:jpeg,png,jpg,gif',
-            "kelurahan_id" => 'required|exists:kelurahan,id',
+            "kantor_id" => 'required',
         ]);
 
         if ($request->has("foto")) {
@@ -134,7 +135,7 @@ class ForumPengurusController extends Controller
         $forum_penguru->nama = $request->nama;
         $forum_penguru->jabatan = $request->jabatan;
         $forum_penguru->foto = $file_name;
-        $forum_penguru->kelurahan_id = $request->kelurahan_id;
+        $forum_penguru->kantor_id = $request->kantor_id;
         $forum_penguru->save();
 
         return redirect()->route('forum-pengurus.index')->with('success', "Forum pengurus berhasil Diubah");

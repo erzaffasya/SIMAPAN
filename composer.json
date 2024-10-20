@@ -15,6 +15,7 @@
         "laravel/helpers": "^1.6",
         "laravel/sanctum": "^2.11",
         "laravel/tinker": "^2.5",
+        "laravolt/indonesia": "^0.35.0",
         "mews/captcha": "^3.3",
         "tinymce/tinymce": "^6.6",
         "unisharp/laravel-filemanager": "~1.8"

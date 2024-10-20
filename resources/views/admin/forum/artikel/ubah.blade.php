@@ -36,13 +36,14 @@
                         </div>
                         <div class="col-lg-12 col-sm-12 col-12">
                             <div class="form-group">
-                                <label>Kelurahan</label>
-                                <select name="kelurahan_id" class="form-select">
-                                    <option value="">Pilih Kelurahan</option>
-                                    @foreach ($lKelurahan as $item)
+                                <label>Kantor</label>
+                                <select name="kantor_id" class="form-select">
+                                    <option value="">Pilih Kantor</option>
+                                    @foreach ($kantor as $item)
                                         <option value="{{ $item->id }}"
-                                            {{ $forum_artikel->kelurahan_id == $item->id ? 'selected' : '' }}>
-                                            {{ $item->nama }}</option>
+                                            {{ $item->id == $forum_artikel->kantor_id ? 'selected' : '' }}>
+                                            {{ $item->kantor }}{{ $item->kecamatanKantor ? ', ' . ucwords(strtolower($item->kecamatanKantor->name)) : '' }}{{ $item->kelurahanKantor ? ', ' . ucwords(strtolower($item->kelurahanKantor->name)) : '' }}
+                                        </option>
                                     @endforeach
                                 </select>
                             </div>

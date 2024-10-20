@@ -13,7 +13,7 @@ class ForumArtikel extends Model
 
     protected $fillable = [
         "id_kategori_artikel",
-        "kelurahan_id",
+        "kantor_id",
         "foto",
         "thumbnail",
         "judul",
@@ -26,8 +26,8 @@ class ForumArtikel extends Model
         return $this->belongsTo(ForumKategoriArtikel::class, 'id_kategori_artikel', 'id');
     }
 
-    public function kelurahan()
+    public function kantor()
     {
-        return $this->belongsTo(Kelurahan::class);
+        return $this->belongsTo(Kantor::class);
     }
 }
