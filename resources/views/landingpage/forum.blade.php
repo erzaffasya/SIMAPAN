@@ -25,17 +25,32 @@
                 <div class="text-center">
                     <h1 class="fs-1 fw-bold text-white mb-4">PROFIL PENGURUS</h1>
                 </div>
+
+                <div class="text-end mb-4">
+                    <!-- Dropdown Filter Kantor -->
+                    <label for="kantor" class="text-white">Filter Berdasarkan Kantor:</label>
+                    <select id="kantor-filter" class="form-select"
+                        style="width: 200px; display: inline-block;  width: 300px; border: 2px solid green; color: green;">
+                        <option value="">Semua Kantor</option>
+                        @foreach ($kantor as $item)
+                            <option value="{{ $item->id }}">{{ $item->kantor }}</option>
+                        @endforeach
+                    </select>
+                </div>
+
                 <div class="pengurus-slide">
                     @foreach ($pengurus as $item)
-                        <div class="mx-2 h-100">
+                        <div class="mx-2 h-100 pengurus-item" data-kantor-id="{{ $item->kantor_id }}">
                             <figure class="h-100 d-flex flex-column mb-0">
                                 <img src="{{ asset("storage/img/forum/pengurus/$item->foto") }}" alt=""
                                     class="w-100" height="280px" style="object-fit: cover; border-radius: 1rem;">
                                 <figcaption class="px-0 py-2 text-center h-100">
-                                    <p class="fw-bold mb-0 fs-5 lh-sm text-white">{{ $item->nama }}</p>
+                                    <p class="fw-bold mb-0 fs-5 lh-sm text-warning">{{ $item->nama }}</p>
                                     <p class="text-secondary lh-sm mt-2 mb-0 text-white" style="opacity: 75%">
                                         {{ $item->jabatan }}</p>
                                 </figcaption>
+                                <p class="text-center text-white" style="font-size: 12px;">
+                                    {{ optional($item->kantor)->kantor }}</p>
                             </figure>
                         </div>
                     @endforeach
@@ -44,11 +59,13 @@
         </div>
     </section>
 
+
     <section id="ppatbm-program">
         <div class="container py-5">
             <div class="d-flex align-items-center justify-content-between">
                 <h1 class="display-6 fw-bold mb-3">Artikel Forum Anak</h1>
-                <a href="{{ route('landingpage.artikel') }}" class="btn btn-link text-decoration-none">Lihat Semua</a>
+                <a href="{{ route('landingpage.artikel') }}" class="btn btn-link text-decoration-none">Lihat Semua <i
+                        class="fa-solid fa-arrow-right"></i></a>
             </div>
             <div class="row">
                 <div class="col-12 col-lg-7">
@@ -64,6 +81,13 @@
                                         {{-- {{ $artikel1->judul }} --}}
                                         {!! \Illuminate\Support\Str::limit($artikel1->judul, 45) !!}
                                     </h1>
+
+                                    <div style="display: flex; color: rgb(17, 184, 17); gap: 3px;">
+                                        <i class="fa-solid fa-building"></i>
+                                        <p style="font-size: 12px;">
+                                            {{ optional($item->kantor)->kantor }}</p>
+                                    </div>
+
                                     <p class="fs-6 mb-0 text-secondary">
                                         {{-- {!! $artikel1->isi !!} --}}
                                         {{-- { \Illuminate\Support\Str::limit($artikel1->isi, 45)} --}}
@@ -87,11 +111,17 @@
                                     </div>
                                     <div class="col-md-7">
                                         <div class="card-body h-100">
-                                            <p class="fs-6 mb-2 text-secondary mute">
+                                            <p class="fs-7 mb-2 text-secondary mute">
                                                 {{ $item->created_at->format('D, d M Y') }}</p>
                                             <p class="fw-bold mb-2 lh-sm text-dark">
                                                 {!! \Illuminate\Support\Str::limit($item->judul, 62) !!}
                                             </p>
+
+                                            <div style="display: flex; color: rgb(17, 184, 17); gap: 3px;">
+                                                <i class="fa-solid fa-building"></i>
+                                                <p style="font-size: 12px;">
+                                                    {{ optional($item->kantor)->kantor }}</p>
+                                            </div>
                                             <p class="fs-6 mb-0 text-secondary">
                                                 {!! Str::limit(strip_tags($item->isi), $limit = 62, $end = '...') !!}
                                             </p>
@@ -108,11 +138,20 @@
                     <div class="col-12 col-lg-3">
                         <a class="card-artikel1" href="{{ route('landingpage.artikeldetail', $item->slug) }}">
                             <figure class="shadow-lg mb-0 position-relative overflow-hidden">
+
                                 <img src="{{ asset("storage/img/forum_artikel/$item->id_kategori_artikel/$item->foto") }}"
                                     alt="" width="100%" height="350">
                                 <figcaption class="rounded bg-white py-2 px-3 mx-auto">
+                                    <p class="fs-7 mb-0 text-secondary" style="margin-bottom: 12px;">
+                                        {{ $item->created_at->format('D, d M Y') }}</p>
                                     <p class="fw-bold mb-2 lh-sm text-dark">{!! \Illuminate\Support\Str::limit($item->judul, 55) !!}</p>
-                                    <p class="fs-6 mb-0 text-secondary">{{ $item->created_at->format('D, d M Y') }}</p>
+
+
+                                    <div style="display: flex; color: rgb(17, 184, 17); gap: 3px; margin-top: 10px;">
+                                        <i class="fa-solid fa-building"></i>
+                                        <p style="font-size: 12px;">
+                                            {{ optional($item->kantor)->kantor }}</p>
+                                    </div>
                                 </figcaption>
                             </figure>
                         </a>
@@ -159,4 +198,27 @@
             </div>
         </div>
     </section>
+    <script>
+        document.getElementById('kantor-filter').addEventListener('change', function() {
+            // Ambil value yang dipilih dari dropdown
+            var selectedKantor = this.value;
+
+            // Ambil semua elemen pengurus
+            var pengurusItems = document.querySelectorAll('.pengurus-item');
+
+            // Loop melalui setiap item pengurus
+            pengurusItems.forEach(function(item) {
+                var kantorId = item.getAttribute('data-kantor-id');
+
+                // Pastikan tipe data yang sama saat perbandingan (string)
+                if (selectedKantor === "" || kantorId ==
+                    selectedKantor) { // gunakan == untuk membandingkan tipe yang berbeda
+                    item.style.display = "block";
+                } else {
+                    // Jika tidak sesuai, sembunyikan
+                    item.style.display = "none";
+                }
+            });
+        });
+    </script>
 </x-guest-layout>

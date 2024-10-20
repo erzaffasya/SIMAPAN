@@ -69,8 +69,10 @@ class LandingpageController extends Controller
         $artikel3 = ForumArtikel::where('id_kategori_artikel', 2)->orderBy('created_at', 'DESC')->offset(4)->paginate(8);
         $kegiatan = ForumGaleri::orderBy('created_at', 'DESC')->limit(8)->get();
         $ForumKategoriGaleri = ForumKategoriGaleri::where('kategori', 'F')->limit(8)->get();
+
+        $kantor = Kantor::all();
         // dd($kegiatan);
-        return view('landingpage.forum', compact('ForumKategoriGaleri', 'pengurus', 'struktur', 'artikel1', 'artikel2', 'artikel3', 'kegiatan'));
+        return view('landingpage.forum', compact('ForumKategoriGaleri', 'pengurus', 'struktur', 'artikel1', 'artikel2', 'artikel3', 'kegiatan', 'kantor'));
     }
 
     public function profil()
@@ -82,7 +84,7 @@ class LandingpageController extends Controller
 
         $apiKDRT = Http::get('http://103.144.82.202/api/grafik-kdrt');
         $grafikKDRT = $apiKDRT->json();
-        
+
         $apiTotalKasus = Http::get('http://103.144.82.202/api/grafik-total-kasus');
         $grafikTotalKasus = $apiTotalKasus->json();
 
@@ -102,8 +104,19 @@ class LandingpageController extends Controller
         $grafikPengaduan = $apiPengaduan->json();
 
 
-        return view('landingpage.profil', compact('grafikKDRT', 'grafikTotalKasus', 'grafikJenisKekerasan', 'grafikJenisLayanan', 'grafikPerkecamatan', 
-        'grafikPerkelurahan', 'grafikPengaduan', 'ForumKategoriGaleri', 'jumlahAnak', 'kelembagaan', 'kegiatan'));
+        return view('landingpage.profil', compact(
+            'grafikKDRT',
+            'grafikTotalKasus',
+            'grafikJenisKekerasan',
+            'grafikJenisLayanan',
+            'grafikPerkecamatan',
+            'grafikPerkelurahan',
+            'grafikPengaduan',
+            'ForumKategoriGaleri',
+            'jumlahAnak',
+            'kelembagaan',
+            'kegiatan'
+        ));
     }
 
     public function artikel(Request $request)
