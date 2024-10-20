@@ -19,6 +19,7 @@
             </div>
         </div>
     </section>
+
     <section id="pengurus-section">
         <div class="bg-greens bg-img-overlay item1-img pt-5 pb-4 mt-5">
             <div class="container">
@@ -27,220 +28,203 @@
                 </div>
 
                 <div class="text-end mb-4">
-                    <!-- Dropdown Filter Kantor -->
                     <label for="kantor" class="text-white">Filter:</label>
-                    <select id="kantor-filter" class="form-select"
-                        style="width: 200px; display: inline-block;  width: 200px; border: 2px solid green; color: green;">
-                        <option value="">Semua Kecamatan</option>
-                        @foreach ($kantor as $item)
-                            <option value="{{ $item->id }}">{{ $item->kantor }}</option>
+                    <select id="kecamatan" class="form-select"
+                        style="width: 200px; display: inline-block; border: 2px solid green; color: green;">
+                        <option value="all">Semua Kecamatan</option>
+                        @foreach ($kecamatan as $item)
+                            <option value="{{ $item->code }}">{{ $item->name }}</option>
                         @endforeach
                     </select>
 
-                    <select id="kantor-filter" class="form-select"
-                        style="width: 200px; display: inline-block;  width: 200px; border: 2px solid green; color: green;">
-                        <option value="">Semua Kelurahan</option>
-                        @foreach ($kantor as $item)
-                            <option value="{{ $item->id }}">{{ $item->kantor }}</option>
-                        @endforeach
+                    <select id="kelurahan" class="form-select"
+                        style="width: 200px; display: inline-block; border: 2px solid green; color: green;" disabled>
+                        <option value="all">Pilih Kelurahan</option>
                     </select>
                 </div>
 
-                {{-- <div class="pengurus-slide">
-
-                </div> --}}
-
-
-                <div class="row w-100 justify-content-between">
-                    @foreach ($pengurus as $item)
+                <div class="row w-100 justify-content-between" id="pengurus-container">
+                    {{-- @foreach ($pengurus as $item)
                         <div class="col-xl-3 col-lg-2-4 col-md-3 col-sm-6 h-100 pengurus-item"
-                            style="margin-bottom: 1rem;" data-kantor-id="{{ $item->kantor_id }}">
+                            style="margin-bottom: 1rem;" data-kelurahan-id="{{ $item->kelurahan }}">
                             <figure class="h-100 d-flex flex-column mb-0">
                                 <img src="{{ asset("storage/img/forum/pengurus/$item->foto") }}" alt=""
                                     class="w-100" height="280px" style="object-fit: cover; border-radius: 1rem;">
-                                {{-- <p class="text-center text-white" style="font-size: 12px;">
-                                    {{ optional($item->kantor)->kantor }}</p> --}}
                                 <figcaption class="px-0 py-2 text-center h-100">
-                                    <p class="fw-bold mb-0 fs-5 lh-sm text-warning">{{ $item->nama }}</p>
+                                    <p class="fw-bold mb-0 fs-5 lh-sm text-white">{{ $item->nama }}</p>
                                     <p class="text-secondary lh-sm mt-2 mb-0 text-white" style="opacity: 75%">
                                         {{ $item->jabatan }}</p>
                                 </figcaption>
-
                             </figure>
                         </div>
-                    @endforeach
+                    @endforeach --}}
+                </div>
+
+                <!-- Tombol Lihat Lebih -->
+                <div class="text-center mt-4">
+                    <button id="lihat-lebih-btn" class="btn btn-success">Lihat Lebih</button>
                 </div>
 
 
             </div>
-
-
         </div>
     </section>
 
+    @push('scripts')
+        <script>
+            const pengurusData = @json($pengurus);
+            const kelurahanData = @json($kelurahan);
 
-    <section id="ppatbm-program">
-        <div class="container py-5">
-            <div class="d-flex align-items-center justify-content-between">
-                <h1 class="display-6 fw-bold mb-3">Artikel Forum Anak</h1>
-                <a href="{{ route('landingpage.artikel') }}" class="btn btn-link text-decoration-none">Lihat Semua <i
-                        class="fa-solid fa-arrow-right"></i></a>
-            </div>
-            <div class="row">
-                <div class="col-12 col-lg-7">
-                    <a href="{{ route('landingpage.artikeldetail', $artikel1->slug) }}" class="text-decoration-none">
-                        <figure class="position-relative">
-                            <img src="{{ asset("storage/img/forum_artikel/$artikel1->id_kategori_artikel/$artikel1->foto") }}"
-                                alt="" class="w-100 rounded" height="370px">
-                            <figcaption class="position-relative h-100 d-flex align-items-end">
-                                <div class="px-2 py-3 m-0 w-100">
-                                    <p class="fs-6 mb-2 text-secondary">{{ $artikel1->created_at->format('D, d M Y') }}
-                                    </p>
-                                    <h1 class="fs-3 fw-bold text-dark">
-                                        {{-- {{ $artikel1->judul }} --}}
-                                        {!! \Illuminate\Support\Str::limit($artikel1->judul, 45) !!}
-                                    </h1>
+            function loadPengurus(kelurahanId = 0) {
+                const itemsPerLoad = 8;
 
-                                    <div style="display: flex; color: rgb(17, 184, 17); gap: 3px;">
-                                        <i class="fa-solid fa-building"></i>
-                                        <p style="font-size: 12px;">
-                                            {{ optional($item->kantor)->kantor }}</p>
-                                    </div>
+                let currentIndex = 0;
 
-                                    <p class="fs-6 mb-0 text-secondary">
-                                        {{-- {!! $artikel1->isi !!} --}}
-                                        {{-- { \Illuminate\Support\Str::limit($artikel1->isi, 45)} --}}
-                                        {!! Str::limit(strip_tags($artikel1->isi), $limit = 200, $end = '...') !!}
-                                    </p>
+                let pengurusData = @json($pengurus).filter(item => item.is_show === 1);
+                if (kelurahanId !== 0) {
 
+
+                    pengurusData = pengurusData.filter(item => item.kelurahan == kelurahanId);
+
+
+                }
+
+
+
+                function chunkArray(array, chunkSize) {
+                    let result = [];
+                    for (let i = 0; i < array.length; i += chunkSize) {
+                        result.push(array.slice(i, i + chunkSize));
+                    }
+                    return result;
+                }
+
+
+                const chunkedPengurus = chunkArray(pengurusData, 8);
+
+
+
+                const pengurusContainer = document.getElementById('pengurus-container');
+                const pengurusItems = document.querySelectorAll('.pengurus-item');
+                const btnLihatLebih = document.getElementById('lihat-lebih-btn');
+
+
+
+
+                if (currentIndex === 0) {
+
+                    pengurusContainer.innerHTML = '';
+                    const items = chunkedPengurus[0];
+
+
+                    items.forEach(function(item) {
+                        const pengurusHTML = `
+                                <div class="col-xl-3 col-lg-2-4 col-md-3 col-sm-6 h-100 pengurus-item" style="margin-bottom: 1rem;" data-kelurahan-id="${item.kelurahan}">
+                                    <figure class="h-100 d-flex flex-column mb-0">
+                                        <img src="storage/img/forum/pengurus/${item.foto}" alt="" class="w-100" height="280px" style="object-fit: cover; border-radius: 1rem;">
+                                        <figcaption class="px-0 py-2 text-center h-100">
+                                            <p class="fw-bold mb-0 fs-5 lh-sm text-white">${item.nama}</p>
+                                            <p class="text-secondary lh-sm mt-2 mb-0 text-white" style="opacity: 75%">${item.jabatan}</p>
+                                        </figcaption>
+                                    </figure>
                                 </div>
-                            </figcaption>
-                        </figure>
-                    </a>
-                </div>
-                <div class="col-12 col-lg-5">
-                    @foreach ($artikel2 as $item)
-                        <div class="card mb-3 w-100 border-0">
-                            <a href="{{ route('landingpage.artikeldetail', $item->slug) }}"
-                                class="text-decoration-none">
-                                <div class="row g-0">
-                                    <div class="col-md-5">
-                                        <img src="{{ asset("storage/img/forum_artikel/$item->id_kategori_artikel/$item->foto") }}"
-                                            class="rounded w-100" alt="..." height="160px">
-                                    </div>
-                                    <div class="col-md-7">
-                                        <div class="card-body h-100">
-                                            <p class="fs-7 mb-2 text-secondary mute">
-                                                {{ $item->created_at->format('D, d M Y') }}</p>
-                                            <p class="fw-bold mb-2 lh-sm text-dark">
-                                                {!! \Illuminate\Support\Str::limit($item->judul, 62) !!}
-                                            </p>
+                            `;
 
-                                            <div style="display: flex; color: rgb(17, 184, 17); gap: 3px;">
-                                                <i class="fa-solid fa-building"></i>
-                                                <p style="font-size: 12px;">
-                                                    {{ optional($item->kantor)->kantor }}</p>
-                                            </div>
-                                            <p class="fs-6 mb-0 text-secondary">
-                                                {!! Str::limit(strip_tags($item->isi), $limit = 62, $end = '...') !!}
-                                            </p>
-                                        </div>
-                                    </div>
+                        // Tambahkan elemen HTML ke pengurusContainer
+                        pengurusContainer.innerHTML += pengurusHTML;
+                    });
+                }
+
+                btnLihatLebih.addEventListener('click', function() {
+                    currentIndex += 1;
+                    if (currentIndex < chunkedPengurus.length && currentIndex !== 0) {
+                        const items = chunkedPengurus[currentIndex];
+                        items.forEach(function(item) {
+                            const pengurusHTML = `
+                                <div class="col-xl-3 col-lg-2-4 col-md-3 col-sm-6 h-100 pengurus-item" style="margin-bottom: 1rem;" data-kelurahan-id="${item.kelurahan}">
+                                    <figure class="h-100 d-flex flex-column mb-0">
+                                        <img src="storage/img/forum/pengurus/${item.foto}" alt="" class="w-100" height="280px" style="object-fit: cover; border-radius: 1rem;">
+                                        <figcaption class="px-0 py-2 text-center h-100">
+                                            <p class="fw-bold mb-0 fs-5 lh-sm text-white">${item.nama}</p>
+                                            <p class="text-secondary lh-sm mt-2 mb-0 text-white" style="opacity: 75%">${item.jabatan}</p>
+                                        </figcaption>
+                                    </figure>
                                 </div>
-                            </a>
-                        </div>
-                    @endforeach
-                </div>
-            </div>
-            <div class="row align-items-center gy-4">
-                @foreach ($artikel3 as $item)
-                    <div class="col-12 col-lg-3">
-                        <a class="card-artikel1" href="{{ route('landingpage.artikeldetail', $item->slug) }}">
-                            <figure class="shadow-lg mb-0 position-relative overflow-hidden">
+                            `;
 
-                                <img src="{{ asset("storage/img/forum_artikel/$item->id_kategori_artikel/$item->foto") }}"
-                                    alt="" width="100%" height="350">
-                                <figcaption class="rounded bg-white py-2 px-3 mx-auto">
-                                    <p class="fs-7 mb-0 text-secondary" style="margin-bottom: 12px;">
-                                        {{ $item->created_at->format('D, d M Y') }}</p>
-                                    <p class="fw-bold mb-2 lh-sm text-dark">{!! \Illuminate\Support\Str::limit($item->judul, 55) !!}</p>
+                            // Tambahkan elemen HTML ke pengurusContainer
+                            pengurusContainer.innerHTML += pengurusHTML;
+                        });
+                    }
+
+                    console.log(chunkedPengurus[0]);
 
 
-                                    <div style="display: flex; color: rgb(17, 184, 17); gap: 3px; margin-top: 10px;">
-                                        <i class="fa-solid fa-building"></i>
-                                        <p style="font-size: 12px;">
-                                            {{ optional($item->kantor)->kantor }}</p>
-                                    </div>
-                                </figcaption>
-                            </figure>
-                        </a>
-                    </div>
-                @endforeach
-                {!! $artikel3->links('vendor.pagination.bootstrap-4') !!}
+                    if (currentIndex === chunkedPengurus.length - 1) {
+                        btnLihatLebih.style.display = 'none';
+                    }
+                })
 
-            </div>
-            <div class="row mt-4 justify-content-between bg-primary rounded align-items-center p-3">
-                <div class="col-12 col-lg-auto">
-                    <p class="fw-bold fs-5 text-white mb-0">Tulis Artikelmu sebagai Forum Komunitas Anak</p>
-                </div>
-                <div class="col-12 col-lg-2">
-                    <a href="{{ route('login') }}" class="btn btn-light w-100 text-primary">Gabung Disini</a>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section id="kegiatan-section">
-        <div class="container py-5">
-            <h1 class="display-6 fw-bold mb-3 text-center">Kegiatan Forum Anak</h1>
-            <div class="row g-0 gy-0">
-                @foreach ($ForumKategoriGaleri as $item)
-                    <div class="col-12 col-lg-3">
-                        <a class="card-kegiatan" href="{{ route('kegiatan-forum-detail', $item->slug) }}">
-                            <figure class="mb-0 position-relative">
-                                <img src="{{ asset("storage/img/forum_galeri/$item->id/{$item->galeri->pluck('foto')->first()}") }}"
-                                    alt="" width="100%" height="250">
-                                <figcaption class="py-2 px-3 mx-auto">
-                                    <div>
-                                        <p class="fs-6 fw-bold mb-1 lh-sm">{{ $item->judul }}
-                                        </p>
-                                        <p class="mb-0">{{ $item->created_at->format('D, d M Y') }}</p>
-                                    </div>
-                                </figcaption>
-                                <span
-                                    class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                                    {{ $item->galeri->count() }}
-                                </span>
-                            </figure>
-                        </a>
-                    </div>
-                @endforeach
-            </div>
-        </div>
-    </section>
+                if (chunkedPengurus[0].length < 8) {
+                    btnLihatLebih.style.display = 'none';
+                }
+
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+                loadPengurus();
+            });
 
 
 
-    <script>
-        document.getElementById('kantor-filter').addEventListener('change', function() {
-            // Ambil value yang dipilih dari dropdown
-            var selectedKantor = this.value;
 
-            // Ambil semua elemen pengurus
-            var pengurusItems = document.querySelectorAll('.pengurus-item');
 
-            // Loop melalui setiap item pengurus
-            pengurusItems.forEach(function(item) {
-                var kantorId = item.getAttribute('data-kantor-id');
+            document.getElementById('kecamatan').addEventListener('change', function() {
+                const kecamatanCode = this.value;
+                const kelurahanSelect = document.getElementById('kelurahan');
+                const btnLihatLebih = document.getElementById('lihat-lebih-btn');
 
-                // Pastikan tipe data yang sama saat perbandingan (string)
-                if (selectedKantor === "" || kantorId ==
-                    selectedKantor) { // gunakan == untuk membandingkan tipe yang berbeda
-                    item.style.display = "block";
-                } else {
-                    // Jika tidak sesuai, sembunyikan
-                    item.style.display = "none";
+                // Bersihkan opsi kelurahan
+                kelurahanSelect.innerHTML = '<option value="">Pilih Kelurahan</option>';
+                kelurahanSelect.disabled = true;
+
+
+
+
+                if (kecamatanCode) {
+
+                    if (kecamatanCode === "all") {
+                        loadPengurus();
+                        btnLihatLebih.style = "display: block; margin: auto;";
+                    }
+
+
+
+                    // Filter kelurahan berdasarkan kecamatan yang dipilih
+                    const filteredKelurahan = kelurahanData.filter(k => k.district_code === kecamatanCode);
+
+                    // Tambahkan opsi kelurahan yang sesuai
+                    filteredKelurahan.forEach(kelurahan => {
+                        const option = document.createElement('option');
+                        option.value = kelurahan.code;
+                        option.textContent = kelurahan.name;
+                        kelurahanSelect.appendChild(option);
+                    });
+
+
+                    // Enable kelurahan jika ada opsi yang tersedia
+                    kelurahanSelect.disabled = filteredKelurahan.length === 0;
                 }
             });
-        });
-    </script>
+
+            document.getElementById('kelurahan').addEventListener('change', function() {
+
+                const selectedKelurahan = this.value;
+
+
+                loadPengurus(selectedKelurahan);
+
+            });
+        </script>
+    @endpush
 </x-guest-layout>

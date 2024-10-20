@@ -70,9 +70,12 @@ class LandingpageController extends Controller
         $kegiatan = ForumGaleri::orderBy('created_at', 'DESC')->limit(8)->get();
         $ForumKategoriGaleri = ForumKategoriGaleri::where('kategori', 'F')->limit(8)->get();
 
-        $kantor = Kantor::all();
+
+        $kecamatan = \Indonesia::search('balikpapan')->allDistricts();
+        $kelurahan =  \Indonesia::search('balikpapan')->allVillages();
+
         // dd($kegiatan);
-        return view('landingpage.forum', compact('ForumKategoriGaleri', 'pengurus', 'struktur', 'artikel1', 'artikel2', 'artikel3', 'kegiatan', 'kantor'));
+        return view('landingpage.forum', compact('ForumKategoriGaleri', 'pengurus', 'struktur', 'artikel1', 'artikel2', 'artikel3', 'kegiatan', 'kecamatan', 'kelurahan'));
     }
 
     public function profil()
