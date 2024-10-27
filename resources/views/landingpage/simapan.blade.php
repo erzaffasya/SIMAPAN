@@ -48,72 +48,99 @@
     </section>
 
     <section id="about-program">
-        <div class="bg-blues bg-img-overlay item1-img py-5">
-            <div class="container">
-                <div class="row justify-content-center align-items-center">
-                    <div class="col-11 col-sm-12 col-md-10 col-lg-5">
-                        <iframe width="100%" height="315" class="yt-tentang rounded"
-                            src="{{ $tentang->video ?? '' }}" title="YouTube video player" frameborder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                            allowfullscreen></iframe>
-                    </div>
-                    <div class="col-11 col-sm-12 col-md-10 col-lg-6">
-                        <h1 class="fs-2 text-white fw-normal">Tentang SIMAPAN</h1>
-                        <p class="fs-5 desc-tentang text-white lh-lg">{{ $tentang->tentang ?? '' }}</p>
+
+        <div id="carouselExample" class="carousel slide">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class="bg-blues bg-img-overlay item1-img py-5">
+                        <div class="container">
+                            <div class="row justify-content-center align-items-center">
+                                <div class="col-11 col-sm-12 col-md-10 col-lg-5">
+                                    <iframe width="100%" height="315" class="yt-tentang rounded"
+                                        src="{{ $tentang->video ?? '' }}" title="YouTube video player" frameborder="0"
+                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                        allowfullscreen></iframe>
+                                </div>
+                                <div class="col-11 col-sm-12 col-md-10 col-lg-6">
+                                    <h1 class="fs-2 text-white fw-normal">Tentang SIMAPAN</h1>
+                                    <p class="fs-5 desc-tentang text-white lh-lg">{{ $tentang->tentang ?? '' }}</p>
+                                </div>
+                            </div>
+                            <div class="row gy-2 mt-2 justify-content-center about-program-layanan">
+                                <div
+                                    class="col-5 col-sm-6 col-md-5 col-lg-4 d-flex justify-content-center align-items-center">
+                                    <a href="https://play.google.com/store/apps/details?id=com.laporint.lapor_int"
+                                        class="text-decoration-none d-flex">
+                                        <img src="{{ asset('tlandingpage/asset/img/call-incoming.png') }}"
+                                            height="30px" alt="" class="me-3">
+                                        <p class="fs-5 fw-bold text-white">Apps Mobile TOPAN</p>
+                                    </a>
+                                </div>
+                                <div
+                                    class="col-5 col-sm-6 col-md-5 col-lg-4 d-flex justify-content-center align-items-center">
+                                    <a href="https://wa.me/62816220077" class="text-decoration-none d-flex">
+                                        <img src="{{ asset('tlandingpage/asset/img/clipboard.png') }}" height="30px"
+                                            alt="" class="me-3">
+                                        <p class="fs-5 fw-bold text-white">Konsultasi Psikolog</p>
+                                    </a>
+                                </div>
+                                <div
+                                    class="col-5 col-sm-6 col-md-5 col-lg-4 d-flex justify-content-center align-items-center">
+                                    <a href="/artikel-kantor" class="text-decoration-none d-flex">
+                                        <img src="{{ asset('tlandingpage/asset/img/clipboard.png') }}" height="30px"
+                                            alt="" class="me-3">
+                                        <p class="fs-5 fw-bold text-white">Kegiatan PPATBM</p>
+                                    </a>
+                                </div>
+                                <div
+                                    class="col-5 col-sm-6 col-md-5 col-lg-4 d-flex justify-content-center align-items-center">
+                                    <a href="https://wa.me/62816220077" class="text-decoration-none d-flex">
+                                        <img src="{{ asset('tlandingpage/asset/img/shield.png') }}" height="30px"
+                                            alt="" class="me-3">
+                                        <p class="fs-5 fw-bold text-white">Konsultasi Hukum KTA</p>
+                                    </a>
+                                </div>
+                                <div
+                                    class="col-5 col-sm-6 col-md-5 col-lg-4 d-flex justify-content-center align-items-center">
+                                    <a href="/forum" class="text-decoration-none d-flex">
+                                        <img src="{{ asset('tlandingpage/asset/img/note-text.png') }}" height="30px"
+                                            alt="" class="me-3">
+                                        <p class="fs-5 fw-bold text-white">Forum Anak</p>
+                                    </a>
+                                </div>
+                                <div
+                                    class="col-5 col-sm-6 col-md-5 col-lg-4 d-flex justify-content-center align-items-center">
+                                    <a href="#highlight-parenting" class="text-decoration-none d-flex">
+                                        <img src="{{ asset('tlandingpage/asset/img/note-text.png') }}" height="30px"
+                                            alt="" class="me-3">
+                                        <p class="fs-5 fw-bold text-white">Edukasi Anak</p>
+                                    </a>
+                                </div>
+                            </div>
+                            <div
+                                class="row justify-content-center iklan-tentang rounded align-items-center mt-3 bg-white p-0 ">
+                                <div class="col-12 col-sm-12 col-md-10 col-lg-6">
+                                    <img src="https://layanan112.kominfo.go.id/images/logo/logo.png">
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="row gy-2 mt-2 justify-content-center about-program-layanan">
-                    <div class="col-5 col-sm-6 col-md-5 col-lg-4 d-flex justify-content-center align-items-center">
-                        <a href="https://play.google.com/store/apps/details?id=com.laporint.lapor_int"
-                            class="text-decoration-none d-flex">
-                            <img src="{{ asset('tlandingpage/asset/img/call-incoming.png') }}" height="30px"
-                                alt="" class="me-3">
-                            <p class="fs-5 fw-bold text-white">Apps Mobile TOPAN</p>
-                        </a>
-                    </div>
-                    <div class="col-5 col-sm-6 col-md-5 col-lg-4 d-flex justify-content-center align-items-center">
-                        <a href="https://wa.me/62816220077" class="text-decoration-none d-flex">
-                            <img src="{{ asset('tlandingpage/asset/img/clipboard.png') }}" height="30px"
-                                alt="" class="me-3">
-                            <p class="fs-5 fw-bold text-white">Konsultasi Psikolog</p>
-                        </a>
-                    </div>
-                    <div class="col-5 col-sm-6 col-md-5 col-lg-4 d-flex justify-content-center align-items-center">
-                        <a href="/artikel-kantor" class="text-decoration-none d-flex">
-                            <img src="{{ asset('tlandingpage/asset/img/clipboard.png') }}" height="30px"
-                                alt="" class="me-3">
-                            <p class="fs-5 fw-bold text-white">Kegiatan PPATBM</p>
-                        </a>
-                    </div>
-                    <div class="col-5 col-sm-6 col-md-5 col-lg-4 d-flex justify-content-center align-items-center">
-                        <a href="https://wa.me/62816220077" class="text-decoration-none d-flex">
-                            <img src="{{ asset('tlandingpage/asset/img/shield.png') }}" height="30px" alt=""
-                                class="me-3">
-                            <p class="fs-5 fw-bold text-white">Konsultasi Hukum KTA</p>
-                        </a>
-                    </div>
-                    <div class="col-5 col-sm-6 col-md-5 col-lg-4 d-flex justify-content-center align-items-center">
-                        <a href="/forum" class="text-decoration-none d-flex">
-                            <img src="{{ asset('tlandingpage/asset/img/note-text.png') }}" height="30px"
-                                alt="" class="me-3">
-                            <p class="fs-5 fw-bold text-white">Forum Anak</p>
-                        </a>
-                    </div>
-                    <div class="col-5 col-sm-6 col-md-5 col-lg-4 d-flex justify-content-center align-items-center">
-                        <a href="#highlight-parenting" class="text-decoration-none d-flex">
-                            <img src="{{ asset('tlandingpage/asset/img/note-text.png') }}" height="30px"
-                                alt="" class="me-3">
-                            <p class="fs-5 fw-bold text-white">Edukasi Anak</p>
-                        </a>
-                    </div>
-                </div>
-                <div class="row justify-content-center iklan-tentang rounded align-items-center mt-3 bg-white p-0 ">
-                    <div class="col-12 col-sm-12 col-md-10 col-lg-6">
-                        <img src="https://layanan112.kominfo.go.id/images/logo/logo.png">
-                    </div>
-                </div>
+              
             </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample"
+                data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExample"
+                data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
         </div>
+
+
     </section>
 
     <section id="highlight-forumanak">

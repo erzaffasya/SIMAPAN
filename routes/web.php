@@ -114,7 +114,7 @@ Route::get('/dashboard', function () {
 
 Route::middleware(['auth'])->prefix('admin')->group(function () {
     //CRUD
-    Route::resource('tentang', TentangController::class)->only('index', 'store');
+    Route::resource('tentang', TentangController::class);
     Route::resource('aspirasi', AspirasiController::class);
     Route::resource('faq', FaqController::class);
     Route::resource('kantor', KantorController::class);
