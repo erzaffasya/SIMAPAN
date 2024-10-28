@@ -32,6 +32,7 @@ class TentangController extends Controller
     public function store(Request $request)
     {
         $request->validate([
+            'title' => 'required',
             'video' => 'required',
             'tentang' => 'required',
             'whatsapp' => 'required',
@@ -39,6 +40,7 @@ class TentangController extends Controller
 
 
         Tentang::create([
+            "title" => $request->title,
             "tentang" => $request->tentang,
             "video" => $request->video,
             "email" => $request->email,
@@ -55,6 +57,7 @@ class TentangController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
+            'title' => 'required',
             'tentang' => 'required',
             'whatsapp' => 'required',
         ]);
@@ -68,6 +71,7 @@ class TentangController extends Controller
         }
 
         // Update data Tentang
+        $tentang->title = $request->title;
         $tentang->tentang = $request->tentang;
         $tentang->video = $request->video;
         $tentang->email = $request->email;
@@ -77,5 +81,13 @@ class TentangController extends Controller
         $tentang->save();
 
         return redirect()->route('tentang.index')->with('success', 'Berhasil update section tentang');
+    }
+
+
+    public function destroy($id)
+    {
+        $tentang = Tentang::find($id);
+        $tentang->delete();
+        return redirect()->route('tentang.index')->with('success', 'Berhasil menghapus section tentang');
     }
 }

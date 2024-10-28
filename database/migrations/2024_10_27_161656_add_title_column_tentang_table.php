@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateKelurahanTable extends Migration
+class AddTitleColumnTentangTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,9 @@ class CreateKelurahanTable extends Migration
      */
     public function up()
     {
-        Schema::create('kelurahan', function (Blueprint $table) {
-            $table->id();
-            $table->string('nama');
-            $table->timestamps();
+        //
+        Schema::table('tentang', function (Blueprint $table) {
+            $table->string('title')->nullable()->before('tentang');
         });
     }
 
@@ -27,6 +26,9 @@ class CreateKelurahanTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('kelurahan');
+        //
+        Schema::table('tentang', function (Blueprint $table) {
+            $table->dropColumn('title');
+        });
     }
 }
