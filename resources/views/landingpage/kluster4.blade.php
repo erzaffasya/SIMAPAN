@@ -15,6 +15,20 @@
             </div>
         </div>
     </section>
+
+    <section>
+        <div class="container py-5">
+            <div class="d-flex align-items-center justify-content-between">
+                <h1 class="display-6 fw-bold mb-3">Artikel Kluster {{ $kluster->kluster }}</h1>
+            </div>
+
+            @include('components.artikel-kluster')
+
+
+        </div>
+    </section>
+
+
     @php
         $countartikel = 0;
     @endphp

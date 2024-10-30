@@ -4,9 +4,12 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
 
 class ArtikelKluster extends Model
 {
+
+
     use HasFactory;
 
     protected $table = "artikel_kluster";
@@ -18,7 +21,26 @@ class ArtikelKluster extends Model
         "title",
         "subtitle",
         "description",
+        "slug",
     ];
+
+    protected static function booted()
+    {
+        static::saving(function ($artikel) {
+            if (empty($artikel->slug)) {
+                $slug = Str::slug($artikel->title);
+                $originalSlug = $slug;
+
+                $count = 1;
+                while (self::where('slug', $slug)->exists()) {
+                    $slug = "{$originalSlug}-{$count}";
+                    $count++;
+                }
+
+                $artikel->slug = $slug;
+            }
+        });
+    }
 
     public function detail()
     {

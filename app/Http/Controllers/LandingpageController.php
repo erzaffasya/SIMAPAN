@@ -31,7 +31,7 @@ class LandingpageController extends Controller
 {
     public function simapan()
     {
-        $tentang = Tentang::find(1);
+        $tentang = Tentang::all();
         $forumArtikel = ForumArtikel::where('id_kategori_artikel', 2)->limit(3)->orderBy('id', 'DESC')->get();
         $forumArtikelParenting = ForumArtikel::where('id_kategori_artikel', 1)->limit(4)->orderBy('id', 'DESC')->get();
         $kegiatan = Kegiatan::limit(3)->orderBy('id', 'DESC')->get();
@@ -253,35 +253,92 @@ class LandingpageController extends Controller
     public function kluster6()
     {
         $lKebijakan = Kebijakan::all();
+
+
+
         return view("landingpage.kluster6", compact("lKebijakan"));
     }
 
-    public function kluster1()
+    public function kluster1(Request $request)
     {
         $kartu_identitas = PersentaseAnak::select("kartu_identitas")->orderBy("tahun", "ASC")->pluck("kartu_identitas")->toArray();
         $akta_kelahiran = PersentaseAnak::select("akta_kelahiran")->orderBy("tahun", "ASC")->pluck("akta_kelahiran")->toArray();
         $tahun = PersentaseAnak::select("tahun")->orderBy("tahun", "ASC")->pluck("tahun")->toArray();
-        $kluster = Kluster::where("kluster", "1")->with(['artikel', 'artikel.detail'])->first();
-        return view("landingpage.kluster1", compact("kartu_identitas", "akta_kelahiran", "tahun", "kluster"));
+
+        $s = $request->query("s") == "a" ? "ASC" : "DESC";
+        $c = $request->query("c", "");
+
+        $kluster = Kluster::where("kluster", "1")->first();
+        $artikel1 = $kluster->artikel()->orderBy("created_at", "DESC")->first();
+        $artikel2 = $kluster->artikel()->orderBy("created_at", "DESC")->skip(1)->take(3)->get();
+
+
+        $kluster = Kluster::where("kluster", "1")
+            ->with(['artikel' => function ($query) use ($s, $c) {
+                if ($c) {
+                    $query->where("title", "like", "%$c%");
+                }
+                $query->orderBy("created_at", $s)->paginate(8);
+            }, 'artikel.detail'])
+            ->first();
+
+
+
+        return view("landingpage.kluster1", compact("kartu_identitas", "akta_kelahiran", "tahun", "kluster", "c", "s", "artikel1", "artikel2"));
     }
 
-    public function kluster2()
+    public function kluster2(Request $request)
     {
         $online = LayananPengasuhAnak::select("online")->orderBy("tahun", "ASC")->pluck("online")->toArray();
         $indoor = LayananPengasuhAnak::select("indoor")->orderBy("tahun", "ASC")->pluck("indoor")->toArray();
         $outdoor = LayananPengasuhAnak::select("outdoor")->orderBy("tahun", "ASC")->pluck("outdoor")->toArray();
         $tahun = LayananPengasuhAnak::select("tahun")->orderBy("tahun", "ASC")->pluck("tahun")->toArray();
-        $kluster = Kluster::where("kluster", "2")->with(['artikel', 'artikel.detail'])->first();
-        return view("landingpage.kluster2", compact("online", "indoor", "outdoor", "tahun", "kluster"));
+
+
+        $s = $request->query("s") == "a" ? "ASC" : "DESC";
+        $c = $request->query("c", "");
+
+
+        $kluster = Kluster::where("kluster", "2")->first();
+        $artikel1 = $kluster->artikel()->orderBy("created_at", "DESC")->first();
+        $artikel2 = $kluster->artikel()->orderBy("created_at", "DESC")->skip(1)->take(3)->get();
+
+
+        $kluster = Kluster::where("kluster", "2")
+            ->with(['artikel' => function ($query) use ($s, $c) {
+                if ($c) {
+                    $query->where("title", "like", "%$c%");
+                }
+                $query->orderBy("created_at", $s)->paginate(8);
+            }, 'artikel.detail'])
+            ->first();
+
+        return view("landingpage.kluster2", compact("online", "indoor", "outdoor", "tahun", "kluster", "artikel1", "artikel2"));
     }
 
-    public function kluster3()
+    public function kluster3(Request $request)
     {
-        $kluster = Kluster::where("kluster", "3")->with(['artikel', 'artikel.detail'])->first();
-        return view("landingpage.kluster3", compact("kluster"));
+        $s = $request->query("s") == "a" ? "ASC" : "DESC";
+        $c = $request->query("c", "");
+
+
+        $kluster = Kluster::where("kluster", "3")->first();
+        $artikel1 = $kluster->artikel()->orderBy("created_at", "DESC")->first();
+        $artikel2 = $kluster->artikel()->orderBy("created_at", "DESC")->skip(1)->take(3)->get();
+
+        $kluster = Kluster::where("kluster", "3")
+            ->with(['artikel' => function ($query) use ($s, $c) {
+                if ($c) {
+                    $query->where("title", "like", "%$c%");
+                }
+                $query->orderBy("created_at", $s)->paginate(8);
+            }, 'artikel.detail'])
+            ->first();
+
+        return view("landingpage.kluster3", compact("kluster", "artikel1", "artikel2"));
     }
 
-    public function kluster4()
+    public function kluster4(Request $request)
     {
         $sekolah_ramah_anak = SekolahRamahAnak::where("isaktif", true)->limit(1)->get();
         $tahun = $sekolah_ramah_anak->pluck("tahun")->toArray();
@@ -292,14 +349,47 @@ class LandingpageController extends Controller
         $slb = $sekolah_ramah_anak->pluck("slb")->first();
         $sekolah_ramah_anak = [$paud, $sd, $smp, $sma, $slb];
 
-        $kluster = Kluster::where("kluster", "4")->with(['artikel', 'artikel.detail'])->first();
-        return view("landingpage.kluster4", compact("kluster", "sekolah_ramah_anak", "tahun"));
+        $s = $request->query("s") == "a" ? "ASC" : "DESC";
+        $c = $request->query("c", "");
+
+
+        $kluster = Kluster::where("kluster", "4")->first();
+        $artikel1 = $kluster->artikel()->orderBy("created_at", "DESC")->first();
+        $artikel2 = $kluster->artikel()->orderBy("created_at", "DESC")->skip(1)->take(3)->get();
+
+        $kluster = Kluster::where("kluster", "4")
+            ->with(['artikel' => function ($query) use ($s, $c) {
+                if ($c) {
+                    $query->where("title", "like", "%$c%");
+                }
+                $query->orderBy("created_at", $s)->paginate(8);
+            }, 'artikel.detail'])
+            ->first();
+
+
+        return view("landingpage.kluster4", compact("kluster", "sekolah_ramah_anak", "tahun", "artikel1", "artikel2"));
     }
 
-    public function kluster5()
+    public function kluster5(Request $request)
     {
-        $kluster = Kluster::where("kluster", "5")->with(['artikel', 'artikel.detail'])->first();
-        return view("landingpage.kluster5", compact("kluster"));
+        $s = $request->query("s") == "a" ? "ASC" : "DESC";
+        $c = $request->query("c", "");
+
+
+        $kluster = Kluster::where("kluster", "5")->first();
+        $artikel1 = $kluster->artikel()->orderBy("created_at", "DESC")->first();
+        $artikel2 = $kluster->artikel()->orderBy("created_at", "DESC")->skip(1)->take(3)->get();
+
+        $kluster = Kluster::where("kluster", "5")
+            ->with(['artikel' => function ($query) use ($s, $c) {
+                if ($c) {
+                    $query->where("title", "like", "%$c%");
+                }
+                $query->orderBy("created_at", $s)->paginate(8);
+            }, 'artikel.detail'])
+            ->first();
+
+        return view("landingpage.kluster5", compact("kluster", "artikel1", "artikel2"));
     }
     public function pemberdayaan()
     {
@@ -311,5 +401,29 @@ class LandingpageController extends Controller
         $siga = Siga::all();
         $sigaJenis = SigaJenis::all();
         return view("landingpage.siga", compact('siga', 'sigaJenis'));
+    }
+
+    public function detailArtikel($kluster, $slug)
+    {
+        $klusterModel = Kluster::where("kluster", $kluster)
+            ->with(['artikel' => function ($query) use ($slug) {
+                $query->where('slug', $slug)->with('detail');
+            }])->firstOrFail();
+
+
+        $artikel = $klusterModel->artikel->first();
+
+
+
+        if (!$artikel) {
+            abort(404, 'Artikel tidak ditemukan di kluster ini');
+        }
+
+        $artikelLain = $klusterModel->artikel()
+            ->where('slug', '!=', $slug)
+            ->take(4)
+            ->get();
+
+        return view('landingpage.detail_kluster_artikel', compact('artikel', 'klusterModel', 'artikelLain'));
     }
 }
