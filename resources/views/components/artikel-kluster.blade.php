@@ -1,5 +1,5 @@
 @if (!$kluster->artikel->isEmpty())
-    <div class="row">
+    <div class="row" style="margin-top: 5rem;">
         <div class="col-12 col-lg-7">
             <a href="{{ url('/kluster' . $kluster->kluster . '/' . $artikel1->slug) }}" class="text-decoration-none">
                 <figure class="position-relative">
