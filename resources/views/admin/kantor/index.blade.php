@@ -30,6 +30,8 @@
                                 <th>Kantor</th>
                                 <th>Foto</th>
                                 <th>Deskripsi</th>
+                                <th>Kelurahan</th>
+                                <th>Kecamatan</th>
                                 <th>Latitude</th>
                                 <th>Longitude</th>
                                 <th>Link Map</th>
@@ -48,6 +50,10 @@
                                         </a>
                                     </td>
                                     <td>{!! $item->deskripsi !!}</td>
+                                    <td>{{ $item->kecamatanKantor ? ucwords(strtolower($item->kecamatanKantor->name)) : '-' }}
+                                    </td>
+                                    <td>{{ $item->kelurahanKantor ? ucwords(strtolower($item->kelurahanKantor->name)) : '-' }}
+                                    </td>
                                     <td>{{ $item->latitude }}</td>
                                     <td>{{ $item->longitude }}</td>
                                     <td>{{ $item->link_map }}</td>

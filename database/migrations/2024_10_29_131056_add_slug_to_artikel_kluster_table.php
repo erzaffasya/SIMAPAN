@@ -13,9 +13,9 @@ class AddSlugToArtikelKlusterTable extends Migration
      */
     public function up()
     {
-        Schema::table('artikel_kluster', function (Blueprint $table) {
-            $table->string('slug')->unique();
-        });
+        // Schema::table('artikel_kluster', function (Blueprint $table) {
+        //     $table->string('slug')->unique();
+        // });
     }
 
     /**
@@ -25,8 +25,8 @@ class AddSlugToArtikelKlusterTable extends Migration
      */
     public function down()
     {
-        Schema::table('artikel_kluster', function (Blueprint $table) {
-            $table->dropColumn('slug');
-        });
+        // Schema::table('artikel_kluster', function (Blueprint $table) {
+        //     $table->dropColumn('slug');
+        // });
     }
 }
