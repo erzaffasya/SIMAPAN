@@ -89,6 +89,7 @@ Route::get('/artikel/detail/{slug}', [LandingpageController::class, 'artikelDeta
 //     return view('landingpage.peta');
 // });
 Route::get('/peta', [LandingpageController::class, 'peta'])->name('peta');
+Route::get('/peta/detail/{id}', [LandingpageController::class, 'detailPeta'])->name('peta.detail');
 
 Route::get('/pemberdayaan', [LandingpageController::class, 'pemberdayaan']);
 Route::get('/siga', [LandingpageController::class, 'siga']);

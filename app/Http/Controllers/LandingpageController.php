@@ -41,23 +41,57 @@ class LandingpageController extends Controller
         return view('landingpage.simapan', compact('banner', 'tentang', 'forumArtikel', 'kegiatan', 'faq', 'forumArtikelParenting'));
     }
 
-    public function peta()
+    public function peta(Request $request)
     {
-        $Kantor = Kantor::all();
-        // dd($Kantor);
+        // Ambil input dari filter
+        $kecamatanFilter = $request->input('kecamatan', 'all');
+        $kelurahanFilter = $request->input('kelurahan', 'all');
+
+        // Query kantor, dengan filter kecamatan dan kelurahan jika ada
+        $query = Kantor::query();
+
+        if ($kecamatanFilter !== 'all') {
+            $query->where('kecamatan', $kecamatanFilter);
+        }
+
+        if ($kelurahanFilter !== 'all') {
+            $query->where('kelurahan', $kelurahanFilter);
+        }
+
+        $Kantor = $query->get();
+
+        // Siapkan data lokasi untuk dikirim ke view
         $location = [];
         foreach ($Kantor as $item) {
             $location[] = [
+                "slug" => $item->id,
                 "kantor" => $item->kantor,
-                "deskripsi_map" => $item->deskripsi_map,
+                "deskripsi" => $item->deskripsi,
                 "latitude" => $item->latitude,
-                "link" => $item->link_map,
+                "longitude" => $item->longitude,
                 "foto" => asset("storage/img/kantor/$item->foto"),
-                "longitude" => $item->longitude
+                "kecamatan" => $item->kecamatan,
+                "kelurahan" => $item->kelurahan,
             ];
         }
-        // dd($location);
-        return view('landingpage.peta', compact('location', 'Kantor'));
+
+        // Ambil data kecamatan dan kelurahan dari Indonesia package
+        $kecamatan = \Indonesia::search('balikpapan')->allDistricts();
+        $kelurahan = \Indonesia::search('balikpapan')->allVillages();
+
+        return view('landingpage.peta', compact('location', 'Kantor', 'kecamatan', 'kelurahan'));
+    }
+
+
+
+    public function detailPeta(Request $request, $id)
+    {
+        $Kantor = Kantor::with(['kecamatanKantor', 'kelurahanKantor', 'kegiatan'])->find($id);
+
+        $s = $request->query("s") == "a" ? "ASC" : "DESC";
+        $c = $request->query("c");
+
+        return view('landingpage.detailPeta', compact(['Kantor', 's', 'c']));
     }
 
     public function forum()
@@ -227,17 +261,43 @@ class LandingpageController extends Controller
     {
         $s = $request->query("s") == "a" ? "ASC" : "DESC";
 
+        $kantorFilter = $request->query('k', 'all');
+        $kecamatanFilter = $request->query('kecamatan', 'all');
+        $kelurahanFilter = $request->query('kelurahan', 'all');
+        $c = $request->query("c"); // Search term for "judul"
+
         $artikel1 = Kegiatan::orderBy('created_at', 'DESC')->first();
-        // dd($artikel1);
+
         $artikel2 = Kegiatan::orderBy('created_at', 'DESC')->offset(1)->limit(3)->get();
 
-        if ($c = $request->query("c")) {
-            $artikel3 = Kegiatan::where("judul", "like", "%$c%")->orderBy('created_at', $s)->paginate(8);
-        } else {
-            $artikel3 = Kegiatan::orderBy('created_at', $s)->paginate(8);
+        $artikel3 = Kegiatan::with('kantor')->orderBy('created_at', $s);
+
+        if ($c) {
+            $artikel3->where("judul", "like", "%$c%");
         }
-        return view('landingpage.artikelkantor', compact('artikel1', 'artikel2', 'artikel3', 'c', 's'));
+
+        if ($kecamatanFilter !== 'all') {
+            $artikel3->whereHas('kantor', function ($query) use ($kecamatanFilter) {
+                $query->where('kecamatan', $kecamatanFilter);
+            });
+        }
+
+        if ($kelurahanFilter !== 'all') {
+            $artikel3->whereHas('kantor', function ($query) use ($kelurahanFilter) {
+                $query->where('kelurahan', $kelurahanFilter);
+            });
+        }
+
+        $artikel3 = $artikel3->paginate(8);
+
+        $kantor = Kantor::all();
+        $kecamatan = \Indonesia::search('balikpapan')->allDistricts();
+        $kelurahan = \Indonesia::search('balikpapan')->allVillages();
+
+        return view('landingpage.artikelkantor', compact('artikel1', 'artikel2', 'artikel3', 'c', 's', 'kantor', 'kecamatan', 'kelurahan'));
     }
+
+
 
     public function kegiatanKantorDetail($slug)
     {

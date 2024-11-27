@@ -24,4 +24,9 @@ class Kantor extends Model
     {
         return $this->belongsTo(Kelurahan::class, 'kelurahan', 'code', 'code');
     }
+
+    public function kegiatan()
+    {
+        return $this->hasMany(Kegiatan::class, 'kantor_id', 'id');
+    }
 }

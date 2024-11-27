@@ -357,7 +357,7 @@
                         <figure class="mb-0 mx-2">
                             <a target="_blank" href="{{ route('banner-detail', $item->id) }}">
                                 <img class="rounded" src="{{ asset("storage/img/banner/$item->banner") }}"
-                                    width="100%" height="450px">
+                                    width="100%" height="450px" style="object-fit: contain;">
                             </a>
                         </figure>
                     @endforeach
