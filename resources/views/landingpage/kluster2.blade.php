@@ -1,5 +1,5 @@
 <x-guest-layout>
-    <section>
+    <section style="margin-top: 4rem;">
         <div class="container pt-5">
             <div class="row justify-content-center align-items-center">
                 <div class="col-10 mb-2 col-lg-4">
@@ -29,6 +29,20 @@
             </div>
         </div>
     </section>
+
+    <section>
+        <div class="container py-5" style="margin-top: 5rem;">
+            <div class="d-flex flex-column justify-content-between">
+                <h1 class="display-6 fw-bold mb-3">Artikel Kluster {{ $kluster->kluster }}</h1>
+                <div class="bg-success" style="width: 100px; height: 10px;"></div>
+            </div>
+
+            @include('components.artikel-kluster')
+
+
+        </div>
+    </section>
+
 
     @php
         $countartikel = 0;

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateKelurahanTable extends Migration
+class AddSlugToArtikelKlusterTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,8 @@ class CreateKelurahanTable extends Migration
      */
     public function up()
     {
-        Schema::create('kelurahan', function (Blueprint $table) {
-            $table->id();
-            $table->string('nama');
-            $table->timestamps();
+        Schema::table('artikel_kluster', function (Blueprint $table) {
+            $table->string('slug')->unique();
         });
     }
 
@@ -27,6 +25,8 @@ class CreateKelurahanTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('kelurahan');
+        Schema::table('artikel_kluster', function (Blueprint $table) {
+            $table->dropColumn('slug');
+        });
     }
 }

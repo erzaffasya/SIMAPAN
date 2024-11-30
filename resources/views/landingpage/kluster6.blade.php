@@ -4,13 +4,15 @@
             <div class="row justify-content-center align-items-center">
                 <div class="col-10 col-lg-4 mb-2">
                     <figure class="d-flex align-items-center mb-0">
-                        <img src="{{ asset('tlandingpage/asset/img/kluster-6.png') }}" alt="" width="50%">
+                        <img src="{{ asset('tlandingpage/asset/img/kluster-6.png') }}" alt="" width="30%">
                         <figcaption class="ps-4">
                             <h1>KELEMBAGAAN</h1>
                         </figcaption>
                     </figure>
                 </div>
-                <div class="col-10 col-lg-6">Kebijakan-kebijakan yang tercakup dalam kelembagaan DP3AKB baik Pemerintah Daerah
+                <div class="col-lg-1"></div>
+                <div class="col-10 col-lg-7">Kebijakan-kebijakan yang tercakup dalam kelembagaan DP3AKB baik Pemerintah
+                    Daerah
                     atau Nasional</div>
             </div>
         </div>

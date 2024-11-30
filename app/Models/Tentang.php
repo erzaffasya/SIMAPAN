@@ -12,6 +12,7 @@ class Tentang extends Model
     protected $table = 'tentang';
 
     protected $fillable = [
+        "title",
         "tentang",
         "video",
         "email",

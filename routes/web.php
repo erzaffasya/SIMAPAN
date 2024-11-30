@@ -99,6 +99,10 @@ Route::get('/kluster3', [LandingpageController::class, 'kluster3']);
 Route::get('/kluster4', [LandingpageController::class, 'kluster4']);
 Route::get('/kluster5', [LandingpageController::class, 'kluster5']);
 
+Route::get('/kluster{kluster}/{slug}', [LandingpageController::class, 'detailArtikel'])
+    ->where(['kluster' => '[1-6]', 'slug' => '[a-z0-9\-]+'])
+    ->name('detailArtikel');
+
 
 
 // Route::get('/', function () {
@@ -114,7 +118,7 @@ Route::get('/dashboard', function () {
 
 Route::middleware(['auth'])->prefix('admin')->group(function () {
     //CRUD
-    Route::resource('tentang', TentangController::class)->only('index', 'store');
+    Route::resource('tentang', TentangController::class);
     Route::resource('aspirasi', AspirasiController::class);
     Route::resource('faq', FaqController::class);
     Route::resource('kantor', KantorController::class);
