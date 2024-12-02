@@ -20,11 +20,13 @@ class AddSlugToArtikelKlusterTable extends Migration
         });
 
         DB::table('artikel_kluster')
-            ->whereNull('slug') 
+            ->whereNull('slug')
             ->orWhere('slug', '')
             ->get()
             ->each(function ($item) {
                 $slug = Str::slug($item->title ?? 'artikel-' . $item->id);
+                $randomNumber = rand(10000, 99999);  // Angka acak 5 digit
+                $slug .= '-' . $randomNumber;  // Gabungkan slug dan angka acak
                 DB::table('artikel_kluster')->where('id', $item->id)->update(['slug' => $slug]);
             });
 
@@ -41,7 +43,7 @@ class AddSlugToArtikelKlusterTable extends Migration
     public function down()
     {
         Schema::table('artikel_kluster', function (Blueprint $table) {
-            $table->dropColumn('slug');  // Menghapus kolom slug
+            $table->dropColumn('slug');  // Hapus kolom slug jika rollback
         });
     }
 }
