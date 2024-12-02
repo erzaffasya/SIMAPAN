@@ -19,14 +19,17 @@ class AddSlugToArtikelKlusterTable extends Migration
             $table->string('slug')->unique()->nullable();
         });
 
-        // Fill the slug column with the slug of the title column
-        DB::table('artikel_kluster')->get()->each(function ($item) {
-            $slug = Str::slug($item->title ?? 'artikel-' . $item->id);  
-            DB::table('artikel_kluster')->where('id', $item->id)->update(['slug' => $slug]);
-        });
+        DB::table('artikel_kluster')
+            ->whereNull('slug') 
+            ->orWhere('slug', '')
+            ->get()
+            ->each(function ($item) {
+                $slug = Str::slug($item->title ?? 'artikel-' . $item->id);
+                DB::table('artikel_kluster')->where('id', $item->id)->update(['slug' => $slug]);
+            });
 
         Schema::table('artikel_kluster', function (Blueprint $table) {
-            $table->string('slug')->unique()->nullable(false)->change();
+            $table->string('slug')->nullable(false)->change();
         });
     }
 
