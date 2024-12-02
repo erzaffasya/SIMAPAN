@@ -14,7 +14,7 @@ class AddSlugToArtikelKlusterTable extends Migration
     public function up()
     {
         Schema::table('artikel_kluster', function (Blueprint $table) {
-            $table->string('slug')->unique();
+            $table->string('slug')->unique()->nullable();
         });
     }
 
