@@ -1,8 +1,10 @@
 <?php
 
-use Illuminate\Database\Migrations\Migration;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
 
 class AddSlugToArtikelKlusterTable extends Migration
 {
@@ -14,7 +16,22 @@ class AddSlugToArtikelKlusterTable extends Migration
     public function up()
     {
         Schema::table('artikel_kluster', function (Blueprint $table) {
-            $table->string('slug')->unique();
+            $table->string('slug')->unique()->nullable();
+        });
+
+        DB::table('artikel_kluster')
+            ->whereNull('slug')
+            ->orWhere('slug', '')
+            ->get()
+            ->each(function ($item) {
+                $slug = Str::slug($item->title ?? 'artikel-' . $item->id);
+                $randomNumber = rand(10000, 99999);  // Angka acak 5 digit
+                $slug .= '-' . $randomNumber;  // Gabungkan slug dan angka acak
+                DB::table('artikel_kluster')->where('id', $item->id)->update(['slug' => $slug]);
+            });
+
+        Schema::table('artikel_kluster', function (Blueprint $table) {
+            $table->string('slug')->nullable(false)->change();
         });
     }
 
@@ -26,7 +43,7 @@ class AddSlugToArtikelKlusterTable extends Migration
     public function down()
     {
         Schema::table('artikel_kluster', function (Blueprint $table) {
-            $table->dropColumn('slug');
+            $table->dropColumn('slug');  // Hapus kolom slug jika rollback
         });
     }
 }
