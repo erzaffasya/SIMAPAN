@@ -106,11 +106,14 @@ header {
     object-position: center bottom;
 }
 
-/* .card-bidang.card-portal-1:nth-of-type(2) img,
+/* 
+
+.card-bidang.card-portal-1:nth-of-type(2) img,
 .card-bidang.card-portal-1:nth-of-type(3) img,
 .card-bidang.card-portal-1:nth-of-type(4) img {
     filter: grayscale(1) !important;
-} */
+}
+ */
 
 .nav-top {
     position: absolute;

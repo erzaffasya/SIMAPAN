@@ -79,7 +79,7 @@
                         <p class="fs-5">Ketahanan Keluarga</p>
                         <a href="#" class="mt-3 btn btn-lg py-2 rounded-2 btn-outline-light" type="button"
                             disabled>
-                            <i class="fa-solid fa-lock"></i>
+                            {{-- <i class="fa-solid fa-lock"></i> --}}
                             <span class="ms-2">Kunjungi</span>
                         </a>
                     </figcaption>
@@ -93,7 +93,7 @@
                         <p class="fs-5">Keluarga Berencana</p>
                         <a href="#" class="mt-3 btn btn-lg py-2 rounded-2 btn-outline-light" type="button"
                             disabled>
-                            <i class="fa-solid fa-lock"></i>
+                            {{-- <i class="fa-solid fa-lock"></i> --}}
                             <span class="ms-2">Kunjungi</span>
                         </a>
                     </figcaption>
