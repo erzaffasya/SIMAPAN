@@ -12,13 +12,15 @@ class KantorController extends Controller
 {
     public function index()
     {
-        $Kantor = Kantor::all();
+        $Kantor = Kantor::with(['kecamatanKantor', 'kelurahanKantor'])->get();
         return view('admin.kantor.index', compact('Kantor'));
     }
 
     public function create()
     {
-        return view('admin.kantor.tambah');
+        $lKecamatan = \Indonesia::search('balikpapan')->allDistricts();
+        $lKelurahan =  \Indonesia::search('balikpapan')->allVillages();
+        return view('admin.kantor.tambah', compact(['lKecamatan', 'lKelurahan']));
     }
 
     public function store(Request $request)
@@ -52,6 +54,8 @@ class KantorController extends Controller
             'longitude' => $request->longitude,
             'deskripsi_map' => $request->deskripsi_map,
             'link_map' => $request->link_map,
+            'kecamatan' => $request->kecamatan,
+            'kelurahan' => $request->kelurahan
         ]);
 
 
@@ -68,8 +72,10 @@ class KantorController extends Controller
 
     public function edit($id)
     {
-        $Kantor = Kantor::find($id);
-        return view('admin.kantor.ubah', compact(['Kantor']));
+        $lKecamatan = \Indonesia::search('balikpapan')->allDistricts();
+        $lKelurahan =  \Indonesia::search('balikpapan')->allVillages();
+        $Kantor = Kantor::with(['kecamatanKantor', 'kelurahanKantor'])->find($id);
+        return view('admin.kantor.ubah', compact(['Kantor', 'lKecamatan', 'lKelurahan']));
     }
 
     public function update(Request $request, $id)
@@ -81,6 +87,8 @@ class KantorController extends Controller
         $Kantor->longitude = $request->longitude;
         $Kantor->deskripsi_map = $request->deskripsi_map;
         $Kantor->link_map = $request->link_map;
+        $Kantor->kelurahan = $request->kelurahan;
+        $Kantor->kecamatan = $request->kecamatan;
 
         if ($request->has("foto")) {
             $path = storage_path("app/public/img/kantor/");

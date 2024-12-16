@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
+
 Route::post('login', [AuthController::class, 'login']);
 Route::post('register', [AuthController::class, 'register']);
 
@@ -25,6 +26,12 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
 
     Route::post('emergency', [EmergencyControlleR::class, 'store']);
     Route::get('emergency', [EmergencyControlleR::class, 'getEmergency']);
-    
+
     Route::post('/logout', [App\Http\Controllers\API\AuthController::class, 'logout']);
+});
+
+Route::get('/api/kelurahan', function (Request $request) {
+    $kecamatanName = $request->query('kecamatan');
+    $kelurahan = \Indonesia::findDistrict($kecamatanName)->villages;
+    return response()->json($kelurahan);
 });
