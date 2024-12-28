@@ -65,8 +65,10 @@ class LandingpageController extends Controller
         foreach ($Kantor as $item) {
             $location[] = [
                 "slug" => $item->id,
+                "detail_slug" => route('peta.detail', $item->id),
                 "kantor" => $item->kantor,
                 "deskripsi" => $item->deskripsi,
+                "deskripsi_map" => $item->deskripsi_map,
                 "latitude" => $item->latitude,
                 "longitude" => $item->longitude,
                 "foto" => asset("storage/img/kantor/$item->foto"),

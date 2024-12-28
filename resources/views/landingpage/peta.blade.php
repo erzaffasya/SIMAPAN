@@ -141,6 +141,7 @@
                 var longitude = locationData[i].longitude;
                 var kantor = locationData[i].kantor;
                 var deskripsi_map = locationData[i].deskripsi_map;
+                var detail_slug = locationData[i].detail_slug;
                 var foto = locationData[i].foto;
                 var link = locationData[i].link;
 
@@ -162,13 +163,24 @@
                 markers[`marker${i+1}`] = dataMarker;
 
                 var infoWindow1 = new google.maps.InfoWindow({
-                    content: `<div><h5>${kantor}</h5>
-                        <br>
-                        <img height="80" src="${foto}"/>
-                        <p>${deskripsi_map}.</p></div>
-                        <br>
-                        <a target="_blank" href=${link}>Link on maps</a>`
+                    content: `
+                        <div style="display: flex; align-items: flex-start; font-family: Arial, sans-serif; max-width: 300px;">
+                            <img src="${foto}" alt="Foto Kantor" style="width: 80px; height: 80px; object-fit: cover; border-radius: 5px; margin-right: 10px;">
+                            <div>
+                                <a target="_blank" href="${detail_slug}" style="text-decoration: none; color: #28a745;">
+                                    <h5 style="margin: 0; font-size: 16px;">${kantor}</h5>
+                                </a>
+                                <p style="margin: 5px 0; font-size: 12px; color: #555;">${locationData[i].deskripsi}</p>
+                                <p style="margin: 5px 0; font-size: 12px; color: #555;">${deskripsi_map}</p>
+                                <a target="_blank" href="${link}" style="color: #007BFF; font-weight: bold;">
+                                    Link on maps
+                                </a>
+                            </div>
+                        </div>
+                    `
                 });
+
+
 
                 attachInfoWindow(dataMarker, infoWindow1);
             }

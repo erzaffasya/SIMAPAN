@@ -21,8 +21,8 @@
                     <i class="fa-solid fa-location-dot"></i>
 
                     <p>
-                        {{ ucwords(strtolower($Kantor->kecamatanKantor['name'])) }},
-                        {{ ucwords(strtolower($Kantor->kelurahanKantor['name'])) }}
+                        {{ $Kantor->kecamatanKantor != null ? ucwords(strtolower($Kantor->kecamatanKantor['name'])) : '' }},
+                        {{ $Kantor->kelurahanKantor != null ? ucwords(strtolower($Kantor->kelurahanKantor['name'])) : '' }}
                     </p>
                 </div>
 
