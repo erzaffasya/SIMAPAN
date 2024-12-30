@@ -47,7 +47,7 @@ class ForumArtikelController extends Controller
         $request->validate([
             'judul' => 'required',
             'isi' => 'required',
-            'foto' => 'required|mimes:jpeg,png,jpg,gif',
+            'foto' => 'required|mimes:jpeg,png,jpg,gif|max:5120',
             'kecamatan' => 'required',
             'kelurahan' => 'required',
         ]);

@@ -54,6 +54,7 @@
         </div>
     </div>
     @include('admin.partials.scripts')
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <script>
         $('#deleteModal').on('show.bs.modal', function(event) {

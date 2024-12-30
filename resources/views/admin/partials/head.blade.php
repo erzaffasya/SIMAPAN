@@ -6,6 +6,7 @@
 <meta name="author" content="Dreamguys - Bootstrap Admin Template">
 <meta name="robots" content="noindex, nofollow">
 <title>DASHBOARD | SIMAPAN</title>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 <!-- Favicon -->
 <link rel="shortcut icon" type="image/x-icon" href="{{ asset('tadmin/assets/img/favicon.ico') }}">

@@ -144,6 +144,23 @@
                     kelurahanSelect.value = selectedKelurahan;
                 }
             };
+
+            document.querySelector("form").addEventListener("submit", function(event) {
+                const fotoInput = document.querySelector('input[name="foto"]');
+                const fotoFile = fotoInput.files[0];
+                const maxSize = 5 * 1024 * 1024; // 5MB
+
+                // Jika ukuran file lebih besar dari 5MB
+                if (fotoFile && fotoFile.size > maxSize) {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Ukuran Gambar Terlalu Besar',
+                        text: 'Ukuran gambar tidak boleh lebih dari 5MB.'
+                    });
+                    event.preventDefault(); // Membatalkan submit
+                    return;
+                }
+            });
         </script>
     @endpush
 </x-app-layout>
