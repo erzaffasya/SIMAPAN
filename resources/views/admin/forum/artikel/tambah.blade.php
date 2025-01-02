@@ -53,7 +53,7 @@
                         <div class="col-lg-12 col-sm-12 col-12">
                             <div class="form-group">
                                 <label>Foto</label>
-                                <input name="foto" type="file" accept="image/*" required>
+                                <input name="foto" type="file" accept="image/*">
                             </div>
                         </div>
                         <div class="col-lg-12">
@@ -102,33 +102,33 @@
                     kelurahanSelect.disabled = filteredKelurahan.length === 0 ? true : false;
                 }
             });
-            document.querySelector("form").addEventListener("submit", function(event) {
-                const fotoInput = document.querySelector('input[name="foto"]');
-                const fotoFile = fotoInput.files[0];
-                const maxSize = 5 * 1024 * 1024; // 5MB
+            // document.querySelector("form").addEventListener("submit", function(event) {
+            //     const fotoInput = document.querySelector('input[name="foto"]');
+            //     const fotoFile = fotoInput.files[0];
+            //     const maxSize = 5 * 1024 * 1024; // 5MB
 
-                // Jika foto tidak ada dan bukan opsional
-                if (!fotoFile && !fotoInput.hasAttribute("optional")) {
-                    Swal.fire({
-                        icon: 'error',
-                        title: 'Foto Harus Diisi',
-                        text: 'Silakan pilih gambar untuk diunggah.'
-                    });
-                    event.preventDefault(); // Membatalkan submit
-                    return;
-                }
+            //     // Jika foto tidak ada dan bukan opsional
+            //     if (!fotoFile && !fotoInput.hasAttribute("optional")) {
+            //         Swal.fire({
+            //             icon: 'error',
+            //             title: 'Foto Harus Diisi',
+            //             text: 'Silakan pilih gambar untuk diunggah.'
+            //         });
+            //         event.preventDefault();
+            //         return;
+            //     }
 
-                // Jika ukuran file lebih besar dari 5MB
-                if (fotoFile && fotoFile.size > maxSize) {
-                    Swal.fire({
-                        icon: 'error',
-                        title: 'Ukuran Gambar Terlalu Besar',
-                        text: 'Ukuran gambar tidak boleh lebih dari 5MB.'
-                    });
-                    event.preventDefault(); // Membatalkan submit
-                    return;
-                }
-            });
+            //     // Jika ukuran file lebih besar dari 5MB
+            //     if (fotoFile && fotoFile.size > maxSize) {
+            //         Swal.fire({
+            //             icon: 'error',
+            //             title: 'Ukuran Gambar Terlalu Besar',
+            //             text: 'Ukuran gambar tidak boleh lebih dari 5MB.'
+            //         });
+            //         event.preventDefault();
+            //         return;
+            //     }
+            // });
         </script>
     @endpush
 

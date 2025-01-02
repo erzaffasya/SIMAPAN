@@ -47,7 +47,8 @@ class ForumArtikelController extends Controller
         $request->validate([
             'judul' => 'required',
             'isi' => 'required',
-            'foto' => 'required|mimes:jpeg,png,jpg,gif|max:5120',
+            // 'foto' => 'required|mimes:jpeg,png,jpg,gif|max:5120',
+            'foto' => 'nullable|mimes:jpeg,png,jpg,gif',
             'kecamatan' => 'required',
             'kelurahan' => 'required',
         ]);
@@ -87,11 +88,10 @@ class ForumArtikelController extends Controller
             "kecamatan" => $request->kecamatan,
             "kelurahan" => $request->kelurahan,
             "slug" => Str::slug($request->judul),
-            "foto" => $file_name,
-            "thumbnail" => $file_name,
+            "foto" => $file_name ?: "",
+            "thumbnail" => $file_name ?: "",
             "judul" => $request->judul,
             "isi" => $request->isi
-
         ]);
 
 
