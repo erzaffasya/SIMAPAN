@@ -23,6 +23,9 @@ class ProfilKategoriGaleriController extends Controller
 
     public function store(Request $request)
     {
+        $request->validate([
+            "foto" => 'required|image|mimes:jpeg,png,jpg,gif',
+        ]);
 
         if ($request->foto) {
             $path = storage_path("app/public/img/profil_kategori_galeri");
@@ -93,6 +96,10 @@ class ProfilKategoriGaleriController extends Controller
      */
     public function update(Request $request, ProfilKategoriGaleri $profil_kategori_galeri)
     {
+
+        $request->validate([
+            "foto" => 'nullable|image|mimes:jpeg,png,jpg,gif', // Validate each uploaded image
+        ]);
 
 
         if ($request->foto) {

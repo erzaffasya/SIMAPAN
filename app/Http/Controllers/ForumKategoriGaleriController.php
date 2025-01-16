@@ -27,7 +27,7 @@ class ForumKategoriGaleriController extends Controller
         $request->validate([
             'judul' => 'required',
             'deskripsi' => 'required',
-            'foto' => 'required',
+            'foto' => 'required|mimes:jpeg,png,jpg,gif',
         ]);
 
         $kategori = ForumKategoriGaleri::create([
@@ -69,7 +69,6 @@ class ForumKategoriGaleriController extends Controller
                     File::makeDirectory("$path_tmp", $mode = 0777, true, true);
                 }
                 $image_tmp->save("$path_tmp/$file_name");
-
             } else {
                 $file_name = null;
             }
@@ -113,6 +112,7 @@ class ForumKategoriGaleriController extends Controller
         $request->validate([
             'judul' => 'required',
             'deskripsi' => 'required',
+            'foto' => 'nullable|mimes:jpeg,png,jpg,gif',
         ]);
 
         if ($request->foto) {

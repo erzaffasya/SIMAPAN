@@ -10,6 +10,11 @@ class TinyMceController extends Controller
 {
     public function upload(Request $request)
     {
+
+        $request->validate([
+            'file' => 'required|image|mimes:jpeg,png,jpg,gif',
+        ]);
+
         if ($request->file) {
             $path = storage_path("app/public/img/tiny-upload");
             $extention = $request->file->extension();

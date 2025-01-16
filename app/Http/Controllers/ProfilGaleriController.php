@@ -125,7 +125,7 @@ class ProfilGaleriController extends Controller
         $request->validate([
             "id_kategori_galeri" => 'required',
             "judul" => 'required',
-            "foto.*" => 'nullable|image', // Validate each uploaded image
+            "foto.*" => 'nullable|image|mimes:jpeg,png,jpg,gif', // Validate each uploaded image
         ]);
 
         $id_kategori_galeri = $request->id_kategori_galeri;
@@ -175,7 +175,7 @@ class ProfilGaleriController extends Controller
                 "deskripsi" => $deskripsi,
             ]);
         }
-        
+
         return redirect()->route('profil-galeri.index')
             ->with('success', 'ProfilGaleri Berhasil Diubah');
     }

@@ -35,7 +35,7 @@ class KelembagaanController extends Controller
         $kelembagaan = Kelembagaan::find(1);
         if (!$kelembagaan) {
             $request->validate([
-                'foto' => 'required',
+                'foto' => 'required|mimes:jpeg,png,jpg,gif',
             ]);
         }
 

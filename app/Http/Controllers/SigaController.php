@@ -43,7 +43,7 @@ class SigaController extends Controller
     {
         $request->validate([
             "judul" => 'required',
-            "file" => 'required',
+            "file" => 'required|image|mimes:jpeg,png,jpg,gif',
         ]);
 
         if ($request->file != null) {
@@ -75,9 +75,7 @@ class SigaController extends Controller
      * @param  \App\Models\Siga  $siga
 
      */
-    public function show(Siga $siga)
-    {
-    }
+    public function show(Siga $siga) {}
 
     /**
      * Show the form for editing the specified resource.
@@ -103,7 +101,7 @@ class SigaController extends Controller
         $request->validate([
             "siga_jenis_id" => 'required',
             "judul" => 'required',
-            "file" => 'nullable|image',
+            "file" => 'nullable|image|mimes:jpeg,png,jpg,gif',
         ]);
 
         if ($request->file) {

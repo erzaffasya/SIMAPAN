@@ -35,10 +35,10 @@ class ForumStrukturController extends Controller
 
         if (!$struktur) {
             $request->validate([
-                'foto' => 'required',
+                'foto' => 'required|mimes:jpeg,png,jpg,gif',
             ]);
         }
-        
+
         if ($request->foto) {
             $path = storage_path("app/public/img/struktur");
             $path_tmp = storage_path("app/public/img/.thumbnail/struktur");
@@ -72,7 +72,7 @@ class ForumStrukturController extends Controller
             $image_tmp->save("$path_tmp/$request->id_kategori/$file_name");
         } else {
             $file_name = $struktur->foto;
-        }   
+        }
 
         $struktur = ForumStruktur::firstOrCreate(
             [
@@ -90,5 +90,4 @@ class ForumStrukturController extends Controller
 
         return redirect()->route('forum-struktur.index')->with('success', 'Berhasil update tentang');
     }
-
 }

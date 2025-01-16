@@ -46,7 +46,7 @@ class KegiatanController extends Controller
         $request->validate([
             "kantor_id" => 'required',
             "judul" => 'required',
-            "foto" => 'required',
+            "foto" => 'required|mimes:jpeg,png,jpg,gif',
         ]);
 
         if ($request->foto != null) {
@@ -85,10 +85,7 @@ class KegiatanController extends Controller
      * @param  \App\Models\Kegiatan  $kegiatan
 
      */
-    public function show(Kegiatan $kegiatan)
-    {
-
-    }
+    public function show(Kegiatan $kegiatan) {}
 
     /**
      * Show the form for editing the specified resource.
@@ -114,7 +111,7 @@ class KegiatanController extends Controller
         $request->validate([
             "kantor_id" => 'required',
             "judul" => 'required',
-            "foto" => 'nullable|image',
+            "foto" => 'nullable|mimes:jpeg,png,jpg,gif',
         ]);
 
         if ($request->foto) {

@@ -26,7 +26,7 @@ class KebijakanController extends Controller
         $request->validate([
             "judul" => "required",
             "deskripsi" => "required",
-            "file_detail" => "required",
+            "file_detail" => "required|mimes:pdf",
             "judul_detail" => "required",
         ]);
 
@@ -71,7 +71,7 @@ class KebijakanController extends Controller
         $request->validate([
             "judul" => "required",
             "deskripsi" => "required",
-            "file_detail" => "nullable",
+            "file_detail" => "nullable|mimes:pdf",
             "judul_detail" => "required",
         ]);
 

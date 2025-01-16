@@ -28,6 +28,7 @@ class ArtikelKlusterController extends Controller
     {
         $request->validate([
             'jenis' => 'required',
+            'detail_a_foto' => 'required|mimes:jpeg,png,jpg,gif'
         ]);
 
         $artikelkluster = ArtikelKluster::create([
@@ -103,7 +104,6 @@ class ArtikelKlusterController extends Controller
                             File::makeDirectory("$path_tmp", $mode = 0777, true, true);
                         }
                         $image_tmp->save("$path_tmp/$file_name");
-
                     }
                     ArtikelKlusterDetail::create([
                         "artikel_kluster_id" => $artikelkluster->id,
@@ -142,6 +142,7 @@ class ArtikelKlusterController extends Controller
     {
         $request->validate([
             'jenis' => 'required',
+            'detail_a_foto' => 'nullable|mimes:jpeg,png,jpg,gif'
         ]);
 
         DB::transaction(function () use ($artikel, $request, $kluster) {
@@ -237,7 +238,6 @@ class ArtikelKlusterController extends Controller
                                 $artikel->detail[$key]->subtitle = $request->detail_b_subtitle[$key] ?? null;
                                 $artikel->detail[$key]->save();
                             }
-
                         }
                         break;
 
@@ -267,7 +267,6 @@ class ArtikelKlusterController extends Controller
             } catch (\Throwable $th) {
                 dd($th);
             }
-
         });
 
 

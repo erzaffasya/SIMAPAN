@@ -26,6 +26,7 @@ class KlusterController extends Controller
             'title' => 'required',
             'subtitle' => 'required',
             'description' => 'required',
+            'foto' => 'nullable|mimes:jpeg,png,jpg,gif',
         ]);
         $file_name = $kluster->logo;
 

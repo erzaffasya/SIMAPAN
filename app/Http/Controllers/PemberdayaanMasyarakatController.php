@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\File;
 
 class PemberdayaanMasyarakatController extends Controller
 {
-  /**
+    /**
      * Display a listing of the resource.
      *
 
@@ -39,7 +39,7 @@ class PemberdayaanMasyarakatController extends Controller
     {
         $request->validate([
             "judul" => 'required',
-            "file" => 'required',
+            "file" => 'required|mimes:jpeg,png,jpg,gif',
         ]);
 
         if ($request->file != null) {
@@ -71,9 +71,7 @@ class PemberdayaanMasyarakatController extends Controller
      * @param  \App\Models\PemberdayaanMasyarakat  $pemberdayaanMasyarakat
 
      */
-    public function show(PemberdayaanMasyarakat $pemberdayaanMasyarakat)
-    {
-    }
+    public function show(PemberdayaanMasyarakat $pemberdayaanMasyarakat) {}
 
     /**
      * Show the form for editing the specified resource.
@@ -97,7 +95,7 @@ class PemberdayaanMasyarakatController extends Controller
     {
         $request->validate([
             "judul" => 'required',
-            "file" => 'nullable|image',
+            "file" => 'nullable|mimes:jpeg,png,jpg,gif',
         ]);
 
         if ($request->file) {

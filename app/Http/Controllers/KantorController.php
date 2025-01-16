@@ -26,7 +26,7 @@ class KantorController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            // 'ft' => 'required'
+            'foto' => 'nullable|mimes:jpeg,png,jpg,gif',
         ]);
 
         if ($request->foto != null) {

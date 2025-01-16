@@ -29,7 +29,6 @@ class ArtikelController extends Controller
     {
         $lKategori = KategoriArtikel::all();
         return view('admin.artikel.tambah', compact('lKategori'));
-
     }
 
     /**

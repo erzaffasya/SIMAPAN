@@ -60,6 +60,7 @@ class TentangController extends Controller
             'title' => 'required',
             'tentang' => 'required',
             'whatsapp' => 'required',
+            'video' => 'required',
         ]);
 
 
