@@ -2,19 +2,23 @@
 
     <section>
         <div class="container pt-5" style="margin-top: 4rem; margin-bottom: 4rem;">
-            <div class="d-flex justify-center align-items-center " style="padding: 0 3rem;">
-                <div class="mb-2 " style="flex: 1; margin-right: 8rem;">
+            <div class="row justify-content-center align-items-center">
+                <div class="col-10 col-lg-4">
                     <figure class="d-flex align-items-center mb-0">
-                        <img src="{{ asset('tlandingpage/asset/img/kluster-6.png') }}" alt="" width="125px">
+                        <img src="{{ asset('tlandingpage/asset/img/kluster-6.png') }}" alt="" width="30%">
                         <figcaption class="ps-4">
                             <h1>Kelembagaan</h1>
-
+                            <p class="mb-0 fs-5 text-secondary">Kebijakan-kebijakan</p>
                         </figcaption>
                     </figure>
                 </div>
-                <div class="mb-4" style="flex: 3;">Kebijakan-kebijakan yang tercakup dalam kelembagaan DP3AKB mencakup
-                    berbagai aspek, baik yang dikelola oleh Pemerintah Daerah maupun Pemerintah Nasional, untuk
-                    mendukung perlindungan, pemberdayaan, dan kesejahteraan anak serta keluarga.</div>
+                <div class="col-10 col-lg-6  d-flex justify-content-center">
+                    <p className="" style="max-width: 500px;">
+                        Kebijakan-kebijakan yang tercakup dalam kelembagaan DP3AKB mencakup
+                        berbagai aspek, baik yang dikelola oleh Pemerintah Daerah maupun Pemerintah Nasional, untuk
+                        mendukung perlindungan, pemberdayaan, dan kesejahteraan anak serta keluarga.
+                    </p>
+                </div>
             </div>
         </div>
     </section>
