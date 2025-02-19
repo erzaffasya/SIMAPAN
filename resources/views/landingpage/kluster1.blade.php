@@ -6,12 +6,18 @@
                     <figure class="d-flex align-items-center mb-0">
                         <img src="{{ asset('tlandingpage/asset/img/kluster-1.png') }}" alt="" width="30%">
                         <figcaption class="ps-4">
-                            <h1>{{ $kluster->title }}</h1>
-                            <p class="mb-0 fs-5 text-secondary">{{ $kluster->subtitle }}</p>
+                            @if($kluster->title)
+                                <h1>{{ $kluster->title }}</h1>
+                            @endif
+                            @if($kluster->subtitle)
+                                <p class="mb-0 fs-5 text-secondary">{{ $kluster->subtitle }}</p>
+                            @endif
                         </figcaption>
                     </figure>
                 </div>
-                <div class="col-10 col-lg-6">{!! $kluster->description !!}</div>
+                <div class="col-10 col-lg-6">
+                    {!! $kluster->description ?? '' !!}
+                </div>
             </div>
         </div>
     </section>

@@ -6,12 +6,12 @@
                     <figure class="d-flex align-items-center mb-0">
                         <img src="{{ asset('tlandingpage/asset/img/kluster-5.png') }}" alt="" width="30%">
                         <figcaption class="ps-4">
-                            <h1>{{ $kluster->title }}</h1>
-                            <p class="mb-0 fs-5 text-secondary">{{ $kluster->subtitle }}</p>
+                            <h1>{{ $kluster->title ?? 'Default Title' }}</h1>
+                            <p class="mb-0 fs-5 text-secondary">{{ $kluster->subtitle ?? 'Default Subtitle' }}</p>
                         </figcaption>
                     </figure>
                 </div>
-                <div class="col-10 col-lg-6 mb-4">{!! $kluster->description !!}</div>
+                <div class="col-10 col-lg-6 mb-4">{!! $kluster->description ?? 'Default Description' !!}</div>
             </div>
         </div>
     </section>
@@ -19,13 +19,11 @@
     <section>
         <div class="container py-5" style="margin-top: 7.5rem;">
             <div class="d-flex flex-column justify-content-between">
-                <h1 class="display-6 fw-bold mb-3">Artikel Kluster {{ $kluster->kluster }}</h1>
+                <h1 class="display-6 fw-bold mb-3">Artikel Kluster {{ $kluster->kluster ?? 'Default Kluster' }}</h1>
                 <div class="bg-success" style="width: 100px; height: 10px;"></div>
             </div>
 
             @include('components.artikel-kluster')
-
-
         </div>
     </section>
 
@@ -46,14 +44,14 @@
                         <div class="row align-items-start justify-content-center">
                             @if ($artikel->title != null)
                                 <div class="col-11 text-center order-1">
-                                    <h4 class="text-success mb-2">{{ $artikel->title }}</h4>
-                                    <p class="text-secondary fs-6 lh-lg">{{ $artikel->subtitle }}</p>
+                                    <h4 class="text-success mb-2">{{ $artikel->title ?? 'Default Title' }}</h4>
+                                    <p class="text-secondary fs-6 lh-lg">{{ $artikel->subtitle ?? 'Default Subtitle' }}</p>
                                 </div>
                             @endif
                             <div
                                 class="{{ $artikel->description == null ? 'col-10' : 'col-6' }} {{ $countartikel % 2 ? 'order-2' : 'order-3' }}">
                                 <div class="slide-1-view">
-                                    @forelse ($artikel->detail as $item)
+                                    @forelse ($artikel->detail ?? [] as $item)
                                         <figure class="mb-0">
                                             <img class="rounded"
                                                 src="{{ asset("storage/img/artikel_kluster/$kluster->kluster/$item->foto") }}"
@@ -70,7 +68,7 @@
                             </div>
                             @if ($artikel->description != null)
                                 <div class="col-6 {{ $countartikel % 2 ? 'order-3' : 'order-2' }}">
-                                    {!! $artikel->description !!}
+                                    {!! $artikel->description ?? 'Default Description' !!}
                                 </div>
                             @endif
                         </div>
@@ -84,17 +82,17 @@
                         <div class="container">
                             <div class="row justify-content-center">
                                 <div class="col-10">
-                                    <h4 class="text-center text-white mb-4 lh-md">{{ $artikel->title }}</h4>
+                                    <h4 class="text-center text-white mb-4 lh-md">{{ $artikel->title ?? 'Default Title' }}</h4>
                                 </div>
-                                <div class="col-10 mb-2 col-lg-3">
+                                <div class="col-10 mb-2 col-lg-3"></div>
                                     <a href="/kluster1" class="text-decoration-none">
                                         @if ($artikel->detail->has(0))
                                             <figure class="rounded overflow-hidden h-100 bg-white">
                                                 <img src="{{ asset("storage/img/artikel_kluster/$kluster->kluster/{$artikel->detail[0]->foto}") }}"
                                                     alt="" class="w-100">
                                                 <figcaption class="bg-white px-3 py-2 text-center">
-                                                    <h5 class="mb-1 text-dark">{{ $artikel->detail[0]->title }}</h5>
-                                                    <p class="text-secondary mb-0">{{ $artikel->detail[0]->subtitle }}</p>
+                                                    <h5 class="mb-1 text-dark">{{ $artikel->detail[0]->title ?? '-' }}</h5>
+                                                    <p class="text-secondary mb-0">{{ $artikel->detail[0]->subtitle ?? '' }}</p>
                                                 </figcaption>
                                             </figure>
                                         @else
@@ -110,13 +108,13 @@
                                     </a>
                                 </div>
                                 <div class="col-10 mb-2 col-lg-3">
-                                    @if ($artikel->detail->has(0))
+                                    @if ($artikel->detail->has(1))
                                         <figure class="rounded overflow-hidden h-100 bg-white">
                                             <img src="{{ asset("storage/img/artikel_kluster/$kluster->kluster/{$artikel->detail[1]->foto}") }}"
                                                 alt="" class="w-100">
                                             <figcaption class="bg-white px-3 py-2 text-center">
-                                                <h5 class="mb-1 text-dark">{{ $artikel->detail[1]->title }}</h5>
-                                                <p class="text-secondary mb-0">{{ $artikel->detail[1]->subtitle }}</p>
+                                                <h5 class="mb-1 text-dark">{{ $artikel->detail[1]->title ?? '-' }}</h5>
+                                                <p class="text-secondary mb-0">{{ $artikel->detail[1]->subtitle ?? '' }}</p>
                                             </figcaption>
                                         </figure>
                                     @else
@@ -131,17 +129,17 @@
                                     @endif
                                 </div>
                                 <div class="col-10 mb-2 col-lg-3">
-                                    @if ($artikel->detail->has(0))
+                                    @if ($artikel->detail->has(2))
                                         <figure class="rounded overflow-hidden h-100 bg-white">
                                             <img src="{{ asset("storage/img/artikel_kluster/$kluster->kluster/{$artikel->detail[2]->foto}") }}"
                                                 alt="" class="w-100">
-                                            <figcaption class="bg-white px-3 py-2 text-center">
-                                                <h5 class="mb-1 text-dark">{{ $artikel->detail[1]->title }}</h5>
-                                                <p class="text-secondary mb-0">{{ $artikel->detail[1]->subtitle }}</p>
+                                            <figcaption class="bg-white px-3 py-2 text-center"></figcaption>
+                                                <h5 class="mb-1 text-dark">{{ $artikel->detail[2]->title ?? '-' }}</h5>
+                                                <p class="text-secondary mb-0">{{ $artikel->detail[2]->subtitle ?? '' }}</p>
                                             </figcaption>
                                         </figure>
                                     @else
-                                        <figure class="rounded overflow-hidden h-100 bg-white">
+                                        <figure class="rounded overflow-hidden h-100 bg-white"></figure>
                                             <img src="{{ asset('tlandingpage/asset/img/empty-img.jpeg') }}" alt=""
                                                 class="w-100">
                                             <figcaption class="bg-white px-3 py-2 text-center">
@@ -161,10 +159,10 @@
                 <section>
                     <div class="bg-reds bg-img-overlay item1-img py-5">
                         <div class="container">
-                            <div class="row justify-content-center">
-                                <div class="col-10 col-lg-4">
-                                    <p class="fs-4 text-white fs-6 lh-lg">{{ $artikel->title }}</p>
-                                    <h3 class="text-white mb-4 lh-lg">{{ $artikel->subtitle }}</h3>
+                            <div class="row justify-content-center"></div>
+                                <div class="col-10 col-lg-4"></div>
+                                    <p class="fs-4 text-white fs-6 lh-lg">{{ $artikel->title ?? 'Default Title' }}</p>
+                                    <h3 class="text-white mb-4 lh-lg">{{ $artikel->subtitle ?? 'Default Subtitle' }}</h3>
                                 </div>
                                 <div class="col-10 col-lg-8">
                                     <div class="accordion" id="accordionExample">
@@ -176,14 +174,14 @@
                                                         data-bs-target="#cpg1{{ $artikel->id }}{{ $loop->iteration }}"
                                                         aria-expanded="false"
                                                         aria-controls="cpg1{{ $artikel->id }}{{ $loop->iteration }}">
-                                                        {{ $item->title }}
+                                                        {{ $item->title ?? 'Default Title' }}
                                                     </button>
                                                 </p>
                                                 <div id="cpg1{{ $artikel->id }}{{ $loop->iteration }}"
                                                     class="accordion-collapse collapse" aria-labelledby="pg1"
                                                     data-bs-parent="#accordionExample">
                                                     <div class="accordion-body">
-                                                        {{ $item->subtitle }}
+                                                        {{ $item->subtitle ?? 'Default Subtitle' }}
                                                     </div>
                                                 </div>
                                             </div>
