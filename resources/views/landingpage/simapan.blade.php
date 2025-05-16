@@ -5,7 +5,7 @@
                 <div class="d-block d-lg-flex align-items-center justify-content-center">
                     <img src="{{ asset('tlandingpage/asset/img/logo-simapan.png') }}" alt="" height="50px"
                         class="logo-simapan">
-                    <h1 class="fs-2 ms-2">SISTEM MANAJEMEN PERLINDUGAN ANAK (SIMAPAN)</h1>
+                    <h1 class="fs-2 ms-2">SISTEM MANAJEMEN PERLINDUNGAN ANAK (SIMAPAN)</h1>
                 </div>
                 <div class="mx-auto">
                     <p class="lead text-secondary fs-6 mb-4">Mari Wujudkan Balikpapan Menuju Kota Layak Anak</p>
