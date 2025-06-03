@@ -55,22 +55,22 @@
             <div class="col-12 col-lg-6">
                 <div class="input-group mb-3">
                     <input type="text" name="c" class="form-control form-control-lg" placeholder="Tulis Judul"
-                        aria-label="Tulis Judul" aria-describedby="button-addon2" value="{{ $c }}" required>
+                        aria-label="Tulis Judul" aria-describedby="button-addon2" value="{{ $c ?? '' }}" required>
                     <button class="btn btn-success" type="submit" id="button-addon2">Cari Artikel</button>
                 </div>
             </div>
             <div class="col-12 col-lg-3">
                 <select class="form-select form-select-lg" aria-label="Default select example" name="s"
                     onchange="this.closest('form').submit()">
-                    <option value="d" {{ $s == 'DESC' ? 'selected' : '' }}>Terbaru</option>
-                    <option value="a" {{ $s == 'ASC' ? 'selected' : '' }}>Terlama</option>
+                    <option value="d" {{ $s ?? '' == 'DESC' ? 'selected' : '' }}>Terbaru</option>
+                    <option value="a" {{ $s ?? '' == 'ASC' ? 'selected' : '' }}>Terlama</option>
                 </select>
             </div>
         </div>
     </form>
     <div class="row justify-content-between pb-4">
-        @if ($c)
-            <h6>Mencari Artikel Dengan Kata Kunci <span style="font-weight: 900">{{ $c }}</span>
+        @if ($c ?? '')
+            <h6>Mencari Artikel Dengan Kata Kunci <span style="font-weight: 900">{{ $c ?? '' }}</span>
             </h6>
             <a href="{{ url('kluster' . $kluster->kluster . '/') }}" class="text-secondary">Bersihkan</a>
         @endif
